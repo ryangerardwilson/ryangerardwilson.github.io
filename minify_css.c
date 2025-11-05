@@ -1,12 +1,10 @@
-// build.c
+// minify_css.c
+#include "minify_css.h"
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-// Compile with: clang build.c -o build
-
-void minify_file(const char *input_file, const char *output_file, int is_css) {
+void minify_css(const char *input_file, const char *output_file) {
     FILE *in = fopen(input_file, "r");
     if (in == NULL) {
         perror("Failed to open input file");
@@ -22,7 +20,6 @@ void minify_file(const char *input_file, const char *output_file, int is_css) {
     int ch;
     int prev = 0;
     int in_block_comment = 0;
-    int in_line_comment = 0;
 
     while ((ch = fgetc(in)) != EOF) {
         if (in_block_comment) {
@@ -35,25 +32,11 @@ void minify_file(const char *input_file, const char *output_file, int is_css) {
             continue;
         }
 
-        if (in_line_comment) {
-            if (ch == '\n') {
-                in_line_comment = 0;
-                prev = 0;
-                continue;
-            }
-            prev = ch;
-            continue;
-        }
-
-        if (ch == '/' && !in_block_comment && !in_line_comment) {
+        if (ch == '/' && !in_block_comment) {
             int next = fgetc(in);
             if (next == '*') {
                 in_block_comment = 1;
                 prev = '*';
-                continue;
-            } else if (next == '/' && !is_css) {
-                in_line_comment = 1;
-                prev = '/';
                 continue;
             } else {
                 ungetc(next, in);
@@ -74,18 +57,4 @@ void minify_file(const char *input_file, const char *output_file, int is_css) {
 
     fclose(in);
     fclose(out);
-}
-
-int main() {
-    minify_file("main.css", "main.min.css", 1);
-    minify_file("main.js", "main.min.js", 0);
-
-    int result = system("clang main.c orchestrator.c server.c router.c "
-                        "route_register.c -o main");
-    if (result == 0) {
-        printf("Build successful.\n");
-    } else {
-        printf("Build failed.\n");
-    }
-    return result;
 }
