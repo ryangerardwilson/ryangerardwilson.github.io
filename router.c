@@ -125,6 +125,9 @@ void handle_request(int client_socket, char *buffer) {
         } else if (strcmp(ext, ".css") == 0) {
             serve_file(client_socket, filename, "text/css");
             return;
+        } else if (strcmp(ext, ".md") == 0) {
+            serve_file(client_socket, filename, "text/markdown");
+            return;
         }
     }
 

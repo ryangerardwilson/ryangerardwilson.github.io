@@ -27,6 +27,8 @@ int is_embeddable(const char *filename) {
         return 1;
     if (len > 4 && strcmp(filename + len - 4, ".pdf") == 0)
         return 1;
+    if (len > 3 && strcmp(filename + len - 3, ".md") == 0)
+        return 1;
     return 0;
 }
 
@@ -39,6 +41,8 @@ const char *get_content_type(const char *filename) {
         return "application/javascript";
     if (strstr(filename, ".pdf"))
         return "application/pdf";
+    if (strstr(filename, ".md"))
+        return "text/markdown";
     return "application/octet-stream";
 }
 
