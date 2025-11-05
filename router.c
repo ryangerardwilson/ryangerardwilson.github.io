@@ -35,8 +35,15 @@ static int send_all(int sock, const void *buf, size_t len) {
 }
 
 void serve_file(int client_socket, char *filename, char *content_type) {
-    FILE *file = fopen(filename, "rb");
-    if (file == NULL) {
+    const struct Resource *resource = NULL;
+    for (int i = 0; i < embedded_resources_count; i++) {
+        if (strcmp(embedded_resources[i].path, filename) == 0) {
+            resource = &embedded_resources[i];
+            break;
+        }
+    }
+
+    if (resource == NULL) {
         const char *not_found =
             "HTTP/1.1 404 Not Found\r\nContent-Type: "
             "text/plain\r\nContent-Length: 13\r\n\r\nFile not found";
@@ -44,52 +51,13 @@ void serve_file(int client_socket, char *filename, char *content_type) {
         return;
     }
 
-    if (fseek(file, 0, SEEK_END) != 0) {
-        fclose(file);
-        const char *error =
-            "HTTP/1.1 500 Internal Server Error\r\nContent-Type: "
-            "text/plain\r\nContent-Length: 21\r\n\r\nInternal Server Error";
-        send_all(client_socket, error, strlen(error));
-        return;
-    }
-
-    long file_size = ftell(file);
-    fseek(file, 0, SEEK_SET);
-
-    char *content = NULL;
-    if (file_size > 0) {
-        content = malloc((size_t)file_size);
-        if (content == NULL) {
-            fclose(file);
-            const char *error =
-                "HTTP/1.1 500 Internal Server Error\r\nContent-Type: "
-                "text/plain\r\nContent-Length: 21\r\n\r\nInternal Server Error";
-            send_all(client_socket, error, strlen(error));
-            return;
-        }
-
-        size_t read = fread(content, 1, (size_t)file_size, file);
-        if ((long)read != file_size) {
-            free(content);
-            fclose(file);
-            const char *error =
-                "HTTP/1.1 500 Internal Server Error\r\nContent-Type: "
-                "text/plain\r\nContent-Length: 21\r\n\r\nInternal Server Error";
-            send_all(client_socket, error, strlen(error));
-            return;
-        }
-    }
-
-    fclose(file);
-
     char header[BUFFER_SIZE];
     int header_len = snprintf(
         header, BUFFER_SIZE,
-        "HTTP/1.1 200 OK\r\nContent-Type: %s\r\nContent-Length: %ld\r\n\r\n",
-        content_type, file_size);
+        "HTTP/1.1 200 OK\r\nContent-Type: %s\r\nContent-Length: %zu\r\n\r\n",
+        resource->content_type, resource->size);
 
     if (header_len < 0 || header_len >= BUFFER_SIZE) {
-        free(content);
         const char *error =
             "HTTP/1.1 500 Internal Server Error\r\nContent-Type: "
             "text/plain\r\nContent-Length: 21\r\n\r\nInternal Server Error";
@@ -98,13 +66,11 @@ void serve_file(int client_socket, char *filename, char *content_type) {
     }
 
     if (send_all(client_socket, header, (size_t)header_len) < 0) {
-        free(content);
         return;
     }
 
-    if (file_size > 0) {
-        send_all(client_socket, content, (size_t)file_size);
-        free(content);
+    if (resource->size > 0) {
+        send_all(client_socket, resource->data, resource->size);
     }
 }
 
@@ -127,7 +93,7 @@ void handle_request(int client_socket, char *buffer) {
         }
     }
 
-    // Static file serving for .js, .pdf, .html, .css and index for "/"
+    // Static file serving using embedded resources
     char filename[256];
 
     if (strcmp(path, "/") == 0) {
@@ -144,6 +110,7 @@ void handle_request(int client_socket, char *buffer) {
         }
     }
 
+    // Determine content_type based on extension (fallback if needed)
     char *ext = strrchr(filename, '.');
     if (ext != NULL) {
         if (strcmp(ext, ".js") == 0) {
