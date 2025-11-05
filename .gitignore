@@ -2,5 +2,3 @@ main
 build
 *.out
 *.swp
-*.min.js
-*.min.css
