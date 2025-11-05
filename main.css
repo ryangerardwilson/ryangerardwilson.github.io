@@ -5,6 +5,10 @@ body {
     margin: 0;
     padding: 20px;
     line-height: 1.5;
+    overflow-x: hidden; /* Still killing scrollbar nonsense */
+    background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 1px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.1) 2px);
+    background-size: 100% 2px; /* Line height */
+    animation: scan 1s linear infinite;
 }
 
 .container {
@@ -38,4 +42,13 @@ p {
 
 .hidden {
     display: none;
+}
+
+@keyframes scan {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 2px;
+    }
 }
