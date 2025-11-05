@@ -1,12 +1,41 @@
-/* main.css */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    color: #ddd;
     margin: 0;
     padding: 20px;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 h1 {
-    color: #007bff;
+    color: #fff;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+.links {
+    margin-top: 20px;
+}
+
+.links a {
+    color: #0af;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
 }
