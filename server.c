@@ -1,4 +1,6 @@
-// web_server.c
+// server.c
+#include "route_register.h"
+#include "router.h"
 #include <fcntl.h>
 #include <netinet/in.h>
 #include <stdio.h>
@@ -11,7 +13,9 @@
 #define PORT 8080
 #define BUFFER_SIZE 1024
 
-void start_web_server() {
+void start_server() {
+    // Technical implementation: socket setup, binding, listening, and request
+    // loop
     int server_fd, new_socket;
     struct sockaddr_in address;
     int opt = 1;
@@ -49,6 +53,9 @@ void start_web_server() {
 
     printf("Server listening on port %d\n", PORT);
 
+    // Register routes (business logic)
+    register_routes();
+
     while (1) {
         // Accept connection
         if ((new_socket = accept(server_fd, (struct sockaddr *)&address,
@@ -57,39 +64,11 @@ void start_web_server() {
             exit(EXIT_FAILURE);
         }
 
-        // Read request (simple, ignore for static serve)
+        // Read request
         read(new_socket, buffer, BUFFER_SIZE);
 
-        // Open index.html
-        FILE *file = fopen("index.html", "r");
-        if (file == NULL) {
-            const char *not_found =
-                "HTTP/1.1 404 Not Found\nContent-Type: "
-                "text/plain\nContent-Length: 13\n\nFile not found";
-            write(new_socket, not_found, strlen(not_found));
-        } else {
-            // Get file size
-            fseek(file, 0, SEEK_END);
-            long file_size = ftell(file);
-            fseek(file, 0, SEEK_SET);
-
-            // Read file content
-            char *content = malloc(file_size + 1);
-            fread(content, 1, file_size, file);
-            content[file_size] = '\0';
-            fclose(file);
-
-            // Prepare response
-            char response[BUFFER_SIZE + file_size];
-            snprintf(response, sizeof(response),
-                     "HTTP/1.1 200 OK\nContent-Type: "
-                     "text/html\nContent-Length: %ld\n\n%s",
-                     file_size, content);
-
-            // Send response
-            write(new_socket, response, strlen(response));
-            free(content);
-        }
+        // Handle the request
+        handle_request(new_socket, buffer);
 
         close(new_socket);
     }

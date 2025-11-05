@@ -1,4 +1,4 @@
 // orchestrator.c
-#include "web_server.h"
+#include "server.h"
 
-void orchestrate() { start_web_server(); }
+void orchestrate() { start_server(); }
