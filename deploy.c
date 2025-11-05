@@ -53,19 +53,20 @@ int main(int argc, char *argv[]) {
     }
 
     if (local_run) {
-        system("docker stop r_server || true");
-        system("docker rm r_server || true");
+        system("docker stop r_container || true");
+        system("docker rm r_container || true");
         char run_cmd[256];
         snprintf(run_cmd, sizeof(run_cmd),
-                 "docker run -d --name r_server -p 8080:8080 %s:%s", IMAGE_NAME,
-                 IMAGE_TAG);
+                 "docker run -d --name r_container -p 8080:8080 %s:%s",
+                 IMAGE_NAME, IMAGE_TAG);
         if (system(run_cmd) != 0) {
-            fprintf(stderr, "Local run failed. Logs: 'docker logs r_server'. "
+            fprintf(stderr, "Local run failed. Logs:"
+                            "'docker logs r_container'. "
                             "If it panics Omarchy, tough luck.\n");
             return 1;
         }
         printf("Local container up. Hit http://localhost:8080. Logs: 'docker "
-               "logs r_server'.\n");
+               "logs r_container'.\n");
     }
 
     if (deploy) {
@@ -88,9 +89,9 @@ int main(int argc, char *argv[]) {
         char ssh_cmd[512];
         snprintf(ssh_cmd, sizeof(ssh_cmd),
                  "ssh %s@%s 'docker load -i %s/%s && "
-                 "docker stop r_server 2>/dev/null || true && "
-                 "docker rm r_server 2>/dev/null || true && "
-                 "docker run -d --name r_server -p 8080:8080 %s:%s && "
+                 "docker stop r_container 2>/dev/null || true && "
+                 "docker rm r_container 2>/dev/null || true && "
+                 "docker run -d --name r_container -p 8080:8080 %s:%s && "
                  "rm %s/%s'",
                  REMOTE_USER, REMOTE_HOST, REMOTE_DIR, TAR_FILE, IMAGE_NAME,
                  IMAGE_TAG, REMOTE_DIR, TAR_FILE);
@@ -100,9 +101,10 @@ int main(int argc, char *argv[]) {
         }
 
         remove(TAR_FILE);
-        printf("Deployed to de-sci. Check http://de-sci:8080. Logs: 'ssh "
-               "de-sci docker logs r_server'. Now buzz off and let me kernel "
-               "in peace.\n");
+        printf(
+            "Deployed to de-sci. Check http://de-sci:8080. Logs: 'ssh "
+            "de-sci docker logs r_container'. Now buzz off and let me kernel "
+            "in peace.\n");
     }
 
     return 0;
