@@ -1,3 +1,4 @@
+// ~/Apps/r/deploy.c
 #include <getopt.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +14,7 @@
 #define REMOTE_HOST "icdattcwsm"
 #define REMOTE_DIR "/tmp"
 
-// Compile with: clang deploy.c -o deploy
+// Compile with: clang deploy_main.c -o deploy
 int main(int argc, char *argv[]) {
     int local_run = 0;
     int deploy = 0;
@@ -138,6 +139,10 @@ int main(int argc, char *argv[]) {
         if (system(ssh_cmd) != 0) {
             fprintf(stderr, "SSH deploy failed.\n");
             return 1;
+        }
+
+        if (system("python deploy_util_cloudflare_cache_purge.py") != 0) {
+            fprintf(stderr, "Cloudflare cache purge failed.\n");
         }
 
         remove(TAR_FILE);

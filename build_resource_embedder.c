@@ -1,4 +1,4 @@
-// build_resource_embedder.c
+// ~/Apps/r/build_resource_embedder.c
 #include "build_resource_embedder.h"
 #include "build_minify_css.h"
 #include "build_minify_js.h"
@@ -76,7 +76,21 @@ static int read_file_to_buffer(const char *filename, unsigned char **buf,
     return 0;
 }
 
+int resume_and_my_story_pdf_generation_handler() {
+    int conv1 = system("python build_util_md2pdf.py my_story.md my_story.pdf");
+    int conv2 = system("python build_util_md2pdf.py resume.md resume.pdf");
+    if (conv1 != 0 || conv2 != 0) {
+        fprintf(stderr, "Failed to convert md to pdf\n");
+        return 1;
+    }
+    return 0;
+}
+
 int embed_resources() {
+    if (resume_and_my_story_pdf_generation_handler() != 0) {
+        return 1;
+    }
+
     // Collect files to embed
     struct FileToEmbed files[MAX_FILES];
     int num_files = 0;
@@ -93,6 +107,10 @@ int embed_resources() {
             continue;
         char *filename = entry->d_name;
         if (is_embeddable(filename)) {
+            if (strcmp(filename, "my_story.md") == 0 ||
+                strcmp(filename, "resume.md") == 0) {
+                continue;
+            }
             if (num_files >= MAX_FILES) {
                 fprintf(stderr, "Too many files to embed\n");
                 closedir(dir);

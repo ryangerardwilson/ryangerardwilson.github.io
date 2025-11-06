@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 /* Compile with:
-clang build_main.c build_minify_css.c build_minify_js.c
+clang build_main.c build_minify_css.c build_minify_js.c \
 build_resource_embedder.c -o build
 */
 
