@@ -77,13 +77,31 @@ void start_server() {
         if (new_socket < 0)
             continue;
 
-        // Read request
-        read(new_socket, buffer, BUFFER_SIZE);
-
-        // Handle the request
-        handle_request(new_socket, buffer);
-
-        close(new_socket);
+        // The server can handle as many simultaneous requests as your system's
+        // process limits allow (typically hundreds to thousands on a modern
+        // machine), since each accepted connection forks a new child process
+        // for parallel handling. Check `ulimit -u` for the max user processes;
+        // in Docker, this might be lower by default (e.g., 1024)—adjust via
+        // container config if needed. The backlog queues up to 128 pending
+        // connections before acceptance. Under high load, bottlenecks could
+        // arise from CPU, memory, or open files (`ulimit -n`), but the code
+        // itself imposes no hard cap beyond system constraints.
+        pid_t pid = fork();
+        if (pid < 0) {
+            perror("fork");
+            close(new_socket);
+            continue;
+        } else if (pid == 0) {
+            // Child process: handle the request
+            close(server_fd); // Child doesn't need listener
+            read(new_socket, buffer, BUFFER_SIZE);
+            handle_request(new_socket, buffer);
+            close(new_socket);
+            exit(0); // Exit child after handling
+        } else {
+            // Parent: close the socket and continue accepting
+            close(new_socket);
+        }
     }
 
     close(server_fd);

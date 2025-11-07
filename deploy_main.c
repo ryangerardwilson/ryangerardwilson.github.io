@@ -13,6 +13,7 @@
 #define REMOTE_USER "rgw"
 #define REMOTE_HOST "icdattcwsm"
 #define REMOTE_DIR "/tmp"
+#define SERVER_PORT 8080
 
 // Compile with: clang deploy_main.c -o deploy
 int main(int argc, char *argv[]) {
@@ -25,23 +26,23 @@ int main(int argc, char *argv[]) {
         case 'l':
             local_run = 1;
             break;
-        case 'd':
+        case 'p':
             deploy = 1;
             break;
         default:
-            fprintf(stderr, "Invalid option, you git. Only -l or -d.\n");
+            fprintf(stderr, "Invalid option, you git. Only -l or -p.\n");
             return 1;
         }
     }
 
     if (local_run && deploy) {
-        fprintf(stderr, "Can't do both -l and -d at once, genius. Pick one.\n");
+        fprintf(stderr, "Can't do both -l and -p at once, genius. Pick one.\n");
         return 1;
     } else if (!local_run && !deploy) {
-        fprintf(
-            stderr,
-            "Usage: %s [-l] for local or [-d] for deploy. Make up your mind.\n",
-            argv[0]);
+        fprintf(stderr,
+                "Usage: %s [-l] for local or [-p] for production. Make up your "
+                "mind.\n",
+                argv[0]);
         return 1;
     }
 
@@ -53,36 +54,8 @@ int main(int argc, char *argv[]) {
                         "setup is this?\n");
         return 1;
     }
-    char server_path[256];
-    snprintf(server_path, sizeof(server_path), "%s/Apps/r/server.c", home);
 
-    FILE *fp = fopen(server_path, "r");
-    if (fp == NULL) {
-        fprintf(stderr,
-                "Can't open %s, fix your permissions or paths, idiot.\n",
-                server_path);
-        return 1;
-    }
-
-    int port = 0;
-    char line[256];
-    while (fgets(line, sizeof(line), fp)) {
-        char def[10], name[10];
-        int p;
-        if (sscanf(line, "%s %s %d", def, name, &p) == 3 &&
-            strcmp(def, "#define") == 0 && strcmp(name, "PORT") == 0) {
-            port = p;
-            break;
-        }
-    }
-    fclose(fp);
-
-    if (port == 0) {
-        fprintf(stderr, "Couldn't find #define PORT in server.c. Did you screw "
-                        "up the code?\n");
-        return 1;
-    }
-
+    int port = SERVER_PORT;
     // Build the image regardless
     char build_cmd[256];
     snprintf(build_cmd, sizeof(build_cmd), "docker build -f %s -t %s:%s %s",
@@ -101,8 +74,7 @@ int main(int argc, char *argv[]) {
                  IMAGE_NAME, IMAGE_TAG);
         if (system(run_cmd) != 0) {
             fprintf(stderr, "Local run failed. Logs:"
-                            "'docker logs r_container'. "
-                            "If it panics Omarchy, tough luck.\n");
+                            "'docker logs r_container'.\n ");
             return 1;
         }
         printf("Local container up. Hit http://localhost:%d. Logs: 'docker "
