@@ -66,8 +66,8 @@ int main(int argc, char *argv[]) {
     }
 
     if (local_run) {
-        system("docker stop r_container || true");
-        system("docker rm r_container || true");
+        system("docker stop r_container 2>/dev/null || true");
+        system("docker rm r_container 2>/dev/null || true");
         char run_cmd[256];
         snprintf(run_cmd, sizeof(run_cmd),
                  "docker run -d --name r_container -p %d:%d %s:%s", port, port,
