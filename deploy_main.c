@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
     int deploy = 0;
     int opt;
 
-    while ((opt = getopt(argc, argv, "ld")) != -1) {
+    while ((opt = getopt(argc, argv, "lp")) != -1) {
         switch (opt) {
         case 'l':
             local_run = 1;
