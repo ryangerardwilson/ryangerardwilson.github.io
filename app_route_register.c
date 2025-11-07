@@ -1,5 +1,5 @@
-// route_register.c
-#include "router.h"
+// app_route_register.c
+#include "app_router.h"
 
 void handle_root(int client_socket) {
     serve_file(client_socket, "index.html", "text/html");

@@ -1,6 +1,7 @@
-main
+app
 build
 deploy
+app_embedded_resources.c
 *.out
 *.swp
 *.pdf

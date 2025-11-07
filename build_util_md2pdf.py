@@ -15,7 +15,7 @@ def compile_text_to_pdf(text_file, pdf_file):
 
         # Add document metadata
         today = datetime.now().strftime("%Y-%m-%d")
-        base = os.path.basename(text_file)
+        base = os.path.splitext(os.path.basename(text_file))[0]
         title = f"{base} - {today}"
         subject = "Generated from Markdown"
         c.setTitle(title)

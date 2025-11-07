@@ -1,5 +1,5 @@
 FROM busybox:glibc
-COPY main /app/main
-WORKDIR /app
+COPY main /app
+WORKDIR /
 EXPOSE 8080
-CMD ["/app/main"]
+CMD ["/app"]

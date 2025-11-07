@@ -14,8 +14,9 @@ int main() {
         return embed_result;
     }
 
-    int result = system("clang main.c orchestrator.c server.c router.c "
-                        "route_register.c embedded_resources.c -o main");
+    int result =
+        system("clang app_main.c app_orchestrator.c app_server.c app_router.c "
+               "app_route_register.c app_embedded_resources.c -o app");
     if (result == 0) {
         printf("Build successful.\n");
     } else {

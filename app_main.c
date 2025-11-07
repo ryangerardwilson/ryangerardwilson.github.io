@@ -1,5 +1,5 @@
-// main.c
-#include "orchestrator.h"
+// app_main.c
+#include "app_orchestrator.h"
 
 int main() {
     orchestrate();

@@ -125,15 +125,15 @@ int embed_resources() {
 
     closedir(dir);
 
-    // Generate embedded_resources.c
-    FILE *res = fopen("embedded_resources.c", "w");
+    // Generate app_embedded_resources.c
+    FILE *res = fopen("app_embedded_resources.c", "w");
     if (res == NULL) {
-        perror("Failed to create embedded_resources.c");
+        perror("Failed to create app_embedded_resources.c");
         return 1;
     }
 
     fprintf(res, "#include <stddef.h>\n");
-    fprintf(res, "#include \"router.h\"\n\n");
+    fprintf(res, "#include \"app_router.h\"\n\n");
 
     for (int i = 0; i < num_files; i++) {
         char *filename = files[i].filename;
