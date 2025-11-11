@@ -2,20 +2,27 @@
 
 ## Summary
 
-With over 10 years of professional experience, I design, develop, and deploy
-advanced AI and Machine Learning models into production environments. *See:
-[Website](https://ryangerardwilson.com)*
+10 years of professional experience, former 3x failed founder, and currently
+building a career as a cross-functional IC (individual contributor) in start
+ups, where I iterate over both, the business logic and the code/ technical
+implementation of simple statistical as well as AI/ML models. With my early
+career experience in handling IP, I also assist in formulation of IP strategy.
 
-- Residence: Gurgaon, India
-- Email: ryangerardwilson@gmail.com
+- Website: ryangerardwilson.com
+- LinkedIn: https://www.linkedin.com/in/ryangerardwilson/
+- Residence: Gurugram, Haryana, India
+- Email: ryan@wilsonfamilyoffice.in
 - Phone: +91-9958467951
 
 My tech stack is based on Arch Linux (Omarchy), vanilla vim (no plugins, just
-simple tweaks to a .vimrc), and XAI's SuperGrok (with the pre-configured
-instruction "roast my code as if you were Linus Trovalds"). With experience in
-PHP, JS, Python, across frameworks like Laravel, Flask, FASTAPI, NextJS, React
-... I consider myself language-agnostic. That said, I deliberately invest time
-to, focus on fundamentals in:
+simple tweaks to a .vimrc), dozens of self-customized symbolically linked bash
+scripts (designed to eliminate GUI interfaces from my workflow) and XAI's
+SuperGrok (with the pre-configured instruction "roast my code as if you were
+Linus Trovalds"). While I have built production grade apps in various languages
+(PHP, JavaScript, Rust, Python, Haskell, OCaml, Python) and frameworks
+(Laravel, NodeJS, NextJS, ReactJS, Tailwind, Flask, FastAPI), my currernt area
+of focus is on rooting myself to the trifecta of Assembly, C Lang, and Python,
+for the following reasons:
 
 a. Assembly (to strengthen intuition on how hardware registers work, and to
 appreciate C lang)
@@ -64,15 +71,14 @@ given that AI vastly improves my ability to access 'low quality code', what
 rituals must I practice to avoid AI slop in my projects in this era of 'vibe-
 coding'.  These apps are systems to keep coding muscle memory sharp by
 practicing writing small snippets of code as a daily ritual, in python, c lang,
-and assembly, respectively. See:
-[pytutor](https://github.com/ryangerardwilson/pytutor),
-[ctutor](https://github.com/ryangerardwilson/ctutor), and
+and assembly, respectively. See: [pytutor](https://github.com/ryangerardwilson/
+pytutor), [ctutor](https://github.com/ryangerardwilson/ctutor), and
 [atutor](https://github.com/ryangerardwilson/atutor).  By mid-October 2025, I
 realized that I could combine all my tutor apps into a single, rtutor app, with
 a gtypist-like interface, and feature a progression of tutor courses organized
 as courses -> parts -> lessons. This way, I can scale the detail of the lessons
-as per the competency of the user. See:
-[rtutor](https://github.com/ryangerardwilson/rtutor).
+as per the competency of the user. See: [rtutor](https://github.com/ryangerard
+wilson/rtutor).
 
 b. vimtutor-advanced: Built this to solve this problem for myself: what rituals
 must I practice to use my computer as a samurai does his sword.  This expands
@@ -84,12 +90,20 @@ point, the tutor also covered NeoVim, however, I removed NeoVim tutorials after
 concluding that the origianl vim is simply the superior product. See:
 [vimtutor- advanced](https://github.com/ryangerardwilson/vimtutor-advanced)
 
+c. rgwml: Built at a time when I found Python's data model confusing and was
+intrigued by Rust, I challenged myself to understand what happens 'under the
+hood' in common data science/ machine learning operations in the Python/Pandas,
+by re-writing whatever I found useful in Pandas - to Rust. This Rust library
+got over 300,000 downloads. See: [RGWML](https://crates.io/search?q=rgwml).
+Over time, as my programming intuition deepended, I stopped using the library
+as a 'crutch', and pivoted to 'raw-dogging' data analysis in the Python REPL.
+
 ## IndieHacker (2021-22)
 
-Once I gained confidence that I could 'move fast and break things', I quit law
-firms to IndieHack my way to my own startup. Hustled SaaS and LegalTech
-business ideas. They did not work out, and failed in quick succession within 6
-months.
+Once I gained confidence in my coding abilities, I felt invincible enough to
+'move fast and break things', I quit law firms to IndieHack my way to my own
+startup. Hustled SaaS and LegalTech business ideas. They did not work out, and
+failed in quick succession within 6 months.
 
 a. SLTYE: A personal finance app, that helps you 'Spend Less Than You Earn'.
 Hence, the acronym S.L.T.Y.E.
@@ -99,29 +113,65 @@ medium, and long term actionable steps using First Principles.
 
 c. EquitysDarlings: A CRM for law firms.
 
-## Intellectual Property & Tech Lawyer (2016-20)
+## Intellectual Property & IP/Tech Lawyer (2016-20)
 
-After my intial foray into the start up world with Rainmaker, I pivoted to
-pursue a career in intellecutal property and tech law, working with two
-boutique law firms over 5 (Sujata Chaudhri IP Attorneys, and Rahul Chaudhry and
-Partners, rising up to the rank of a Senior Associate. Maintained a deep
-interest in ideas of Elon Musk, Naval Ravikant, and other doomsday prophets of
-how AI is going to change everything - and a equally deep regret for
-Rainmaker's brutal ending (see below) - which is why I decided to spend the
-years working in law, to also learn to code -  and keep my dream of doing a
-tech start up in the future alive.
+My academic background and early career in IP and tech law) strengthened my
+language aptitude analytical and ethical framework. The technical precision
+required by a lawyer and that of an engineer are inextricably intertwined -
+which is why my foundations in law, in fact, accelerated my understanding of
+modern artificial intelligence and machine learning technologies. Here, it is
+worth mentioning that a 2020 study published in the reputed nature.com found
+that 'language aptitude', not mathematics, is the best predictor of the ability
+to master programming languages. See:
+https://www.nature.com/articles/s41598-020-60661-8.
+ 
+During my career as an attorney, I nurtured a deep interest in ideas of Elon
+Musk, Naval Ravikant, etc., on how AI is going to change everything - and a
+equally deep regret for Rainmaker's brutal ending (see below) - which is why I
+decided to spend the years working in law, to also learn to code -  and keep my
+dream of doing a tech start up in the future alive.
 
 ## Marketing Associate, Rainmaker (2015)
 
 First job. Worked on email marketing campaigns using GUI tools. Realized I
 could be 100x more efficient if I knew how to code. Start up burnt too much
-cash too fast, and went operationally dead within n 6 months. Got to observe
+cash too fast, and went operationally dead within 6 months. Got to observe
 first hand tough decisions start up leadership need to make when funding dries
 up (lay offs, paying employees half salaries, etc.).
 
+## Academic Background
+
+- 2007: Goethe-Zertifikat B1, Goethe-Institut e.V. 
+- 2015: B.A. LL.B. (Hons.), Dr. Ram Manohar Lohia National Law University, 
+        Lucknow 
+
 ## Certifications
 
-a. Enrolled Advocate, Bar Council of Delhi (D/702/2016)
-
-b. B.A. LL.B. (Hons.), Dr. Ram Manohar Lohia National Law University, Lucknow
-(2015)
+- [Build an AutoGPT Code Writing AI Tool with Rust and GPT4](https://www.udemy
+.com/certificate/UC-21d58a2d-3ee8-44a4-a0c5-63c912ad6aa7/)
+- [PyScript - The Complete Guide](https://www.udemy.com/certificate/UC-c3165e0
+6-2fa4-45af-87c7-3d06fe251b46/)
+- [Learn Rust by building Real Applications](https://www.udemy.com/certificate
+/UC-b446dc59-4fee-4a01-9cab-7e1406f2d48c/)
+- [AWS Amazon S3 Mastery Bootcamp](https://www.udemy.com/certificate/UC-7a13b7
+a8-b101-4690-b894-2a7c1133ba97/)
+- [PHP Date and Time with Carbon by Edwin Diaz](https://www.udemy.com/certific
+ate/UC-68d5682e-4d44-4f2b-88dd-ad733a308226/)
+- [PHP OOP: Objected Oriented Programming for Beginners + Project](https://www
+.udemy.com/certificate/UC-d044b5e9-81d5-4ec4-8980-37540f05e7b9/)
+- [Bootstrap 3 Introduction: Create RESPONSIVE Websties Fast](https://www.udem
+y.com/certificate/UC-05d6a4b2-c988-42a6-b207-3624e07ac5bd/)
+- [Crash Course - Learn to Create a PHP MVC Framework](https://www.udemy.com/c
+ertificate/UC-38defa1a-c6e5-41be-8628-264a38d50cee/)
+- [Modern JavaScript From The Beginning 2.0](https://www.udemy.com/certificate
+/UC-934bc855-b3cc-433e-955c-073200c76592/)
+- [Laravel - Create a User Registration with Email Notificaton](https://www.ud
+emy.com/certificate/UC-259b659a-1228-472d-9680-7e3c14235c85/)
+- [Modern HTML & CSS From the Beginning 2.0](https://www.udemy.com/certificate
+/UC-7db57ec6-a996-4996-803b-874e0f640d05/)
+- [PHP with Laravel for beginners - Become a Master in Laravel](https://www.ud
+emy.com/certificate/UC-41c9c4c3-5f70-4cf8-91e8-5ec0a3395864/)
+- [Google Apps Script Complete Course Beginner to Advanced](https://www.udemy.
+com/certificate/UC-a0f4e0e6-fd4c-4b7e-8b41-a0a06dad65e5/)
+- [AWS Amazon S3 Mastery](https://www.udemy.com/certificate/UC-7a13b7a8-b101-4
+690-b894-2a7c1133ba97/)
