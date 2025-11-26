@@ -39,7 +39,7 @@ const p3 = document.getElementById('typewriter-p3');
 const links = document.getElementById('links');
 
 // Define texts here
-const h1Text = `Hello. This is Ryan.`;
+const h1Text = `Hello, world! This is Ryan.`;
 const p1Text = 'Catholic. Husband to beautiful wife. At Wiom, I build the internet architecture needed to bring unlimited internet to 500 million people in India. By designing, developing, and deploying advanced AI and Machine Learning models.';
 const p2Text = 'Long story, short - I put my head down to do GOD\'s work, and crazy GOOD things happen. Glory to GOD and JESUS, who is Lord.';
 const p3Text = 'Amen!';
