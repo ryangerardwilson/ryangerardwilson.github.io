@@ -2,7 +2,7 @@
 #include "app_router.h"
 
 void handle_root(int client_socket) {
-    serve_file(client_socket, "index.html", "text/html");
+    serve_file(client_socket, "root_index.html", "text/html");
 }
 
 void register_routes() {
