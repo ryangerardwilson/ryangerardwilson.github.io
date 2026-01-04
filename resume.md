@@ -147,6 +147,10 @@ up (lay offs, paying employees half salaries, etc.).
 
 ## Certifications
 
+- [XGBoost Deep Dive with Python & Pandas | Hands on Data Science](https://www
+.udemy.com/certificate/UC-2dd68e82-8432-4d6c-b592-b60fc957c7e6/)
+- [Google Apps Script Complete Course Beginner to Advanced](https://www.udemy.
+com/certificate/UC-a0f4e0e6-fd4c-4b7e-8b41-a0a06dad65e5/)
 - [Build an AutoGPT Code Writing AI Tool with Rust and GPT4](https://www.udemy
 .com/certificate/UC-21d58a2d-3ee8-44a4-a0c5-63c912ad6aa7/)
 - [PyScript - The Complete Guide](https://www.udemy.com/certificate/UC-c3165e0
@@ -171,7 +175,4 @@ emy.com/certificate/UC-259b659a-1228-472d-9680-7e3c14235c85/)
 /UC-7db57ec6-a996-4996-803b-874e0f640d05/)
 - [PHP with Laravel for beginners - Become a Master in Laravel](https://www.ud
 emy.com/certificate/UC-41c9c4c3-5f70-4cf8-91e8-5ec0a3395864/)
-- [Google Apps Script Complete Course Beginner to Advanced](https://www.udemy.
-com/certificate/UC-a0f4e0e6-fd4c-4b7e-8b41-a0a06dad65e5/)
-- [AWS Amazon S3 Mastery](https://www.udemy.com/certificate/UC-7a13b7a8-b101-4
-690-b894-2a7c1133ba97/)
+
