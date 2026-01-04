@@ -2,11 +2,11 @@
 
 ## Summary
 
-10 years of professional experience, former 3x failed founder, and currently
-building a career as a cross-functional IC (individual contributor) in start
-ups, where I iterate over both, the business logic and the code/ technical
-implementation of simple statistical as well as AI/ML models. With my early
-career experience in handling IP, I also assist in formulation of IP strategy.
+10 years of professional experience, former 3x founder, and currently building 
+a career as a cross-functional IC (individual contributor) in start ups, where 
+I iterate over both, the business logic and the code/ technical implementation 
+of simple statistical as well as AI/ML models. With my early career experience 
+in intellectual property litigation.
 
 - Website: ryangerardwilson.com
 - LinkedIn: https://www.linkedin.com/in/ryangerardwilson/
@@ -14,22 +14,21 @@ career experience in handling IP, I also assist in formulation of IP strategy.
 - Email: ryan@wilsonfamilyoffice.in
 - Phone: +91-9958467951
 
-My tech stack is based on Arch Linux (Omarchy), vanilla vim (no plugins, just
-simple tweaks to a .vimrc), dozens of self-customized symbolically linked bash
-scripts (designed to eliminate GUI interfaces from my workflow) and XAI's
-SuperGrok (with the pre-configured instruction "roast my code as if you were
-Linus Trovalds"). While I have built production grade apps in various languages
-(PHP, JavaScript, Rust, Python, Haskell, OCaml, Python) and frameworks
-(Laravel, NodeJS, NextJS, ReactJS, Tailwind, Flask, FastAPI), my currernt area
-of focus is on rooting myself to the trifecta of Assembly, C Lang, and Python,
-for the following reasons:
+My tech stack is based on Arch Linux, vanilla vim (no plugins, just simple 
+tweaks to a .vimrc), dozens of self-customized symbolically linked bash scripts 
+(designed to eliminate GUI interfaces from my workflow) and XAI's SuperGrok 
+(with the pre-configured instruction "roast my code as if you were Linus 
+Trovalds"). While I have built production grade apps in various languages
+(Python, PHP, JavaScript, Rust, Haskell, OCaml) and frameworks (Laravel, NodeJS, 
+NextJS, ReactJS, Tailwind, Flask, FastAPI), my currernt area of focus is on 
+rooting myself to the trifecta of Assembly, C Lang, and Python, for the 
+following reasons:
 
 a. Assembly (to strengthen intuition on how hardware registers work, and to
 appreciate C lang)
 
-b. C lang (because I'm a BIG fan of Linus Trovalds; all high level languages
-are implemented in C; this helps me appreciate all high level languages,
-keeping me language-agnostic)
+b. C lang (all high level languages are implemented in C; this helps me 
+appreciate all high level languages, keeping me language-agnostic)
 
 c. Python (because engineering is less about writing code, and more about
 solving real world problems).
@@ -48,7 +47,19 @@ the code, and the Product design). Genie determines if a new lead is
 serviceable, and if so, decides which Partners should be notified of that lead,
 and when. The employee who originally created the algo left at a time when
 documentation practices we poor - thus, re-writing and deploying this algo to
-production with zero downtime was massively painful, and rewarding.
+production with zero downtime was massively painful, and rewarding. A few months 
+post the initial deployment, integrated a prototype GNN (graph neural network) 
+into Genie. Prototypes are easy, production is hard. While a GNN may be a simple 
+set of python scripts of under 10000 lines of code, the data scientist who 
+prototyped this typically work in jupyter notebooks with a procedural programming 
+style, in a manner that does not always look readable and expressive. Had to 
+strain my eyes for weeks to re-write that logic into pythonic objects with 
+well-defined responsibilities interfacing with each other within the genie 
+codebase. Also, business teams wanted simplicity and hated the idea of some 
+voodoo-logic making decisions, so I had to deploy it in a manner that segregated 
+'product oriented genie' from 'business oriented genie'. Also, gave product and 
+business teams a 'control layer', that allowed them to change the product/
+business logic of genie within minutes without needing a full re-deployment.
 
 b. CRM Forge (2024): Built an internal 'Salesforce' - which allows tech teams
 to deploy customized CRM-like workflows for business teams in less than 60
