@@ -5,8 +5,9 @@
 10 years of professional experience, former 3x founder, and currently building 
 a career as a cross-functional IC (individual contributor) in start ups, where 
 I iterate over both, the business logic and the code/ technical implementation 
-of simple statistical as well as AI/ML models. With my early career experience 
-in intellectual property litigation.
+of simple statistical as well as AI/ML models, with early career experience in 
+intellectual property litigation, and a hobbyist of building the 'ideal' dev 
+'power-user' operating system.
 
 - Website: ryangerardwilson.com
 - LinkedIn: https://www.linkedin.com/in/ryangerardwilson/
@@ -14,15 +15,15 @@ in intellectual property litigation.
 - Email: ryan@wilsonfamilyoffice.in
 - Phone: +91-9958467951
 
-My tech stack is based on Arch Linux, vanilla vim (no plugins, just simple 
-tweaks to a .vimrc), dozens of self-customized symbolically linked bash scripts 
-(designed to eliminate GUI interfaces from my workflow) and XAI's SuperGrok 
-(with the pre-configured instruction "roast my code as if you were Linus 
-Trovalds"). While I have built production grade apps in various languages
-(Python, PHP, JavaScript, Rust, Haskell, OCaml) and frameworks (Laravel, NodeJS, 
-NextJS, ReactJS, Tailwind, Flask, FastAPI), my currernt area of focus is on 
-rooting myself to the trifecta of Assembly, C Lang, and Python, for the 
-following reasons:
+My tech stack is my personally riced Arch Linux, vanilla vim (no third party 
+plugins, just simple tweaks to a .vimrc), dozens of self-customized 
+symbolically linked bash scripts (designed to eliminate GUI interfaces from my 
+workflow) and XAI's SuperGrok (with the pre-configured instruction "roast my 
+code as if you were Linus Trovalds"). While I have built production grade apps 
+in various languages (Python, PHP, JavaScript, Rust, Haskell, OCaml) and 
+frameworks (Laravel, NodeJS, NextJS, ReactJS, Tailwind, Flask, FastAPI), my 
+currernt area of focus is on rooting myself to the trifecta of Assembly, C 
+Lang, and Python, for the following reasons:
 
 a. Assembly (to strengthen intuition on how hardware registers work, and to
 appreciate C lang)
@@ -31,16 +32,16 @@ b. C lang (all high level languages are implemented in C; this helps me
 appreciate all high level languages, keeping me language-agnostic)
 
 c. Python (because engineering is less about writing code, and more about
-solving real world problems).
+solving real world problems in a data-driven manner).
 
 ## Entrepreneur-in-Residence, Wiom (2022 - Present)
 
-At Wiom, I work in the *Decision Sciences* team. As part of this team, we take
-a problem statement, make it less dumb, restrain our action-bias to write code
-unless we are certain that the problem is articulated properly, ruthlessly
-simplify the most viable solution.  Push to production. Track metrics. And,
-take a call whether to persevere with future iterations or pivot. Key
-Contributions include:
+At Wiom, I work in the *Decision Sciences* team (a 2 person offshoot of the
+Product Team). As part of this team, we take a problem statement, make it less 
+dumb, restrain our action-bias to write code unless we are certain that the 
+problem is articulated properly, ruthlessly simplify the most viable solution.  
+Push to production. Track metrics. And, take a call whether to persevere with 
+future iterations or pivot. Key Contributions include:
 
 a. Genie (2025): Rebuilt Wiom's core matchmaking algorithm (simplifying both
 the code, and the Product design). Genie determines if a new lead is
@@ -77,29 +78,17 @@ help out with IP strategy and fund-raise efforts.
 
 With over 117 Github repos, I would highlight the following:
 
-a. rtutor, pytutor, ctutor, atutor: Built to solve this problem for myself:
-given that AI vastly improves my ability to access 'low quality code', what
-rituals must I practice to avoid AI slop in my projects in this era of 'vibe-
-coding'.  These apps are systems to keep coding muscle memory sharp by
-practicing writing small snippets of code as a daily ritual, in python, c lang,
-and assembly, respectively. See: [pytutor](https://github.com/ryangerardwilson/
-pytutor), [ctutor](https://github.com/ryangerardwilson/ctutor), and
-[atutor](https://github.com/ryangerardwilson/atutor).  By mid-October 2025, I
-realized that I could combine all my tutor apps into a single, rtutor app, with
-a gtypist-like interface, and feature a progression of tutor courses organized
-as courses -> parts -> lessons. This way, I can scale the detail of the lessons
-as per the competency of the user. See: [rtutor](https://github.com/ryangerard
-wilson/rtutor).
+a. rtutor: Built to refine my programming taste, improve my ability to identify 
+AI slop in AI-generated code snippets, and practice touch typing across assembly,
+python, C lang, and ANSI-SQL. See: [rtutor](https://github.com/ryangerard wilson/
+rtutor).
 
-b. vimtutor-advanced: Built this to solve this problem for myself: what rituals
-must I practice to use my computer as a samurai does his sword.  This expands
-the classic vimtutor cli, covering advanced vim concepts set out in Steve
-Oualline's 2001 VimBook. The tutor also expands the idea of using a vim-based
-muscle memory to window tiling and browser based navigation, to maximize
-productivity by building muscle memory with the right conventions. At one
-point, the tutor also covered NeoVim, however, I removed NeoVim tutorials after
-concluding that the origianl vim is simply the superior product. See:
-[vimtutor- advanced](https://github.com/ryangerardwilson/vimtutor-advanced)
+b. vios: Inspired from the classic 'emacs-os' computing experience, a
+terminal-based interfact that makes it easy (and snappy) to navigate through
+the file system, create, delete, rename, cut, paste - files and directories,
+besides opening files in vim, and pdfs in zathura. Serves as my IDE, when I
+need to work on projects that involve a complex tree of dirs and sub-dirs. See:
+[vios](https://github.com/ryangerardwilson/vios)
 
 c. rgwml: Built at a time when I found Python's data model confusing and was
 intrigued by Rust, I challenged myself to understand what happens 'under the
@@ -108,6 +97,7 @@ by re-writing whatever I found useful in Pandas - to Rust. This Rust library
 got over 300,000 downloads. See: [RGWML](https://crates.io/search?q=rgwml).
 Over time, as my programming intuition deepended, I stopped using the library
 as a 'crutch', and pivoted to 'raw-dogging' data analysis in the Python REPL.
+rtutor (point a. above) can be considered rgwml's 'spiritual-successor'.
 
 ## IndieHacker (2021-22)
 
@@ -139,7 +129,7 @@ https://www.nature.com/articles/s41598-020-60661-8.
 During my career as an attorney, I nurtured a deep interest in ideas of Elon
 Musk, Naval Ravikant, etc., on how AI is going to change everything - and a
 equally deep regret for Rainmaker's brutal ending (see below) - which is why I
-decided to spend the years working in law, to also learn to code -  and keep my
+decided to spend the years working in law, to also learn to code - and keep my
 dream of doing a tech start up in the future alive.
 
 ## Marketing Associate, Rainmaker (2015)
