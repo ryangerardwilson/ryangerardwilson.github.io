@@ -74,31 +74,6 @@ of employees to handle high-pain escalations.
 Additional Roles: Apply legal expertise in technology, IP, and corporate law to
 help out with IP strategy and fund-raise efforts.
 
-## Portfolio of the Best Code I've Written in Public Repos (2025)
-
-With over 117 Github repos, I would highlight the following:
-
-a. rtutor: Built to refine my programming taste, improve my ability to identify 
-AI slop in AI-generated code snippets, and practice touch typing across assembly,
-python, C lang, and ANSI-SQL. See: [rtutor](https://github.com/ryangerard wilson/
-rtutor).
-
-b. vios: Inspired from the classic 'emacs-os' computing experience, a
-terminal-based interfact that makes it easy (and snappy) to navigate through
-the file system, create, delete, rename, cut, paste - files and directories,
-besides opening files in vim, and pdfs in zathura. Serves as my IDE, when I
-need to work on projects that involve a complex tree of dirs and sub-dirs. See:
-[vios](https://github.com/ryangerardwilson/vios)
-
-c. rgwml: Built at a time when I found Python's data model confusing and was
-intrigued by Rust, I challenged myself to understand what happens 'under the
-hood' in common data science/ machine learning operations in the Python/Pandas,
-by re-writing whatever I found useful in Pandas - to Rust. This Rust library
-got over 300,000 downloads. See: [RGWML](https://crates.io/search?q=rgwml).
-Over time, as my programming intuition deepended, I stopped using the library
-as a 'crutch', and pivoted to 'raw-dogging' data analysis in the Python REPL.
-rtutor (point a. above) can be considered rgwml's 'spiritual-successor'.
-
 ## IndieHacker (2021-22)
 
 Once I gained confidence in my coding abilities, I felt invincible enough to
@@ -145,6 +120,32 @@ up (lay offs, paying employees half salaries, etc.).
 - 2007: Goethe-Zertifikat B1, Goethe-Institut e.V. 
 - 2015: B.A. LL.B. (Hons.), Dr. Ram Manohar Lohia National Law University, 
         Lucknow 
+
+## Open Source 
+
+With over 117 Github repos, I would highlight the following:
+
+a. rtutor: Inspired by the classic gtypist tool (which I used to learn touch 
+typing) and the classic unix 'man pages', built to access and organize my 
+learnings, refine programming taste, improve my ability to identify AI slop in 
+AI-generated code snippets, and practice touch typing across assembly, python, 
+C lang, and SQL. See: [rtutor](https://github.com/ryangerardwilson/rtutor).
+
+b. vios: Inspired from the classic 'emacs-os' computing experience, a
+terminal-based interfact that makes it easy (and snappy) to navigate through
+the file system, create, delete, rename, cut, paste - files and directories,
+besides opening files in vim, and pdfs in zathura. Serves as my IDE, when I
+need to work on projects that involve a complex tree of dirs and sub-dirs. See:
+[vios](https://github.com/ryangerardwilson/vios)
+
+c. rgwml: Built at a time when I found Python's data model confusing and was
+intrigued by Rust, I challenged myself to understand what happens 'under the
+hood' in common data science/ machine learning operations in the Python/Pandas,
+by re-writing whatever I found useful in Pandas - to Rust. This Rust library
+got over 300,000 downloads. See: [RGWML](https://crates.io/search?q=rgwml).
+Over time, as my programming intuition deepended, I stopped using the library
+as a 'crutch', and pivoted to 'raw-dogging' data analysis in the Python REPL.
+rtutor (point a. above) can be considered rgwml's 'spiritual-successor'.
 
 ## Certifications
 
