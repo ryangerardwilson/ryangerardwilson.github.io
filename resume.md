@@ -9,11 +9,12 @@ of simple statistical as well as AI/ML models, with early career experience in
 intellectual property litigation, and a hobbyist of building the 'ideal' dev 
 'power-user' operating system.
 
-- Website: ryangerardwilson.com
-- LinkedIn: https://www.linkedin.com/in/ryangerardwilson/
-- Residence: Gurugram, Haryana, India
-- Email: ryan@wilsonfamilyoffice.in
-- Phone: +91-9958467951
+- Website   : ryangerardwilson.com
+- Twitter/X : https://x.com/ryan_improvises
+- LinkedIn  : https://www.linkedin.com/in/ryangerardwilson/
+- Residence : Gurugram, Haryana, India
+- Email:    : ryan@wilsonfamilyoffice.in
+- Phone:    : +91-9958467951
 
 ## Core Tech Stack
 
