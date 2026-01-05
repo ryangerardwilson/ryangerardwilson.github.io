@@ -15,24 +15,15 @@ intellectual property litigation, and a hobbyist of building the 'ideal' dev
 - Email: ryan@wilsonfamilyoffice.in
 - Phone: +91-9958467951
 
-My tech stack is my personally riced Arch Linux, vanilla vim (no third party 
-plugins, just simple tweaks to a .vimrc), dozens of self-customized 
-symbolically linked bash scripts (designed to eliminate GUI interfaces from my 
-workflow) and XAI's SuperGrok (with the pre-configured instruction "roast my 
-code as if you were Linus Trovalds"). While I have built production grade apps 
-in various languages (Python, PHP, JavaScript, Rust, Haskell, OCaml) and 
-frameworks (Laravel, NodeJS, NextJS, ReactJS, Tailwind, Flask, FastAPI), my 
-currernt area of focus is on rooting myself to the trifecta of Assembly, C 
-Lang, and Python, for the following reasons:
+## Core Tech Stack
 
-a. Assembly (to strengthen intuition on how hardware registers work, and to
-appreciate C lang)
-
-b. C lang (all high level languages are implemented in C; this helps me 
-appreciate all high level languages, keeping me language-agnostic)
-
-c. Python (because engineering is less about writing code, and more about
-solving real world problems in a data-driven manner).
+Arch Linux with a personally-built terminal-based operating system, 'vios' 
+(see: [vios](https://github.com/ryangerardwilson/vios)), customized bash 
+scripts for CLI efficiency, Vim, and a focus on Assembly (for hardware 
+intuition), C (for language-agnostic foundations), and Python (for practical, 
+data-driven engineering). Proficient in production apps using Python, Rust, 
+PHP, JavaScript, Laravel, Node.js, Next.js, React, Tailwind, Flask, 
+and FastAPI. 
 
 ## Entrepreneur-in-Residence, Wiom (2022 - Present)
 
@@ -136,7 +127,7 @@ terminal-based interfact that makes it easy (and snappy) to navigate through
 the file system, create, delete, rename, cut, paste - files and directories,
 besides opening files in vim, and pdfs in zathura. Serves as my IDE, when I
 need to work on projects that involve a complex tree of dirs and sub-dirs. See:
-[vios](https://github.com/ryangerardwilson/vios)
+[vios](https://github.com/ryangerardwilson/vios).
 
 c. rgwml: Built at a time when I found Python's data model confusing and was
 intrigued by Rust, I challenged myself to understand what happens 'under the
