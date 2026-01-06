@@ -10,7 +10,7 @@ intellectual property litigation, and a hobbyist of building the 'ideal' dev
 'power-user' operating system.
 
 - Website   : ryangerardwilson.com
-- Twitter/X : https://x.com/ryan_improvises
+- X/Twitter : https://x.com/ryan_improvises
 - LinkedIn  : https://www.linkedin.com/in/ryangerardwilson/
 - Residence : Gurugram, Haryana, India
 - Email:    : ryan@wilsonfamilyoffice.in
@@ -18,15 +18,14 @@ intellectual property litigation, and a hobbyist of building the 'ideal' dev
 
 ## Core Tech Stack
 
-Arch Linux with a personally-built terminal-based operating system, 'vios' 
-(see: [vios](https://github.com/ryangerardwilson/vios)), customized bash 
-scripts for CLI efficiency, Vim, and a focus on Assembly (for hardware 
-intuition), C (for language-agnostic foundations), and Python (for practical, 
-data-driven engineering). Proficient in production apps using Python, Rust, 
-PHP, JavaScript, Laravel, Node.js, Next.js, React, Tailwind, Flask, 
-and FastAPI. 
+Arch Linux with a personally-built terminal-based operating system. See: 
+[vios](https://github.com/ryangerardwilson/vios). Customized bash scripts for 
+CLI efficiency, Vim, and a focus on Assembly (for hardware intuition), C (for 
+language-agnostic foundations), and Python (for practical, data-driven 
+engineering). Proficient in production apps using Python, Rust, PHP, 
+JavaScript, Laravel, Node.js, Next.js, React, Tailwind, Flask, and FastAPI. 
 
-## Entrepreneur-in-Residence, Wiom (2022 - Present)
+## Entrepreneur-in-Residence, Wiom (October 2022 - Present)
 
 At Wiom, I work in the *Decision Sciences* team (a 2 person offshoot of the
 Product Team). As part of this team, we take a problem statement, make it less 
@@ -66,7 +65,7 @@ of employees to handle high-pain escalations.
 Additional Roles: Apply legal expertise in technology, IP, and corporate law to
 help out with IP strategy and fund-raise efforts.
 
-## IndieHacker (2021-22)
+## IndieHacker (June 2021 - September 22)
 
 Once I gained confidence in my coding abilities, I felt invincible enough to
 'move fast and break things', I quit law firms to IndieHack my way to my own
@@ -81,7 +80,7 @@ medium, and long term actionable steps using First Principles.
 
 c. EquitysDarlings: A CRM for law firms.
 
-## Intellectual Property & IP/Tech Lawyer (2016-20)
+## Intellectual Property & IP/Tech Lawyer (December 2015 - April 2022)
 
 My academic background and early career in IP and tech law) strengthened my
 language aptitude analytical and ethical framework. The technical precision
@@ -99,13 +98,15 @@ equally deep regret for Rainmaker's brutal ending (see below) - which is why I
 decided to spend the years working in law, to also learn to code - and keep my
 dream of doing a tech start up in the future alive.
 
-## Marketing Associate, Rainmaker (2015)
+## Marketing Associate, Rainmaker (April 2015 - November 2015)
 
-First job. Worked on email marketing campaigns using GUI tools. Realized I
-could be 100x more efficient if I knew how to code. Start up burnt too much
-cash too fast, and went operationally dead within 6 months. Got to observe
-first hand tough decisions start up leadership need to make when funding dries
-up (lay offs, paying employees half salaries, etc.).
+First job. Worked on email marketing campaigns using GUI tools, organized a
+marketing quiz for law school kids, learned basic HTML to help me make pretty
+emails. Realized I could be 100x more efficient if I dedicated my self fully to 
+the art and science of programming. Start up burnt too much cash too fast, and 
+went operationally dead within 6 months. Got to observe first hand tough 
+decisions start up leadership need to make when funding dries up (lay offs, 
+paying employees half salaries, etc.).
 
 ## Academic Background
 
@@ -124,7 +125,7 @@ AI-generated code snippets, and practice touch typing across assembly, python,
 C lang, and SQL. See: [rtutor](https://github.com/ryangerardwilson/rtutor).
 
 b. vios: Inspired from the classic 'emacs-os' computing experience, a
-terminal-based interfact that makes it easy (and snappy) to navigate through
+terminal-based interface that makes it easy (and snappy) to navigate through
 the file system, create, delete, rename, cut, paste - files and directories,
 besides opening files in vim, and pdfs in zathura. Serves as my IDE, when I
 need to work on projects that involve a complex tree of dirs and sub-dirs. See:
