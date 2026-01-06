@@ -76,7 +76,7 @@ and tech.
 
 Built three applications in Laravel PHP, namely - a personal finance management 
 web-app, called SLTYE (spend less than you earn); a CRM for small law firms, 
-called Equity's Darlings; and a goal-motivation matrix based to do list app, 
+called Equity's Darlings; and a goal-motivation matrix based to-do-list app, 
 called LavendOrb. Did market research, wrote the backend, frontend, copy of the 
 landing page, signed up for numerous business networking events to implement 
 sales and marketing strategies. 
