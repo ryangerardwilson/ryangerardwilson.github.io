@@ -65,48 +65,64 @@ of employees to handle high-pain escalations.
 Additional Roles: Apply legal expertise in technology, IP, and corporate law to
 help out with IP strategy and fund-raise efforts.
 
-## IndieHacker (June 2021 - September 22)
+## Solo IndieHacker (June 2021 - September 22)
 
-Once I gained confidence in my coding abilities, I felt invincible enough to
-'move fast and break things', I quit law firms to IndieHack my way to my own
-startup. Hustled SaaS and LegalTech business ideas. They did not work out, and
-failed in quick succession within 6 months.
+The startup grind meant being both 'builder' and 'seller'. Creating pitch decks 
+from scratch, attending over 50 events for networking and sales, grinding 
+coding courses, stretching finances, maxing a credit card for a loan 10x the 
+last drawn salary, and pivoting to job hunting when cash burn became dangerous - 
+transforming the experience into a real-life-MBA in resilience, sales, finance, 
+and tech. 
 
-a. SLTYE: A personal finance app, that helps you 'Spend Less Than You Earn'.
-Hence, the acronym S.L.T.Y.E.
-
-b. LavendOrb: A dashboard app that helps break complex goals into short,
-medium, and long term actionable steps using First Principles.
-
-c. EquitysDarlings: A CRM for law firms.
+Built three applications in Laravel PHP, namely - a personal finance management 
+web-app, called SLTYE (spend less than you earn); a CRM for small law firms, 
+called Equity's Darlings; and a goal-motivation matrix based to do list app, 
+called LavendOrb. Did market research, wrote the backend, frontend, copy of the 
+landing page, signed up for numerous business networking events to implement 
+sales and marketing strategies. 
 
 ## Intellectual Property & IP/Tech Lawyer (December 2015 - April 2022)
 
-My academic background and early career in IP and tech law) strengthened my
-language aptitude analytical and ethical framework. The technical precision
-required by a lawyer and that of an engineer are inextricably intertwined -
-which is why my foundations in law, in fact, accelerated my understanding of
-modern artificial intelligence and machine learning technologies. Here, it is
-worth mentioning that a 2020 study published in the reputed nature.com found
-that 'language aptitude', not mathematics, is the best predictor of the ability
-to master programming languages. See:
-https://www.nature.com/articles/s41598-020-60661-8.
- 
-During my career as an attorney, I nurtured a deep interest in ideas of Elon
-Musk, Naval Ravikant, etc., on how AI is going to change everything - and a
-equally deep regret for Rainmaker's brutal ending (see below) - which is why I
-decided to spend the years working in law, to also learn to code - and keep my
-dream of doing a tech start up in the future alive.
+My early career in intellectual property (IP) and tech law-built at boutique 
+firms Sujata Chaudhri IP Attorneys (SCIP) and Rahul Chaudhry & Partners (RCYP) 
+in NCR, India—deepened my grasp of modern business dynamics, artificial 
+intelligence, and machine learning technologies, honing transferable 
+entrepreneurial skills in innovation, project management, negotiation, and 
+thought leadership. Notably, a 2020 Nature study highlights that language 
+aptitude, rather than mathematics, best predicts programming mastery, aligning 
+with my analytical background for tech entrepreneurship. See study: 
+https://www.nature.com/articles/s41598-020-60661-8
+
+Promoted to Senior Associate at SCIP in 2018, 3–5 years ahead of industry 
+norms-I excelled in complex projects like high-profile injunctions, led 
+initiatives such as website revamps and content systems, mentored teams, and 
+pioneered interdisciplinary advocacy, accelerating personal growth in 
+leadership and strategy that directly supported later indie hacking and 
+startup ventures.
+
+At RCYP (2019–2022), I negotiated hundreds of pre-litigation mediations 
+between IP disputants, resolving most out of court to optimize efficiency and 
+costs while drafting agreements, leveraging precedents, and pivoting to 
+formal actions when needed, thereby building high-stakes negotiation 
+expertise and client relationship management skills essential for 
+entrepreneurial deal-making.
+
+See: https://spicyip.com/2016/10/a-game-of-puzzle-cubes-justice-
+manmohan-singh-rules-on-trade-dress-in-the-rubiks-cube.html and 
+https://www.sc-ip.in/post/the-delhi-high-court-is-now-factoring-in-
+neuroscience-research-while-granting-injunctions-in-tradema#:~:text
+=On%20June%2025%2C%202018%2C%20in,Address%20Trademark%20Disputes%E2
+%80%9D%2C%20Ryan%20Wilson
 
 ## Marketing Associate, Rainmaker (April 2015 - November 2015)
 
 First job. Worked on email marketing campaigns using GUI tools, organized a
 marketing quiz for law school kids, learned basic HTML to help me make pretty
 emails. Realized I could be 100x more efficient if I dedicated my self fully to 
-the art and science of programming. Start up burnt too much cash too fast, and 
-went operationally dead within 6 months. Got to observe first hand tough 
-decisions start up leadership need to make when funding dries up (lay offs, 
-paying employees half salaries, etc.).
+the art and science of programming. Start up burnt too much cash too fast in a
+bad business cycle, and went operationally dead within 6 months. Got to observe 
+first hand tough decisions start up leadership need to make when funding dries 
+up (lay offs, motivating employess to work despite paying half salaries, etc.).
 
 ## Academic Background
 
