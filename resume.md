@@ -2,12 +2,16 @@
 
 ## Summary
 
-10 years of professional experience, former 3x founder, and currently building 
-a career as a cross-functional IC (individual contributor) in start ups, where 
-I iterate over both, the business logic and the code/ technical implementation 
-of simple statistical as well as AI/ML models, with early career experience in 
-intellectual property litigation, and a hobbyist of building the 'ideal' dev 
-'power-user' operating system.
+I deliver high-impact results as a cross-functional individual contributor in 
+startups by rapidly iterating on both business logic and production code-shipping 
+simplified statistical and AI/ML solutions that drive measurable efficiency gains 
+(e.g., 20%+ supply improvements and first-time ML productionizations)-backed by 
+10 years of diverse professional experience spanning intellectual property 
+litigation, solo indie hacking (3x full-stack founder), and operational scaling 
+in high-growth environments. 
+
+Passionate about crafting ultra-efficient developer tools and power-user systems 
+that eliminate friction and amplify personal productivity.
 
 - Website   : ryangerardwilson.com
 - X/Twitter : https://x.com/ryan_improvises
@@ -18,111 +22,109 @@ intellectual property litigation, and a hobbyist of building the 'ideal' dev
 
 ## Core Tech Stack
 
-Arch Linux with a personally-built terminal-based operating system. See: 
-[vios](https://github.com/ryangerardwilson/vios). Customized bash scripts for 
-CLI efficiency, Vim, and a focus on Assembly (for hardware intuition), C (for 
-language-agnostic foundations), and Python (for practical, data-driven 
-engineering). Proficient in production apps using Python, Rust, PHP, 
-JavaScript, Laravel, Node.js, Next.js, React, Tailwind, Flask, and FastAPI. 
+At its core, includes my self-engineered hyper-efficient, distraction-free 
+development environment on Arch Linux powered by my custom terminal-based system 
+-delivering snappy file navigation, Vim-centric editing, and seamless workflow 
+automation via tailored bash scripts that maximize CLI productivity. I have 
+shipped production-grade applications across Python, Rust, PHP, JavaScript, 
+Laravel, Node.js, Next.js, React, Tailwind, Flask, FastAPI, and Flutter, - and 
+consider myself language-agnostic but rooted in the idea of constantly
+deepening my grasp of assembly, K&R C, and Python.
 
 ## Entrepreneur-in-Residence, Wiom (October 2022 - Present)
 
-At Wiom, I work in the *Decision Sciences* team (a 2 person offshoot of the
-Product Team). As part of this team, we take a problem statement, make it less 
-dumb, restrain our action-bias to write code unless we are certain that the 
-problem is articulated properly, ruthlessly simplify the most viable solution.  
-Push to production. Track metrics. And, take a call whether to persevere with 
-future iterations or pivot. Key Contributions include:
+At Wiom, I serve on the two-person Decision Sciences team—a focused offshoot of 
+Product-where we consistently drive outsized business impact by sharpening vague 
+problem statements, resisting premature coding urges, ruthlessly simplifying 
+solutions, shipping to production fast, tracking real metrics, and decisively 
+iterating or pivoting. Key contributions include:
 
-a. Genie (2025): Rebuilt Wiom's core matchmaking algorithm (simplifying both
-the code, and the Product design). Genie determines if a new lead is
-serviceable, and if so, decides which Partners should be notified of that lead,
-and when. The employee who originally created the algo left at a time when
-documentation practices we poor - thus, re-writing and deploying this algo to
-production with zero downtime was massively painful, and rewarding. A few months 
-post the initial deployment, integrated a prototype GNN (graph neural network) 
-into Genie. Prototypes are easy, production is hard. While a GNN may be a simple 
-set of python scripts of under 10000 lines of code, the data scientist who 
-prototyped this typically work in jupyter notebooks with a procedural programming 
-style, in a manner that does not always look readable and expressive. Had to 
-strain my eyes for weeks to re-write that logic into pythonic objects with 
-well-defined responsibilities interfacing with each other within the genie 
-codebase. Also, business teams wanted simplicity and hated the idea of some 
-voodoo-logic making decisions, so I had to deploy it in a manner that segregated 
-'product oriented genie' from 'business oriented genie'. Also, gave product and 
-business teams a 'control layer', that allowed them to change the product/
-business logic of genie within minutes without needing a full re-deployment.
+a. Genie (2025): Boosted supply efficiency by 20% total (15% from core rewrite + 
+5% from ML integration) by revamping Wiom's critical lead-matchmaking 
+algorithm-delivering faster, more reliable lead servicing through simplified code 
+and product logic that intelligently assesses serviceability and notifies optimal 
+partners at the right time. Seamlessly rewrote and deployed a poorly documented 
+legacy algorithm to production with zero downtime after the original creator's 
+exit. Later, productionized Wiom's first real ML model by refactoring a chaotic 
+Jupyter-based Graph Neural Network prototype into clean, maintainable Python 
+classes; separated product and business logic for transparency and introduced a 
+control API enabling non-technical teams to adjust rules in minutes without 
+redeployments-establishing robust, business-friendly ML practices company-wide.
 
-b. CRM Forge (2024): Built an internal 'Salesforce' - which allows tech teams
-to deploy customized CRM-like workflows for business teams in less than 60
-minutes. Reduced technical debt - less than 7000 lines of code were used to
-deploy a total of 5 CRM systems.
+b. CRM Forge (2024): Slashed technical debt by over 90% and accelerated CRM 
+deployments from weeks to under 60 minutes, unlocking rapid business 
+experimentation. Built a lightweight internal platform (~7,000 lines of code) 
+that instantly provisions fully customized CRM workflows via simple JSON 
+configurations (2-3 minutes), consolidating and replacing five bloated legacy 
+systems totaling ~100,000 lines—enabling tech and business teams to align and 
+ship tailored solutions in hours instead of prolonged cycles.
 
-c. Happy (2023): Built a system of apps to reduce reliance on human call centre
-executives, via a telephony BOT, and a CRM which coordinates a minimal number
-of employees to handle high-pain escalations.
+c. Happy (2023): Reduced reliance on call center headcount by ~5x while 
+elevating customer experience and agent effectiveness. Engineered an integrated 
+system combining a telephony BOT with a minimal-staff CRM to efficiently manage 
+high-pain escalations, and developed an AI chatbot (Hindi/Hinglish) that 
+instantly surfaces brand-aligned scripts—cutting agent frustration, speeding 
+resolutions, and ensuring consistent, high-quality handling of unhappy customers 
+even under volume spikes.
 
-Additional Roles: Apply legal expertise in technology, IP, and corporate law to
-help out with IP strategy and fund-raise efforts.
+Additional Roles: Leveraged deep legal expertise in technology, IP, and corporate 
+law to shape Wiom's IP strategy, protect innovations, and support successful 
+fundraising rounds—including pitch deck refinement and investor-facing legal 
+diligence.
 
 ## Solo IndieHacker (June 2021 - September 22)
 
-The startup grind meant being both 'builder' and 'seller'. Creating pitch decks 
-from scratch, attending over 50 events for networking and sales, grinding 
-coding courses, stretching finances, maxing a credit card for a loan 10x the 
-last drawn salary, and pivoting to job hunting when cash burn became dangerous - 
+Single-handedly launched and marketed three full-stack Laravel products as a solo 
+founder (SLTYE, Equity's Darlings, LavendOrb), handling everything from market 
+research, backend/frontend development, landing page copywriting, branding/domain/
+trademark checks, to attending 50+ networking events for direct sales-while 
+bootstrapping under severe financial constraints (including a high-risk credit 
+card loan). The startup grind meant being both 'builder' and 'seller' -  
 transforming the experience into a real-life-MBA in resilience, sales, finance, 
 and tech. 
 
-Built three applications in Laravel PHP, namely - a personal finance management 
-web-app, called SLTYE (spend less than you earn); a CRM for small law firms, 
-called Equity's Darlings; and a goal-motivation matrix based to-do-list app, 
-called LavendOrb. Did market research, wrote the backend, frontend, copy of the 
-landing page, signed up for numerous business networking events to implement 
-sales and marketing strategies. 
-
 ## Intellectual Property & IP/Tech Lawyer (December 2015 - April 2022)
 
-My early career in intellectual property (IP) and tech law-built at boutique 
-firms Sujata Chaudhri IP Attorneys (SCIP) and Rahul Chaudhry & Partners (RCYP) 
-in NCR, India—deepened my grasp of modern business dynamics, artificial 
-intelligence, and machine learning technologies, honing transferable 
-entrepreneurial skills in innovation, project management, negotiation, and 
-thought leadership. Notably, a 2020 Nature study highlights that language 
-aptitude, rather than mathematics, best predicts programming mastery, aligning 
-with my analytical background for tech entrepreneurship. See study: 
-https://www.nature.com/articles/s41598-020-60661-8
+Accelerated to Senior Associate 3–5 years ahead of industry norms at boutique firm 
+Sujata Chaudhri IP Attorneys (SCIP) by delivering standout results in high-profile 
+litigation—including successfully prosecuting and securing an interim injunction in 
+the landmark Rubik's Cube trade dress case that set precedent for toy IP protection 
+in India—while leading firm-building initiatives such as full website migration to 
+WordPress, establishing a sustainable attorney blogging system for thought 
+leadership, and publishing interdisciplinary advocacy integrating neuroscience into 
+trademark law arguments.
 
-Promoted to Senior Associate at SCIP in 2018, 3–5 years ahead of industry 
-norms-I excelled in complex projects like high-profile injunctions, led 
-initiatives such as website revamps and content systems, mentored teams, and 
-pioneered interdisciplinary advocacy, accelerating personal growth in 
-leadership and strategy that directly supported later indie hacking and 
-startup ventures.
+At Rahul Chaudhry & Partners (RCYP, 2019–2022), resolved hundreds of trademark 
+disputes through pre-litigation mediations, saving clients significant time and 
+legal costs by negotiating favourable out-of-court settlements in the majority of 
+cases, drafting airtight agreements, leveraging precedents effectively, and 
+seamlessly escalating to litigation when required-sharpening high-stakes negotiation, 
+client management, and strategic decision-making skills directly transferable to 
+startup deal-making and risk mitigation.
 
-At RCYP (2019–2022), I negotiated hundreds of pre-litigation mediations 
-between IP disputants, resolving most out of court to optimize efficiency and 
-costs while drafting agreements, leveraging precedents, and pivoting to 
-formal actions when needed, thereby building high-stakes negotiation 
-expertise and client relationship management skills essential for 
-entrepreneurial deal-making.
-
-See: https://spicyip.com/2016/10/a-game-of-puzzle-cubes-justice-
-manmohan-singh-rules-on-trade-dress-in-the-rubiks-cube.html and 
-https://www.sc-ip.in/post/the-delhi-high-court-is-now-factoring-in-
-neuroscience-research-while-granting-injunctions-in-tradema#:~:text
-=On%20June%2025%2C%202018%2C%20in,Address%20Trademark%20Disputes%E2
-%80%9D%2C%20Ryan%20Wilson
+These experiences built deep insight into modern business dynamics, AI/ML 
+technologies, and IP strategy, while honing transferable strengths in innovation, 
+project leadership, and analytical rigor—validated by research showing 
+language-trained professionals (like lawyers) often excel in programming aptitude 
+(see 2020 Nature study: https://www.nature.com/articles/s41598-020-60661-8).
 
 ## Marketing Associate, Rainmaker (April 2015 - November 2015)
 
-First job. Worked on email marketing campaigns using GUI tools, organized a
-marketing quiz for law school kids, learned basic HTML to help me make pretty
-emails. Realized I could be 100x more efficient if I dedicated my self fully to 
-the art and science of programming. Start up burnt too much cash too fast in a
-bad business cycle, and went operationally dead within 6 months. Got to observe 
-first hand tough decisions start up leadership need to make when funding dries 
-up (lay offs, motivating employess to work despite paying half salaries, etc.).
+Drove measurable marketing impact in my first professional role at an early-stage 
+startup by boosting email open rates and engagement through personalized, A/B-tested 
+campaigns in Mailchimp (crafted compelling subject lines, segmentation, and custom 
+HTML-enhanced designs), curating authentic customer testimonials that built trust 
+and lifted website conversion rates, and executing a high-energy on-campus quiz 
+event for 300+ law students that amplified brand visibility and generated leads via 
+strong event design, team coordination, and live audience management.
+
+Gained early, invaluable exposure to the full startup lifecycle-including the harsh 
+realities of cash burn and operational shutdown within six months-observing 
+leadership navigate layoffs, delayed salaries, and crisis decisions firsthand. This 
+built deep resilience to business uncertainty, crystallized an acknowledgment of the 
+power of coding for 100x efficiency gains (sparking my self-taught programming 
+journey and eventual career pivot), and laid the foundation for a builder mindset 
+that thrives in high-risk, resource-constrained environments.
 
 ## Academic Background
 
@@ -130,31 +132,38 @@ up (lay offs, motivating employess to work despite paying half salaries, etc.).
 - 2015: B.A. LL.B. (Hons.), Dr. Ram Manohar Lohia National Law University, 
         Lucknow 
 
-## Open Source 
+## Open Source
 
-With over 117 Github repos, I would highlight the following:
+Built projects with 117+ GitHub repositories as a commitment to craftsmanship,
+self-directed learning, and building power-user tools that solve real pain 
+points in programming, data analysis, and productivity. Highlights include:
 
-a. rtutor: Inspired by the classic gtypist tool (which I used to learn touch 
-typing) and the classic unix 'man pages', built to access and organize my 
-learnings, refine programming taste, improve my ability to identify AI slop in 
-AI-generated code snippets, and practice touch typing across assembly, python, 
-C lang, and SQL. See: [rtutor](https://github.com/ryangerardwilson/rtutor).
+a. rtutor: Sharpened programming intuition and built resilience against 
+AI-generated code slop by creating a terminal-based learning environment inspired 
+by gtypist and Unix man pages—enabling structured access to personal notes, 
+deliberate practice of touch typing, and refined taste across Assembly, Python, C, 
+and SQL; serves as the spiritual successor to my earlier Rust data-science 
+explorations. See: [rtutor](https://github.com/ryangerardwilson/rtutor).
 
-b. vios: Inspired from the classic 'emacs-os' computing experience, a
-terminal-based interface that makes it easy (and snappy) to navigate through
-the file system, create, delete, rename, cut, paste - files and directories,
-besides opening files in vim, and pdfs in zathura. Serves as my IDE, when I
-need to work on projects that involve a complex tree of dirs and sub-dirs. See:
-[vios](https://github.com/ryangerardwilson/vios).
+b. vios: Achieved lightning-fast, distraction-free development workflows through 
+a custom terminal-based “operating system” inspired by the classic Emacs 
+experience—providing snappy file system navigation, Vim integration for editing, 
+Zathura for PDFs, and seamless create/delete/rename/cut/paste operations; 
+functions as my primary IDE for complex, multi-directory projects. 
+See: [vios](https://github.com/ryangerardwilson/vios).
 
-c. rgwml: Built at a time when I found Python's data model confusing and was
-intrigued by Rust, I challenged myself to understand what happens 'under the
-hood' in common data science/ machine learning operations in the Python/Pandas,
-by re-writing whatever I found useful in Pandas - to Rust. This Rust library
-got over 300,000 downloads. See: [RGWML](https://crates.io/search?q=rgwml).
-Over time, as my programming intuition deepended, I stopped using the library
-as a 'crutch', and pivoted to 'raw-dogging' data analysis in the Python REPL.
-rtutor (point a. above) can be considered rgwml's 'spiritual-successor'.
+c. vixl: Replicating 80% of spreadsheet power inside the terminal with Vim-like 
+motions (normal, insert, visual modes) for navigating and editing live Pandas 
+DataFrames—delivering a lightweight, keyboard-driven alternative to traditional 
+GUI tools like Excel for rapid data exploration and manipulation. 
+See: [vixl](https://github.com/ryangerardwilson/vixl).
+
+d. rgwml: Gained deep under-the-hood mastery of Python/Pandas data-science 
+operations by re-implementing key functionality in Rust during early learning 
+phases—resulting in a widely adopted library with over 300,000 downloads that 
+strengthened systems-level intuition and laid the groundwork for raw, 
+high-performance data analysis directly in the Python REPL. 
+See: [RGWML](https://crates.io/search?q=rgwml).
 
 ## Certifications
 
