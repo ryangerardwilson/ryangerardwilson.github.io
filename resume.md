@@ -25,11 +25,11 @@ that eliminate friction and amplify personal productivity.
 At its core, includes my self-engineered hyper-efficient, distraction-free 
 development environment on Arch Linux powered by my custom terminal-based system 
 -delivering snappy file navigation, Vim-centric editing, and seamless workflow 
-automation via tailored bash scripts that maximize CLI productivity. I have 
-shipped production-grade applications across Python, Rust, PHP, JavaScript, 
-Laravel, Node.js, Next.js, React, Tailwind, Flask, FastAPI, and Flutter, - and 
-consider myself language-agnostic but rooted in the idea of constantly
-deepening my grasp of assembly, K&R C, and Python.
+automation via tailored bash scripts that minimize GUI dependence and maximize 
+CLI productivity. I have shipped production-grade applications across Python, 
+Rust, PHP, JavaScript, Laravel, Node.js, Next.js, React, Tailwind, Flask, 
+FastAPI, and Flutter, - and consider myself language-agnostic but rooted in the 
+idea of constantly deepening my grasp of assembly, K&R C, and Python.
 
 ## Entrepreneur-in-Residence, Wiom (October 2022 - Present)
 
