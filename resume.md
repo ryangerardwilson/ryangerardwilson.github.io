@@ -2,17 +2,17 @@
 
 ## Summary
 
-I'm a hands-on individual contributor who ships fast in startups, bridging 
-business needs and production code. I build and iterate on lightweight 
-statistical and ML solutions that deliver real impact—like 20%+ gains in supply 
+I'm a hands-on individual contributor who ships fast in startups, bridging
+business needs and production code. I build and iterate on lightweight
+statistical and ML solutions that deliver real impact—like 20%+ gains in supply
 efficiency or getting ML models into production for the first time.
 
-Background spans 10 years: intellectual property litigation, three solo full-stack 
-founder stints (indie hacking from scratch), and scaling operations in high-growth 
-companies.
+Background spans 10 years: intellectual property litigation, three solo full-
+stack founder stints (indie hacking from scratch), and scaling operations in
+high-growth companies.
 
-Passionate about crafting ultra-efficient developer tools and power-user systems 
-that eliminate friction and amplify personal productivity.
+Passionate about crafting ultra-efficient developer tools and power-user
+systems that eliminate friction and amplify personal productivity.
 
 - Website   : ryangerardwilson.com
 - X/Twitter : https://x.com/ryan_improvises
@@ -23,95 +23,99 @@ that eliminate friction and amplify personal productivity.
 
 ## Core Tech Stack
 
-At its core, includes my self-engineered hyper-efficient, distraction-free 
-terminal-first-for-everything development environment on Arch Linux -delivering 
-snappy file navigation, Vim-centric editing, and seamless workflow automation via 
-tailored bash scripts that minimize GUI dependence and maximize CLI productivity. 
-I have shipped production-grade applications across Python, Rust, PHP, JavaScript, 
-Laravel, Node.js, Next.js, React, Tailwind, Flask, FastAPI, and Flutter, - and 
-consider myself language-agnostic but rooted in the idea of constantly deepening 
-my grasp of assembly, K&R C, and Python.
+At its core, includes my self-engineered hyper-efficient, distraction-free
+terminal-first-for-everything development environment on Arch Linux -delivering
+snappy file navigation, Vim-centric editing, and seamless workflow automation
+via tailored bash scripts that minimize GUI dependence and maximize CLI
+productivity. I have shipped production-grade applications across Python, Rust,
+PHP, JavaScript, Laravel, Node.js, Next.js, React, Tailwind, Flask, FastAPI,
+and Flutter, - and consider myself language-agnostic but rooted in the idea of
+constantly deepening my grasp of assembly, K&R C, and Python.
 
 ## Entrepreneur-in-Residence, Wiom (October 2022 - Present)
 
-At Wiom, I'm on a two-person Decision Sciences team (out of Product) that 
-clarifies vague problems, resists premature coding, simplifies ruthlessly, ships 
-fast to production, track real metrics, and iterate or pivot decisively.  Key 
-projects include:
+At Wiom, I'm on a two-person Decision Sciences team (out of Product) that
+clarifies vague problems, resists premature coding, simplifies ruthlessly,
+ships fast to production, track real metrics, and iterate or pivot decisively.
+Key projects include:
 
-a. Genie (2025): Boosted supply efficiency 20% (15% from rewrite + 5% from ML). 
-Revamped the core lead-matching engine for faster, more reliable servicing—better 
-logic, serviceability checks, and partner timing. Reverse-engineered and 
-redeployed an undocumented legacy algorithm with zero downtime post-creator exit.
-Then productionized Wiom's first ML model: refactored a messy Jupyter GNN 
-prototype into clean Python classes, separated business rules, and added a 
-control API for non-tech teams to tweak in minutes—no redeploys needed. 
+a. Genie (2025): Boosted supply efficiency 20% (15% from rewrite + 5% from ML).
+Revamped the core lead-matching engine for faster, more reliable
+servicing—better logic, serviceability checks, and partner timing. Reverse-
+engineered and redeployed an undocumented legacy algorithm with zero downtime
+post-creator exit. Then productionized Wiom's first ML model: refactored a
+messy Jupyter GNN prototype into clean Python classes, separated business
+rules, and added a control API for non-tech teams to tweak in minutes—no
+redeploys needed.
 
-b. CRM Forge (2024): Slashed technical debt >90% and cut CRM deployments from 
-weeks to <1 hour, enabling rapid experimentation. Built a lean platform (~7k LOC) 
-that provisions custom workflows via JSON configs in 2–3 minutes, replacing five 
-legacy systems (~100k LOC total). Let teams align and ship tailored solutions in 
-hours.
+b. CRM Forge (2024): Slashed technical debt >90% and cut CRM deployments from
+weeks to <1 hour, enabling rapid experimentation. Built a lean platform (~7k
+LOC) that provisions custom workflows via JSON configs in 2–3 minutes,
+replacing five legacy systems (~100k LOC total). Let teams align and ship
+tailored solutions in hours.
 
-c. Happy (2023): Cut call-center dependency ~5x while improving customer outcomes 
-and agent experience. Built a telephony bot + lightweight CRM for escalations, 
-plus a Hindi/Hinglish AI chatbot delivering brand-consistent scripts 
-instantly—faster resolutions, less agent frustration, consistent quality during 
-spikes.
+c. Happy (2023): Cut call-center dependency ~5x while improving customer
+outcomes and agent experience. Built a telephony bot + lightweight CRM for
+escalations, plus a Hindi/Hinglish AI chatbot delivering brand-consistent
+scripts instantly—faster resolutions, less agent frustration, consistent
+quality during spikes.
 
-Beyond core work: Used my tech/IP/corporate law background to define Wiom's IP 
-strategy, protect innovations, and support fundraising (pitch deck refinements, 
+Beyond core work: Used my tech/IP/corporate law background to define Wiom's IP
+strategy, protect innovations, and support fundraising (pitch deck refinements,
 investor legal diligence).
 
 ## Solo IndieHacker (June 2021 - September 22)
 
-Built and launched three full-stack Laravel products (SLTYE, Equity's Darlings, 
-LavendOrb) from scratch while bootstrapping under tight constraints—including a 
+Built and launched three full-stack Laravel products (SLTYE, Equity's Darlings,
+LavendOrb) from scratch while bootstrapping under tight constraints—including a
 high-risk credit card loan. Handled the full cycle: market research, backend/
-frontend dev, landing page copy, branding, domain/trademark checks, and direct 
-sales via 50+ networking events. 
+frontend dev, landing page copy, branding, domain/trademark checks, and direct
+sales via 50+ networking events.
 
-The grind forced me to wear both builder and seller hats-turning it into a 
+The grind forced me to wear both builder and seller hats-turning it into a
 crash-course MBA in resilience, sales, finance, and shipping real products.
 
 ## Intellectual Property & IP/Tech Lawyer (December 2015 - April 2022)
 
-Promoted to Senior Associate 3–5 years ahead of peers at boutique firm Sujata 
-Chaudhri IP Attorneys (SCIP) through strong performance in high-stakes litigation. 
-Key highlight: helped secure an interim injunction in the landmark 2016 Rubik's 
-Cube trade dress case (Seven Towns v. Kiddiland), which reinforced protections for 
-toy IP in India. Also drove firm initiatives: migrated the full website to 
-WordPress, built a sustainable attorney blogging system for thought leadership, 
-and crafted novel arguments blending neuroscience with trademark law.
+Promoted to Senior Associate 3–5 years ahead of peers at boutique firm Sujata
+Chaudhri IP Attorneys (SCIP) through strong performance in high-stakes
+litigation. Key highlight: helped secure an interim injunction in the landmark
+2016 Rubik's Cube trade dress case (Seven Towns v. Kiddiland), which reinforced
+protections for toy IP in India. Also drove firm initiatives: migrated the full
+website to WordPress, built a sustainable attorney blogging system for thought
+leadership, and crafted novel arguments blending neuroscience with trademark
+law.
 
-At Rahul Chaudhary & Partners (2019–2022): Handled hundreds of trademark disputes, 
-resolving most via pre-litigation mediations and favorable settlements—saving 
-clients substantial time and costs. Drafted robust agreements, leveraged 
-precedents, managed clients in high-pressure scenarios, and litigated when needed. 
-Honed negotiation, strategy, and risk assessment skills directly applicable to 
-startups.
+At Rahul Chaudhary & Partners (2019–2022): Handled hundreds of trademark
+disputes, resolving most via pre-litigation mediations and favorable
+settlements—saving clients substantial time and costs. Drafted robust
+agreements, leveraged precedents, managed clients in high-pressure scenarios,
+and litigated when needed. Honed negotiation, strategy, and risk assessment
+skills directly applicable to startups.
 
-These roles deepened expertise in tech/AI/ML IP dynamics and business strategy, 
-while building strengths in analytical rigor, innovation, and leadership. Backed 
-by research: a 2020 study found natural language aptitude (key in legal training) 
-strongly predicts success in learning programming languages like Python (see 2020 
-Nature study: https://www.nature.com/articles/s41598-020-60661-8)
+These roles deepened expertise in tech/AI/ML IP dynamics and business strategy,
+while building strengths in analytical rigor, innovation, and leadership.
+Backed by research: a 2020 study found natural language aptitude (key in legal
+training) strongly predicts success in learning programming languages like
+Python (see 2020 Nature study:
+https://www.nature.com/articles/s41598-020-60661-8)
 
 ## Marketing Associate, Rainmaker (April 2015 - November 2015)
 
-Drove higher email open rates and engagement via personalized, A/B-tested Mailchimp 
-campaigns (sharp subject lines, tight segmentation, custom HTML designs). Curated 
-genuine customer testimonials that built trust and increased site conversions. Ran 
-a high-energy on-campus quiz for 300+ law students, boosting brand visibility and 
-capturing leads through solid event planning, team coordination, and live crowd 
-handling.
+Drove higher email open rates and engagement via personalized, A/B-tested
+Mailchimp campaigns (sharp subject lines, tight segmentation, custom HTML
+designs). Curated genuine customer testimonials that built trust and increased
+site conversions. Ran a high-energy on-campus quiz for 300+ law students,
+boosting brand visibility and capturing leads through solid event planning,
+team coordination, and live crowd handling.
 
-Got front-row exposure to the full startup lifecycle, including its brutal end: 
-the company shut down within six months. Saw leadership manage cash burn, delayed 
-salaries, layoffs, and tough calls up close. The experience forged resilience to 
-uncertainty, highlighted coding’s potential for massive efficiency leverage 
-(kickstarting my self-taught programming path and eventual career shift), and 
-cemented a builder mindset that thrives in high-risk, lean environments.
+Got front-row exposure to the full startup lifecycle, including its brutal end:
+the company shut down within six months. Saw leadership manage cash burn,
+delayed salaries, layoffs, and tough calls up close. The experience forged
+resilience to uncertainty, highlighted coding’s potential for massive
+efficiency leverage (kickstarting my self-taught programming path and eventual
+career shift), and cemented a builder mindset that thrives in high-risk, lean
+environments.
 
 ## Academic Background
 
@@ -121,31 +125,31 @@ cemented a builder mindset that thrives in high-risk, lean environments.
 
 ## Open Source
 
-I build power-user tools that solve real pain points in programming, data 
+I build power-user tools that solve real pain points in programming, data
 analysis, and productivity. Highlights include:
 
-a. rt: A terminal-based learning environment (inspired by gtypist and Unix man 
-pages) built to sharpen programming intuition and build defenses against 
-low-quality AI-generated code. Supports structured personal notes, deliberate 
-touch-typing practice, and targeted exercises in Assembly, Python, C, and SQL. 
-Spiritual successor to my earlier Rust data-science experiments.
-See: [rt](https://github.com/ryangerardwilson/rt).
+a. rt: A terminal-based learning environment (inspired by gtypist and Unix man
+pages) built to sharpen programming intuition and build defenses against low-
+quality AI-generated code. Supports structured personal notes, deliberate
+touch-typing practice, and targeted exercises in Assembly, Python, C, and SQL.
+Spiritual successor to my earlier Rust data-science experiments. See:
+[rt](https://github.com/ryangerardwilson/rt).
 
-b. o: A custom terminal “OS” for lightning-fast, distraction-free workflows, 
-echoing the classic Emacs experience. Handles snappy filesystem navigation, Vim 
-editing, Zathura PDF viewing, and fluid file operations. My go-to IDE for big, 
+b. o: A custom terminal “OS” for lightning-fast, distraction-free workflows,
+echoing the classic Emacs experience. Handles snappy filesystem navigation, Vim
+editing, Zathura PDF viewing, and fluid file operations. My go-to IDE for big,
 multi-directory projects. See: [o](https://github.com/ryangerardwilson/o).
 
-c. vixl: A recent project in its nascent stages that aims to pack ~80% of 
-spreadsheet power into the terminal with Vim-like modes (normal, insert, visual) 
-for navigating and editing live Pandas DataFrames. Lightweight, keyboard-driven 
-alternative to Excel for fast data exploration and manipulation.
-See: [vixl](https://github.com/ryangerardwilson/vixl).
+c. vixl: A recent project in its nascent stages that aims to pack ~80% of
+spreadsheet power into the terminal with Vim-like modes (normal, insert,
+visual) for navigating and editing live Pandas DataFrames. Lightweight,
+keyboard-driven alternative to Excel for fast data exploration and
+manipulation. See: [vixl](https://github.com/ryangerardwilson/vixl).
 
-d. rgwml: Warmed up to low-level data-science ops by re-implementing core 
-Python/Pandas patterns in Rust early in my learning. Result: a high-performance 
-Rust crate for ML/AI tasks with Python bindings, now widely used in the community.
-See: [RGWML](https://crates.io/search?q=rgwml).
+d. rgwml: Warmed up to low-level data-science ops by re-implementing core
+Python/Pandas patterns in Rust early in my learning. Result: a high-performance
+Rust crate for ML/AI tasks with Python bindings, now widely used in the
+community. See: [RGWML](https://crates.io/search?q=rgwml).
 
 ## Certifications
 
@@ -177,4 +181,3 @@ emy.com/certificate/UC-259b659a-1228-472d-9680-7e3c14235c85/)
 /UC-7db57ec6-a996-4996-803b-874e0f640d05/)
 - [PHP with Laravel for beginners - Become a Master in Laravel](https://www.ud
 emy.com/certificate/UC-41c9c4c3-5f70-4cf8-91e8-5ec0a3395864/)
-
