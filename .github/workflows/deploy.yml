@@ -1,0 +1,55 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install reportlab
+
+      - name: Generate site bundle
+        run: |
+          mkdir -p site/assets/css site/assets/js site/assets/docs
+          cp index.html site/index.html
+          cp assets/css/main.css site/assets/css/main.css
+          cp assets/js/main.js site/assets/js/main.js
+          cp assets/docs/*.md site/assets/docs/
+          python scripts/md_to_pdf.py assets/docs/resume.md site/assets/docs/resume.pdf
+          python scripts/md_to_pdf.py assets/docs/my_story.md site/assets/docs/my_story.pdf
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
