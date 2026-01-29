@@ -124,17 +124,17 @@ cemented a builder mindset that thrives in high-risk, lean environments.
 I build power-user tools that solve real pain points in programming, data 
 analysis, and productivity. Highlights include:
 
-a. rtutor: A terminal-based learning environment (inspired by gtypist and Unix man 
+a. rt: A terminal-based learning environment (inspired by gtypist and Unix man 
 pages) built to sharpen programming intuition and build defenses against 
 low-quality AI-generated code. Supports structured personal notes, deliberate 
 touch-typing practice, and targeted exercises in Assembly, Python, C, and SQL. 
 Spiritual successor to my earlier Rust data-science experiments.
-See: [rtutor](https://github.com/ryangerardwilson/rtutor).
+See: [rt](https://github.com/ryangerardwilson/rt).
 
-b. vios: A custom terminal “OS” for lightning-fast, distraction-free workflows, 
+b. o: A custom terminal “OS” for lightning-fast, distraction-free workflows, 
 echoing the classic Emacs experience. Handles snappy filesystem navigation, Vim 
 editing, Zathura PDF viewing, and fluid file operations. My go-to IDE for big, 
-multi-directory projects. See: [vios](https://github.com/ryangerardwilson/vios).
+multi-directory projects. See: [o](https://github.com/ryangerardwilson/o).
 
 c. vixl: A recent project in its nascent stages that aims to pack ~80% of 
 spreadsheet power into the terminal with Vim-like modes (normal, insert, visual) 
