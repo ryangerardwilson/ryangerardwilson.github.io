@@ -11,6 +11,28 @@ body {
     animation: scan 1s linear infinite;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0px, rgba(255, 255, 255, 0.04) 1px, transparent 1px, transparent 3px);
+    opacity: 0.08;
+    mix-blend-mode: screen;
+    animation: jitter 2.5s steps(60) infinite;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 60%),
+                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 55%);
+    opacity: 0.1;
+    animation: pulse 4s ease-in-out infinite;
+}
+
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -50,5 +72,26 @@ p {
     }
     100% {
         background-position: 0 2px;
+    }
+}
+
+@keyframes jitter {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(1px, -1px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.05;
+    }
+    50% {
+        opacity: 0.15;
     }
 }

@@ -4,13 +4,12 @@ console.log("Hello from main.js! Typewriter effect tuned – links now reveal af
 function typeWriter(element, text, baseSpeed = 100, callback) {
     element.classList.remove('hidden'); // Reveal the element
     let i = 0;
-    element.innerHTML = ''; // Ensure it's clear
-    element.style.borderRight = '2px solid #ddd'; // Blinking cursor
+    element.textContent = ''; // Ensure it's clear
 
     function type() {
         if (i < text.length) {
             const currentChar = text.charAt(i);
-            element.innerHTML = text.substring(0, i + 1) + '<span class="cursor"></span>';
+            element.textContent = text.substring(0, i + 1);
             i++;
 
             let delay = baseSpeed;
@@ -24,7 +23,7 @@ function typeWriter(element, text, baseSpeed = 100, callback) {
 
             setTimeout(type, delay);
         } else {
-            element.style.borderRight = 'none'; // Remove cursor
+            element.textContent = text; // Finalize text
             if (callback) callback();
         }
     }
