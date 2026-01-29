@@ -128,25 +128,31 @@ environments.
 I build power-user tools that solve real pain points in programming, data
 analysis, and productivity. Highlights include:
 
-a. rt: A terminal-based learning environment (inspired by gtypist and Unix man
-pages) built to sharpen programming intuition and build defenses against low-
-quality AI-generated code. Supports structured personal notes, deliberate
-touch-typing practice, and targeted exercises in Assembly, Python, C, and SQL.
-Spiritual successor to my earlier Rust data-science experiments. See:
+a. xyz: A vim-first, terminal-native task tracker built on a sharper 
+Jobs-to-Be-Done habit. It helps you write outcome statements that steer 
+product, comms, and ops toward non-linear growth instead of busywork progress 
+tracking.
+[xyz](https://github.com/ryangerardwilson/xyz).
+
+b. rt: A terminal-based learning environment inspired by gtypist and Unix man 
+pages, sharpening programming intuition and defenses against low-quality 
+AI-generated code, with structured notes, touch-typing practice
 [rt](https://github.com/ryangerardwilson/rt).
 
-b. o: A custom terminal “OS” for lightning-fast, distraction-free workflows,
-echoing the classic Emacs experience. Handles snappy filesystem navigation, Vim
-editing, Zathura PDF viewing, and fluid file operations. My go-to IDE for big,
-multi-directory projects. See: [o](https://github.com/ryangerardwilson/o).
+c. o: A lightweight, Vim-inspired directory browser for your terminal. 
+Navigate directories, open files in your preferred editor, create new files, 
+yank/cut/ paste, and launch terminals — all from a fast curses interface. Has 
+a "Matrix" inspired view where each filesystem entry appears as a falling 
+column; you can toggle back to the classic list view whenever you like.
+See: [o](https://github.com/ryangerardwilson/o).
 
-c. vixl: A recent project in its nascent stages that aims to pack ~80% of
+d. vixl: A recent project in its nascent stages that aims to pack ~80% of
 spreadsheet power into the terminal with Vim-like modes (normal, insert,
 visual) for navigating and editing live Pandas DataFrames. Lightweight,
 keyboard-driven alternative to Excel for fast data exploration and
 manipulation. See: [vixl](https://github.com/ryangerardwilson/vixl).
 
-d. rgwml: Warmed up to low-level data-science ops by re-implementing core
+e. rgwml: Warmed up to low-level data-science ops by re-implementing core
 Python/Pandas patterns in Rust early in my learning. Result: a high-performance
 Rust crate for ML/AI tasks with Python bindings, now widely used in the
 community. See: [RGWML](https://crates.io/search?q=rgwml).
