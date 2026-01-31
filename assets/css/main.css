@@ -422,151 +422,73 @@ p {
     color: rgba(255, 255, 255, 0.9);
 }
 
-.timeline-wrapper {
-    position: relative;
-    margin-top: 48px;
-    height: min(65vh, 560px);
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.9) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 18px;
-    overflow: hidden;
-}
-
-.timeline-wrapper.reduce-motion {
-    height: auto;
-}
-
-.timeline-wrapper.reduce-motion .timeline {
-    scroll-snap-type: none;
-}
-
-.timeline-wrapper.reduce-motion .timeline-entry {
-    opacity: 1;
-    transform: none;
-}
-
-.timeline-wrapper.reduce-motion .timeline-progress {
-    display: none;
-}
-
-.timeline-edge {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 120px;
-    pointer-events: none;
-    z-index: 2;
-}
-
-.timeline-edge.top {
-    top: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0) 100%);
-}
-
-.timeline-edge.bottom {
-    bottom: 0;
-    background: linear-gradient(360deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0) 100%);
-}
 
 .timeline {
+    --timeline-offset: 48px;
+    --axis-offset: 18px;
+    --dot-diameter: 16px;
     position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 80px 48px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scroll-snap-type: y mandatory;
-    scroll-padding: 80px;
-    scrollbar-width: none;
-}
-
-.timeline::-webkit-scrollbar {
-    display: none;
-}
-
-.timeline::before,
-.timeline::after {
-    content: "";
-    position: absolute;
-    left: 48px;
-    right: 48px;
-    height: 36px;
-    background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 6px, transparent 6px 12px);
-    opacity: 0.18;
-    pointer-events: none;
+    display: grid;
+    gap: 28px;
+    margin-top: 48px;
+    padding-left: var(--timeline-offset);
 }
 
 .timeline::before {
+    content: "";
+    position: absolute;
+    left: var(--axis-offset);
     top: 0;
-}
-
-.timeline::after {
     bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(100, 245, 208, 0.35) 0%, rgba(16, 200, 255, 0.25) 100%);
 }
 
 .timeline-entry {
     position: relative;
-    scroll-snap-align: center;
     display: grid;
-    grid-template-columns: minmax(100px, 140px) 1fr;
+    grid-template-columns: minmax(110px, 140px) 1fr;
     gap: 24px;
-    align-items: start;
-    opacity: 0.35;
-    transform: translateY(24px) scale(0.96);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    outline: none;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.timeline-entry::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--axis-offset) - var(--timeline-offset) - (var(--dot-diameter) / 2));
+    top: 8px;
+    width: var(--dot-diameter);
+    height: var(--dot-diameter);
+    background: rgba(124, 232, 255, 0.85);
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 16px rgba(124, 232, 255, 0.35);
 }
 
 .timeline-entry.is-visible {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
 }
 
 .timeline-stamp {
-    font-size: 0.8em;
+    font-size: 0.82em;
     letter-spacing: 0.12em;
     color: rgba(124, 232, 255, 0.8);
     text-transform: uppercase;
-    padding-top: 6px;
+    padding-top: 4px;
 }
 
 .timeline-card {
-    position: relative;
-    background: rgba(0, 0, 0, 0.78);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
-    padding: 26px 32px;
-    overflow: hidden;
+    background: rgba(0, 0, 0, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 24px 28px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    min-height: 180px;
-}
-
-.timeline-card::before,
-.timeline-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 12px;
-    background-image: radial-gradient(circle at 6px 12px, rgba(255, 255, 255, 0.25) 0%, transparent 55%),
-                      radial-gradient(circle at 6px 32px, rgba(255, 255, 255, 0.2) 0%, transparent 55%),
-                      radial-gradient(circle at 6px 52px, rgba(255, 255, 255, 0.2) 0%, transparent 55%),
-                      radial-gradient(circle at 6px 72px, rgba(255, 255, 255, 0.2) 0%, transparent 55%);
-    background-size: 12px 96px;
-    background-repeat: repeat-y;
-    opacity: 0.38;
-}
-
-.timeline-card::before {
-    left: 14px;
-}
-
-.timeline-card::after {
-    right: 14px;
+    gap: 14px;
 }
 
 .timeline-card header {
@@ -578,7 +500,7 @@ p {
 .timeline-card ul {
     margin: 0;
     padding-left: 18px;
-    color: rgba(255, 255, 255, 0.72);
+    color: rgba(255, 255, 255, 0.74);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -586,25 +508,6 @@ p {
 
 .timeline-card li {
     line-height: 1.5;
-}
-
-.timeline-progress {
-    position: absolute;
-    top: 60px;
-    bottom: 60px;
-    right: 32px;
-    width: 4px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 999px;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.timeline-progress-bar {
-    width: 100%;
-    height: 0;
-    background: linear-gradient(180deg, rgba(100, 245, 208, 0.8) 0%, rgba(124, 232, 255, 0.8) 100%);
-    transition: height 0.3s ease;
 }
 
 .resume-grid {
@@ -750,25 +653,20 @@ p {
         flex-direction: column;
     }
 
-    .timeline-wrapper {
-        margin-left: -20px;
-        margin-right: -20px;
-        border-radius: 0;
-        height: min(70vh, 520px);
-    }
-
     .timeline {
-        padding: 60px 24px;
-        gap: 18px;
+        --timeline-offset: 32px;
+        --axis-offset: 14px;
+        padding-left: var(--timeline-offset);
+        gap: 20px;
     }
 
     .timeline-entry {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 12px;
     }
 
-    .timeline-progress {
-        right: 18px;
+    .timeline-entry::before {
+        top: 4px;
     }
 
     .resume-pane {
@@ -812,27 +710,15 @@ p {
         opacity: 0.6;
     }
 
-    .timeline-entry,
-    .timeline-entry::before {
-        transition: none;
-    }
-
     .revealed {
         animation: none;
         opacity: 1;
         transform: none;
     }
-}
-.timeline-card::before,
-.timeline-card::after {
-    background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 65%);
-    background-size: 32px 10px;
-}
 
-.timeline-card::before {
-    top: 12px;
-}
-
-.timeline-card::after {
-    bottom: 12px;
+    .timeline-entry {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }

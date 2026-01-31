@@ -9,13 +9,9 @@ let projects = [];
 const cardBootControllers = [];
 let sectionsPrimed = false;
 let timelineObserver;
-let timelineContainer;
-let timelineTrack;
-let timelineProgressBar;
 let globalScrollBound = false;
 let activeScrollDirection = null;
 let scrollIntervalId = null;
-let timelineWrapperEl;
 
 const h1 = document.getElementById('typewriter-h1');
 const p1 = document.getElementById('typewriter-p1');
@@ -56,8 +52,6 @@ function initializeCopy() {
     renderResume(copyData.resume || {});
     renderPhilosophy(copyData.philosophy || {});
     renderTimeline(copyData.timeline || {});
-    cacheTimelineElements();
-    bindTimelineScrollHelpers();
 
     if (!globalScrollBound) {
         document.addEventListener('keydown', handleGlobalScrollKeys, { passive: false });
@@ -255,8 +249,6 @@ function startShowcaseSequence() {
             timelineSection.classList.add('revealed');
         }
         initTimelineObserver();
-        updateTimelineProgress();
-        updateTimelineVisibility();
     }, timelineDelay);
 }
 
@@ -499,7 +491,6 @@ function renderTimeline(timelineCopy) {
         const article = document.createElement('article');
         article.className = 'timeline-entry';
         article.setAttribute('data-timeline', '');
-        article.setAttribute('tabindex', '0');
 
         const stamp = document.createElement('span');
         stamp.className = 'timeline-stamp';
@@ -529,134 +520,6 @@ function renderTimeline(timelineCopy) {
     });
 }
 
-function cacheTimelineElements() {
-    timelineContainer = document.getElementById('timeline-container');
-    if (!timelineContainer) return;
-
-    let wrapper = timelineContainer.closest('.timeline-wrapper');
-    if (!wrapper) {
-        wrapper = document.createElement('div');
-        wrapper.className = 'timeline-wrapper';
-
-        const topEdge = document.createElement('div');
-        topEdge.className = 'timeline-edge top';
-        wrapper.appendChild(topEdge);
-
-        const bottomEdge = document.createElement('div');
-        bottomEdge.className = 'timeline-edge bottom';
-        wrapper.appendChild(bottomEdge);
-
-        timelineContainer.parentNode.insertBefore(wrapper, timelineContainer);
-        wrapper.appendChild(timelineContainer);
-
-        const progress = document.createElement('div');
-        progress.className = 'timeline-progress';
-        const progressBar = document.createElement('div');
-        progressBar.className = 'timeline-progress-bar';
-        progress.appendChild(progressBar);
-        wrapper.appendChild(progress);
-
-        timelineProgressBar = progressBar;
-    } else {
-        timelineProgressBar = wrapper.querySelector('.timeline-progress-bar');
-    }
-
-    timelineWrapperEl = wrapper;
-    timelineTrack = timelineContainer;
-}
-
-function bindTimelineScrollHelpers() {
-    if (!timelineContainer) return;
-
-    const wrapper = timelineWrapperEl || timelineContainer.closest('.timeline-wrapper');
-    if (!wrapper) return;
-
-    const entries = timelineContainer.querySelectorAll('.timeline-entry');
-    if (!entries.length) return;
-
-    if (prefersReducedMotion) {
-        wrapper.classList.add('reduce-motion');
-    } else {
-        wrapper.classList.remove('reduce-motion');
-    }
-
-    timelineTrack = timelineContainer;
-    timelineTrack.addEventListener('scroll', onTimelineScroll, { passive: true });
-    timelineTrack.addEventListener('keydown', handleTimelineKeydown);
-
-    updateTimelineProgress();
-    updateTimelineVisibility();
-}
-
-function onTimelineScroll() {
-    updateTimelineProgress();
-    updateTimelineVisibility();
-}
-
-function handleTimelineKeydown(event) {
-    if (event.key === 'ArrowDown') {
-        event.preventDefault();
-        focusNextTimelineEntry(1);
-    } else if (event.key === 'ArrowUp') {
-        event.preventDefault();
-        focusNextTimelineEntry(-1);
-    }
-}
-
-function focusNextTimelineEntry(direction) {
-    if (!timelineTrack) return;
-    const entries = Array.from(timelineTrack.querySelectorAll('.timeline-entry'));
-    if (!entries.length) return;
-
-    const focused = document.activeElement;
-    let index = entries.indexOf(focused.closest('.timeline-entry'));
-
-    if (index === -1) {
-        index = direction > 0 ? 0 : entries.length - 1;
-    } else {
-        index = (index + direction + entries.length) % entries.length;
-    }
-
-    const target = entries[index];
-    if (!prefersReducedMotion) {
-        target.scrollIntoView({ block: 'center', behavior: 'smooth' });
-        target.focus({ preventScroll: true });
-    } else {
-        target.scrollIntoView({ block: 'center' });
-        target.focus();
-    }
-}
-
-function updateTimelineProgress() {
-    if (!timelineTrack || !timelineProgressBar) return;
-
-    const maxScroll = timelineTrack.scrollHeight - timelineTrack.clientHeight;
-    const progress = maxScroll > 0 ? timelineTrack.scrollTop / maxScroll : 0;
-    timelineProgressBar.style.height = `${Math.min(Math.max(progress, 0), 1) * 100}%`;
-}
-
-function updateTimelineVisibility() {
-    if (!timelineTrack) return;
-    if (prefersReducedMotion) {
-        timelineTrack.querySelectorAll('.timeline-entry').forEach(entry => entry.classList.add('is-visible'));
-        return;
-    }
-    const entries = Array.from(timelineTrack.querySelectorAll('.timeline-entry'));
-    const viewportTop = timelineTrack.scrollTop;
-    const viewportBottom = viewportTop + timelineTrack.clientHeight;
-
-    entries.forEach(entry => {
-        const entryTop = entry.offsetTop;
-        const entryBottom = entryTop + entry.offsetHeight;
-        const visible = entryBottom > viewportTop + 60 && entryTop < viewportBottom - 60;
-        if (visible) {
-            entry.classList.add('is-visible');
-        } else {
-            entry.classList.remove('is-visible');
-        }
-    });
-}
-
 function handleGlobalScrollKeys(event) {
     if (event.defaultPrevented) return;
     if (event.ctrlKey || event.metaKey || event.altKey) return;
@@ -672,6 +535,11 @@ function handleGlobalScrollKeys(event) {
     const direction = event.key === 'j' ? 'down' : event.key === 'k' ? 'up' : null;
     if (!direction) return;
 
+    if (event.repeat && activeScrollDirection === direction) {
+        event.preventDefault();
+        return;
+    }
+
     event.preventDefault();
 
     if (activeScrollDirection !== direction) {
@@ -682,7 +550,7 @@ function handleGlobalScrollKeys(event) {
     performScrollStep(direction, true);
 
     if (!scrollIntervalId) {
-        scrollIntervalId = setInterval(() => performScrollStep(direction, false), 16);
+        scrollIntervalId = setInterval(() => performScrollStep(direction, false), 18);
     }
 }
 
@@ -703,54 +571,12 @@ function cancelContinuousScroll() {
 }
 
 function performScrollStep(direction, allowSmoothWindow) {
-    const baseDelta = Math.max(window.innerHeight * (allowSmoothWindow ? 0.05 : 0.025), allowSmoothWindow ? 40 : 16);
-    const timelineConsumed = tryScrollTimeline(direction, baseDelta, allowSmoothWindow);
+    const baseDelta = Math.max(window.innerHeight * (allowSmoothWindow ? 0.16 : 0.05), allowSmoothWindow ? 90 : 28);
+    const delta = direction === 'down' ? baseDelta : -baseDelta;
 
-    if (!timelineConsumed) {
-        const delta = direction === 'down' ? baseDelta : -baseDelta;
-        if (prefersReducedMotion || !allowSmoothWindow) {
-            window.scrollBy(0, delta);
-        } else {
-            window.scrollBy({ top: delta, behavior: 'smooth' });
-        }
-    }
-}
-
-function tryScrollTimeline(direction, delta, smooth) {
-    if (!timelineTrack || !timelineWrapperEl) return false;
-
-    const rect = timelineWrapperEl.getBoundingClientRect();
-    const viewportHeight = window.innerHeight;
-    const buffer = viewportHeight * 0.12;
-    const engageZoneTop = viewportHeight * 0.35;
-
-    const wrapperInView = rect.top < viewportHeight - buffer && rect.bottom > buffer;
-    if (!wrapperInView) return false;
-
-    if (direction === 'down' && rect.top > engageZoneTop) {
-        return false;
-    }
-    if (direction === 'up' && rect.bottom < viewportHeight - engageZoneTop) {
-        return false;
-    }
-
-    const maxScroll = timelineTrack.scrollHeight - timelineTrack.clientHeight;
-    if (maxScroll <= 0) return false;
-
-    const sign = direction === 'down' ? 1 : -1;
-    const nextScroll = timelineTrack.scrollTop + sign * delta;
-
-    if (sign > 0 && timelineTrack.scrollTop >= maxScroll - 1) return false;
-    if (sign < 0 && timelineTrack.scrollTop <= 1) return false;
-
-    const clamped = Math.max(0, Math.min(maxScroll, nextScroll));
-    if (!prefersReducedMotion && smooth && Math.abs(clamped - timelineTrack.scrollTop) > delta * 0.5) {
-        timelineTrack.scrollTo({ top: clamped, behavior: 'smooth' });
+    if (prefersReducedMotion || !allowSmoothWindow) {
+        window.scrollBy(0, delta);
     } else {
-        timelineTrack.scrollTop = clamped;
+        window.scrollBy({ top: delta, behavior: 'smooth' });
     }
-
-    updateTimelineProgress();
-    updateTimelineVisibility();
-    return true;
 }

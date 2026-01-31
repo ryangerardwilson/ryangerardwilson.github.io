@@ -6,13 +6,13 @@ Lightweight static site built with vanilla HTML, CSS, and JavaScript for a simpl
 - `index.html` – landing page with the typewriter intro and document links.
 - `assets/css/main.css` – terminal-inspired styling.
 - `assets/js/main.js` – typewriter animation controller.
-- `assets/docs/` – Markdown sources (`resume.md`, `my_story.md`).
+- `assets/docs/` – Markdown sources (`resume.md`).
 - `scripts/md_to_pdf.py` – ReportLab-powered converter used by the deployment workflow.
 - `.github/workflows/deploy.yml` – GitHub Actions pipeline that compiles PDFs and publishes the site.
 
 ## Local Preview
 1. Install any static file server. A quick option is Python's built-in module: `python -m http.server 8000`.
-2. Regenerate PDFs locally if needed: `pip install reportlab` followed by `python scripts/md_to_pdf.py assets/docs/resume.md assets/docs/resume.pdf` and the same for `my_story.md`.
+2. Regenerate PDFs locally if needed: `pip install reportlab` followed by `python scripts/md_to_pdf.py assets/docs/resume.md assets/docs/resume.pdf`.
 3. Open `http://localhost:8000/` in a browser and confirm the animation plays and the PDF links resolve.
 
 ## GitHub Pages Deployment
@@ -22,6 +22,6 @@ Lightweight static site built with vanilla HTML, CSS, and JavaScript for a simpl
 4. The live site is available at `https://<username>.github.io/` after each successful workflow run.
 
 ## Updating Content
-- Edit the Markdown files in `assets/docs/`; the workflow will rebuild the PDFs during deployment.
+- Edit `assets/docs/resume.md`; the workflow will rebuild the PDF during deployment.
 - For manual checks before committing, run the converter locally as noted above.
 - Tweak the copy or animation timing in `assets/js/main.js` as needed.

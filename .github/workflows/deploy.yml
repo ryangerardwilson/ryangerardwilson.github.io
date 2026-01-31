@@ -34,9 +34,8 @@ jobs:
           cp index.html site/index.html
           cp assets/css/main.css site/assets/css/main.css
           cp assets/js/main.js site/assets/js/main.js
-          cp assets/docs/*.md site/assets/docs/
+          cp assets/docs/resume.md site/assets/docs/
           python scripts/md_to_pdf.py assets/docs/resume.md site/assets/docs/resume.pdf
-          python scripts/md_to_pdf.py assets/docs/my_story.md site/assets/docs/my_story.pdf
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
