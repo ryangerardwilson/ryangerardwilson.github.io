@@ -1,6 +1,8 @@
 # Ryan Gerard Wilson Site
 
-Lightweight static site built with vanilla HTML, CSS, and JavaScript for a simple GitHub Pages deployment. Markdown sources live alongside a build script that generates the PDFs during the GitHub Pages workflow.
+Lightweight static site built with vanilla HTML, CSS, and JavaScript for a
+simple GitHub Pages deployment. Markdown sources live alongside a build script
+that generates the PDFs during the GitHub Pages workflow.
 
 ## Project Layout
 - `index.html` – landing page with the typewriter intro and document links.

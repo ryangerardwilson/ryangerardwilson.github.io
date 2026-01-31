@@ -128,23 +128,22 @@ environments.
 I build power-user tools that solve real pain points in programming, data
 analysis, and productivity. Highlights include:
 
-a. xyz: A vim-first, terminal-native task tracker built on a sharper 
-Jobs-to-Be-Done habit. It helps you write outcome statements that steer 
-product, comms, and ops toward non-linear growth instead of busywork progress 
-tracking.
+a. xyz: A vim-first, terminal-native task tracker built on a sharper Jobs-to-
+Be-Done habit. It helps you write outcome statements that steer product, comms,
+and ops toward non-linear growth instead of busywork progress tracking.
 [xyz](https://github.com/ryangerardwilson/xyz).
 
-b. rt: A terminal-based learning environment inspired by gtypist and Unix man 
-pages, sharpening programming intuition and defenses against low-quality 
-AI-generated code, with structured notes, touch-typing practice
+b. rt: A terminal-based learning environment inspired by gtypist and Unix man
+pages, sharpening programming intuition and defenses against low-quality AI-
+generated code, with structured notes, touch-typing practice
 [rt](https://github.com/ryangerardwilson/rt).
 
-c. o: A lightweight, Vim-inspired directory browser for your terminal. 
-Navigate directories, open files in your preferred editor, create new files, 
-yank/cut/ paste, and launch terminals — all from a fast curses interface. Has 
-a "Matrix" inspired view where each filesystem entry appears as a falling 
-column; you can toggle back to the classic list view whenever you like.
-See: [o](https://github.com/ryangerardwilson/o).
+c. o: A lightweight, Vim-inspired directory browser for your terminal. Navigate
+directories, open files in your preferred editor, create new files, yank/cut/
+paste, and launch terminals — all from a fast curses interface. Has a "Matrix"
+inspired view where each filesystem entry appears as a falling column; you can
+toggle back to the classic list view whenever you like. See:
+[o](https://github.com/ryangerardwilson/o).
 
 d. vixl: A recent project in its nascent stages that aims to pack ~80% of
 spreadsheet power into the terminal with Vim-like modes (normal, insert,
