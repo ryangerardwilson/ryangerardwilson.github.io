@@ -30,11 +30,12 @@ jobs:
 
       - name: Generate site bundle
         run: |
-          mkdir -p site/assets/css site/assets/js site/assets/docs
+          mkdir -p site/assets/css site/assets/js site/assets/docs site/assets/data
           cp index.html site/index.html
           cp assets/css/main.css site/assets/css/main.css
           cp assets/js/main.js site/assets/js/main.js
           cp assets/docs/resume.md site/assets/docs/
+          cp assets/data/copy.json site/assets/data/copy.json
           python scripts/md_to_pdf.py assets/docs/resume.md site/assets/docs/resume.pdf
 
       - name: Upload artifact

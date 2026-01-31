@@ -5,7 +5,8 @@ Lightweight static site built with vanilla HTML, CSS, and JavaScript for a simpl
 ## Project Layout
 - `index.html` – landing page with the typewriter intro and document links.
 - `assets/css/main.css` – terminal-inspired styling.
-- `assets/js/main.js` – typewriter animation controller.
+- `assets/js/main.js` – typewriter animation controller and copy loader.
+- `assets/data/copy.json` – centralised site copy (hero, projects, timeline, etc.).
 - `assets/docs/` – Markdown sources (`resume.md`).
 - `scripts/md_to_pdf.py` – ReportLab-powered converter used by the deployment workflow.
 - `.github/workflows/deploy.yml` – GitHub Actions pipeline that compiles PDFs and publishes the site.
