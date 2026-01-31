@@ -1,23 +1,12 @@
 {
   "hero": {
     "h1": "Hello, world.",
-    "p1": "I'm Ryan - Catholic, husband, and Wiom's network architect building India's unlimited internet with AI systems.",
-    "p2": "I ship terminal-native tools and automation primitives that keep builders in flow and make data transformations legible.",
-    "p3": "Projects booting..."
-  },
-  "links": {
-    "timeline": {
-      "href": "#story-timeline",
-      "label": "> jump to timeline"
-    },
-    "resume": {
-      "href": "#resume-snapshot",
-      "label": "> jump to resume"
-    }
+    "p1": "I'm Ryan - Catholic, husband, and Wiom's dev/data scientist building India's unlimited internet dream.",
+    "p2": "I love what I do: shipping terminal-native tools and automation primitives that keep builders in flow and make data transformations legible.",
+    "p3": "Booting..."
   },
   "projectsSection": {
-    "title": "Projects Console",
-    "overlay": "initializing console..."
+    "title": "Projects"
   },
   "projects": [
     {
@@ -133,106 +122,76 @@
   ],
   "resume": {
     "title": "Resume Snapshot",
-    "subtitle": "$ curl resume.pdf",
+    "subtitle": "",
     "meta": [
-      { "label": "> focus", "body": "Network architecture, AI/ML deployment, terminal-native product design." },
-      { "label": "> experience", "body": "10+ years shipping internet infrastructure and automation tooling." },
-      { "label": "> current_role", "body": "Principal Architect @ Wiom, building unlimited internet for India." }
+      { "label": "> focus", "body": "Productionalizing AI/ML models via agentic orchestration. Terminal-native product design." },
+      { "label": "> experience", "body": "10+ years of polyglot experience across dev, data science, and intellectual property." },
+      { "label": "> current_role", "body": "Entrepreneur-in-Residence @ Wiom, building unlimited internet for India." }
     ],
     "pane": {
       "name": "Ryan Gerard Wilson",
-      "summary": "Principal Architect focused on AI-powered network scaling, terminal-native experience design, and human-centered infrastructure.",
+      "summary": "Builder. Lover of terminal-native experiences.",
       "ctaLabel": "download resume (PDF)",
-      "ctaHref": "assets/docs/resume.pdf",
+      "ctaHref": "resume.pdf",
       "note": "Updated Jan 2026"
-    }
-  },
-  "philosophy": {
-    "title": "Why Terminal-First?",
-    "lede": "Modal discipline, explicit data control, outcome-first planning, and automation primitives keep teams shipping with taste.",
-    "cards": [
-      { "label": "> modal_flow", "body": "Every tool respects muscle memory - hands stay on home row, focus stays on the job." },
-      { "label": "> explicit_data", "body": "No black boxes. You can audit every transformation and rerun it on demand." },
-      { "label": "> outcome_first", "body": "Backlogs track value, not chores. Align strategy with the growth you actually need." }
-    ]
+    },
+    "avatarUrl": "https://unavatar.io/twitter/ryan_improvises"
   },
   "timeline": {
-    "title": "My Story Timeline",
-    "subtitle": "$ tail -f ./story.log",
+    "title": "My Story",
+    "subtitle": "",
     "entries": [
       {
-        "stamp": "[2026]",
-        "headline": "Unlimited internet for 500 million homes",
+        "stamp": "[2025-26 | 33–34]",
+        "headline": "Married my beautiful wife",
         "bullets": [
-          "Architecting Wiom's AI-first provisioning models across India.",
-          "Partnered with national fiber operators to accelerate rollout velocity."
-        ]
-      },
-      {
-        "stamp": "[2025 | By 33]",
-        "headline": "Deep-tech marathon and marrying my wife",
-        "bullets": [
+          "Married my wife – very beautiful indeed.",
           "Relearned high-school math while shipping md2ltx, GitGuru, and DataSling.",
           "Explored FP vs OOP, built DeathStarPilot, reaffirmed a vim-first workflow.",
-          "Married my wife - centering vocation on faith, family, and service.",
           "Rebuilt personal infra, consolidated automation, delivered Wiom's Genie engine.",
-          "Created rtutor and companion tutor apps to keep coding taste sharp."
+          "Created rt and companion tutor apps to keep coding taste sharp."
         ]
       },
       {
-        "stamp": "[2024 | By 32]",
-        "headline": "Rust explorations and returning to Python pragmatism",
+        "stamp": "[2020-2024 | 28–32]",
+        "headline": "Entrepreneurial rollercoaster to Wiom",
         "bullets": [
-          "Evolved the RGWML library through 250+ releases and shipped CSVBRO.",
-          "Rebuilt the stack in Python as RGWFUNCS and CSVBro to minimize cognitive load.",
+          "Built LegalTech apps, burned savings, learned from a startup crash.",
+          "Joined Wiom's mission; shipped HAPPY and GENIE.",
+          "Deepened craft in Bash, PHP, Python, JS, and Gospel piano.",
+          "Explored Rust for a year before returning to Python's pragmatism.",
           "Proved build-in-production with Python, JS, and SQLite for Wiom's internal CRM."
         ]
       },
       {
-        "stamp": "[2023 | By 31]",
-        "headline": "Wiom Labs and HAPP.AI",
-        "bullets": [
-          "Ran Wiom Labs, building HAPP.AI with Rust concurrency.",
-          "Shipped open tooling to simplify AI/ML workflows through the terminal."
-        ]
-      },
-      {
-        "stamp": "[2020-2022 | 28-30]",
-        "headline": "Entrepreneurial rollercoaster to Wiom",
-        "bullets": [
-          "Built LegalTech apps, burned savings, learned from a startup crash.",
-          "Joined Wiom's mission; shipped HAPPY, DREAM, GURU, and TERMINAL LOVE.",
-          "Deepened craft in Bash, PHP, Python, JS, and Gospel piano."
-        ]
-      },
-      {
-        "stamp": "[2017-2019 | 25-27]",
+        "stamp": "[2017-2019 | 25–27]",
         "headline": "Law, code, and rediscovering craft",
         "bullets": [
           "Rode out COVID disruption while practicing law.",
-          "Learned HTML, CSS, and PHP; rekindled piano disciplines and builder mindset."
+          "Learned PHP; rekindled piano disciplines and builder mindset."
         ]
       },
       {
         "stamp": "[2016 | At 24]",
         "headline": "IP and tech attorney years",
         "bullets": [
-          "Worked as an IP and technology lawyer, studying how systems scale."
+          "Worked as an IP and technology lawyer, observing how labor-driven businesses scale."
         ]
       },
       {
         "stamp": "[2015 | At 23]",
         "headline": "First LegalTech startup crash",
         "bullets": [
-          "Joined a LegalTech startup that folded in six months.",
-          "Logged the value of resilience and sharper product instincts."
+          "Joined a LegalTech startup.",
+          "Ran email marketing campaigns; learned basic HTML.",
+          "Fell in love with the idea that computers can do whatever you tell them to—provided you ask nicely."
         ]
       },
       {
         "stamp": "[2010 | At 18]",
         "headline": "Law school foundations",
         "bullets": [
-          "Joined RMLNLU in Lucknow, grounding discipline and rhetoric."
+          "Joined RMLNLU in Lucknow, grounding discipline in dialect and rhetoric."
         ]
       },
       {
@@ -246,7 +205,7 @@
         "stamp": "[2006 | At 15]",
         "headline": "Challenging the script",
         "bullets": [
-          "Left CBSE science, refusing assembly-line thinking."
+          "Silent-quit CBSE science, refusing assembly-line thinking."
         ]
       },
       {
@@ -257,12 +216,17 @@
         ]
       },
       {
-        "stamp": "[Birth]",
+        "stamp": "[1991 | Birth]",
         "headline": "And so it began",
         "bullets": [
-          "Set on a path of faith, curiosity, and relentless learning."
+          "Baptized Catholic."
         ]
       }
     ]
+  },
+  "footer": {
+    "avatarUrl": "https://unavatar.io/twitter/ryan_improvises",
+    "avatarAlt": "Ryan improvises on X",
+    "resumeHref": "resume.pdf"
   }
 }

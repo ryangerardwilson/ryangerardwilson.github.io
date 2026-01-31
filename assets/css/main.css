@@ -1,13 +1,12 @@
 :root {
-    --accent-vixl: #64f5d0;
-    --accent-o: #8cf060;
-    --accent-rt: #ffb347;
-    --accent-xyz: #f3ff6f;
-    --accent-clipai: #7ce8ff;
+    --accent-vixl: #bcbcbc;
+    --accent-o: #c6c6c6;
+    --accent-rt: #d0d0d0;
+    --accent-xyz: #dadada;
+    --accent-clipai: #e4e4e4;
     --terminal-bg: rgba(0, 0, 0, 0.72);
     --terminal-border: rgba(255, 255, 255, 0.08);
-    --terminal-glow: rgba(10, 255, 200, 0.35);
-    --showcase-overlay-bg: rgba(4, 12, 18, 0.9);
+    --terminal-glow: rgba(200, 200, 200, 0.25);
 }
 
 body {
@@ -72,20 +71,6 @@ p {
     margin-bottom: 15px;
 }
 
-.links {
-    margin-top: 20px;
-}
-
-.links a {
-    color: #0af;
-    text-decoration: none;
-    margin-right: 20px;
-}
-
-.links a:hover {
-    text-decoration: underline;
-}
-
 .section {
     max-width: 1100px;
     margin: 120px auto 0;
@@ -126,12 +111,6 @@ p {
     text-align: center;
 }
 
-.centered-section .philosophy-lede {
-    margin-left: 0;
-    margin-right: auto;
-    text-align: left;
-}
-
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -140,59 +119,6 @@ p {
     z-index: 2;
 }
 
-#projects-console {
-    overflow: hidden;
-}
-
-.showcase-overlay {
-    position: absolute;
-    inset: 16px 20px;
-    background: var(--showcase-overlay-bg);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    opacity: 0;
-    transform: scale(1.02);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    z-index: 5;
-    overflow: hidden;
-}
-
-.showcase-overlay .overlay-text {
-    text-transform: uppercase;
-    letter-spacing: 0.28em;
-    font-size: 0.75em;
-    color: rgba(255, 255, 255, 0.62);
-}
-
-.showcase-overlay .overlay-scan {
-    position: absolute;
-    width: 140%;
-    height: 120px;
-    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.18) 50%, transparent 100%);
-    animation: overlayScan 1.3s linear infinite;
-    mix-blend-mode: screen;
-    opacity: 0.25;
-}
-
-.showcase-overlay.active {
-    opacity: 0.88;
-    transform: scale(1.005);
-}
-
-.showcase-overlay.fade-out {
-    opacity: 0;
-    transform: scale(1);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.showcase-overlay.fade-out .overlay-scan {
-    animation: none;
-    opacity: 0;
-}
 
 .terminal-card {
     position: relative;
@@ -356,70 +282,20 @@ p {
     opacity: 0.8;
 }
 
-.terminal-card[data-accent="vixl"] {
-    border-color: rgba(100, 245, 208, 0.35);
-    box-shadow: 0 0 24px rgba(100, 245, 208, 0.18);
-}
 
-.terminal-card[data-accent="o"] {
-    border-color: rgba(140, 240, 96, 0.35);
-    box-shadow: 0 0 24px rgba(140, 240, 96, 0.18);
-}
-
-.terminal-card[data-accent="rt"] {
-    border-color: rgba(255, 179, 71, 0.35);
-    box-shadow: 0 0 24px rgba(255, 179, 71, 0.18);
-}
-
-.terminal-card[data-accent="xyz"] {
-    border-color: rgba(243, 255, 111, 0.35);
-    box-shadow: 0 0 24px rgba(243, 255, 111, 0.18);
-}
-
+.terminal-card[data-accent="vixl"],
+.terminal-card[data-accent="o"],
+.terminal-card[data-accent="rt"],
+.terminal-card[data-accent="xyz"],
 .terminal-card[data-accent="clipai"] {
-    border-color: rgba(124, 232, 255, 0.38);
-    box-shadow: 0 0 24px rgba(124, 232, 255, 0.2);
+    border-color: rgba(200, 200, 200, 0.25);
+    box-shadow: 0 0 24px rgba(90, 90, 90, 0.2);
 }
 
 .linked-tools {
     margin-top: 12px;
     font-size: 0.8em;
     color: rgba(255, 255, 255, 0.6);
-}
-
-.philosophy-lede {
-    color: rgba(255, 255, 255, 0.72);
-    max-width: 720px;
-}
-
-.philosophy-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
-    margin-top: 32px;
-}
-
-.philosophy-grid.centered {
-    justify-content: center;
-}
-
-.philosophy-grid.centered .philosophy-card {
-    text-align: left;
-}
-
-.philosophy-card {
-    background: rgba(0, 0, 0, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 24px;
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.5;
-}
-
-.philosophy-card header {
-    font-weight: bold;
-    margin-bottom: 12px;
-    color: rgba(255, 255, 255, 0.9);
 }
 
 
@@ -441,7 +317,7 @@ p {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, rgba(100, 245, 208, 0.35) 0%, rgba(16, 200, 255, 0.25) 100%);
+    background: linear-gradient(180deg, rgba(160, 160, 160, 0.4) 0%, rgba(90, 90, 90, 0.25) 100%);
 }
 
 .timeline-entry {
@@ -462,10 +338,10 @@ p {
     top: 8px;
     width: var(--dot-diameter);
     height: var(--dot-diameter);
-    background: rgba(124, 232, 255, 0.85);
+    background: rgba(210, 210, 210, 0.85);
     border: 2px solid rgba(0, 0, 0, 0.8);
     border-radius: 50%;
-    box-shadow: 0 0 16px rgba(124, 232, 255, 0.35);
+    box-shadow: 0 0 16px rgba(160, 160, 160, 0.35);
 }
 
 .timeline-entry.is-visible {
@@ -476,7 +352,7 @@ p {
 .timeline-stamp {
     font-size: 0.82em;
     letter-spacing: 0.12em;
-    color: rgba(124, 232, 255, 0.8);
+    color: rgba(200, 200, 200, 0.85);
     text-transform: uppercase;
     padding-top: 4px;
 }
@@ -508,6 +384,58 @@ p {
 
 .timeline-card li {
     line-height: 1.5;
+}
+
+.site-footer {
+    margin-top: 120px;
+    padding: 40px 20px 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.95em;
+    letter-spacing: 0.04em;
+}
+
+.footer-links a:hover {
+    color: #dcdcdc;
+}
+
+.footer-links .footer-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.08em;
+    background: rgba(60, 60, 60, 0.4);
+}
+
+.footer-links .footer-cta:hover {
+    background: rgba(90, 90, 90, 0.5);
 }
 
 .resume-grid {
@@ -551,13 +479,26 @@ p {
     display: flex;
     flex-direction: column;
     gap: 18px;
-    box-shadow: 0 0 20px rgba(10, 255, 200, 0.12);
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(80, 80, 80, 0.2);
 }
 
 .resume-pane header {
     font-size: 1.4em;
     color: #fff;
     letter-spacing: 0.06em;
+}
+
+.resume-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid rgba(200, 200, 200, 0.4);
+    object-fit: cover;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 0 16px rgba(80, 80, 80, 0.25);
 }
 
 .resume-actions {
@@ -676,6 +617,10 @@ p {
     .resume-actions {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .footer-inner {
+        align-items: center;
     }
 }
 

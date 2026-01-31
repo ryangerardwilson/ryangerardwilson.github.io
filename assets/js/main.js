@@ -18,11 +18,12 @@ const p1 = document.getElementById('typewriter-p1');
 const p2 = document.getElementById('typewriter-p2');
 const p3 = document.getElementById('typewriter-p3');
 const links = document.getElementById('links');
+const footer = document.getElementById('site-footer');
 
 loadCopy();
 
 function loadCopy() {
-    fetch(copyEndpoint)
+    fetch(copyEndpoint, { cache: 'no-store' })
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Failed to load copy.json: ${response.status}`);
@@ -42,16 +43,15 @@ function initializeCopy() {
     if (!copyData) return;
 
     heroCopy = copyData.hero || {};
-
-    applyHeroLinks(copyData.links || {});
     applyProjectsSection(copyData.projectsSection || {});
 
     projects = Array.isArray(copyData.projects) ? copyData.projects : [];
     renderProjects();
 
     renderResume(copyData.resume || {});
-    renderPhilosophy(copyData.philosophy || {});
     renderTimeline(copyData.timeline || {});
+    applyFooter(copyData.footer || {});
+    applyFooter(copyData.footer || {});
 
     if (!globalScrollBound) {
         document.addEventListener('keydown', handleGlobalScrollKeys, { passive: false });
@@ -62,29 +62,10 @@ function initializeCopy() {
     startHeroSequence();
 }
 
-function applyHeroLinks(linksCopy) {
-    const timelineLink = document.getElementById('link-timeline');
-    if (timelineLink && linksCopy.timeline) {
-        timelineLink.textContent = linksCopy.timeline.label || '';
-        timelineLink.href = linksCopy.timeline.href || '#';
-    }
-
-    const resumeLink = document.getElementById('link-resume');
-    if (resumeLink && linksCopy.resume) {
-        resumeLink.textContent = linksCopy.resume.label || '';
-        resumeLink.href = linksCopy.resume.href || '#';
-    }
-}
-
 function applyProjectsSection(sectionCopy) {
     const titleEl = document.getElementById('projects-title');
     if (titleEl) {
         titleEl.textContent = sectionCopy.title || '';
-    }
-
-    const overlayEl = document.getElementById('projects-overlay-text');
-    if (overlayEl) {
-        overlayEl.textContent = sectionCopy.overlay || '';
     }
 }
 
@@ -103,8 +84,11 @@ function startHeroSequence() {
         typeWriter(p1, p1Text, 18, () => {
             typeWriter(p2, p2Text, 18, () => {
                 typeWriter(p3, p3Text, 18, () => {
-                    links.classList.remove('hidden');
-                    links.classList.add('revealed');
+                    if (links) {
+                        links.classList.remove('hidden');
+                        links.classList.add('revealed');
+                    }
+                    revealFooter();
                     startShowcaseSequence();
                 });
             });
@@ -249,6 +233,7 @@ function startShowcaseSequence() {
             timelineSection.classList.add('revealed');
         }
         initTimelineObserver();
+        forceScrollToFooter();
     }, timelineDelay);
 }
 
@@ -419,6 +404,13 @@ function renderResume(resumeCopy) {
         nameEl.textContent = pane.name || '';
     }
 
+    const avatarEl = document.getElementById('resume-avatar');
+    if (avatarEl) {
+        const avatarSrc = resumeCopy.avatarUrl || pane.avatarUrl || 'https://unavatar.io/twitter/ryan_improvises';
+        avatarEl.src = avatarSrc;
+        avatarEl.alt = pane.name ? `${pane.name} avatar` : "Profile avatar";
+    }
+
     const summaryEl = document.getElementById('resume-summary');
     if (summaryEl) {
         summaryEl.textContent = pane.summary || '';
@@ -436,37 +428,6 @@ function renderResume(resumeCopy) {
     const noteEl = document.getElementById('resume-note');
     if (noteEl) {
         noteEl.textContent = pane.note || '';
-    }
-}
-
-function renderPhilosophy(philosophyCopy) {
-    const titleEl = document.getElementById('philosophy-title');
-    if (titleEl) {
-        titleEl.textContent = philosophyCopy.title || '';
-    }
-
-    const ledeEl = document.getElementById('philosophy-lede');
-    if (ledeEl) {
-        ledeEl.textContent = philosophyCopy.lede || '';
-    }
-
-    const grid = document.getElementById('philosophy-grid');
-    if (grid) {
-        grid.innerHTML = '';
-        (philosophyCopy.cards || []).forEach(cardCopy => {
-            const card = document.createElement('article');
-            card.className = 'philosophy-card';
-
-            const header = document.createElement('header');
-            header.textContent = cardCopy.label || '';
-            card.appendChild(header);
-
-            const body = document.createElement('p');
-            body.textContent = cardCopy.body || '';
-            card.appendChild(body);
-
-            grid.appendChild(card);
-        });
     }
 }
 
@@ -518,6 +479,25 @@ function renderTimeline(timelineCopy) {
         article.appendChild(card);
         container.appendChild(article);
     });
+}
+
+function applyFooter(footerCopy) {
+    const resumeLink = document.querySelector('.footer-cta');
+    if (resumeLink) {
+        resumeLink.href = footerCopy && footerCopy.resumeHref ? footerCopy.resumeHref : 'resume.pdf';
+    }
+}
+
+function revealFooter() {
+    if (!footer || footer.classList.contains('revealed')) return;
+    footer.classList.remove('hidden');
+    footer.classList.add('revealed');
+}
+
+function forceScrollToFooter() {
+    if (!footer) return;
+    const behavior = prefersReducedMotion ? 'auto' : 'smooth';
+    footer.scrollIntoView({ behavior, block: 'end' });
 }
 
 function handleGlobalScrollKeys(event) {

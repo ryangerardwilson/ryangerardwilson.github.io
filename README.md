@@ -13,7 +13,7 @@ Lightweight static site built with vanilla HTML, CSS, and JavaScript for a simpl
 
 ## Local Preview
 1. Install any static file server. A quick option is Python's built-in module: `python -m http.server 8000`.
-2. Regenerate PDFs locally if needed: `pip install reportlab` followed by `python scripts/md_to_pdf.py assets/docs/resume.md assets/docs/resume.pdf`.
+2. Regenerate PDFs locally if needed: `pip install reportlab` followed by `python scripts/md_to_pdf.py assets/docs/resume.md resume.pdf`.
 3. Open `http://localhost:8000/` in a browser and confirm the animation plays and the PDF links resolve.
 
 ## GitHub Pages Deployment

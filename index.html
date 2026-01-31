@@ -12,18 +12,10 @@
         <p id="typewriter-p1" class="hidden"></p>
         <p id="typewriter-p2" class="hidden"></p>
         <p id="typewriter-p3" class="hidden"></p>
-        <div id="links" class="links hidden">
-            <a id="link-timeline" href="#story-timeline"></a>
-            <a id="link-resume" href="#resume-snapshot"></a>
-        </div>
     </div>
 
     <main>
         <section id="projects-console" class="section hidden" data-reveal>
-            <div class="showcase-overlay" id="showcase-overlay">
-                <div class="overlay-scan"></div>
-                <span class="overlay-text" id="projects-overlay-text"></span>
-            </div>
             <h2 class="section-title" id="projects-title"></h2>
             <div id="project-grid" class="project-grid"></div>
         </section>
@@ -36,6 +28,7 @@
                 <div class="resume-preview">
                     <div class="resume-pane">
                         <header id="resume-name"></header>
+                        <img id="resume-avatar" class="resume-avatar" alt="Ryan's X profile avatar">
                         <p id="resume-summary"></p>
                         <div class="resume-actions">
                             <a class="cta-button" id="resume-cta" target="_blank" rel="noopener noreferrer">
@@ -48,14 +41,6 @@
             </div>
         </section>
 
-        <section id="terminal-philosophy" class="section hidden" data-reveal>
-            <div class="centered-section">
-                <h2 class="section-title" id="philosophy-title"></h2>
-                <p class="philosophy-lede" id="philosophy-lede"></p>
-            </div>
-            <div class="philosophy-grid centered" id="philosophy-grid"></div>
-        </section>
-
         <section id="story-timeline" class="section hidden" data-reveal>
             <div class="centered-section">
                 <h2 class="section-title" id="timeline-title"></h2>
@@ -65,6 +50,18 @@
         </section>
 
     </main>
+
+    <footer class="site-footer hidden" id="site-footer">
+        <div class="footer-inner">
+            <div class="footer-links">
+                <a href="https://github.com/ryangerardwilson" target="_blank" rel="noopener noreferrer">github.com/ryangerardwilson</a>
+                <a href="https://x.com/ryan_improvises" target="_blank" rel="noopener noreferrer">x.com/ryan_improvises</a>
+                <a href="resume.pdf" class="cta-button footer-cta" target="_blank" rel="noopener noreferrer">
+                    <span class="chevron">&gt;</span><span>download resume</span>
+                </a>
+            </div>
+        </div>
+    </footer>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
