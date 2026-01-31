@@ -13,6 +13,7 @@ let timelineContainer;
 let timelineTrack;
 let timelineProgressBar;
 let globalScrollBound = false;
+let timelineWrapperEl;
 
 const h1 = document.getElementById('typewriter-h1');
 const p1 = document.getElementById('typewriter-p1');
@@ -557,13 +558,14 @@ function cacheTimelineElements() {
         timelineProgressBar = wrapper.querySelector('.timeline-progress-bar');
     }
 
+    timelineWrapperEl = wrapper;
     timelineTrack = timelineContainer;
 }
 
 function bindTimelineScrollHelpers() {
     if (!timelineContainer) return;
 
-    const wrapper = timelineContainer.closest('.timeline-wrapper');
+    const wrapper = timelineWrapperEl || timelineContainer.closest('.timeline-wrapper');
     if (!wrapper) return;
 
     const entries = timelineContainer.querySelectorAll('.timeline-entry');
@@ -654,6 +656,7 @@ function updateTimelineVisibility() {
 
 function handleGlobalScrollKeys(event) {
     if (event.defaultPrevented) return;
+    if (event.repeat) return;
     if (event.ctrlKey || event.metaKey || event.altKey) return;
 
     const target = event.target;
@@ -666,9 +669,17 @@ function handleGlobalScrollKeys(event) {
 
     const offset = Math.round(window.innerHeight * 0.35);
     if (event.key === 'j') {
+        if (scrollTimeline('down')) {
+            event.preventDefault();
+            return;
+        }
         event.preventDefault();
         scrollWindow(offset);
     } else if (event.key === 'k') {
+        if (scrollTimeline('up')) {
+            event.preventDefault();
+            return;
+        }
         event.preventDefault();
         scrollWindow(-offset);
     }
@@ -679,5 +690,49 @@ function scrollWindow(distance) {
         window.scrollBy(0, distance);
     } else {
         window.scrollBy({ top: distance, behavior: 'smooth' });
+    }
+}
+
+function scrollTimeline(direction) {
+    if (!timelineTrack || !timelineWrapperEl) return false;
+
+    const rect = timelineWrapperEl.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const maxScroll = timelineTrack.scrollHeight - timelineTrack.clientHeight;
+
+    if (direction === 'down') {
+        if (rect.top <= viewportHeight * 0.85 && rect.bottom >= 80) {
+            if (timelineTrack.scrollTop < maxScroll - 2) {
+                const delta = Math.round(timelineTrack.clientHeight * 0.6);
+                scrollTimelineBy(delta);
+                return true;
+            }
+        }
+    } else if (direction === 'up') {
+        if (rect.bottom >= viewportHeight * 0.15 && rect.top <= viewportHeight) {
+            if (timelineTrack.scrollTop > 2) {
+                const delta = Math.round(timelineTrack.clientHeight * 0.6);
+                scrollTimelineBy(-delta);
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+function scrollTimelineBy(distance) {
+    if (!timelineTrack) return;
+
+    const behavior = prefersReducedMotion ? 'auto' : 'smooth';
+    timelineTrack.scrollBy({ top: distance, behavior });
+
+    if (prefersReducedMotion) {
+        updateTimelineProgress();
+        updateTimelineVisibility();
+    } else {
+        requestAnimationFrame(() => {
+            updateTimelineProgress();
+            updateTimelineVisibility();
+        });
     }
 }
