@@ -9,6 +9,10 @@ let projects = [];
 const cardBootControllers = [];
 let sectionsPrimed = false;
 let timelineObserver;
+let timelineContainer;
+let timelineTrack;
+let timelineProgressBar;
+let globalScrollBound = false;
 
 const h1 = document.getElementById('typewriter-h1');
 const p1 = document.getElementById('typewriter-p1');
@@ -49,6 +53,13 @@ function initializeCopy() {
     renderResume(copyData.resume || {});
     renderPhilosophy(copyData.philosophy || {});
     renderTimeline(copyData.timeline || {});
+    cacheTimelineElements();
+    bindTimelineScrollHelpers();
+
+    if (!globalScrollBound) {
+        document.addEventListener('keydown', handleGlobalScrollKeys, { passive: false });
+        globalScrollBound = true;
+    }
 
     startHeroSequence();
 }
@@ -240,6 +251,8 @@ function startShowcaseSequence() {
             timelineSection.classList.add('revealed');
         }
         initTimelineObserver();
+        updateTimelineProgress();
+        updateTimelineVisibility();
     }, timelineDelay);
 }
 
@@ -482,6 +495,7 @@ function renderTimeline(timelineCopy) {
         const article = document.createElement('article');
         article.className = 'timeline-entry';
         article.setAttribute('data-timeline', '');
+        article.setAttribute('tabindex', '0');
 
         const stamp = document.createElement('span');
         stamp.className = 'timeline-stamp';
@@ -509,4 +523,161 @@ function renderTimeline(timelineCopy) {
         article.appendChild(card);
         container.appendChild(article);
     });
+}
+
+function cacheTimelineElements() {
+    timelineContainer = document.getElementById('timeline-container');
+    if (!timelineContainer) return;
+
+    let wrapper = timelineContainer.closest('.timeline-wrapper');
+    if (!wrapper) {
+        wrapper = document.createElement('div');
+        wrapper.className = 'timeline-wrapper';
+
+        const topEdge = document.createElement('div');
+        topEdge.className = 'timeline-edge top';
+        wrapper.appendChild(topEdge);
+
+        const bottomEdge = document.createElement('div');
+        bottomEdge.className = 'timeline-edge bottom';
+        wrapper.appendChild(bottomEdge);
+
+        timelineContainer.parentNode.insertBefore(wrapper, timelineContainer);
+        wrapper.appendChild(timelineContainer);
+
+        const progress = document.createElement('div');
+        progress.className = 'timeline-progress';
+        const progressBar = document.createElement('div');
+        progressBar.className = 'timeline-progress-bar';
+        progress.appendChild(progressBar);
+        wrapper.appendChild(progress);
+
+        timelineProgressBar = progressBar;
+    } else {
+        timelineProgressBar = wrapper.querySelector('.timeline-progress-bar');
+    }
+
+    timelineTrack = timelineContainer;
+}
+
+function bindTimelineScrollHelpers() {
+    if (!timelineContainer) return;
+
+    const wrapper = timelineContainer.closest('.timeline-wrapper');
+    if (!wrapper) return;
+
+    const entries = timelineContainer.querySelectorAll('.timeline-entry');
+    if (!entries.length) return;
+
+    if (prefersReducedMotion) {
+        wrapper.classList.add('reduce-motion');
+    } else {
+        wrapper.classList.remove('reduce-motion');
+    }
+
+    timelineTrack = timelineContainer;
+    timelineTrack.addEventListener('scroll', onTimelineScroll, { passive: true });
+    timelineTrack.addEventListener('keydown', handleTimelineKeydown);
+
+    updateTimelineProgress();
+    updateTimelineVisibility();
+}
+
+function onTimelineScroll() {
+    updateTimelineProgress();
+    updateTimelineVisibility();
+}
+
+function handleTimelineKeydown(event) {
+    if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        focusNextTimelineEntry(1);
+    } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        focusNextTimelineEntry(-1);
+    }
+}
+
+function focusNextTimelineEntry(direction) {
+    if (!timelineTrack) return;
+    const entries = Array.from(timelineTrack.querySelectorAll('.timeline-entry'));
+    if (!entries.length) return;
+
+    const focused = document.activeElement;
+    let index = entries.indexOf(focused.closest('.timeline-entry'));
+
+    if (index === -1) {
+        index = direction > 0 ? 0 : entries.length - 1;
+    } else {
+        index = (index + direction + entries.length) % entries.length;
+    }
+
+    const target = entries[index];
+    if (!prefersReducedMotion) {
+        target.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        target.focus({ preventScroll: true });
+    } else {
+        target.scrollIntoView({ block: 'center' });
+        target.focus();
+    }
+}
+
+function updateTimelineProgress() {
+    if (!timelineTrack || !timelineProgressBar) return;
+
+    const maxScroll = timelineTrack.scrollHeight - timelineTrack.clientHeight;
+    const progress = maxScroll > 0 ? timelineTrack.scrollTop / maxScroll : 0;
+    timelineProgressBar.style.height = `${Math.min(Math.max(progress, 0), 1) * 100}%`;
+}
+
+function updateTimelineVisibility() {
+    if (!timelineTrack) return;
+    if (prefersReducedMotion) {
+        timelineTrack.querySelectorAll('.timeline-entry').forEach(entry => entry.classList.add('is-visible'));
+        return;
+    }
+    const entries = Array.from(timelineTrack.querySelectorAll('.timeline-entry'));
+    const viewportTop = timelineTrack.scrollTop;
+    const viewportBottom = viewportTop + timelineTrack.clientHeight;
+
+    entries.forEach(entry => {
+        const entryTop = entry.offsetTop;
+        const entryBottom = entryTop + entry.offsetHeight;
+        const visible = entryBottom > viewportTop + 60 && entryTop < viewportBottom - 60;
+        if (visible) {
+            entry.classList.add('is-visible');
+        } else {
+            entry.classList.remove('is-visible');
+        }
+    });
+}
+
+function handleGlobalScrollKeys(event) {
+    if (event.defaultPrevented) return;
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
+
+    const target = event.target;
+    if (target && target.tagName) {
+        const tag = target.tagName.toLowerCase();
+        if (['input', 'textarea', 'select', 'button'].includes(tag) || target.isContentEditable) {
+            return;
+        }
+    }
+
+    const offset = Math.round(window.innerHeight * 0.35);
+    if (event.key === 'j') {
+        event.preventDefault();
+        scrollWindow(offset);
+    } else if (event.key === 'k') {
+        event.preventDefault();
+        scrollWindow(-offset);
+    }
+}
+
+function scrollWindow(distance) {
+    if (prefersReducedMotion) {
+        window.scrollBy(0, distance);
+    } else {
+        window.scrollBy({ top: distance, behavior: 'smooth' });
+    }
 }
