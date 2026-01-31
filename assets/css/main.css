@@ -107,6 +107,30 @@ p {
     margin-bottom: 24px;
 }
 
+.centered-section {
+    max-width: 780px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+.centered-section .section-title {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.centered-section .section-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.centered-section .philosophy-lede {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+}
+
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -374,6 +398,14 @@ p {
     margin-top: 32px;
 }
 
+.philosophy-grid.centered {
+    justify-content: center;
+}
+
+.philosophy-grid.centered .philosophy-card {
+    text-align: left;
+}
+
 .philosophy-card {
     background: rgba(0, 0, 0, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -387,6 +419,164 @@ p {
     font-weight: bold;
     margin-bottom: 12px;
     color: rgba(255, 255, 255, 0.9);
+}
+
+.timeline {
+    position: relative;
+    padding-left: 40px;
+    margin-top: 48px;
+    display: grid;
+    gap: 42px;
+}
+
+.timeline-axis {
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(100, 245, 208, 0.4) 0%, rgba(16, 200, 255, 0.3) 100%);
+}
+
+.timeline-entry {
+    position: relative;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    align-items: start;
+    opacity: 0;
+    transform: translateX(-24px);
+}
+
+.timeline-entry::before {
+    content: "";
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background: rgba(100, 245, 208, 0.9);
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 14px rgba(100, 245, 208, 0.35);
+    transform: scale(0.6);
+    border-radius: 50%;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.timeline-entry.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-entry.is-visible::before {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(124, 232, 255, 0.45);
+}
+
+.timeline-stamp {
+    font-size: 0.85em;
+    letter-spacing: 0.12em;
+    color: rgba(124, 232, 255, 0.8);
+    text-transform: uppercase;
+    padding-top: 6px;
+}
+
+.timeline-card {
+    background: rgba(0, 0, 0, 0.68);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 22px 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.timeline-entry.is-visible .timeline-card::after {
+    opacity: 0.15;
+}
+
+.timeline-card header {
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 14px;
+}
+
+.timeline-card ul {
+    margin: 0;
+    padding-left: 18px;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.timeline-card li {
+    margin-bottom: 8px;
+}
+
+.resume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    align-items: stretch;
+    margin-top: 48px;
+}
+
+.resume-meta {
+    display: grid;
+    gap: 18px;
+}
+
+.resume-card {
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 22px;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.resume-card header {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.resume-preview {
+    display: flex;
+    align-items: stretch;
+}
+
+.resume-pane {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    box-shadow: 0 0 20px rgba(10, 255, 200, 0.12);
+}
+
+.resume-pane header {
+    font-size: 1.4em;
+    color: #fff;
+    letter-spacing: 0.06em;
+}
+
+.resume-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.resume-note {
+    color: rgba(255, 255, 255, 0.55);
 }
 
 .hidden {
@@ -472,6 +662,33 @@ p {
     .cta-row {
         flex-direction: column;
     }
+
+    .timeline {
+        padding-left: 28px;
+        gap: 36px;
+    }
+
+    .timeline-entry {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .timeline-stamp {
+        order: -1;
+    }
+
+    .timeline-entry::before {
+        left: -20px;
+    }
+
+    .resume-pane {
+        padding: 26px;
+    }
+
+    .resume-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -503,6 +720,11 @@ p {
     .boot-log::after {
         animation: none;
         opacity: 0.6;
+    }
+
+    .timeline-entry,
+    .timeline-entry::before {
+        transition: none;
     }
 
     .revealed {

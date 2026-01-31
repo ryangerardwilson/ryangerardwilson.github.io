@@ -1,104 +1,111 @@
 console.log("Booting showcase timeline. Projects will stage after the typewriter sequence.");
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const copyEndpoint = 'assets/data/copy.json';
 
-const projects = [
-    {
-        id: 'vixl',
-        name: 'vixl',
-        badge: 'grid//dataframe',
-        accent: 'vixl',
-        bootLog: ['loading pandas bindings...', 'spawning curses grid...', 'ready // press : to command'],
-        catchLine: 'Spreadsheets for people who trust fingers over formulas. Pandas power, Vim precision.',
-        features: [
-            'Modal DataFrame grid with Vim navigation over Pandas + NumPy.',
-            'Explicit Python command bar keeps every transform audit-ready.',
-            'PyInstaller binary ships with self-update flag for frictionless installs.'
-        ],
-        ctas: [
-            { label: 'view source', url: 'https://github.com/ryangerardwilson/vixl' },
-            { label: 'install script', url: 'https://raw.githubusercontent.com/ryangerardwilson/vixl/main/install.sh' }
-        ],
-        linkedTools: 'links with xyz for fast backlog CSV edits.'
-    },
-    {
-        id: 'o',
-        name: 'o',
-        badge: 'matrix//filesystem',
-        accent: 'o',
-        bootLog: ['warming curses viewport...', 'streaming directory rain...', 'ready // enter toggles view'],
-        catchLine: 'File trees as living streams. Triage your filesystem at 120 FPS without leaving home row.',
-        features: [
-            'Matrix-mode columns freeze on focus so you never lose context.',
-            'Leader commands cover marks, yanks, renames, and bulk ops in one tap.',
-            'Configurable handlers pipe into Vim, Vixl, or your terminal stack.'
-        ],
-        ctas: [
-            { label: 'view source', url: 'https://github.com/ryangerardwilson/o' },
-            { label: 'install script', url: 'https://raw.githubusercontent.com/ryangerardwilson/o/main/install.sh' }
-        ],
-        linkedTools: 'opens vixl and rt directly from directory view.'
-    },
-    {
-        id: 'rt',
-        name: 'rt',
-        badge: 'taste//trainer',
-        accent: 'rt',
-        bootLog: ['loading curated markdown...', 'priming doc + typing modes...', 'ready // accuracy > 90% or restart'],
-        catchLine: 'Taste is muscle memory. Train your typing to ship code that actually sings.',
-        features: [
-            'Doc mode and typing drills sourced from intentionally structured Markdown.',
-            'Strict heading parser enforces real curricula, not AI slop.',
-            'Uploads lessons to Grok Collections for search and rote review.'
-        ],
-        ctas: [
-            { label: 'view source', url: 'https://github.com/ryangerardwilson/rt' },
-            { label: 'install script', url: 'https://raw.githubusercontent.com/ryangerardwilson/rt/main/install.sh' }
-        ],
-        linkedTools: 'pairs with o for editing lessons in place.'
-    },
-    {
-        id: 'xyz',
-        name: 'xyz',
-        badge: 'jtbd//backlog',
-        accent: 'xyz',
-        bootLog: ['hydrating agenda cache...', 'mounting outcome pipeline...', 'ready // log when x -> y so z'],
-        catchLine: 'Outcome-first backlog OS. Log the job, not the busywork, and let compounding bets stack.',
-        features: [
-            'Agenda and month view with instant toggles and vim navigation.',
-            'Deterministic CLI (-x/-y/-z) for scripted backlog updates.',
-            'CSV-backed storage with $EDITOR integration for fast edits.'
-        ],
-        ctas: [
-            { label: 'view source', url: 'https://github.com/ryangerardwilson/xyz' },
-            { label: 'install script', url: 'https://raw.githubusercontent.com/ryangerardwilson/xyz/main/install.sh' }
-        ],
-        linkedTools: 'exports tasks to vixl for deeper analysis.'
-    },
-    {
-        id: 'clipai',
-        name: 'clipai',
-        badge: 'clipboard//ai',
-        accent: 'clipai',
-        bootLog: ['monitoring wl clipboard...', 'awaiting ai{{ prompt }}...', 'ready // background worker armed'],
-        catchLine: 'Clipboard-triggered AI macros. Copy ai{{...}}, get the answer before you leave home row.',
-        features: [
-            'Clipboard watcher swaps ai{{ prompt }} with OpenAI responses in real time.',
-            'CLI mode pipes answers straight into your buffer for scripts and automations.',
-            'Wayland-native service built on wl-clipboard with a systemd user unit for persistence.'
-        ],
-        ctas: [
-            { label: 'view source', url: 'https://github.com/ryangerardwilson/clipai' },
-            { label: 'install script', url: 'https://raw.githubusercontent.com/ryangerardwilson/clipai/main/install.sh' }
-        ],
-        linkedTools: 'feeds vixl, o, rt, and xyz without breaking flow.'
-    }
-];
-
+let copyData = null;
+let heroCopy = {};
+let projects = [];
 const cardBootControllers = [];
 let sectionsPrimed = false;
+let timelineObserver;
+
+const h1 = document.getElementById('typewriter-h1');
+const p1 = document.getElementById('typewriter-p1');
+const p2 = document.getElementById('typewriter-p2');
+const p3 = document.getElementById('typewriter-p3');
+const links = document.getElementById('links');
+
+loadCopy();
+
+function loadCopy() {
+    fetch(copyEndpoint)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load copy.json: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            copyData = data;
+            initializeCopy();
+        })
+        .catch(error => {
+            console.error('Copy bootstrap failed:', error);
+        });
+}
+
+function initializeCopy() {
+    if (!copyData) return;
+
+    heroCopy = copyData.hero || {};
+
+    applyHeroLinks(copyData.links || {});
+    applyProjectsSection(copyData.projectsSection || {});
+
+    projects = Array.isArray(copyData.projects) ? copyData.projects : [];
+    renderProjects();
+
+    renderResume(copyData.resume || {});
+    renderPhilosophy(copyData.philosophy || {});
+    renderTimeline(copyData.timeline || {});
+
+    startHeroSequence();
+}
+
+function applyHeroLinks(linksCopy) {
+    const timelineLink = document.getElementById('link-timeline');
+    if (timelineLink && linksCopy.timeline) {
+        timelineLink.textContent = linksCopy.timeline.label || '';
+        timelineLink.href = linksCopy.timeline.href || '#';
+    }
+
+    const resumeLink = document.getElementById('link-resume');
+    if (resumeLink && linksCopy.resume) {
+        resumeLink.textContent = linksCopy.resume.label || '';
+        resumeLink.href = linksCopy.resume.href || '#';
+    }
+}
+
+function applyProjectsSection(sectionCopy) {
+    const titleEl = document.getElementById('projects-title');
+    if (titleEl) {
+        titleEl.textContent = sectionCopy.title || '';
+    }
+
+    const overlayEl = document.getElementById('projects-overlay-text');
+    if (overlayEl) {
+        overlayEl.textContent = sectionCopy.overlay || '';
+    }
+}
+
+function startHeroSequence() {
+    const h1Text = heroCopy.h1 || '';
+    const p1Text = heroCopy.p1 || '';
+    const p2Text = heroCopy.p2 || '';
+    const p3Text = heroCopy.p3 || '';
+
+    if (!h1Text || !p1Text || !p2Text || !p3Text) {
+        console.warn('Hero copy incomplete; skipping typewriter.');
+        return;
+    }
+
+    typeWriter(h1, h1Text, 45, () => {
+        typeWriter(p1, p1Text, 18, () => {
+            typeWriter(p2, p2Text, 18, () => {
+                typeWriter(p3, p3Text, 18, () => {
+                    links.classList.remove('hidden');
+                    links.classList.add('revealed');
+                    startShowcaseSequence();
+                });
+            });
+        });
+    });
+}
 
 function typeWriter(element, text, baseSpeed = 100, callback) {
+    if (!element) return;
+
     element.classList.remove('hidden');
     element.textContent = '';
 
@@ -134,29 +141,6 @@ function typeWriter(element, text, baseSpeed = 100, callback) {
     type();
 }
 
-const h1 = document.getElementById('typewriter-h1');
-const p1 = document.getElementById('typewriter-p1');
-const p2 = document.getElementById('typewriter-p2');
-const p3 = document.getElementById('typewriter-p3');
-const links = document.getElementById('links');
-
-const h1Text = 'Hello, world.';
-const p1Text = 'I\'m Ryan - Catholic, husband, and Wiom\'s network architect building India\'s unlimited internet with AI systems.';
-const p2Text = 'I ship terminal-native tools and automation primitives that keep builders in flow and make data transformations legible.';
-const p3Text = 'Projects booting...';
-
-typeWriter(h1, h1Text, 45, () => {
-    typeWriter(p1, p1Text, 18, () => {
-        typeWriter(p2, p2Text, 18, () => {
-            typeWriter(p3, p3Text, 18, () => {
-                links.classList.remove('hidden');
-                links.classList.add('revealed');
-                startShowcaseSequence();
-            });
-        });
-    });
-});
-
 function removeProjectsBootMessage() {
     if (!p3) return;
     p3.classList.add('hidden');
@@ -186,10 +170,19 @@ function startShowcaseSequence() {
             overlay.remove();
         }
         removeProjectsBootMessage();
+        const resumeSection = document.getElementById('resume-snapshot');
+        if (resumeSection) {
+            resumeSection.classList.add('revealed');
+        }
         const philosophy = document.getElementById('terminal-philosophy');
         if (philosophy) {
             philosophy.classList.add('revealed');
         }
+        const timelineSection = document.getElementById('story-timeline');
+        if (timelineSection) {
+            timelineSection.classList.add('revealed');
+        }
+        revealTimelineImmediately();
         return;
     }
 
@@ -228,11 +221,26 @@ function startShowcaseSequence() {
         }, delay);
     });
 
+    const resumeSection = document.getElementById('resume-snapshot');
+    if (resumeSection) {
+        const resumeDelay = baseDelay + cards.length * 220 + 260;
+        setTimeout(() => resumeSection.classList.add('revealed'), resumeDelay);
+    }
+
     const philosophy = document.getElementById('terminal-philosophy');
     if (philosophy) {
-        const philosophyDelay = baseDelay + cards.length * 220 + 360;
+        const philosophyDelay = baseDelay + cards.length * 220 + 520;
         setTimeout(() => philosophy.classList.add('revealed'), philosophyDelay);
     }
+
+    const timelineDelay = baseDelay + cards.length * 220 + 760;
+    setTimeout(() => {
+        const timelineSection = document.getElementById('story-timeline');
+        if (timelineSection) {
+            timelineSection.classList.add('revealed');
+        }
+        initTimelineObserver();
+    }, timelineDelay);
 }
 
 function renderProjects() {
@@ -242,10 +250,10 @@ function renderProjects() {
     grid.innerHTML = '';
     cardBootControllers.length = 0;
 
-    projects.forEach(project => {
+    projects.forEach((project, index) => {
         const card = document.createElement('article');
         card.className = 'terminal-card';
-        card.dataset.accent = project.accent;
+        card.dataset.accent = project.accent || '';
 
         if (prefersReducedMotion) {
             card.classList.add('is-visible');
@@ -255,27 +263,29 @@ function renderProjects() {
 
         const header = document.createElement('div');
         header.className = 'terminal-header';
-        header.innerHTML = `<span>$ ssh ${project.name}@console</span><span class="terminal-badge">${project.badge}</span>`;
+        const projectName = project.name || 'project';
+        const badge = project.badge || '';
+        header.innerHTML = `<span>$ ssh ${projectName}@console</span><span class="terminal-badge">${badge}</span>`;
         card.appendChild(header);
 
         const bootLog = document.createElement('div');
         bootLog.className = 'boot-log';
         card.appendChild(bootLog);
 
-        cardBootControllers.push({ element: bootLog, lines: project.bootLog });
+        cardBootControllers.push({ element: bootLog, lines: project.bootLog || [] });
 
         if (prefersReducedMotion) {
-            bootLog.textContent = project.bootLog.join('\n');
+            bootLog.textContent = (project.bootLog || []).join('\n');
         }
 
         const catchLine = document.createElement('div');
         catchLine.className = 'catch-line';
-        catchLine.textContent = project.catchLine;
+        catchLine.textContent = project.catchLine || '';
         card.appendChild(catchLine);
 
         const featureList = document.createElement('ul');
         featureList.className = 'feature-list';
-        project.features.forEach(feature => {
+        (project.features || []).forEach(feature => {
             const li = document.createElement('li');
             li.textContent = `- ${feature}`;
             featureList.appendChild(li);
@@ -284,13 +294,13 @@ function renderProjects() {
 
         const ctaRow = document.createElement('div');
         ctaRow.className = 'cta-row';
-        project.ctas.forEach(cta => {
+        (project.ctas || []).forEach(cta => {
             const anchor = document.createElement('a');
-            anchor.href = cta.url;
+            anchor.href = cta.url || '#';
             anchor.target = '_blank';
             anchor.rel = 'noopener noreferrer';
             anchor.className = 'cta-button';
-            anchor.innerHTML = `<span class="chevron">&gt;</span><span>${cta.label}</span>`;
+            anchor.innerHTML = `<span class="chevron">&gt;</span><span>${cta.label || ''}</span>`;
             ctaRow.appendChild(anchor);
         });
         card.appendChild(ctaRow);
@@ -303,6 +313,10 @@ function renderProjects() {
         }
 
         grid.appendChild(card);
+
+        if (!prefersReducedMotion) {
+            setTimeout(() => animateBootLog(bootLog, project.bootLog || []), index * 200);
+        }
     });
 }
 
@@ -320,4 +334,179 @@ function animateBootLog(element, lines, lineDelay = 550) {
     }
 
     step();
+}
+
+function initTimelineObserver() {
+    const entries = document.querySelectorAll('[data-timeline]');
+    if (!entries.length) return;
+
+    if (prefersReducedMotion) {
+        revealTimelineImmediately();
+        return;
+    }
+
+    if (timelineObserver) {
+        entries.forEach(entry => timelineObserver.observe(entry));
+        return;
+    }
+
+    timelineObserver = new IntersectionObserver((items, observer) => {
+        items.forEach(item => {
+            if (item.isIntersecting) {
+                item.target.classList.add('is-visible');
+                observer.unobserve(item.target);
+            }
+        });
+    }, {
+        threshold: 0.28,
+        rootMargin: '0px 0px -10% 0px'
+    });
+
+    entries.forEach(entry => timelineObserver.observe(entry));
+}
+
+function revealTimelineImmediately() {
+    const entries = document.querySelectorAll('[data-timeline]');
+    entries.forEach(entry => entry.classList.add('is-visible'));
+    if (timelineObserver) {
+        entries.forEach(entry => timelineObserver.unobserve(entry));
+    }
+}
+
+function renderResume(resumeCopy) {
+    const titleEl = document.getElementById('resume-title');
+    if (titleEl) {
+        titleEl.textContent = resumeCopy.title || '';
+    }
+
+    const subtitleEl = document.getElementById('resume-subtitle');
+    if (subtitleEl) {
+        subtitleEl.textContent = resumeCopy.subtitle || '';
+    }
+
+    const metaContainer = document.getElementById('resume-meta');
+    if (metaContainer) {
+        metaContainer.innerHTML = '';
+        (resumeCopy.meta || []).forEach(item => {
+            const card = document.createElement('article');
+            card.className = 'resume-card';
+
+            const header = document.createElement('header');
+            header.textContent = item.label || '';
+            card.appendChild(header);
+
+            const body = document.createElement('p');
+            body.textContent = item.body || '';
+            card.appendChild(body);
+
+            metaContainer.appendChild(card);
+        });
+    }
+
+    const pane = resumeCopy.pane || {};
+
+    const nameEl = document.getElementById('resume-name');
+    if (nameEl) {
+        nameEl.textContent = pane.name || '';
+    }
+
+    const summaryEl = document.getElementById('resume-summary');
+    if (summaryEl) {
+        summaryEl.textContent = pane.summary || '';
+    }
+
+    const cta = document.getElementById('resume-cta');
+    const ctaLabel = document.getElementById('resume-cta-label');
+    if (cta) {
+        cta.href = pane.ctaHref || '#';
+    }
+    if (ctaLabel) {
+        ctaLabel.textContent = pane.ctaLabel || '';
+    }
+
+    const noteEl = document.getElementById('resume-note');
+    if (noteEl) {
+        noteEl.textContent = pane.note || '';
+    }
+}
+
+function renderPhilosophy(philosophyCopy) {
+    const titleEl = document.getElementById('philosophy-title');
+    if (titleEl) {
+        titleEl.textContent = philosophyCopy.title || '';
+    }
+
+    const ledeEl = document.getElementById('philosophy-lede');
+    if (ledeEl) {
+        ledeEl.textContent = philosophyCopy.lede || '';
+    }
+
+    const grid = document.getElementById('philosophy-grid');
+    if (grid) {
+        grid.innerHTML = '';
+        (philosophyCopy.cards || []).forEach(cardCopy => {
+            const card = document.createElement('article');
+            card.className = 'philosophy-card';
+
+            const header = document.createElement('header');
+            header.textContent = cardCopy.label || '';
+            card.appendChild(header);
+
+            const body = document.createElement('p');
+            body.textContent = cardCopy.body || '';
+            card.appendChild(body);
+
+            grid.appendChild(card);
+        });
+    }
+}
+
+function renderTimeline(timelineCopy) {
+    const titleEl = document.getElementById('timeline-title');
+    if (titleEl) {
+        titleEl.textContent = timelineCopy.title || '';
+    }
+
+    const subtitleEl = document.getElementById('timeline-subtitle');
+    if (subtitleEl) {
+        subtitleEl.textContent = timelineCopy.subtitle || '';
+    }
+
+    const container = document.getElementById('timeline-container');
+    if (!container) return;
+
+    container.querySelectorAll('.timeline-entry').forEach(entry => entry.remove());
+
+    const entries = Array.isArray(timelineCopy.entries) ? timelineCopy.entries : [];
+    entries.forEach(entryCopy => {
+        const article = document.createElement('article');
+        article.className = 'timeline-entry';
+        article.setAttribute('data-timeline', '');
+
+        const stamp = document.createElement('span');
+        stamp.className = 'timeline-stamp';
+        stamp.textContent = entryCopy.stamp || '';
+        article.appendChild(stamp);
+
+        const card = document.createElement('div');
+        card.className = 'timeline-card';
+
+        const header = document.createElement('header');
+        header.textContent = entryCopy.headline || '';
+        card.appendChild(header);
+
+        const bullets = Array.isArray(entryCopy.bullets) ? entryCopy.bullets : [];
+        if (bullets.length) {
+            const list = document.createElement('ul');
+            bullets.forEach(text => {
+                const li = document.createElement('li');
+                li.textContent = text;
+                list.appendChild(li);
+            });
+            card.appendChild(list);
+        }
+
+        article.appendChild(card);
+        container.appendChild(article);
+    });
 }

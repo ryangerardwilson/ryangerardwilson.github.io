@@ -13,8 +13,8 @@
         <p id="typewriter-p2" class="hidden"></p>
         <p id="typewriter-p3" class="hidden"></p>
         <div id="links" class="links hidden">
-            <a href="assets/docs/resume.pdf" target="_blank">Resume</a>
-            <a href="assets/docs/my_story.pdf" target="_blank">My Story</a>
+            <a id="link-timeline" href="#story-timeline"></a>
+            <a id="link-resume" href="#resume-snapshot"></a>
         </div>
     </div>
 
@@ -22,28 +22,47 @@
         <section id="projects-console" class="section hidden" data-reveal>
             <div class="showcase-overlay" id="showcase-overlay">
                 <div class="overlay-scan"></div>
-                <span class="overlay-text">initializing console...</span>
+                <span class="overlay-text" id="projects-overlay-text"></span>
             </div>
-            <h2 class="section-title">Projects Console</h2>
+            <h2 class="section-title" id="projects-title"></h2>
             <div id="project-grid" class="project-grid"></div>
         </section>
 
+        <section id="resume-snapshot" class="section hidden" data-reveal>
+            <h2 class="section-title" id="resume-title"></h2>
+            <p class="section-subtitle" id="resume-subtitle"></p>
+            <div class="resume-grid">
+                <div class="resume-meta" id="resume-meta"></div>
+                <div class="resume-preview">
+                    <div class="resume-pane">
+                        <header id="resume-name"></header>
+                        <p id="resume-summary"></p>
+                        <div class="resume-actions">
+                            <a class="cta-button" id="resume-cta" target="_blank" rel="noopener noreferrer">
+                                <span class="chevron">&gt;</span><span id="resume-cta-label"></span>
+                            </a>
+                        </div>
+                        <small class="resume-note" id="resume-note"></small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="terminal-philosophy" class="section hidden" data-reveal>
-            <h2 class="section-title">Why Terminal-First?</h2>
-            <p class="philosophy-lede">Modal discipline, explicit data control, outcome-first planning, and automation primitives keep teams shipping with taste.</p>
-            <div class="philosophy-grid">
-                <article class="philosophy-card">
-                    <header>&gt; modal_flow</header>
-                    <p>Every tool respects muscle memory - hands stay on home row, focus stays on the job.</p>
-                </article>
-                <article class="philosophy-card">
-                    <header>&gt; explicit_data</header>
-                    <p>No black boxes. You can audit every transformation and rerun it on demand.</p>
-                </article>
-                <article class="philosophy-card">
-                    <header>&gt; outcome_first</header>
-                    <p>Backlogs track value, not chores. Align strategy with the growth you actually need.</p>
-                </article>
+            <div class="centered-section">
+                <h2 class="section-title" id="philosophy-title"></h2>
+                <p class="philosophy-lede" id="philosophy-lede"></p>
+            </div>
+            <div class="philosophy-grid centered" id="philosophy-grid"></div>
+        </section>
+
+        <section id="story-timeline" class="section hidden" data-reveal>
+            <div class="centered-section">
+                <h2 class="section-title" id="timeline-title"></h2>
+                <p class="section-subtitle" id="timeline-subtitle"></p>
+            </div>
+            <div class="timeline" id="timeline-container">
+                <div class="timeline-axis"></div>
             </div>
         </section>
 

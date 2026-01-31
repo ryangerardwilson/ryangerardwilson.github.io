@@ -1,0 +1,268 @@
+{
+  "hero": {
+    "h1": "Hello, world.",
+    "p1": "I'm Ryan - Catholic, husband, and Wiom's network architect building India's unlimited internet with AI systems.",
+    "p2": "I ship terminal-native tools and automation primitives that keep builders in flow and make data transformations legible.",
+    "p3": "Projects booting..."
+  },
+  "links": {
+    "timeline": {
+      "href": "#story-timeline",
+      "label": "> jump to timeline"
+    },
+    "resume": {
+      "href": "#resume-snapshot",
+      "label": "> jump to resume"
+    }
+  },
+  "projectsSection": {
+    "title": "Projects Console",
+    "overlay": "initializing console..."
+  },
+  "projects": [
+    {
+      "id": "vixl",
+      "name": "vixl",
+      "badge": "grid//dataframe",
+      "accent": "vixl",
+      "bootLog": [
+        "loading pandas bindings...",
+        "spawning curses grid...",
+        "ready // press : to command"
+      ],
+      "catchLine": "Spreadsheets for people who trust fingers over formulas. Pandas power, Vim precision.",
+      "features": [
+        "Modal DataFrame grid with Vim navigation over Pandas + NumPy.",
+        "Explicit Python command bar keeps every transform audit-ready.",
+        "PyInstaller binary ships with self-update flag for frictionless installs."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/vixl" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/vixl/main/install.sh" }
+      ],
+      "linkedTools": "links with xyz for fast backlog CSV edits."
+    },
+    {
+      "id": "o",
+      "name": "o",
+      "badge": "matrix//filesystem",
+      "accent": "o",
+      "bootLog": [
+        "warming curses viewport...",
+        "streaming directory rain...",
+        "ready // enter toggles view"
+      ],
+      "catchLine": "File trees as living streams. Triage your filesystem at 120 FPS without leaving home row.",
+      "features": [
+        "Matrix-mode columns freeze on focus so you never lose context.",
+        "Leader commands cover marks, yanks, renames, and bulk ops in one tap.",
+        "Configurable handlers pipe into Vim, Vixl, or your terminal stack."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/o" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/o/main/install.sh" }
+      ],
+      "linkedTools": "opens vixl and rt directly from directory view."
+    },
+    {
+      "id": "rt",
+      "name": "rt",
+      "badge": "taste//trainer",
+      "accent": "rt",
+      "bootLog": [
+        "loading curated markdown...",
+        "priming doc + typing modes...",
+        "ready // accuracy > 90% or restart"
+      ],
+      "catchLine": "Taste is muscle memory. Train your typing to ship code that actually sings.",
+      "features": [
+        "Doc mode and typing drills sourced from intentionally structured Markdown.",
+        "Strict heading parser enforces real curricula, not AI slop.",
+        "Uploads lessons to Grok Collections for search and rote review."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/rt" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/rt/main/install.sh" }
+      ],
+      "linkedTools": "pairs with o for editing lessons in place."
+    },
+    {
+      "id": "xyz",
+      "name": "xyz",
+      "badge": "jtbd//backlog",
+      "accent": "xyz",
+      "bootLog": [
+        "hydrating agenda cache...",
+        "mounting outcome pipeline...",
+        "ready // log when x -> y so z"
+      ],
+      "catchLine": "Outcome-first backlog OS. Log the job, not the busywork, and let compounding bets stack.",
+      "features": [
+        "Agenda and month view with instant toggles and vim navigation.",
+        "Deterministic CLI (-x/-y/-z) for scripted backlog updates.",
+        "CSV-backed storage with $EDITOR integration for fast edits."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/xyz" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/xyz/main/install.sh" }
+      ],
+      "linkedTools": "exports tasks to vixl for deeper analysis."
+    },
+    {
+      "id": "clipai",
+      "name": "clipai",
+      "badge": "clipboard//ai",
+      "accent": "clipai",
+      "bootLog": [
+        "monitoring wl clipboard...",
+        "awaiting ai{{ prompt }}...",
+        "ready // background worker armed"
+      ],
+      "catchLine": "Clipboard-triggered AI macros. Copy ai{{...}}, get the answer before you leave home row.",
+      "features": [
+        "Clipboard watcher swaps ai{{ prompt }} with OpenAI responses in real time.",
+        "CLI mode pipes answers straight into your buffer for scripts and automations.",
+        "Wayland-native service built on wl-clipboard with a systemd user unit for persistence."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/clipai" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/clipai/main/install.sh" }
+      ],
+      "linkedTools": "feeds vixl, o, rt, and xyz without breaking flow."
+    }
+  ],
+  "resume": {
+    "title": "Resume Snapshot",
+    "subtitle": "$ curl resume.pdf",
+    "meta": [
+      { "label": "> focus", "body": "Network architecture, AI/ML deployment, terminal-native product design." },
+      { "label": "> experience", "body": "10+ years shipping internet infrastructure and automation tooling." },
+      { "label": "> current_role", "body": "Principal Architect @ Wiom, building unlimited internet for India." }
+    ],
+    "pane": {
+      "name": "Ryan Gerard Wilson",
+      "summary": "Principal Architect focused on AI-powered network scaling, terminal-native experience design, and human-centered infrastructure.",
+      "ctaLabel": "download resume (PDF)",
+      "ctaHref": "assets/docs/resume.pdf",
+      "note": "Updated Jan 2026"
+    }
+  },
+  "philosophy": {
+    "title": "Why Terminal-First?",
+    "lede": "Modal discipline, explicit data control, outcome-first planning, and automation primitives keep teams shipping with taste.",
+    "cards": [
+      { "label": "> modal_flow", "body": "Every tool respects muscle memory - hands stay on home row, focus stays on the job." },
+      { "label": "> explicit_data", "body": "No black boxes. You can audit every transformation and rerun it on demand." },
+      { "label": "> outcome_first", "body": "Backlogs track value, not chores. Align strategy with the growth you actually need." }
+    ]
+  },
+  "timeline": {
+    "title": "My Story Timeline",
+    "subtitle": "$ tail -f ./story.log",
+    "entries": [
+      {
+        "stamp": "[2026]",
+        "headline": "Unlimited internet for 500 million homes",
+        "bullets": [
+          "Architecting Wiom's AI-first provisioning models across India.",
+          "Partnered with national fiber operators to accelerate rollout velocity."
+        ]
+      },
+      {
+        "stamp": "[2025 | By 33]",
+        "headline": "Deep-tech marathon and marrying my wife",
+        "bullets": [
+          "Relearned high-school math while shipping md2ltx, GitGuru, and DataSling.",
+          "Explored FP vs OOP, built DeathStarPilot, reaffirmed a vim-first workflow.",
+          "Married my wife - centering vocation on faith, family, and service.",
+          "Rebuilt personal infra, consolidated automation, delivered Wiom's Genie engine.",
+          "Created rtutor and companion tutor apps to keep coding taste sharp."
+        ]
+      },
+      {
+        "stamp": "[2024 | By 32]",
+        "headline": "Rust explorations and returning to Python pragmatism",
+        "bullets": [
+          "Evolved the RGWML library through 250+ releases and shipped CSVBRO.",
+          "Rebuilt the stack in Python as RGWFUNCS and CSVBro to minimize cognitive load.",
+          "Proved build-in-production with Python, JS, and SQLite for Wiom's internal CRM."
+        ]
+      },
+      {
+        "stamp": "[2023 | By 31]",
+        "headline": "Wiom Labs and HAPP.AI",
+        "bullets": [
+          "Ran Wiom Labs, building HAPP.AI with Rust concurrency.",
+          "Shipped open tooling to simplify AI/ML workflows through the terminal."
+        ]
+      },
+      {
+        "stamp": "[2020-2022 | 28-30]",
+        "headline": "Entrepreneurial rollercoaster to Wiom",
+        "bullets": [
+          "Built LegalTech apps, burned savings, learned from a startup crash.",
+          "Joined Wiom's mission; shipped HAPPY, DREAM, GURU, and TERMINAL LOVE.",
+          "Deepened craft in Bash, PHP, Python, JS, and Gospel piano."
+        ]
+      },
+      {
+        "stamp": "[2017-2019 | 25-27]",
+        "headline": "Law, code, and rediscovering craft",
+        "bullets": [
+          "Rode out COVID disruption while practicing law.",
+          "Learned HTML, CSS, and PHP; rekindled piano disciplines and builder mindset."
+        ]
+      },
+      {
+        "stamp": "[2016 | At 24]",
+        "headline": "IP and tech attorney years",
+        "bullets": [
+          "Worked as an IP and technology lawyer, studying how systems scale."
+        ]
+      },
+      {
+        "stamp": "[2015 | At 23]",
+        "headline": "First LegalTech startup crash",
+        "bullets": [
+          "Joined a LegalTech startup that folded in six months.",
+          "Logged the value of resilience and sharper product instincts."
+        ]
+      },
+      {
+        "stamp": "[2010 | At 18]",
+        "headline": "Law school foundations",
+        "bullets": [
+          "Joined RMLNLU in Lucknow, grounding discipline and rhetoric."
+        ]
+      },
+      {
+        "stamp": "[2008 | By 17]",
+        "headline": "Dropping out to chase better questions",
+        "bullets": [
+          "Walked away from DU commerce to find deeper learning paths."
+        ]
+      },
+      {
+        "stamp": "[2006 | At 15]",
+        "headline": "Challenging the script",
+        "bullets": [
+          "Left CBSE science, refusing assembly-line thinking."
+        ]
+      },
+      {
+        "stamp": "[2005 | Till 15]",
+        "headline": "Dreaming in chords and code",
+        "bullets": [
+          "Imagined life as a mad scientist, Liverpool midfielder, and pianist."
+        ]
+      },
+      {
+        "stamp": "[Birth]",
+        "headline": "And so it began",
+        "bullets": [
+          "Set on a path of faith, curiosity, and relentless learning."
+        ]
+      }
+    ]
+  }
+}
