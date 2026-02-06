@@ -31,7 +31,8 @@
       ],
       "linkedTools": "links with xyz for fast backlog CSV edits."
     },
-    { "id": "o",
+    {
+      "id": "o",
       "name": "o",
       "badge": "matrix//filesystem",
       "accent": "o",
@@ -117,6 +118,28 @@
         { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/clipai/main/install.sh" }
       ],
       "linkedTools": "feeds vixl, o, rt, and xyz without breaking flow."
+    },
+    {
+      "id": "ai",
+      "name": "ai",
+      "badge": "codex//companion",
+      "accent": "ai",
+      "bootLog": [
+        "spinning up codex rewrite...",
+        "binding responses api superset...",
+        "ready // vim-first control"
+      ],
+      "catchLine": "Vim-first rewrite of OpenAI Codex running on the latest Responses API superset of Completions.",
+      "features": [
+        "CLI + TUI modes wrap the Responses API so you can audit diffs, chat, or edit without leaving the keyboard.",
+        "Minimal, opinionated workflow trims noise and keeps every run focused on shipping the next concrete change.",
+        "Git safeguards stage changes for you and refuse to auto-commit, so the AI never hijacks version control."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/ai" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/ai/main/install.sh" }
+      ],
+      "linkedTools": "Streams reasoning inline while pairing cleanly with your terminal + Vim stack."
     }
   ],
   "resume": {
