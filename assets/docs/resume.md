@@ -68,7 +68,7 @@ d. vixl: A recent project in its nascent stages that aims to pack ~80% of spread
 
 e. rgwml: Warmed up to low-level data-science ops by re-implementing core Python/Pandas patterns in Rust early in my learning. Result: a high-performance Rust crate for ML/AI tasks with Python bindings, now widely used in the community. See: [RGWML](https://crates.io/search?q=rgwml).
 
-## Skills/ Core Tech Stack
+## Skills
 
 - Product, Design & Systems Thinking: Jobs-to-Be-Done prioritization, indie-hacker discovery loops, market research to launch storytelling, metrics instrumentation, CRM workflow analytics, investor pitch refinement, customer support journey design, cross-functional stakeholder alignment.
 - AI & Data Science: machine learning deployment, decision science experimentation, OpenAI Codex/Responses API integration, AutoGPT workflows, graph neural networks (GNNs), XGBoost optimization, Python data modeling, Jupyter-to-production hardening, AI chatbot automation, lead-matching algorithm design.
