@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import os
+import re
 import sys
+import textwrap
 from datetime import datetime
 
 from reportlab.lib.pagesizes import A4
@@ -31,23 +33,65 @@ def compile_text_to_pdf(text_file, pdf_file):
 
         font_size = 8
         line_spacing = 10
+        max_chars = int(usable_width / (font_size * 0.6))
+
         text_object = pdf_canvas.beginText(left_margin, height - top_margin)
         text_object.setFont("Courier", font_size)
         text_object.setLeading(line_spacing)
 
         y_position = height - top_margin
+
+        bullet_tokens = ("- ", "* ", "+ ", "• ", "– ", "— ")
+        numbered_pattern = re.compile(r"((?:\d+|[A-Za-z])[.)])\s+")
+
         for line in text.splitlines():
             if not line:
                 text_object.textLine("")
                 y_position -= line_spacing
             else:
-                working_line = line
-                while working_line:
-                    max_chars = int(usable_width / (font_size * 0.6))
-                    chunk = working_line[:max_chars]
-                    working_line = working_line[max_chars:]
-                    text_object.textLine(chunk)
+                wrapper = textwrap.TextWrapper(
+                    width=max_chars,
+                    expand_tabs=True,
+                    replace_whitespace=False,
+                    drop_whitespace=False,
+                    break_long_words=False,
+                    break_on_hyphen=False,
+                )
+
+                leading_spaces = len(line) - len(line.lstrip(" "))
+                after_indent = line[leading_spaces:]
+                bullet_prefix_len = 0
+
+                for token in bullet_tokens:
+                    if after_indent.startswith(token):
+                        bullet_prefix_len = len(token)
+                        break
+                else:
+                    match = numbered_pattern.match(after_indent)
+                    if match:
+                        bullet_prefix_len = len(match.group(0))
+
+                wrapper.subsequent_indent = (
+                    " " * leading_spaces + " " * bullet_prefix_len
+                )
+
+                segments = wrapper.wrap(line)
+                if not segments:
+                    segments = [line]
+
+                for segment in segments:
+                    text_object.textLine(segment)
                     y_position -= line_spacing
+
+                    if y_position < bottom_margin:
+                        pdf_canvas.drawText(text_object)
+                        pdf_canvas.showPage()
+                        text_object = pdf_canvas.beginText(
+                            left_margin, height - top_margin
+                        )
+                        text_object.setFont("Courier", font_size)
+                        text_object.setLeading(line_spacing)
+                        y_position = height - top_margin
 
             if y_position < bottom_margin:
                 pdf_canvas.drawText(text_object)
