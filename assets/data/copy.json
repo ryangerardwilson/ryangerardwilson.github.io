@@ -32,28 +32,6 @@
       "linkedTools": "links with xyz for fast backlog CSV edits."
     },
     {
-      "id": "o",
-      "name": "o",
-      "badge": "matrix//filesystem",
-      "accent": "o",
-      "bootLog": [
-        "warming curses viewport...",
-        "streaming directory rain...",
-        "ready // enter toggles view"
-      ],
-      "catchLine": "File trees as living streams. Triage your filesystem at 120 FPS without leaving home row.",
-      "features": [
-        "Matrix-mode columns freeze on focus so you never lose context.",
-        "Leader commands cover marks, yanks, renames, and bulk ops in one tap.",
-        "Configurable handlers pipe into Vim, Vixl, or your terminal stack."
-      ],
-      "ctas": [
-        { "label": "view source", "url": "https://github.com/ryangerardwilson/o" },
-        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/o/main/install.sh" }
-      ],
-      "linkedTools": "opens vixl and rt directly from directory view."
-    },
-    {
       "id": "gtkv",
       "name": "gtkv",
       "badge": "vim//graphics",
@@ -76,26 +54,48 @@
       "linkedTools": "pairs with o for selecting assets and vixl for data-driven notes."
     },
     {
-      "id": "rt",
-      "name": "rt",
-      "badge": "taste//trainer",
-      "accent": "rt",
+      "id": "ai",
+      "name": "ai",
+      "badge": "codex//companion",
+      "accent": "ai",
       "bootLog": [
-        "loading curated markdown...",
-        "priming doc + typing modes...",
-        "ready // accuracy > 90% or restart"
+        "spinning up codex rewrite...",
+        "binding responses api superset...",
+        "ready // vim-first control"
       ],
-      "catchLine": "Taste is muscle memory. Train your typing to ship code that actually sings.",
+      "catchLine": "Vim-first rewrite of OpenAI Codex running on the latest Responses API superset of Completions.",
       "features": [
-        "Doc mode and typing drills sourced from intentionally structured Markdown.",
-        "Strict heading parser enforces real curricula, not AI slop.",
-        "Uploads lessons to Grok Collections for search and rote review."
+        "CLI + TUI modes wrap the Responses API so you can audit diffs, chat, or edit without leaving the keyboard.",
+        "Minimal, opinionated workflow trims noise and keeps every run focused on shipping the next concrete change.",
+        "Git safeguards stage changes for you and refuse to auto-commit, so the AI never hijacks version control."
       ],
       "ctas": [
-        { "label": "view source", "url": "https://github.com/ryangerardwilson/rt" },
-        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/rt/main/install.sh" }
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/ai" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/ai/main/install.sh" }
       ],
-      "linkedTools": "pairs with o for editing lessons in place."
+      "linkedTools": "Streams reasoning inline while pairing cleanly with your terminal + Vim stack."
+    },
+    {
+      "id": "o",
+      "name": "o",
+      "badge": "matrix//filesystem",
+      "accent": "o",
+      "bootLog": [
+        "warming curses viewport...",
+        "streaming directory rain...",
+        "ready // enter toggles view"
+      ],
+      "catchLine": "File trees as living streams. Triage your filesystem at 120 FPS without leaving home row.",
+      "features": [
+        "Matrix-mode columns freeze on focus so you never lose context.",
+        "Leader commands cover marks, yanks, renames, and bulk ops in one tap.",
+        "Configurable handlers pipe into Vim, Vixl, or your terminal stack."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/o" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/o/main/install.sh" }
+      ],
+      "linkedTools": "opens vixl and rt directly from directory view."
     },
     {
       "id": "xyz",
@@ -120,6 +120,28 @@
       "linkedTools": "exports tasks to vixl for deeper analysis."
     },
     {
+      "id": "rt",
+      "name": "rt",
+      "badge": "taste//trainer",
+      "accent": "rt",
+      "bootLog": [
+        "loading curated markdown...",
+        "priming doc + typing modes...",
+        "ready // accuracy > 90% or restart"
+      ],
+      "catchLine": "Taste is muscle memory. Train your typing to ship code that actually sings.",
+      "features": [
+        "Doc mode and typing drills sourced from intentionally structured Markdown.",
+        "Strict heading parser enforces real curricula, not AI slop.",
+        "Uploads lessons to Grok Collections for search and rote review."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/rt" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/rt/main/install.sh" }
+      ],
+      "linkedTools": "pairs with o for editing lessons in place."
+    },
+    {
       "id": "clipai",
       "name": "clipai",
       "badge": "clipboard//ai",
@@ -140,28 +162,6 @@
         { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/clipai/main/install.sh" }
       ],
       "linkedTools": "feeds vixl, o, rt, and xyz without breaking flow."
-    },
-    {
-      "id": "ai",
-      "name": "ai",
-      "badge": "codex//companion",
-      "accent": "ai",
-      "bootLog": [
-        "spinning up codex rewrite...",
-        "binding responses api superset...",
-        "ready // vim-first control"
-      ],
-      "catchLine": "Vim-first rewrite of OpenAI Codex running on the latest Responses API superset of Completions.",
-      "features": [
-        "CLI + TUI modes wrap the Responses API so you can audit diffs, chat, or edit without leaving the keyboard.",
-        "Minimal, opinionated workflow trims noise and keeps every run focused on shipping the next concrete change.",
-        "Git safeguards stage changes for you and refuse to auto-commit, so the AI never hijacks version control."
-      ],
-      "ctas": [
-        { "label": "view source", "url": "https://github.com/ryangerardwilson/ai" },
-        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/ai/main/install.sh" }
-      ],
-      "linkedTools": "Streams reasoning inline while pairing cleanly with your terminal + Vim stack."
     }
   ],
   "resume": {
