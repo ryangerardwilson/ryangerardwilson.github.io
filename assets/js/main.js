@@ -406,7 +406,7 @@ function renderResume(resumeCopy) {
 
     const avatarEl = document.getElementById('resume-avatar');
     if (avatarEl) {
-        const avatarSrc = resumeCopy.avatarUrl || pane.avatarUrl || 'https://unavatar.io/twitter/ryan_improvises';
+        const avatarSrc = resumeCopy.avatarUrl || pane.avatarUrl || 'https://unavatar.io/x/ryan_improvises?refresh=1';
         avatarEl.src = avatarSrc;
         avatarEl.alt = pane.name ? `${pane.name} avatar` : "Profile avatar";
     }

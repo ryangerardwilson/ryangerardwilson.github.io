@@ -179,7 +179,7 @@
       "ctaHref": "resume.pdf",
       "note": "Updated Jan 2026"
     },
-    "avatarUrl": "https://unavatar.io/twitter/ryan_improvises"
+    "avatarUrl": "https://unavatar.io/x/ryan_improvises?refresh=1"
   },
   "timeline": {
     "title": "My Story",
@@ -269,7 +269,7 @@
     ]
   },
   "footer": {
-    "avatarUrl": "https://unavatar.io/twitter/ryan_improvises",
+    "avatarUrl": "https://unavatar.io/x/ryan_improvises?refresh=1",
     "avatarAlt": "Ryan improvises on X",
     "resumeHref": "resume.pdf"
   }
