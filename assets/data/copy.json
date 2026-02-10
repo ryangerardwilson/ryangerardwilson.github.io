@@ -54,6 +54,28 @@
       "linkedTools": "opens vixl and rt directly from directory view."
     },
     {
+      "id": "gtkv",
+      "name": "gtkv",
+      "badge": "vim//graphics",
+      "accent": "gtkv",
+      "bootLog": [
+        "lifting vim into gtk4...",
+        "embedding inline images...",
+        "ready // ctrl+i inserts"
+      ],
+      "catchLine": "Vim's design meets graphics. Inline images without leaving the modal flow.",
+      "features": [
+        "GTK4-first editor that keeps Vim muscle memory intact while enabling visuals.",
+        "Saves self-contained .gtkv.html files with base64-embedded images.",
+        "Native insert/save shortcuts so visual docs stay in the same workflow."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/gtkv" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/gtkv/main/install.sh" }
+      ],
+      "linkedTools": "pairs with o for selecting assets and vixl for data-driven notes."
+    },
+    {
       "id": "rt",
       "name": "rt",
       "badge": "taste//trainer",
