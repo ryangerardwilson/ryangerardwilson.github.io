@@ -425,6 +425,15 @@ function renderResume(resumeCopy) {
         ctaLabel.textContent = pane.ctaLabel || '';
     }
 
+    const notesLink = document.getElementById('resume-notes');
+    const notesLabel = document.getElementById('resume-notes-label');
+    if (notesLink) {
+        notesLink.href = pane.notesHref || '#';
+    }
+    if (notesLabel) {
+        notesLabel.textContent = pane.notesLabel || '';
+    }
+
     const noteEl = document.getElementById('resume-note');
     if (noteEl) {
         noteEl.textContent = pane.note || '';
@@ -485,6 +494,14 @@ function applyFooter(footerCopy) {
     const resumeLink = document.querySelector('.footer-cta');
     if (resumeLink) {
         resumeLink.href = footerCopy && footerCopy.resumeHref ? footerCopy.resumeHref : 'resume.pdf';
+    }
+
+    const notesLink = document.querySelector('.footer-notes');
+    if (notesLink) {
+        notesLink.href = footerCopy && footerCopy.notesHref ? footerCopy.notesHref : 'https://notes.ryangerardwilson.com/';
+        if (footerCopy && footerCopy.notesLabel) {
+            notesLink.textContent = footerCopy.notesLabel;
+        }
     }
 }
 

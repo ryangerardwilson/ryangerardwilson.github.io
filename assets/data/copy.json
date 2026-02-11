@@ -177,6 +177,8 @@
       "summary": "Builder. Lover of terminal-native experiences.",
       "ctaLabel": "download resume (PDF)",
       "ctaHref": "resume.pdf",
+      "notesLabel": "obsidian notes",
+      "notesHref": "https://notes.ryangerardwilson.com/",
       "note": "Updated Jan 2026"
     },
     "avatarUrl": "https://unavatar.io/x/ryan_improvises?refresh=1"
@@ -271,6 +273,8 @@
   "footer": {
     "avatarUrl": "https://unavatar.io/x/ryan_improvises?refresh=1",
     "avatarAlt": "Ryan improvises on X",
-    "resumeHref": "resume.pdf"
+    "resumeHref": "resume.pdf",
+    "notesLabel": "notes.ryangerardwilson.com",
+    "notesHref": "https://notes.ryangerardwilson.com/"
   }
 }
