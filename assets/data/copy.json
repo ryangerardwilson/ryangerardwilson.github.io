@@ -19,11 +19,11 @@
         "spawning curses grid...",
         "ready // press : to command"
       ],
-      "catchLine": "Spreadsheets for people who trust fingers over formulas. Pandas power, Vim precision.",
+      "catchLine": "Excel is bloated and opaque on large sheets; I wanted fast, home-row spreadsheets.",
       "features": [
-        "Modal DataFrame grid with Vim navigation over Pandas + NumPy.",
-        "Explicit Python command bar keeps every transform audit-ready.",
-        "PyInstaller binary ships with self-update flag for frictionless installs."
+        "Built to escape Excel bloat and arrow-key pain on large datasets.",
+        "Vim-first TUI spreadsheet for CSV/Parquet/XLSX/HDF5 with Pandas syntax.",
+        "Handles 100k+ row workflows without leaving the home row."
       ],
       "ctas": [
         { "label": "view source", "url": "https://github.com/ryangerardwilson/vixl" },
@@ -41,11 +41,11 @@
         "stacking block renders...",
         "ready // enter opens vim"
       ],
-      "catchLine": "Vim-first block docs with GTK4 layout and WebKit renderers.",
+      "catchLine": "I wanted graph/animation-rich calculus notes without leaving my Vim muscle memory.",
       "features": [
-        "GTK4 editor that keeps Vim as the text editor and treats each block as a render surface.",
-        "Stores documents as git-friendly .gvim text files with block sources.",
-        "Renders 3D, LaTeX, Python, and map blocks inline via WebKitGTK."
+        "Made to take graph/animation-heavy calculus notes without bloated software.",
+        "GTK4 GUI that preserves Vim navigation across document blocks.",
+        "Renders Python graphs and ThreeJS animations inline, stored as git-friendly .gvim files."
       ],
       "ctas": [
         { "label": "view source", "url": "https://github.com/ryangerardwilson/gvim" },
@@ -63,11 +63,11 @@
         "binding responses api superset...",
         "ready // vim-first control"
       ],
-      "catchLine": "Vim-first rewrite of OpenAI Codex running on the latest Responses API superset of Completions.",
+      "catchLine": "I wanted to study Responses vs Completions and prove a pure CLI aesthetic.",
       "features": [
-        "CLI + TUI modes wrap the Responses API so you can audit diffs, chat, or edit without leaving the keyboard.",
-        "Minimal, opinionated workflow trims noise and keeps every run focused on shipping the next concrete change.",
-        "Git safeguards stage changes for you and refuse to auto-commit, so the AI never hijacks version control."
+        "Built to study the Responses API vs. Completions using a pure CLI (no TUI).",
+        "Rebuilt opencode as a terminal-first assistant for editing, diff audits, Q&A, and repo analysis.",
+        "Includes Git safeguards, sandboxed shell commands, and secure API key storage."
       ],
       "ctas": [
         { "label": "view source", "url": "https://github.com/ryangerardwilson/ai" },
@@ -85,11 +85,11 @@
         "streaming directory rain...",
         "ready // enter toggles view"
       ],
-      "catchLine": "File trees as living streams. Triage your filesystem at 120 FPS without leaving home row.",
+      "catchLine": "File managers force arrows/mouse; I wanted hjkl-only navigation for the filesystem.",
       "features": [
-        "Matrix-mode columns freeze on focus so you never lose context.",
-        "Leader commands cover marks, yanks, renames, and bulk ops in one tap.",
-        "Configurable handlers pipe into Vim, Vixl, or your terminal stack."
+        "Built to eliminate arrow-key/mouse strain with Vim's hjkl-only navigation.",
+        "Python curses file browser with modal nav, yank/cut/paste/delete, and picker modes.",
+        "Matrix-inspired rain display keeps context while you move fast."
       ],
       "ctas": [
         { "label": "view source", "url": "https://github.com/ryangerardwilson/o" },
@@ -107,11 +107,11 @@
         "mounting outcome pipeline...",
         "ready // log when x -> y so z"
       ],
-      "catchLine": "Outcome-first backlog OS. Log the job, not the busywork, and let compounding bets stack.",
+      "catchLine": "To-dos reward busywork; I wanted JTBD outcomes that compound progress.",
       "features": [
-        "Agenda and month view with instant toggles and vim navigation.",
-        "Deterministic CLI (-x/-y/-z) for scripted backlog updates.",
-        "CSV-backed storage with $EDITOR integration for fast edits."
+        "Built to force JTBD outcomes instead of busywork checklists.",
+        "Vim-first terminal task tracker with North Star scores (p/q/r) for value, impact, embodiment.",
+        "Pure Python (curses + CSV) with instant setup for clarity-driven creators."
       ],
       "ctas": [
         { "label": "view source", "url": "https://github.com/ryangerardwilson/xyz" },
@@ -129,11 +129,11 @@
         "priming doc + typing modes...",
         "ready // accuracy > 90% or restart"
       ],
-      "catchLine": "Taste is muscle memory. Train your typing to ship code that actually sings.",
+      "catchLine": "AI code slop dulls intuition; I wanted drills that embed expert patterns.",
       "features": [
-        "Doc mode and typing drills sourced from intentionally structured Markdown.",
-        "Strict heading parser enforces real curricula, not AI slop.",
-        "Uploads lessons to Grok Collections for search and rote review."
+        "Built to counter AI code slop by drilling expert snippets into muscle memory.",
+        "CLI tutor with rote/jump modes, 90%+ accuracy gates, and in-place editing.",
+        "Parses .md courses into structured lessons with bookmarks and search."
       ],
       "ctas": [
         { "label": "view source", "url": "https://github.com/ryangerardwilson/rt" },
@@ -151,7 +151,7 @@
         "awaiting ai{{ prompt }}...",
         "ready // background worker armed"
       ],
-      "catchLine": "Clipboard-triggered AI macros. Copy ai{{...}}, get the answer before you leave home row.",
+      "catchLine": "I wanted AI answers without context switching, triggered straight from the clipboard.",
       "features": [
         "Clipboard watcher swaps ai{{ prompt }} with OpenAI responses in real time.",
         "CLI mode pipes answers straight into your buffer for scripts and automations.",
