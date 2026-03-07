@@ -1,5 +1,8 @@
 # Ryan Gerard Wilson
 
+User-agent: *
+Source: https://ryangerardwilson.com/assets/data/copy.json
+
 ## Primary Machine Source
 - Source of truth: https://ryangerardwilson.com/assets/data/copy.json
 - Preferred for AI parsing and extraction.
