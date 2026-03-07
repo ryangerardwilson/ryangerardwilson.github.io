@@ -8,15 +8,11 @@ let heroCopy = {};
 let projects = [];
 let sectionsPrimed = false;
 let timelineObserver;
-let globalScrollBound = false;
-let activeScrollDirection = null;
-let scrollIntervalId = null;
 
 const h1 = document.getElementById('typewriter-h1');
 const p1 = document.getElementById('typewriter-p1');
 const p2 = document.getElementById('typewriter-p2');
 const p3 = document.getElementById('typewriter-p3');
-const p4 = document.getElementById('typewriter-p4');
 const links = document.getElementById('links');
 const footer = document.getElementById('site-footer');
 
@@ -53,12 +49,6 @@ function initializeCopy() {
     applyFooter(copyData.footer || {});
     applyFooter(copyData.footer || {});
 
-    if (!globalScrollBound) {
-        document.addEventListener('keydown', handleGlobalScrollKeys, { passive: false });
-        document.addEventListener('keyup', handleGlobalScrollKeyUp, { passive: true });
-        globalScrollBound = true;
-    }
-
     startHeroSequence();
 }
 
@@ -74,9 +64,8 @@ function startHeroSequence() {
     const p1Text = heroCopy.p1 || '';
     const p2Text = heroCopy.p2 || '';
     const p3Text = heroCopy.p3 || '';
-    const bootingMessageText = heroCopy.booting_message || '';
 
-    if (!h1Text || !p1Text || !p2Text || !bootingMessageText) {
+    if (!h1Text || !p1Text || !p2Text) {
         console.warn('Hero copy incomplete; skipping typewriter.');
         return;
     }
@@ -84,11 +73,9 @@ function startHeroSequence() {
     h1.classList.remove('hidden');
     p1.classList.remove('hidden');
     p2.classList.remove('hidden');
-    p4.classList.remove('hidden');
     h1.textContent = h1Text;
     p1.textContent = p1Text;
     p2.textContent = p2Text;
-    p4.textContent = bootingMessageText;
 
     if (p3Text) {
         p3.classList.remove('hidden');
@@ -104,12 +91,6 @@ function startHeroSequence() {
     }
     revealFooter();
     startShowcaseSequence();
-}
-
-function removeProjectsBootMessage() {
-    if (!p4) return;
-    p4.classList.add('hidden');
-    p4.textContent = '';
 }
 
 function startShowcaseSequence() {
@@ -131,7 +112,6 @@ function startShowcaseSequence() {
         if (overlay) {
             overlay.remove();
         }
-        removeProjectsBootMessage();
         const resumeSection = document.getElementById('resume-snapshot');
         if (resumeSection) {
             resumeSection.classList.add('revealed');
@@ -163,15 +143,12 @@ function startShowcaseSequence() {
             card.classList.add('is-visible');
 
             if (index === cards.length - 1 && overlay) {
-                removeProjectsBootMessage();
                 overlay.classList.add('fade-out');
                 setTimeout(() => {
                     if (overlay && overlay.parentElement) {
                         overlay.remove();
                     }
                 }, 800);
-            } else if (index === cards.length - 1) {
-                removeProjectsBootMessage();
             }
         }, delay);
     });
@@ -442,65 +419,4 @@ function revealFooter() {
     if (!footer || footer.classList.contains('revealed')) return;
     footer.classList.remove('hidden');
     footer.classList.add('revealed');
-}
-
-function handleGlobalScrollKeys(event) {
-    if (event.defaultPrevented) return;
-    if (event.ctrlKey || event.metaKey || event.altKey) return;
-
-    const target = event.target;
-    if (target && target.tagName) {
-        const tag = target.tagName.toLowerCase();
-        if (['input', 'textarea', 'select', 'button'].includes(tag) || target.isContentEditable) {
-            return;
-        }
-    }
-
-    const direction = event.key === 'j' ? 'down' : event.key === 'k' ? 'up' : null;
-    if (!direction) return;
-
-    if (event.repeat && activeScrollDirection === direction) {
-        event.preventDefault();
-        return;
-    }
-
-    event.preventDefault();
-
-    if (activeScrollDirection !== direction) {
-        cancelContinuousScroll();
-        activeScrollDirection = direction;
-    }
-
-    performScrollStep(direction, true);
-
-    if (!scrollIntervalId) {
-        scrollIntervalId = setInterval(() => performScrollStep(direction, false), 18);
-    }
-}
-
-function handleGlobalScrollKeyUp(event) {
-    if (!activeScrollDirection) return;
-    if ((event.key === 'j' && activeScrollDirection === 'down') ||
-        (event.key === 'k' && activeScrollDirection === 'up')) {
-        cancelContinuousScroll();
-    }
-}
-
-function cancelContinuousScroll() {
-    if (scrollIntervalId) {
-        clearInterval(scrollIntervalId);
-        scrollIntervalId = null;
-    }
-    activeScrollDirection = null;
-}
-
-function performScrollStep(direction, allowSmoothWindow) {
-    const baseDelta = Math.max(window.innerHeight * (allowSmoothWindow ? 0.16 : 0.05), allowSmoothWindow ? 90 : 28);
-    const delta = direction === 'down' ? baseDelta : -baseDelta;
-
-    if (prefersReducedMotion || !allowSmoothWindow) {
-        window.scrollBy(0, delta);
-    } else {
-        window.scrollBy({ top: delta, behavior: 'smooth' });
-    }
 }
