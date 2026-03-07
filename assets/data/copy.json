@@ -21,8 +21,7 @@
       ],
       "catchLine": "Excel is bloated and opaque on large sheets; I wanted fast, home-row spreadsheets.",
       "features": [
-        "Built to escape Excel bloat and arrow-key pain on large datasets.",
-        "Vim-first TUI spreadsheet for CSV/Parquet/XLSX/HDF5 with Pandas syntax.",
+        "Vim-first TUI spreadsheet editor for CSV/Parquet/XLSX/HDF5 with Pandas syntax.",
         "Handles 100k+ row workflows without leaving the home row."
       ],
       "ctas": [
