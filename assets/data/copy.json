@@ -13,7 +13,7 @@
     {
       "id": "vixl",
       "name": "vixl",
-      "badge": "grid//dataframe",
+      "badge": "excel//killer",
       "accent": "vixl",
       "bootLog": [
         "loading pandas bindings...",
@@ -35,7 +35,7 @@
     {
       "id": "gvim",
       "name": "gvim",
-      "badge": "vim//blocks",
+      "badge": "obsidian//killer",
       "accent": "gvim",
       "bootLog": [
         "lifting vim into gtk4...",
@@ -57,7 +57,7 @@
     {
       "id": "ai",
       "name": "ai",
-      "badge": "codex//companion",
+      "badge": "dissects//codex",
       "accent": "ai",
       "bootLog": [
         "spinning up codex rewrite...",
@@ -79,7 +79,7 @@
     {
       "id": "o",
       "name": "o",
-      "badge": "matrix//filesystem",
+      "badge": "hjkl//first",
       "accent": "o",
       "bootLog": [
         "warming curses viewport...",
@@ -101,7 +101,7 @@
     {
       "id": "xyz",
       "name": "xyz",
-      "badge": "jtbd//backlog",
+      "badge": "velocity>//speed",
       "accent": "xyz",
       "bootLog": [
         "hydrating agenda cache...",
@@ -123,7 +123,7 @@
     {
       "id": "rt",
       "name": "rt",
-      "badge": "taste//trainer",
+      "badge": "personal//manpages",
       "accent": "rt",
       "bootLog": [
         "loading curated markdown...",
