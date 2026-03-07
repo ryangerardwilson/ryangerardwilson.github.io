@@ -1,5 +1,9 @@
 # Ryan Gerard Wilson
 
+## Primary Machine Source
+- Source of truth: https://ryangerardwilson.com/assets/data/copy.json
+- Preferred for AI parsing and extraction.
+
 - Canonical: https://ryangerardwilson.com/
 - Copy JSON: https://ryangerardwilson.com/assets/data/copy.json
 - Resume: https://ryangerardwilson.com/resume.pdf

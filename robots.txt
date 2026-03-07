@@ -1,4 +1,30 @@
 User-agent: *
 Allow: /
+Allow: /assets/data/copy.json
+
+User-agent: GPTBot
+Allow: /assets/data/copy.json
+Allow: /llms.txt
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /assets/data/copy.json
+Allow: /llms.txt
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /assets/data/copy.json
+Allow: /llms.txt
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /assets/data/copy.json
+Allow: /llms.txt
+Allow: /
+
+User-agent: CCBot
+Allow: /assets/data/copy.json
+Allow: /llms.txt
+Allow: /
 
 Sitemap: https://ryangerardwilson.com/sitemap.xml
