@@ -113,45 +113,25 @@ p {
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
+    gap: 22px;
     position: relative;
     z-index: 2;
 }
 
 .terminal-card {
     position: relative;
-    background: var(--terminal-bg);
-    border: 1px solid var(--terminal-border);
+    background: rgba(0, 0, 0, 0.62);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 14px;
-    padding: 28px;
-    overflow: hidden;
-    box-shadow: 0 0 25px var(--terminal-shadow);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+    padding: 20px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.26);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.4s ease, filter 0.4s ease;
     opacity: 1;
 }
 
-.terminal-card::before,
-.terminal-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-}
-
-.terminal-card::before {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
-    mix-blend-mode: overlay;
-    opacity: 0.15;
-}
-
-.terminal-card::after {
-    background: repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0, rgba(255, 255, 255, 0.04) 1px, transparent 1px, transparent 3px);
-    opacity: 0.2;
-}
-
 .terminal-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 35px var(--terminal-shadow-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
 }
 
 .terminal-card.pre-reveal {
@@ -167,85 +147,55 @@ p {
     transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease, filter 0.6s ease;
 }
 
-.terminal-card.glow-on::before {
-    opacity: 0.32;
-}
-
-.terminal-card.glow-on::after {
-    opacity: 0.42;
-}
-
 .terminal-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 20px;
-    font-size: 0.85em;
-    color: rgba(255, 255, 255, 0.65);
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
-.terminal-header span {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
+.project-title {
+    margin: 0;
+    color: #fff;
+    font-size: 1.1em;
+    line-height: 1.2;
 }
 
 .terminal-badge {
-    font-size: 0.75em;
-    padding: 4px 10px;
-    border-radius: 999px;
+    font-size: 0.7em;
+    padding: 3px 8px;
+    border-radius: 7px;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.boot-log {
-    font-size: 0.85em;
-    color: rgba(255, 255, 255, 0.6);
-    min-height: 56px;
-    margin-bottom: 18px;
-    line-height: 1.4;
-    position: relative;
-    padding-right: 12px;
-}
-
-.boot-log::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 6px;
-    bottom: 6px;
-    width: 6px;
-    background: rgba(255, 255, 255, 0.5);
-    animation: caretBlink 0.8s steps(2, start) infinite;
-    opacity: 0.7;
-}
-
-.terminal-card:hover .boot-log::after {
-    animation-duration: 0.45s;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.86);
+    white-space: nowrap;
 }
 
 .catch-line {
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.05em;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    font-size: 0.98em;
+    line-height: 1.45;
     margin-bottom: 12px;
 }
 
 .feature-list {
-    margin: 0 0 24px;
-    padding: 0;
-    list-style: none;
+    margin: 0 0 16px;
+    padding-left: 18px;
+    list-style: disc;
 }
 
 .feature-list li {
-    margin-bottom: 10px;
-    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.45;
 }
 
 .cta-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 10px;
 }
 
 .cta-button {
@@ -286,14 +236,8 @@ p {
 .terminal-card[data-accent="xyz"],
 .terminal-card[data-accent="clipai"],
 .terminal-card[data-accent="ai"] {
-    border-color: rgba(200, 200, 200, 0.25);
-    box-shadow: 0 0 24px rgba(90, 90, 90, 0.2);
-}
-
-.linked-tools {
-    margin-top: 12px;
-    font-size: 0.8em;
-    color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24);
 }
 
 .timeline {
@@ -535,15 +479,6 @@ p {
     }
 }
 
-@keyframes caretBlink {
-    0%, 100% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-}
-
 @keyframes scan {
     0% {
         background-position: 0 0;
@@ -628,9 +563,7 @@ p {
 
     body::before,
     body::after,
-    .terminal-card,
-    .terminal-card::before,
-    .terminal-card::after {
+    .terminal-card {
         animation: none;
     }
 
@@ -645,11 +578,6 @@ p {
     .showcase-overlay .overlay-scan {
         animation: none;
         transition: none;
-    }
-
-    .boot-log::after {
-        animation: none;
-        opacity: 0.6;
     }
 
     .revealed {

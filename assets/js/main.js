@@ -6,7 +6,6 @@ const copyEndpoint = 'assets/data/copy.json';
 let copyData = null;
 let heroCopy = {};
 let projects = [];
-const cardBootControllers = [];
 let sectionsPrimed = false;
 let timelineObserver;
 let globalScrollBound = false;
@@ -165,9 +164,6 @@ function startShowcaseSequence() {
     }
 
     if (prefersReducedMotion) {
-        cardBootControllers.forEach(controller => {
-            controller.element.textContent = controller.lines.join('\n');
-        });
         const overlay = document.getElementById('showcase-overlay');
         if (overlay) {
             overlay.remove();
@@ -202,13 +198,6 @@ function startShowcaseSequence() {
         setTimeout(() => {
             card.classList.remove('pre-reveal');
             card.classList.add('is-visible');
-            card.classList.add('glow-on');
-            setTimeout(() => card.classList.remove('glow-on'), 600);
-
-            const controller = cardBootControllers[index];
-            if (controller) {
-                animateBootLog(controller.element, controller.lines);
-            }
 
             if (index === cards.length - 1 && overlay) {
                 removeProjectsBootMessage();
@@ -252,9 +241,8 @@ function renderProjects() {
     if (!grid) return;
 
     grid.innerHTML = '';
-    cardBootControllers.length = 0;
 
-    projects.forEach((project, index) => {
+    projects.forEach(project => {
         const card = document.createElement('article');
         card.className = 'terminal-card';
         card.dataset.accent = project.accent || '';
@@ -269,18 +257,18 @@ function renderProjects() {
         header.className = 'terminal-header';
         const projectName = project.name || 'project';
         const badge = project.badge || '';
-        header.innerHTML = `<span>$ ssh ${projectName}@console</span><span class="terminal-badge">${badge}</span>`;
-        card.appendChild(header);
+        const title = document.createElement('h3');
+        title.className = 'project-title';
+        title.textContent = projectName;
+        header.appendChild(title);
 
-        const bootLog = document.createElement('div');
-        bootLog.className = 'boot-log';
-        card.appendChild(bootLog);
-
-        cardBootControllers.push({ element: bootLog, lines: project.bootLog || [] });
-
-        if (prefersReducedMotion) {
-            bootLog.textContent = (project.bootLog || []).join('\n');
+        if (badge) {
+            const badgeEl = document.createElement('span');
+            badgeEl.className = 'terminal-badge';
+            badgeEl.textContent = badge;
+            header.appendChild(badgeEl);
         }
+        card.appendChild(header);
 
         const catchLine = document.createElement('div');
         catchLine.className = 'catch-line';
@@ -289,9 +277,9 @@ function renderProjects() {
 
         const featureList = document.createElement('ul');
         featureList.className = 'feature-list';
-        (project.features || []).forEach(feature => {
+        (project.features || []).slice(0, 2).forEach(feature => {
             const li = document.createElement('li');
-            li.textContent = `- ${feature}`;
+            li.textContent = feature;
             featureList.appendChild(li);
         });
         card.appendChild(featureList);
@@ -309,35 +297,8 @@ function renderProjects() {
         });
         card.appendChild(ctaRow);
 
-        if (project.linkedTools) {
-            const linked = document.createElement('div');
-            linked.className = 'linked-tools';
-            linked.textContent = project.linkedTools;
-            card.appendChild(linked);
-        }
-
         grid.appendChild(card);
-
-        if (!prefersReducedMotion) {
-            setTimeout(() => animateBootLog(bootLog, project.bootLog || []), index * 200);
-        }
     });
-}
-
-function animateBootLog(element, lines, lineDelay = 550) {
-    if (!element || !Array.isArray(lines) || lines.length === 0) return;
-
-    element.textContent = '';
-    let current = 0;
-
-    function step() {
-        if (current >= lines.length) return;
-        element.textContent += (current === 0 ? '' : '\n') + lines[current];
-        current += 1;
-        setTimeout(step, lineDelay);
-    }
-
-    step();
 }
 
 function initTimelineObserver() {
