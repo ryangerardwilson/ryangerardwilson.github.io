@@ -75,34 +75,9 @@ function startHeroSequence() {
     const p2Text = heroCopy.p2 || '';
     const p3Text = heroCopy.p3 || '';
     const bootingMessageText = heroCopy.booting_message || '';
-    const hasStaticHeroCopy = Boolean(
-        h1 && h1.textContent.trim() &&
-        p1 && p1.textContent.trim() &&
-        p2 && p2.textContent.trim()
-    );
 
     if (!h1Text || !p1Text || !p2Text || !bootingMessageText) {
         console.warn('Hero copy incomplete; skipping typewriter.');
-        if (hasStaticHeroCopy) {
-            revealFooter();
-            startShowcaseSequence();
-        }
-        return;
-    }
-
-    if (hasStaticHeroCopy) {
-        h1.classList.remove('hidden');
-        p1.classList.remove('hidden');
-        p2.classList.remove('hidden');
-        if (p3) p3.classList.remove('hidden');
-        if (p4) p4.classList.remove('hidden');
-        h1.textContent = h1Text;
-        p1.textContent = p1Text;
-        p2.textContent = p2Text;
-        if (p3) p3.textContent = p3Text;
-        if (p4) p4.textContent = bootingMessageText;
-        revealFooter();
-        startShowcaseSequence();
         return;
     }
 
