@@ -1,0 +1,13 @@
+# Ryan Gerard Wilson
+
+- Canonical: https://ryangerardwilson.com/
+- Copy JSON: https://ryangerardwilson.com/assets/data/copy.json
+- Resume: https://ryangerardwilson.com/resume.pdf
+
+## Profiles
+- GitHub: https://github.com/ryangerardwilson
+- X: https://x.com/ryan_improvises
+- Notes: https://notes.ryangerardwilson.com/
+
+## Summary
+Ryan Gerard Wilson is a product engineer focused on terminal-native tools, AI/ML product systems, and practical decision-science applications.

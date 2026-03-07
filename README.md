@@ -9,6 +9,7 @@ bundled during the Pages workflow.
 - `assets/css/main.css` – terminal-inspired styling.
 - `assets/js/main.js` – typewriter animation controller and copy loader.
 - `assets/data/copy.json` – centralised site copy (hero, projects, timeline, etc.).
+- `scripts/pre_render_copy.py` – build-time pre-renderer that injects copy into HTML for crawler-friendly output.
 - `resume.pdf` – production-ready resume served directly at `/resume.pdf`.
 - `.github/workflows/deploy.yml` – GitHub Actions pipeline that bundles the static assets and deploys the site.
 
@@ -16,12 +17,14 @@ bundled during the Pages workflow.
 1. Install any static file server. A quick option is Python's built-in module: `python -m http.server 8000`.
 2. Ensure `resume.pdf` is in the project root so it serves at `http://localhost:8000/resume.pdf`.
 3. Open `http://localhost:8000/` in a browser and confirm the animation plays and the PDF link resolves.
+4. Optional for crawler parity: `python3 scripts/pre_render_copy.py --input index.html --copy assets/data/copy.json --output /tmp/index.prerendered.html`
 
 ## GitHub Pages Deployment
 1. Push the repository to GitHub.
 2. In **Settings → Pages**, choose **GitHub Actions** as the source (one-time setup).
 3. Each push to `main` runs `.github/workflows/deploy.yml`, which bundles the static assets (including `resume.pdf`) and deploys the artifact via `actions/deploy-pages`.
 4. The live site is available at `https://<username>.github.io/` after each successful workflow run.
+5. During CI, `scripts/pre_render_copy.py` injects `assets/data/copy.json` into `site/index.html` so bots can read full copy without executing JavaScript.
 
 ## Updating Content
 - Replace `resume.pdf` in the repository root; the workflow will publish it as-is.

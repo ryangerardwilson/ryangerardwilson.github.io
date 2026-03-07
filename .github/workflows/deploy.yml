@@ -28,6 +28,16 @@ jobs:
           cp assets/js/main.js site/assets/js/main.js
           cp assets/data/copy.json site/assets/data/copy.json
           cp resume.pdf site/resume.pdf
+          cp robots.txt site/robots.txt
+          cp sitemap.xml site/sitemap.xml
+          cp llms.txt site/llms.txt
+
+      - name: Pre-render copy.json into index.html
+        run: |
+          python3 scripts/pre_render_copy.py \
+            --input site/index.html \
+            --copy site/assets/data/copy.json \
+            --output site/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
