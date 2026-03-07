@@ -81,66 +81,29 @@ function startHeroSequence() {
         return;
     }
 
-    const typeBooting = () => {
-        typeWriter(p4, bootingMessageText, 18, () => {
-            if (links) {
-                links.classList.remove('hidden');
-                links.classList.add('revealed');
-            }
-            revealFooter();
-            startShowcaseSequence();
-        });
-    };
+    h1.classList.remove('hidden');
+    p1.classList.remove('hidden');
+    p2.classList.remove('hidden');
+    p4.classList.remove('hidden');
+    h1.textContent = h1Text;
+    p1.textContent = p1Text;
+    p2.textContent = p2Text;
+    p4.textContent = bootingMessageText;
 
-    typeWriter(h1, h1Text, 45, () => {
-        typeWriter(p1, p1Text, 18, () => {
-            typeWriter(p2, p2Text, 18, () => {
-                if (p3Text) {
-                    typeWriter(p3, p3Text, 18, typeBooting);
-                } else {
-                    typeBooting();
-                }
-            });
-        });
-    });
-}
-
-function typeWriter(element, text, baseSpeed = 100, callback) {
-    if (!element) return;
-
-    element.classList.remove('hidden');
-    element.textContent = '';
-
-    if (prefersReducedMotion) {
-        element.textContent = text;
-        if (callback) callback();
-        return;
+    if (p3Text) {
+        p3.classList.remove('hidden');
+        p3.textContent = p3Text;
+    } else {
+        p3.classList.add('hidden');
+        p3.textContent = '';
     }
 
-    let i = 0;
-
-    function type() {
-        if (i < text.length) {
-            const currentChar = text.charAt(i);
-            element.textContent = text.substring(0, i + 1);
-            i += 1;
-
-            let delay = baseSpeed;
-            if (currentChar === '.') {
-                delay = 500;
-            } else if (currentChar === ',') {
-                delay = 200;
-            } else if (currentChar === '-') {
-                delay = 300;
-            }
-
-            setTimeout(type, delay);
-        } else if (callback) {
-            callback();
-        }
+    if (links) {
+        links.classList.remove('hidden');
+        links.classList.add('revealed');
     }
-
-    type();
+    revealFooter();
+    startShowcaseSequence();
 }
 
 function removeProjectsBootMessage() {
@@ -232,7 +195,6 @@ function startShowcaseSequence() {
             timelineSection.classList.add('revealed');
         }
         initTimelineObserver();
-        forceScrollToFooter();
     }, timelineDelay);
 }
 
@@ -480,12 +442,6 @@ function revealFooter() {
     if (!footer || footer.classList.contains('revealed')) return;
     footer.classList.remove('hidden');
     footer.classList.add('revealed');
-}
-
-function forceScrollToFooter() {
-    if (!footer) return;
-    const behavior = prefersReducedMotion ? 'auto' : 'smooth';
-    footer.scrollIntoView({ behavior, block: 'end' });
 }
 
 function handleGlobalScrollKeys(event) {
