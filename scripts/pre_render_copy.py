@@ -145,7 +145,6 @@ def main() -> None:
     doc = replace_tag_text(doc, 'p', 'typewriter-p1', hero.get('p1') or '')
     doc = replace_tag_text(doc, 'p', 'typewriter-p2', hero.get('p2') or '')
     doc = replace_tag_text(doc, 'p', 'typewriter-p3', hero.get('p3') or '')
-    doc = replace_tag_text(doc, 'p', 'typewriter-p4', hero.get('booting_message') or '')
 
     doc = replace_tag_text(doc, 'h2', 'projects-title', projects_section.get('title') or 'Projects')
     doc = replace_container_inner(doc, 'div', 'project-grid', render_projects(projects))

@@ -1,4 +1,4 @@
-console.log("Booting showcase timeline. Projects will stage after the typewriter sequence.");
+console.log("Initializing showcase timeline.");
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const copyEndpoint = 'assets/data/copy.json';
