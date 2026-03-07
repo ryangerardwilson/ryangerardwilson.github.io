@@ -42,7 +42,10 @@ function initializeCopy() {
     applyProjectsSection(copyData.projectsSection || {});
 
     projects = Array.isArray(copyData.projects) ? copyData.projects : [];
-    renderProjects();
+    const grid = document.getElementById('project-grid');
+    if (grid && grid.children.length === 0) {
+        renderProjects();
+    }
 
     renderResume(copyData.resume || {});
     renderTimeline(copyData.timeline || {});
@@ -100,11 +103,6 @@ function startShowcaseSequence() {
     const revealables = document.querySelectorAll('[data-reveal]');
     revealables.forEach(section => section.classList.remove('hidden'));
 
-    const projectSection = document.getElementById('projects-console');
-    if (projectSection) {
-        projectSection.classList.add('revealed');
-    }
-
     const resumeSection = document.getElementById('resume-snapshot');
     if (resumeSection) {
         resumeSection.classList.add('revealed');
@@ -114,12 +112,6 @@ function startShowcaseSequence() {
     if (philosophy) {
         philosophy.classList.add('revealed');
     }
-
-    const cards = Array.from(document.querySelectorAll('.terminal-card'));
-    cards.forEach(card => {
-        card.classList.remove('pre-reveal');
-        card.classList.add('is-visible');
-    });
 
     const overlay = document.getElementById('showcase-overlay');
     if (overlay && overlay.parentElement) {
@@ -148,12 +140,7 @@ function renderProjects() {
         const card = document.createElement('article');
         card.className = 'terminal-card';
         card.dataset.accent = project.accent || '';
-
-        if (prefersReducedMotion) {
-            card.classList.add('is-visible');
-        } else {
-            card.classList.add('pre-reveal');
-        }
+        card.classList.add('is-visible');
 
         const header = document.createElement('div');
         header.className = 'terminal-header';
