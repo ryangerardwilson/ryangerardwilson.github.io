@@ -97,8 +97,6 @@ function startShowcaseSequence() {
     if (sectionsPrimed) return;
     sectionsPrimed = true;
 
-    renderProjects();
-
     const revealables = document.querySelectorAll('[data-reveal]');
     revealables.forEach(section => section.classList.remove('hidden'));
 
@@ -107,72 +105,37 @@ function startShowcaseSequence() {
         projectSection.classList.add('revealed');
     }
 
-    if (prefersReducedMotion) {
-        const overlay = document.getElementById('showcase-overlay');
-        if (overlay) {
-            overlay.remove();
-        }
-        const resumeSection = document.getElementById('resume-snapshot');
-        if (resumeSection) {
-            resumeSection.classList.add('revealed');
-        }
-        const philosophy = document.getElementById('terminal-philosophy');
-        if (philosophy) {
-            philosophy.classList.add('revealed');
-        }
-        const timelineSection = document.getElementById('story-timeline');
-        if (timelineSection) {
-            timelineSection.classList.add('revealed');
-        }
-        revealTimelineImmediately();
-        return;
-    }
-
-    const overlay = document.getElementById('showcase-overlay');
-    if (overlay) {
-        overlay.classList.add('active');
-    }
-
-    const cards = Array.from(document.querySelectorAll('.terminal-card'));
-    const baseDelay = 700;
-
-    cards.forEach((card, index) => {
-        const delay = baseDelay + index * 220;
-        setTimeout(() => {
-            card.classList.remove('pre-reveal');
-            card.classList.add('is-visible');
-
-            if (index === cards.length - 1 && overlay) {
-                overlay.classList.add('fade-out');
-                setTimeout(() => {
-                    if (overlay && overlay.parentElement) {
-                        overlay.remove();
-                    }
-                }, 800);
-            }
-        }, delay);
-    });
-
     const resumeSection = document.getElementById('resume-snapshot');
     if (resumeSection) {
-        const resumeDelay = baseDelay + cards.length * 220 + 260;
-        setTimeout(() => resumeSection.classList.add('revealed'), resumeDelay);
+        resumeSection.classList.add('revealed');
     }
 
     const philosophy = document.getElementById('terminal-philosophy');
     if (philosophy) {
-        const philosophyDelay = baseDelay + cards.length * 220 + 520;
-        setTimeout(() => philosophy.classList.add('revealed'), philosophyDelay);
+        philosophy.classList.add('revealed');
     }
 
-    const timelineDelay = baseDelay + cards.length * 220 + 760;
-    setTimeout(() => {
-        const timelineSection = document.getElementById('story-timeline');
-        if (timelineSection) {
-            timelineSection.classList.add('revealed');
-        }
+    const cards = Array.from(document.querySelectorAll('.terminal-card'));
+    cards.forEach(card => {
+        card.classList.remove('pre-reveal');
+        card.classList.add('is-visible');
+    });
+
+    const overlay = document.getElementById('showcase-overlay');
+    if (overlay && overlay.parentElement) {
+        overlay.remove();
+    }
+
+    const timelineSection = document.getElementById('story-timeline');
+    if (timelineSection) {
+        timelineSection.classList.add('revealed');
+    }
+
+    if (prefersReducedMotion) {
+        revealTimelineImmediately();
+    } else {
         initTimelineObserver();
-    }, timelineDelay);
+    }
 }
 
 function renderProjects() {
