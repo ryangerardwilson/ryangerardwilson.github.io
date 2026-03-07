@@ -17,6 +17,7 @@ const h1 = document.getElementById('typewriter-h1');
 const p1 = document.getElementById('typewriter-p1');
 const p2 = document.getElementById('typewriter-p2');
 const p3 = document.getElementById('typewriter-p3');
+const p4 = document.getElementById('typewriter-p4');
 const links = document.getElementById('links');
 const footer = document.getElementById('site-footer');
 
@@ -74,23 +75,32 @@ function startHeroSequence() {
     const p1Text = heroCopy.p1 || '';
     const p2Text = heroCopy.p2 || '';
     const p3Text = heroCopy.p3 || '';
+    const bootingMessageText = heroCopy.booting_message || '';
 
-    if (!h1Text || !p1Text || !p2Text || !p3Text) {
+    if (!h1Text || !p1Text || !p2Text || !bootingMessageText) {
         console.warn('Hero copy incomplete; skipping typewriter.');
         return;
     }
 
+    const typeBooting = () => {
+        typeWriter(p4, bootingMessageText, 18, () => {
+            if (links) {
+                links.classList.remove('hidden');
+                links.classList.add('revealed');
+            }
+            revealFooter();
+            startShowcaseSequence();
+        });
+    };
+
     typeWriter(h1, h1Text, 45, () => {
         typeWriter(p1, p1Text, 18, () => {
             typeWriter(p2, p2Text, 18, () => {
-                typeWriter(p3, p3Text, 18, () => {
-                    if (links) {
-                        links.classList.remove('hidden');
-                        links.classList.add('revealed');
-                    }
-                    revealFooter();
-                    startShowcaseSequence();
-                });
+                if (p3Text) {
+                    typeWriter(p3, p3Text, 18, typeBooting);
+                } else {
+                    typeBooting();
+                }
             });
         });
     });
@@ -135,9 +145,9 @@ function typeWriter(element, text, baseSpeed = 100, callback) {
 }
 
 function removeProjectsBootMessage() {
-    if (!p3) return;
-    p3.classList.add('hidden');
-    p3.textContent = '';
+    if (!p4) return;
+    p4.classList.add('hidden');
+    p4.textContent = '';
 }
 
 function startShowcaseSequence() {
