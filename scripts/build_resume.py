@@ -69,7 +69,7 @@ def resolve_section(section: dict, resume: dict, lookups: dict) -> dict:
     kind = section["kind"]
 
     if kind in {"identity", "profile"}:
-        resolved = {"kind": kind, "title": "Profile" if kind == "profile" else None}
+        resolved = {"kind": kind, "title": None}
         if kind == "profile":
             resolved["text"] = resume.get("profile") or ""
         return resolved

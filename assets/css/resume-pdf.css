@@ -59,7 +59,7 @@ body {
 }
 
 .identity {
-  margin-bottom: 5mm;
+  margin-bottom: 4mm;
 }
 
 .avatar {
@@ -83,6 +83,8 @@ h1 {
   margin: 1.5mm 0 0;
   color: var(--muted);
   font-weight: 600;
+  font-size: 8.8pt;
+  line-height: 1.15;
 }
 
 .section {
@@ -98,10 +100,10 @@ h1 {
 }
 
 .section-subtitle {
-  margin: 0 0 1.2mm;
+  margin: 0 0 0.8mm;
   color: var(--muted);
-  font-size: 8.5pt;
-  line-height: 1.25;
+  font-size: 8pt;
+  line-height: 1.15;
 }
 
 .stack {
@@ -164,8 +166,8 @@ a {
 }
 
 .project-item {
-  font-size: 9.2pt;
-  line-height: 1.2;
+  font-size: 9pt;
+  line-height: 1.16;
 }
 
 .education-item + .education-item,
@@ -215,7 +217,7 @@ a {
 
 .project-header header {
   overflow-wrap: anywhere;
-  font-size: 9.3pt;
+  font-size: 9.1pt;
 }
 
 .project-launch-date {
@@ -227,18 +229,18 @@ a {
 .project-link-list {
   margin: 0.3mm 0 0;
   color: var(--muted);
-  font-size: 7.1pt;
+  font-size: 6.9pt;
   line-height: 1.05;
   overflow-wrap: anywhere;
 }
 
 .project-item--grouped .project-launch-date {
-  font-size: 7.8pt;
-  margin-top: 0.2mm;
+  font-size: 7.5pt;
+  margin-top: 0.1mm;
 }
 
 .project-item--grouped .project-points li {
-  margin-bottom: 0.2mm;
+  margin-bottom: 0.1mm;
 }
 
 .date-range {
