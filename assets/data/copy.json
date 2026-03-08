@@ -319,15 +319,6 @@
         "what": "CLI tutor that parses markdown courses into lessons with rote/jump modes, 90%+ accuracy gates, doc viewing, in-place editing, bookmarks, and search."
       }
     ],
-    "certifications": [
-      "XGBoost Deep Dive with Python & Pandas - Hands on Data Science",
-      "Google Apps Script Complete Course Beginner to Advanced - Udemy",
-      "Learn Rust by Building Real Applications - Udemy",
-      "AWS Amazon S3 Mastery Bootcamp - Udemy",
-      "PHP OOP: Object Oriented Programming for Beginners + Project - Udemy",
-      "Crash Course - Learn to Create a PHP MVC Framework - Udemy",
-      "Modern JavaScript From The Beginning - Udemy"
-    ],
     "page_1": {
       "left_sections": [
         {
@@ -376,19 +367,6 @@
             "CLI/TUI Tooling",
             "Data Engineering",
             "System Design / Delivery"
-          ]
-        },
-        {
-          "kind": "certifications",
-          "title": "Certifications",
-          "titles": [
-            "XGBoost Deep Dive with Python & Pandas - Hands on Data Science",
-            "Google Apps Script Complete Course Beginner to Advanced - Udemy",
-            "Learn Rust by Building Real Applications - Udemy",
-            "AWS Amazon S3 Mastery Bootcamp - Udemy",
-            "PHP OOP: Object Oriented Programming for Beginners + Project - Udemy",
-            "Crash Course - Learn to Create a PHP MVC Framework - Udemy",
-            "Modern JavaScript From The Beginning - Udemy"
           ]
         }
       ],

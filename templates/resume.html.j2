@@ -109,7 +109,7 @@
           <div class="project-header">
             <header>{{ item.name }}</header>
             {% if item.href %}
-            <a href="{{ item.href }}">View Project</a>
+            <a class="project-link" href="{{ item.href }}">{{ item.href }}</a>
             {% endif %}
           </div>
           <p><strong>Why:</strong> {{ item.why }}</p>

@@ -21,8 +21,8 @@ html, body {
   color: var(--ink);
   background: #fff;
   font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 10pt;
-  line-height: 1.34;
+  font-size: 9.8pt;
+  line-height: 1.3;
 }
 
 body {
@@ -54,8 +54,8 @@ body {
 }
 
 .main-column {
-  padding: 8.5mm 10.5mm 8.5mm 10.5mm;
-  font-size: 10pt;
+  padding: 8mm 10mm 8mm 10mm;
+  font-size: 9.8pt;
 }
 
 .identity {
@@ -86,11 +86,11 @@ h1 {
 }
 
 .section {
-  margin-bottom: 3.2mm;
+  margin-bottom: 2.8mm;
 }
 
 .section h2 {
-  margin: 0 0 1.2mm;
+  margin: 0 0 1mm;
   font-size: 10pt;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -159,7 +159,7 @@ a {
 .skill-group + .skill-group,
 .experience-item + .experience-item,
 .project-item + .project-item {
-  margin-top: 2mm;
+  margin-top: 1.5mm;
 }
 
 .education-item + .education-item {
@@ -171,7 +171,7 @@ a {
 .project-item p,
 .hero-summary p,
 .experience-item .meta {
-  margin: 0.7mm 0 0;
+  margin: 0.5mm 0 0;
 }
 
 .education-item p {
@@ -197,25 +197,28 @@ a {
 
 .experience-header,
 .project-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 4mm;
-  align-items: baseline;
+  display: block;
 }
 
 .date-range {
   white-space: nowrap;
 }
 
+.project-link {
+  display: block;
+  margin-top: 0.4mm;
+  overflow-wrap: anywhere;
+}
+
 .experience-item ul {
-  margin-top: 0.9mm;
+  margin-top: 0.7mm;
 }
 
 .experience-item li,
 .certifications li {
-  margin-bottom: 0.6mm;
+  margin-bottom: 0.4mm;
 }
 
 .project-item p {
-  margin-top: 0.7mm;
+  margin-top: 0.5mm;
 }
