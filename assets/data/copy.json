@@ -36,7 +36,7 @@
   "timeline": {
     "title": "My Story",
     "subtitle": "",
-    "items": [
+    "projects": [
       {
         "id": "vixl",
         "type": "project",
@@ -245,23 +245,94 @@
           "Installer sets up a private virtualenv plus Playwright browser binaries so the runtime stays boxed in."
         ],
         "githubUrl": "https://github.com/ryangerardwilson/whatsapp"
-      },
+      }
+    ],
+    "lifeEvents": [
       {
         "id": "life-1",
         "type": "lifeEvent",
-        "date": "2026-12-31T23:59:59Z",
-        "label": "[2025-26 | 33–34]",
-        "title": "Married my beautiful wife",
+        "date": "1991-12-31T23:59:59Z",
+        "label": "[1991 | Birth]",
+        "title": "And so it began",
         "bullets": [
-          "Married my wife – very beautiful indeed.",
-          "Relearned high-school math while shipping md2ltx, GitGuru, and DataSling.",
-          "Explored FP vs OOP, built DeathStarPilot, reaffirmed a vim-first workflow.",
-          "Rebuilt personal infra, consolidated automation, delivered Wiom's Genie engine.",
-          "Created rt and companion tutor apps to keep coding taste sharp."
+          "Baptized Catholic."
         ]
       },
       {
         "id": "life-2",
+        "type": "lifeEvent",
+        "date": "2005-12-31T23:59:59Z",
+        "label": "[2005 | Till 15]",
+        "title": "Dreaming in chords and code",
+        "bullets": [
+          "Imagined life as a mad scientist, Liverpool midfielder, and pianist."
+        ]
+      },
+      {
+        "id": "life-3",
+        "type": "lifeEvent",
+        "date": "2006-12-31T23:59:59Z",
+        "label": "[2006 | At 15]",
+        "title": "Challenging the script",
+        "bullets": [
+          "Silent-quit CBSE science, refusing assembly-line thinking."
+        ]
+      },
+      {
+        "id": "life-4",
+        "type": "lifeEvent",
+        "date": "2008-12-31T23:59:59Z",
+        "label": "[2008 | By 17]",
+        "title": "Dropping out to chase better questions",
+        "bullets": [
+          "Walked away from DU commerce to find deeper learning paths."
+        ]
+      },
+      {
+        "id": "life-5",
+        "type": "lifeEvent",
+        "date": "2010-12-31T23:59:59Z",
+        "label": "[2010 | At 18]",
+        "title": "Law school foundations",
+        "bullets": [
+          "Joined RMLNLU in Lucknow, grounding discipline in dialect and rhetoric."
+        ]
+      },
+      {
+        "id": "life-6",
+        "type": "lifeEvent",
+        "date": "2015-12-31T23:59:59Z",
+        "label": "[2015 | At 23]",
+        "title": "First LegalTech startup crash",
+        "bullets": [
+          "Joined a LegalTech startup.",
+          "Ran email marketing campaigns; learned basic HTML.",
+          "Fell in love with the idea that computers can do whatever you tell them to—provided you ask nicely."
+        ]
+      },
+      {
+        "id": "life-7",
+        "type": "lifeEvent",
+        "date": "2016-12-31T23:59:59Z",
+        "label": "[2016 | At 24]",
+        "title": "IP and tech attorney years",
+        "bullets": [
+          "Worked as an IP and technology lawyer, observing how labor-driven businesses scale."
+        ]
+      },
+      {
+        "id": "life-8",
+        "type": "lifeEvent",
+        "date": "2019-12-31T23:59:59Z",
+        "label": "[2017-2019 | 25–27]",
+        "title": "Law, code, and rediscovering craft",
+        "bullets": [
+          "Rode out COVID disruption while practicing law.",
+          "Learned PHP; rekindled piano disciplines and builder mindset."
+        ]
+      },
+      {
+        "id": "life-9",
         "type": "lifeEvent",
         "date": "2024-12-31T23:59:59Z",
         "label": "[2020-2024 | 28–32]",
@@ -275,86 +346,17 @@
         ]
       },
       {
-        "id": "life-3",
-        "type": "lifeEvent",
-        "date": "2019-12-31T23:59:59Z",
-        "label": "[2017-2019 | 25–27]",
-        "title": "Law, code, and rediscovering craft",
-        "bullets": [
-          "Rode out COVID disruption while practicing law.",
-          "Learned PHP; rekindled piano disciplines and builder mindset."
-        ]
-      },
-      {
-        "id": "life-4",
-        "type": "lifeEvent",
-        "date": "2016-12-31T23:59:59Z",
-        "label": "[2016 | At 24]",
-        "title": "IP and tech attorney years",
-        "bullets": [
-          "Worked as an IP and technology lawyer, observing how labor-driven businesses scale."
-        ]
-      },
-      {
-        "id": "life-5",
-        "type": "lifeEvent",
-        "date": "2015-12-31T23:59:59Z",
-        "label": "[2015 | At 23]",
-        "title": "First LegalTech startup crash",
-        "bullets": [
-          "Joined a LegalTech startup.",
-          "Ran email marketing campaigns; learned basic HTML.",
-          "Fell in love with the idea that computers can do whatever you tell them to—provided you ask nicely."
-        ]
-      },
-      {
-        "id": "life-6",
-        "type": "lifeEvent",
-        "date": "2010-12-31T23:59:59Z",
-        "label": "[2010 | At 18]",
-        "title": "Law school foundations",
-        "bullets": [
-          "Joined RMLNLU in Lucknow, grounding discipline in dialect and rhetoric."
-        ]
-      },
-      {
-        "id": "life-7",
-        "type": "lifeEvent",
-        "date": "2008-12-31T23:59:59Z",
-        "label": "[2008 | By 17]",
-        "title": "Dropping out to chase better questions",
-        "bullets": [
-          "Walked away from DU commerce to find deeper learning paths."
-        ]
-      },
-      {
-        "id": "life-8",
-        "type": "lifeEvent",
-        "date": "2006-12-31T23:59:59Z",
-        "label": "[2006 | At 15]",
-        "title": "Challenging the script",
-        "bullets": [
-          "Silent-quit CBSE science, refusing assembly-line thinking."
-        ]
-      },
-      {
-        "id": "life-9",
-        "type": "lifeEvent",
-        "date": "2005-12-31T23:59:59Z",
-        "label": "[2005 | Till 15]",
-        "title": "Dreaming in chords and code",
-        "bullets": [
-          "Imagined life as a mad scientist, Liverpool midfielder, and pianist."
-        ]
-      },
-      {
         "id": "life-10",
         "type": "lifeEvent",
-        "date": "1991-12-31T23:59:59Z",
-        "label": "[1991 | Birth]",
-        "title": "And so it began",
+        "date": "2026-12-31T23:59:59Z",
+        "label": "[2025-26 | 33–34]",
+        "title": "Married my beautiful wife",
         "bullets": [
-          "Baptized Catholic."
+          "Married my wife – very beautiful indeed.",
+          "Relearned high-school math while shipping md2ltx, GitGuru, and DataSling.",
+          "Explored FP vs OOP, built DeathStarPilot, reaffirmed a vim-first workflow.",
+          "Rebuilt personal infra, consolidated automation, delivered Wiom's Genie engine.",
+          "Created rt and companion tutor apps to keep coding taste sharp."
         ]
       }
     ]

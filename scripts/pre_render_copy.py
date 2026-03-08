@@ -110,9 +110,10 @@ def render_timeline_item(item: dict) -> str:
         accent = html.escape(item.get('accent') or '')
         github_link = render_github_link(item.get('githubUrl') or '', item.get('title') or 'project')
         summary = html.escape(item.get('summary') or '')
+        heading = html.escape(f"PRODUCT LAUNCH: {item.get('title') or 'project'}")
         body = (
             f'                        <div class="terminal-header">\n'
-            f'                            <header>{title}</header>{github_link}\n'
+            f'                            <header>{heading}</header>{github_link}\n'
             '                        </div>\n'
             f'                        <div class="timeline-project-summary">{summary}</div>\n'
             f'{render_timeline_list(bullets, "feature-list") if bullets else ""}'
@@ -176,6 +177,7 @@ def main() -> None:
     resume = copy_data.get('resume') or {}
     resume_pane = resume.get('pane') or {}
     timeline = copy_data.get('timeline') or {}
+    timeline_items = (timeline.get('projects') or []) + (timeline.get('lifeEvents') or [])
 
     doc = replace_tag_text(doc, 'h1', 'typewriter-h1', hero.get('h1') or '')
     doc = replace_tag_text(doc, 'p', 'typewriter-p1', hero.get('p1') or '')
@@ -197,7 +199,7 @@ def main() -> None:
 
     doc = replace_tag_text(doc, 'h2', 'timeline-title', timeline.get('title') or 'My Story')
     doc = replace_tag_text(doc, 'p', 'timeline-subtitle', timeline.get('subtitle') or '')
-    doc = replace_container_inner(doc, 'div', 'timeline-container', render_timeline(timeline.get('items') or []))
+    doc = replace_container_inner(doc, 'div', 'timeline-container', render_timeline(timeline_items))
 
     output_path.write_text(doc, encoding='utf-8')
 

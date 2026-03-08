@@ -282,7 +282,10 @@ function renderTimeline(timelineCopy) {
 
     container.querySelectorAll('.timeline-entry').forEach(entry => entry.remove());
 
-    const items = sortTimelineItems(Array.isArray(timelineCopy.items) ? timelineCopy.items : []);
+    const items = sortTimelineItems([
+        ...(Array.isArray(timelineCopy.projects) ? timelineCopy.projects : []),
+        ...(Array.isArray(timelineCopy.lifeEvents) ? timelineCopy.lifeEvents : [])
+    ]);
     items.forEach(item => container.appendChild(renderTimelineItem(item)));
 }
 
@@ -325,7 +328,7 @@ function renderProjectTimelineCard(card, item) {
     header.className = 'terminal-header';
 
     const title = document.createElement('header');
-    title.textContent = item.title || 'project';
+    title.textContent = `PRODUCT LAUNCH: ${item.title || 'project'}`;
     header.appendChild(title);
 
     if (item.githubUrl) {

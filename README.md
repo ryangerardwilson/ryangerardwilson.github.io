@@ -29,4 +29,4 @@ bundled during the Pages workflow.
 ## Updating Content
 - Replace `resume.pdf` in the repository root; the workflow will publish it as-is.
 - Tweak the copy or animation timing in `assets/js/main.js` as needed.
-- Update timeline content in `assets/data/copy.json`; both projects and life events now render from `timeline.items[]`, sorted by each item's ISO `date`.
+- Update timeline content in `assets/data/copy.json`; projects now live in `timeline.projects[]`, life events in `timeline.lifeEvents[]`, and the renderers merge both arrays into one date-sorted timeline.
