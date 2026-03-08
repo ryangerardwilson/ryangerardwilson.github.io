@@ -205,6 +205,12 @@ a {
   overflow-wrap: anywhere;
 }
 
+.project-launch-date {
+  margin: 0.3mm 0 0;
+  color: var(--muted);
+  font-size: 8.3pt;
+}
+
 .date-range {
   white-space: nowrap;
 }

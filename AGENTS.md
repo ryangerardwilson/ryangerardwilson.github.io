@@ -4,3 +4,4 @@
 
 - If the user asks to update `assets/data/copy.json`, review `BRAND_GUIDELINES.md` first and ensure the copy changes align with it.
 - GitHub profile source of truth: `https://github.com/ryangerardwilson`.
+- For resume work, preserve the 2-page PDF limit. Content assigned to `resumePdf.page_1` must fit entirely on page 1, all remaining resume content must fit on page 2, and the generated `resume.pdf` must never exceed 2 pages.

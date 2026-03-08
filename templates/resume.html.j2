@@ -112,6 +112,9 @@
             {% else %}
             <header>{{ item.name }}</header>
             {% endif %}
+            {% if item.launchDate %}
+            <p class="project-launch-date">Launch: {{ item.launchDate }}</p>
+            {% endif %}
           </div>
           <ul class="project-points">
             <li><strong>Why:</strong> {{ item.why }}</li>

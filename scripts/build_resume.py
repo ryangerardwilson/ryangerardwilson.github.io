@@ -3,6 +3,7 @@ import argparse
 import base64
 import json
 from pathlib import Path
+from datetime import datetime, timezone
 from urllib.error import URLError
 from urllib.request import urlopen
 
@@ -30,6 +31,17 @@ def format_contact(contact: dict) -> dict:
         "href": href,
         "display": value.replace("https://", "").replace("http://", ""),
     }
+
+
+def parse_iso_date(value: str) -> datetime:
+    if not value:
+        return datetime(1970, 1, 1, tzinfo=timezone.utc)
+    return datetime.fromisoformat(value.replace("Z", "+00:00"))
+
+
+def format_launch_date(value: str) -> str:
+    dt = parse_iso_date(value)
+    return f"{dt.strftime('%B')} {dt.day}, {dt.year}"
 
 
 def build_lookup(items: list[dict], key: str) -> dict[str, dict]:
@@ -134,6 +146,17 @@ def build_html(copy_path: Path, template_path: Path, css_path: Path, html_out: P
     resume = copy_data.get("resumePdf") or {}
     basics = resume.get("basics") or {}
     avatar_src = fetch_data_uri(basics.get("avatarUrl") or "")
+    timeline_projects = copy_data.get("timeline", {}).get("projects") or []
+    timeline_project_lookup = {item.get("title"): item for item in timeline_projects}
+    enriched_projects = []
+    for project in resume.get("projects") or []:
+        project_copy = dict(project)
+        timeline_project = timeline_project_lookup.get(project.get("name"))
+        if timeline_project and timeline_project.get("date"):
+            project_copy["launchDate"] = format_launch_date(timeline_project.get("date"))
+        enriched_projects.append(project_copy)
+    resume = dict(resume)
+    resume["projects"] = enriched_projects
 
     env = Environment(
         loader=FileSystemLoader(str(template_path.parent)),
