@@ -32,52 +32,94 @@ def format_contact(contact: dict) -> dict:
     }
 
 
-def chunk_list(items: list, size: int) -> list[list]:
-    return [items[index:index + size] for index in range(0, len(items), size)]
+def build_lookup(items: list[dict], key: str) -> dict[str, dict]:
+    return {item[key]: item for item in items}
+
+
+def pick_items(lookup: dict, values: list[str], label: str) -> list:
+    missing = [value for value in values if value not in lookup]
+    if missing:
+        missing_list = ", ".join(missing)
+        raise ValueError(f"Missing {label} in resumePdf page config: {missing_list}")
+    return [lookup[value] for value in values]
+
+
+def pick_strings(values: list[str], ordered_values: list[str], label: str) -> list[str]:
+    known = set(ordered_values)
+    missing = [value for value in values if value not in known]
+    if missing:
+        missing_list = ", ".join(missing)
+        raise ValueError(f"Missing {label} in resumePdf page config: {missing_list}")
+    return [value for value in values]
+
+
+def resolve_section(section: dict, resume: dict, lookups: dict) -> dict:
+    kind = section["kind"]
+
+    if kind in {"identity", "profile"}:
+        resolved = {"kind": kind, "title": "Profile" if kind == "profile" else None}
+        if kind == "profile":
+            resolved["text"] = resume.get("profile") or ""
+        return resolved
+
+    if kind == "contact":
+        return {"kind": kind, "title": "Contact", "items": lookups["contact"]}
+
+    if kind == "education":
+        return {"kind": kind, "title": "Education", "items": resume.get("education") or []}
+
+    if kind == "skills":
+        labels = section.get("labels") or []
+        return {
+            "kind": kind,
+            "title": section.get("title", "Skills"),
+            "items": pick_items(lookups["skills"], labels, "skill labels"),
+        }
+
+    if kind == "experience":
+        roles = section.get("roles") or []
+        return {
+            "kind": kind,
+            "title": section.get("title", "Experience"),
+            "items": pick_items(lookups["experience"], roles, "experience roles"),
+        }
+
+    if kind == "projects":
+        names = section.get("names") or []
+        return {
+            "kind": kind,
+            "title": section.get("title", "Projects"),
+            "items": pick_items(lookups["projects"], names, "project names"),
+        }
+
+    if kind == "certifications":
+        titles = section.get("titles") or []
+        return {
+            "kind": kind,
+            "title": section.get("title", "Certifications"),
+            "items": pick_strings(titles, resume.get("certifications") or [], "certifications"),
+        }
+
+    raise ValueError(f"Unsupported resume section kind: {kind}")
 
 
 def build_pages(resume: dict) -> list[dict]:
-    contact_items = [format_contact(item) for item in resume.get("contact") or []]
-    education = resume.get("education") or []
-    skills = resume.get("skills") or []
-    certifications = resume.get("certifications") or []
-    experience = resume.get("experience") or []
-    projects = resume.get("projects") or []
-
-    skill_pages = chunk_list(skills, 4)
-    page_one = {
-        "left_sections": [
-            {"kind": "identity", "title": None},
-            {"kind": "contact", "title": "Contact", "items": contact_items},
-            {"kind": "education", "title": "Education", "items": education},
-            {"kind": "skills", "title": "Skills", "items": skills[:2]},
-        ],
-        "right_sections": [
-            {"kind": "profile", "title": "Profile", "text": resume.get("profile") or ""},
-            {"kind": "experience", "title": "Experience", "items": experience[:4]},
-        ],
+    lookups = {
+        "contact": [format_contact(item) for item in resume.get("contact") or []],
+        "skills": build_lookup(resume.get("skills") or [], "label"),
+        "experience": build_lookup(resume.get("experience") or [], "role"),
+        "projects": build_lookup(resume.get("projects") or [], "name"),
     }
+    configured_pages = [resume[key] for key in sorted(resume.keys()) if key.startswith("page_")]
+    pages = []
+    for page in configured_pages:
+        pages.append(
+            {
+                "left_sections": [resolve_section(section, resume, lookups) for section in page.get("left_sections") or []],
+                "right_sections": [resolve_section(section, resume, lookups) for section in page.get("right_sections") or []],
+            }
+        )
 
-    page_two = {
-        "left_sections": [
-            {"kind": "skills", "title": None, "items": skills[2:6]},
-        ],
-        "right_sections": [
-            {"kind": "projects", "title": "Projects", "items": projects[:2]},
-        ],
-    }
-
-    page_three = {
-        "left_sections": [
-            {"kind": "skills", "title": None, "items": skills[6:]},
-            {"kind": "certifications", "title": "Certifications", "items": certifications},
-        ],
-        "right_sections": [
-            {"kind": "projects", "title": None, "items": projects[2:]},
-        ],
-    }
-
-    pages = [page_one, page_two, page_three]
     return [
         {
             "left_sections": [section for section in page["left_sections"] if section.get("items", [1])],

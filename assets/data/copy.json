@@ -327,7 +327,104 @@
       "PHP OOP: Object Oriented Programming for Beginners + Project - Udemy",
       "Crash Course - Learn to Create a PHP MVC Framework - Udemy",
       "Modern JavaScript From The Beginning - Udemy"
-    ]
+    ],
+    "page_1": {
+      "left_sections": [
+        {
+          "kind": "identity"
+        },
+        {
+          "kind": "contact"
+        },
+        {
+          "kind": "education"
+        },
+        {
+          "kind": "skills",
+          "title": "Skills",
+          "labels": [
+            "AI/ML",
+            "Python",
+            "Unix"
+          ]
+        }
+      ],
+      "right_sections": [
+        {
+          "kind": "profile"
+        },
+        {
+          "kind": "experience",
+          "title": "Experience",
+          "roles": [
+            "Entrepreneur-in-Residence",
+            "Solo IndieHacker",
+            "Intellectual Property & IP/Tech Lawyer",
+            "Marketing Associate"
+          ]
+        }
+      ]
+    },
+    "page_2": {
+      "left_sections": [
+        {
+          "kind": "skills",
+          "title": null,
+          "labels": [
+            "Cloud",
+            "Frontend",
+            "CLI/TUI Tooling"
+          ]
+        }
+      ],
+      "right_sections": [
+        {
+          "kind": "projects",
+          "title": "Projects",
+          "names": [
+            "gvim",
+            "ai"
+          ]
+        }
+      ]
+    },
+    "page_3": {
+      "left_sections": [
+        {
+          "kind": "skills",
+          "title": null,
+          "labels": [
+            "Data Engineering",
+            "System Design / Delivery"
+          ]
+        },
+        {
+          "kind": "certifications",
+          "title": "Certifications",
+          "titles": [
+            "XGBoost Deep Dive with Python & Pandas - Hands on Data Science",
+            "Google Apps Script Complete Course Beginner to Advanced - Udemy",
+            "Learn Rust by Building Real Applications - Udemy",
+            "AWS Amazon S3 Mastery Bootcamp - Udemy",
+            "PHP OOP: Object Oriented Programming for Beginners + Project - Udemy",
+            "Crash Course - Learn to Create a PHP MVC Framework - Udemy",
+            "Modern JavaScript From The Beginning - Udemy"
+          ]
+        }
+      ],
+      "right_sections": [
+        {
+          "kind": "projects",
+          "title": null,
+          "names": [
+            "xyz",
+            "o",
+            "vixl",
+            "rt"
+          ]
+        }
+      ]
+    }
   },
   "timeline": {
     "title": "My Story",
