@@ -108,13 +108,9 @@
       {% endif %}
       <div class="stack">
         {% for item in section["items"] %}
-        <article class="project-item{% if item.githubUrls is defined %} project-item--grouped{% endif %}">
-          {% set is_grouped_project = item.githubUrls is defined %}
+        <article class="project-item">
           <div class="project-header">
-            {% if is_grouped_project %}
-            <header>{{ item.name }}</header>
-            <p class="project-link-list"><strong>GitHub:</strong> {{ item.githubUrls | join(" |\n") }}</p>
-            {% elif item.href %}
+            {% if item.href %}
             <header>{{ item.name }} <a class="project-link" href="{{ item.href }}">[GitHub: {{ item.href }}]</a></header>
             {% else %}
             <header>{{ item.name }}</header>

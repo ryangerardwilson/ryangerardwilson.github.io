@@ -221,21 +221,6 @@ a {
   color: var(--muted);
 }
 
-.project-link-list {
-  margin: 0.3mm 0 0;
-  color: var(--muted);
-  overflow-wrap: anywhere;
-  white-space: pre-line;
-}
-
-.project-item--grouped .project-launch-date {
-  margin-top: 0.1mm;
-}
-
-.project-item--grouped .project-points li {
-  margin-bottom: 0.1mm;
-}
-
 .date-range {
   white-space: nowrap;
 }

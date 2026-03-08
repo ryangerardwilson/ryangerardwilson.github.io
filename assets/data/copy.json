@@ -319,16 +319,10 @@
         "what": "CLI tutor that parses markdown courses into lessons with rote/jump modes, 90%+ accuracy gates, doc viewing, in-place editing, bookmarks, and search."
       },
       {
-        "name": "{gmail|linkedin|slack|whatsapp|x}",
-        "githubUrls": [
-          "https://github.com/ryangerardwilson/gmail",
-          "https://github.com/ryangerardwilson/linkedin",
-          "https://github.com/ryangerardwilson/slack",
-          "https://github.com/ryangerardwilson/whatsapp",
-          "https://github.com/ryangerardwilson/x"
-        ],
+        "name": "x|gmail|linkedin|slack|whatsapp",
+        "href": "https://github.com/ryangerardwilson/{x|gmail|linkedin|slack|whatsapp}",
         "launchDate": "Feb 25 - Mar 4, 2026",
-        "why": "Mail and chat apps turn quick outbound messages into tab-hopping fog; I wanted narrow CLIs for each channel.",
+        "why": "Besides the annoying tab-hopping for simple things, straightforward CLIs make it much easier for agentic AI to do exactly what I want.",
         "what": "Built shell-first send/post tools for Gmail, LinkedIn, Slack, WhatsApp, and X with channel-specific auth and compose flows."
       }
     ],
@@ -395,7 +389,7 @@
             "o",
             "vixl",
             "rt",
-            "{gmail|linkedin|slack|whatsapp|x}"
+            "x|gmail|linkedin|slack|whatsapp"
           ]
         }
       ]
