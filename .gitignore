@@ -4,5 +4,6 @@ site/
 build/
 node_modules/
 __pycache__/
+resume.generated.pdf
 --1_1.jpg
 -.xml
