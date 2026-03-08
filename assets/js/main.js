@@ -280,13 +280,24 @@ function renderTimeline(timelineCopy) {
     const container = document.getElementById('timeline-container');
     if (!container) return;
 
-    container.querySelectorAll('.timeline-entry').forEach(entry => entry.remove());
+    const items = sortTimelineItems(resolveTimelineItems(timelineCopy));
+    if (!items.length) {
+        console.warn('Timeline copy produced no items; preserving existing timeline markup.');
+        return;
+    }
 
-    const items = sortTimelineItems([
+    container.querySelectorAll('.timeline-entry').forEach(entry => entry.remove());
+    items.forEach(item => container.appendChild(renderTimelineItem(item)));
+}
+
+function resolveTimelineItems(timelineCopy) {
+    if (Array.isArray(timelineCopy.items) && timelineCopy.items.length) {
+        return timelineCopy.items;
+    }
+    return [
         ...(Array.isArray(timelineCopy.projects) ? timelineCopy.projects : []),
         ...(Array.isArray(timelineCopy.lifeEvents) ? timelineCopy.lifeEvents : [])
-    ]);
-    items.forEach(item => container.appendChild(renderTimelineItem(item)));
+    ];
 }
 
 function renderTimelineItem(item) {
