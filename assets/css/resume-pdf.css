@@ -29,24 +29,31 @@ body {
   padding: 0;
 }
 
+.resume {
+  width: 210mm;
+}
+
 .page {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
+  width: 210mm;
+  min-height: 297mm;
+  display: grid;
+  grid-template-columns: 34% 66%;
+  break-after: page;
+  page-break-after: always;
+}
+
+.page:last-child {
+  break-after: auto;
+  page-break-after: auto;
 }
 
 .sidebar {
-  display: table-cell;
-  width: 34%;
-  vertical-align: top;
   padding: 18mm 10mm 16mm 12mm;
   background: var(--panel);
   border-right: 1px solid var(--line);
 }
 
 .main-column {
-  display: table-cell;
-  vertical-align: top;
   padding: 18mm 14mm 16mm 14mm;
 }
 

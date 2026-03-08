@@ -9,115 +9,145 @@
   </style>
 </head>
 <body>
-  <main class="page">
-    <aside class="sidebar">
-      <section class="identity">
-        {% if avatar_src %}
-        <img class="avatar" src="{{ avatar_src }}" alt="{{ basics.name }} avatar">
-        {% endif %}
-        <h1>{{ basics.name }}</h1>
-        <p class="headline">{{ basics.headline }}</p>
-      </section>
-
-      <section class="section">
-        <h2>Contact</h2>
-        <ul class="contact-list">
-          {% for item in contact %}
-          <li>
-            <span class="contact-label">{{ item.label }}</span>
-            {% if item.href %}
-            <a href="{{ item.href }}">{{ item.display }}</a>
-            {% else %}
-            <span>{{ item.display }}</span>
-            {% endif %}
-          </li>
-          {% endfor %}
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Education</h2>
-        <div class="stack">
-          {% for item in education %}
-          <article class="education-item">
-            <header>{{ item.credential }}</header>
-            <p>{{ item.institution }}</p>
-            <small>{{ item.year }}</small>
-          </article>
-          {% endfor %}
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Skills</h2>
-        <div class="stack">
-          {% for group in skills %}
-          <article class="skill-group">
-            <header>{{ group.label }}</header>
-            <p>{{ group["items"] | join(", ") }}</p>
-          </article>
-          {% endfor %}
-        </div>
-      </section>
-    </aside>
-
-    <section class="main-column">
-      <section class="section hero-summary">
-        <h2>Profile</h2>
-        <p>{{ profile }}</p>
-      </section>
-
-      <section class="section">
-        <h2>Experience</h2>
-        <div class="stack">
-          {% for item in experience %}
-          <article class="experience-item">
-            <div class="experience-header">
-              <div>
-                <header>{{ item.role }}{% if item.company %}, {{ item.company }}{% endif %}</header>
-                {% if item.location %}
-                <p class="meta">{{ item.location }}</p>
-                {% endif %}
-              </div>
-              <span class="date-range">{{ item.dateRange }}</span>
-            </div>
-            <ul>
-              {% for bullet in item.bullets %}
-              <li>{{ bullet }}</li>
-              {% endfor %}
-            </ul>
-          </article>
-          {% endfor %}
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Projects</h2>
-        <div class="stack">
-          {% for item in projects %}
-          <article class="project-item">
-            <div class="project-header">
-              <header>{{ item.name }}</header>
-              {% if item.href %}
-              <a href="{{ item.href }}">View Project</a>
+  {% macro render_section(section, basics, avatar_src) -%}
+    {% if section.kind == "identity" %}
+    <section class="identity">
+      {% if avatar_src %}
+      <img class="avatar" src="{{ avatar_src }}" alt="{{ basics.name }} avatar">
+      {% endif %}
+      <h1>{{ basics.name }}</h1>
+      <p class="headline">{{ basics.headline }}</p>
+    </section>
+    {% elif section.kind == "contact" %}
+    <section class="section">
+      {% if section.title %}
+      <h2>{{ section.title }}</h2>
+      {% endif %}
+      <ul class="contact-list">
+        {% for item in section["items"] %}
+        <li>
+          <span class="contact-label">{{ item.label }}</span>
+          {% if item.href %}
+          <a href="{{ item.href }}">{{ item.display }}</a>
+          {% else %}
+          <span>{{ item.display }}</span>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% elif section.kind == "education" %}
+    <section class="section">
+      {% if section.title %}
+      <h2>{{ section.title }}</h2>
+      {% endif %}
+      <div class="stack">
+        {% for item in section["items"] %}
+        <article class="education-item">
+          <header>{{ item.credential }}</header>
+          <p>{{ item.institution }}</p>
+          <small>{{ item.year }}</small>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% elif section.kind == "skills" %}
+    <section class="section">
+      {% if section.title %}
+      <h2>{{ section.title }}</h2>
+      {% endif %}
+      <div class="stack">
+        {% for group in section["items"] %}
+        <article class="skill-group">
+          <header>{{ group.label }}</header>
+          <p>{{ group["items"] | join(", ") }}</p>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% elif section.kind == "profile" %}
+    <section class="section hero-summary">
+      {% if section.title %}
+      <h2>{{ section.title }}</h2>
+      {% endif %}
+      <p>{{ section.text }}</p>
+    </section>
+    {% elif section.kind == "experience" %}
+    <section class="section">
+      {% if section.title %}
+      <h2>{{ section.title }}</h2>
+      {% endif %}
+      <div class="stack">
+        {% for item in section["items"] %}
+        <article class="experience-item">
+          <div class="experience-header">
+            <div>
+              <header>{{ item.role }}{% if item.company %}, {{ item.company }}{% endif %}</header>
+              {% if item.location %}
+              <p class="meta">{{ item.location }}</p>
               {% endif %}
             </div>
-            <p><strong>Why:</strong> {{ item.why }}</p>
-            <p><strong>What:</strong> {{ item.what }}</p>
-          </article>
-          {% endfor %}
-        </div>
-      </section>
+            <span class="date-range">{{ item.dateRange }}</span>
+          </div>
+          <ul>
+            {% for bullet in item.bullets %}
+            <li>{{ bullet }}</li>
+            {% endfor %}
+          </ul>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% elif section.kind == "projects" %}
+    <section class="section">
+      {% if section.title %}
+      <h2>{{ section.title }}</h2>
+      {% endif %}
+      <div class="stack">
+        {% for item in section["items"] %}
+        <article class="project-item">
+          <div class="project-header">
+            <header>{{ item.name }}</header>
+            {% if item.href %}
+            <a href="{{ item.href }}">View Project</a>
+            {% endif %}
+          </div>
+          <p><strong>Why:</strong> {{ item.why }}</p>
+          <p><strong>What:</strong> {{ item.what }}</p>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% elif section.kind == "certifications" %}
+    <section class="section">
+      {% if section.title %}
+      <h2>{{ section.title }}</h2>
+      {% endif %}
+      <ul class="certifications">
+        {% for item in section["items"] %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+  {%- endmacro %}
 
-      <section class="section">
-        <h2>Certifications</h2>
-        <ul class="certifications">
-          {% for item in certifications %}
-          <li>{{ item }}</li>
-          {% endfor %}
-        </ul>
+  <main class="resume">
+    {% for page in pages %}
+    <section class="page">
+      <aside class="sidebar">
+        {% for section in page.left_sections %}
+        {{ render_section(section, basics, avatar_src) }}
+        {% endfor %}
+      </aside>
+
+      <section class="main-column">
+        {% for section in page.right_sections %}
+        {{ render_section(section, basics, avatar_src) }}
+        {% endfor %}
       </section>
     </section>
+    {% endfor %}
   </main>
 </body>
 </html>

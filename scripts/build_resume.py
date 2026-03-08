@@ -32,10 +32,67 @@ def format_contact(contact: dict) -> dict:
     }
 
 
+def split_list(items: list, first_count: int) -> tuple[list, list]:
+    return items[:first_count], items[first_count:]
+
+
+def build_pages(resume: dict, avatar_src: str) -> list[dict]:
+    experience = resume.get("experience") or []
+    projects = resume.get("projects") or []
+    skills = resume.get("skills") or []
+    certifications = resume.get("certifications") or []
+
+    exp_page1, exp_rest = split_list(experience, 2)
+    exp_page2, _ = split_list(exp_rest, 2)
+    projects_page2, projects_rest = split_list(projects, 2)
+    projects_page3, projects_page4 = split_list(projects_rest, 2)
+    skills_page2, skills_page3 = split_list(skills, 4)
+
+    return [
+        {
+            "left_sections": [
+                {"title": None, "kind": "identity"},
+                {"title": "Contact", "kind": "contact", "items": [format_contact(item) for item in resume.get("contact") or []]},
+                {"title": "Education", "kind": "education", "items": resume.get("education") or []},
+            ],
+            "right_sections": [
+                {"title": "Profile", "kind": "profile", "text": resume.get("profile") or ""},
+                {"title": "Experience", "kind": "experience", "items": exp_page1},
+            ],
+        },
+        {
+            "left_sections": [
+                {"title": "Skills", "kind": "skills", "items": skills_page2},
+            ],
+            "right_sections": [
+                {"title": None, "kind": "experience", "items": exp_page2},
+                {"title": "Projects", "kind": "projects", "items": projects_page2},
+            ],
+        },
+        {
+            "left_sections": [
+                {"title": "Skills", "kind": "skills", "items": skills_page3},
+            ],
+            "right_sections": [
+                {"title": None, "kind": "projects", "items": projects_page3},
+            ],
+        },
+        {
+            "left_sections": [
+                {"title": "Certifications", "kind": "certifications", "items": certifications},
+            ],
+            "right_sections": [
+                {"title": None, "kind": "projects", "items": projects_page4},
+            ],
+        },
+    ]
+
+
 def build_html(copy_path: Path, template_path: Path, css_path: Path, html_out: Path) -> None:
     copy_data = json.loads(copy_path.read_text(encoding="utf-8"))
     resume = copy_data.get("resumePdf") or {}
     basics = resume.get("basics") or {}
+    avatar_src = fetch_data_uri(basics.get("avatarUrl") or "")
 
     env = Environment(
         loader=FileSystemLoader(str(template_path.parent)),
@@ -48,14 +105,8 @@ def build_html(copy_path: Path, template_path: Path, css_path: Path, html_out: P
     html = template.render(
         css=css_path.read_text(encoding="utf-8"),
         basics=basics,
-        profile=resume.get("profile") or "",
-        contact=[format_contact(item) for item in resume.get("contact") or []],
-        education=resume.get("education") or [],
-        skills=resume.get("skills") or [],
-        experience=resume.get("experience") or [],
-        projects=resume.get("projects") or [],
-        certifications=resume.get("certifications") or [],
-        avatar_src=fetch_data_uri(basics.get("avatarUrl") or ""),
+        avatar_src=avatar_src,
+        pages=build_pages(resume, avatar_src),
     )
 
     html_out.parent.mkdir(parents=True, exist_ok=True)
