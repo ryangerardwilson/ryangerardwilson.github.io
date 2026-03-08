@@ -55,6 +55,7 @@ body {
 
 .main-column {
   padding: 8.5mm 10.5mm 8.5mm 10.5mm;
+  font-size: 10pt;
 }
 
 .identity {
@@ -137,6 +138,15 @@ a {
   font-weight: 700;
 }
 
+.main-column p,
+.main-column li,
+.main-column a,
+.main-column .meta,
+.main-column .date-range,
+.main-column header {
+  font-size: inherit;
+}
+
 .education-item,
 .skill-group,
 .experience-item,
@@ -195,7 +205,6 @@ a {
 
 .date-range {
   white-space: nowrap;
-  font-size: 8.7pt;
 }
 
 .experience-item ul {
