@@ -55,7 +55,7 @@ body {
   object-fit: cover;
   border-radius: 50%;
   display: block;
-  margin-bottom: 5mm;
+  margin: 0 auto 5mm;
   border: 1px solid var(--line);
 }
 
