@@ -55,7 +55,8 @@ body {
 
 .main-column {
   padding: 8mm 10mm 8mm 10mm;
-  font-size: 9.8pt;
+  font-size: 9.4pt;
+  line-height: 1.22;
 }
 
 .identity {
@@ -102,8 +103,6 @@ h1 {
 .section-subtitle {
   margin: 0 0 0.8mm;
   color: var(--muted);
-  font-size: 8pt;
-  line-height: 1.15;
 }
 
 .stack {
@@ -153,7 +152,10 @@ a {
 .main-column a,
 .main-column .meta,
 .main-column .date-range,
-.main-column header {
+.main-column header,
+.main-column .section-subtitle,
+.main-column .project-launch-date,
+.main-column .project-link-list {
   font-size: inherit;
 }
 
@@ -163,11 +165,6 @@ a {
 .project-item {
   break-inside: avoid;
   page-break-inside: avoid;
-}
-
-.project-item {
-  font-size: 9pt;
-  line-height: 1.16;
 }
 
 .education-item + .education-item,
@@ -217,25 +214,20 @@ a {
 
 .project-header header {
   overflow-wrap: anywhere;
-  font-size: 9.1pt;
 }
 
 .project-launch-date {
   margin: 0.3mm 0 0;
   color: var(--muted);
-  font-size: 8.3pt;
 }
 
 .project-link-list {
   margin: 0.3mm 0 0;
   color: var(--muted);
-  font-size: 6.9pt;
-  line-height: 1.05;
   overflow-wrap: anywhere;
 }
 
 .project-item--grouped .project-launch-date {
-  font-size: 7.5pt;
   margin-top: 0.1mm;
 }
 
