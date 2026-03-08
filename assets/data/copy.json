@@ -285,45 +285,45 @@
       {
         "name": "gvim",
         "href": "https://github.com/ryangerardwilson/gvim",
-        "why": "Wanted to make detailed graph- and animation-rich notes while relearning calculus without bloated software that broke vim muscle memory.",
-        "what": "GTK4-based graphical note editor that preserves vim navigation across document blocks, with graph rendering in declarative Python and inline ThreeJS animations."
+        "why": "I wanted graph-heavy notes without losing Vim muscle memory.",
+        "what": "GTK4 note editor with Vim navigation, declarative Python graphs, and inline ThreeJS."
       },
       {
         "name": "ai",
         "href": "https://github.com/ryangerardwilson/ai",
-        "why": "Wanted to study OpenAI's Responses API deeply, compare it against Completions, and see whether the whole thing could feel right in a pure CLI instead of a TUI.",
-        "what": "Rebuilt opencode from scratch as a pure CLI with file editing, diff auditing, interactive Q&A, repository analysis, Git safeguards, sandboxed shell commands, confirmations, and secure API key storage."
+        "why": "I wanted Responses-era tooling in a pure CLI, not a TUI.",
+        "what": "Rebuilt opencode as a shell-native assistant with edits, audits, repo analysis, safeguards, and secure keys."
       },
       {
         "name": "xyz",
         "href": "https://github.com/ryangerardwilson/xyz",
-        "why": "Traditional to-dos reward busywork. I wanted work captured as JTBD outcomes that surface value, align with mission, and compound.",
-        "what": "Vim-first terminal task tracker that stores JTBDs with North Star scores (p/q/r) for values, impact, and embodiment. Pure Python with curses plus CSV."
+        "why": "To-dos reward busywork; I wanted work tracked as JTBD outcomes.",
+        "what": "Vim-first task tracker with North Star scoring in pure Python plus curses."
       },
       {
         "name": "o",
         "href": "https://github.com/ryangerardwilson/o",
-        "why": "Conventional file managers lean on arrow keys and mice. I wanted a full filesystem browser driven only by Vim's hjkl.",
-        "what": "Python curses TUI directory browser with matrix-style rain, modal hjkl navigation, yank/cut/paste/delete, reveal/picker/save modes, and custom handlers."
+        "why": "I wanted a full file browser driven only by hjkl.",
+        "what": "Python curses file manager with modal navigation, matrix rain, and filesystem actions."
       },
       {
         "name": "vixl",
         "href": "https://github.com/ryangerardwilson/vixl",
-        "why": "Excel is bloated, formula-opaque, and painful on large sheets. I wanted terminal-native spreadsheets for 100k+ row work.",
-        "what": "Python curses TUI spreadsheet editor for CSV, Parquet, XLSX, and HDF5, combining Pandas-style declarative syntax with Vim home-row navigation."
+        "why": "Excel is bloated; I wanted terminal-native spreadsheets for large sheets.",
+        "what": "Python curses spreadsheet editor for CSV, Parquet, XLSX, and HDF5 with Vim navigation."
       },
       {
         "name": "rt",
         "href": "https://github.com/ryangerardwilson/rt",
-        "why": "AI-generated slop erodes code intuition. I wanted deliberate drills that burn expert patterns into muscle memory while sharpening typing.",
-        "what": "CLI tutor that parses markdown courses into lessons with rote/jump modes, 90%+ accuracy gates, doc viewing, in-place editing, bookmarks, and search."
+        "why": "AI slop erodes intuition; I wanted drills that harden patterns into muscle memory.",
+        "what": "CLI tutor with markdown lessons, rote/jump modes, accuracy gates, editing, and search."
       },
       {
         "name": "x|gmail|linkedin|slack|whatsapp",
         "href": "https://github.com/ryangerardwilson/{x|gmail|linkedin|slack|whatsapp}",
         "launchDate": "Feb 25 - Mar 4, 2026",
-        "why": "Besides the annoying tab-hopping for simple things, straightforward CLIs make it much easier for agentic AI to do exactly what I want.",
-        "what": "Built shell-first send/post tools for Gmail, LinkedIn, Slack, WhatsApp, and X with channel-specific auth and compose flows."
+        "why": "Simple CLIs cut tab-hopping and make agentic AI easier to steer precisely.",
+        "what": "Shell-first send/post tools for Gmail, LinkedIn, Slack, WhatsApp, and X."
       }
     ],
     "page_1": {
@@ -381,7 +381,7 @@
         {
           "kind": "projects",
           "title": "Open Source CLI Tooling",
-          "subtitle": "Investing a lot of my time and energy in CLI tooling helps me orchestrate AI agents to 100x my productivity with both precision and purpose.",
+          "subtitle": "I invest heavily in CLI tooling because it lets me steer AI agents with precision.",
           "names": [
             "gvim",
             "ai",
