@@ -1,0 +1,11 @@
+{
+  "name": "ryangerardwilson.github.io",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:resume:pdf": "node scripts/render_resume_pdf.mjs build/resume.html resume.pdf"
+  },
+  "devDependencies": {
+    "playwright": "^1.52.0"
+  }
+}

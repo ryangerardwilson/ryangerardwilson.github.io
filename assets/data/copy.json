@@ -33,6 +33,302 @@
     },
     "avatarUrl": "https://unavatar.io/x/ryan_improvises?refresh=1"
   },
+  "resumePdf": {
+    "basics": {
+      "name": "Ryan Gerard Wilson",
+      "headline": "Product Engineer & Data Scientist",
+      "location": "Gurugram, Haryana, India",
+      "avatarUrl": "https://unavatar.io/x/ryan_improvises?refresh=1"
+    },
+    "profile": "Product engineer and data scientist with over 10 years of experience spanning full-stack development, data science, and intellectual property law. Proven track record of driving business impact through technical innovation, including boosting supply efficiency by 20% and reducing technical debt by over 90%. Expertise in building and launching products from scratch, deploying machine learning models, and navigating complex legal and technical landscapes. Combines first-principles thinking with a builder mindset to ship fast, simplify ruthlessly, and deliver measurable results.",
+    "contact": [
+      {
+        "label": "Phone",
+        "value": "+91-9958467951",
+        "href": "tel:+919958467951"
+      },
+      {
+        "label": "Email",
+        "value": "ryan@wilsonfamilyoffice.in",
+        "href": "mailto:ryan@wilsonfamilyoffice.in"
+      },
+      {
+        "label": "LinkedIn",
+        "value": "linkedin.com/in/ryangerardwilson",
+        "href": "https://linkedin.com/in/ryangerardwilson"
+      },
+      {
+        "label": "Website",
+        "value": "ryangerardwilson.com",
+        "href": "https://ryangerardwilson.com"
+      },
+      {
+        "label": "GitHub",
+        "value": "github.com/ryangerardwilson",
+        "href": "https://github.com/ryangerardwilson"
+      },
+      {
+        "label": "Location",
+        "value": "Gurugram, Haryana, India"
+      }
+    ],
+    "education": [
+      {
+        "credential": "B.A. LL.B. (Hons.)",
+        "institution": "Dr. Ram Manohar Lohia National Law University, Lucknow",
+        "year": "2015"
+      },
+      {
+        "credential": "Goethe-Zertifikat B1",
+        "institution": "Goethe-Institut e.V.",
+        "year": "2007"
+      }
+    ],
+    "skills": [
+      {
+        "label": "AI/ML",
+        "items": [
+          "Machine Learning",
+          "Deep Learning",
+          "NLP",
+          "Generative AI",
+          "Prompt Engineering",
+          "Transformers",
+          "OpenAI API",
+          "OpenAI Responses API",
+          "XGBoost",
+          "Scikit-learn",
+          "TensorFlow",
+          "PyTorch",
+          "Parallel Agentic Orchestration",
+          "Agentic Workflows",
+          "Gemini CLI",
+          "Open Code",
+          "Model Deployment",
+          "Feature Engineering"
+        ]
+      },
+      {
+        "label": "Python",
+        "items": [
+          "FastAPI",
+          "Flask",
+          "Django",
+          "Pandas",
+          "NumPy",
+          "Scikit-learn",
+          "XGBoost",
+          "Machine Learning",
+          "Data Science",
+          "REST APIs",
+          "SQLAlchemy",
+          "Asyncio",
+          "Pytest",
+          "Unit Testing",
+          "Celery",
+          "Web Scraping",
+          "OOP",
+          "Scripting"
+        ]
+      },
+      {
+        "label": "Unix",
+        "items": [
+          "Linux",
+          "Shell Scripting",
+          "Bash",
+          "CLI",
+          "TUI",
+          "Git",
+          "SSH",
+          "Cron",
+          "Sed",
+          "Awk",
+          "Grep",
+          "Vim",
+          "POSIX",
+          "System Administration"
+        ]
+      },
+      {
+        "label": "Cloud",
+        "items": [
+          "AWS",
+          "S3",
+          "Docker",
+          "Kubernetes",
+          "CI/CD",
+          "Terraform",
+          "Serverless",
+          "AWS Lambda",
+          "Google Cloud",
+          "Azure",
+          "Microservices",
+          "Infrastructure as Code",
+          "Scalability"
+        ]
+      },
+      {
+        "label": "Frontend",
+        "items": [
+          "JavaScript",
+          "React",
+          "Next.js",
+          "HTML",
+          "CSS",
+          "Tailwind CSS",
+          "Bootstrap",
+          "Responsive Design",
+          "TypeScript",
+          "Vue.js",
+          "Accessibility",
+          "Webpack",
+          "Vite",
+          "Jest"
+        ]
+      },
+      {
+        "label": "CLI/TUI Tooling",
+        "items": [
+          "Python curses",
+          "Rich",
+          "Textual",
+          "Keyboard Event Handling",
+          "Interactive Console",
+          "Shell Scripting"
+        ]
+      },
+      {
+        "label": "Data Engineering",
+        "items": [
+          "Data Pipelines",
+          "ETL",
+          "ELT",
+          "SQL",
+          "PostgreSQL",
+          "MySQL",
+          "SQLite",
+          "Snowflake",
+          "Parquet",
+          "HDF5",
+          "Data Modeling",
+          "Data Warehousing",
+          "Scalable Data Systems"
+        ]
+      },
+      {
+        "label": "System Design / Delivery",
+        "items": [
+          "System Design",
+          "Scalable Systems",
+          "Architecture Design",
+          "API Design",
+          "Performance Optimization",
+          "Distributed Systems",
+          "Project Management",
+          "Agile Methodologies",
+          "Team Leadership",
+          "Stakeholder Management",
+          "Risk Management",
+          "Cross-Functional Delivery"
+        ]
+      }
+    ],
+    "experience": [
+      {
+        "role": "Entrepreneur-in-Residence",
+        "company": "Wiom",
+        "location": "Gurugram, Haryana, India",
+        "dateRange": "Oct 2022 - Present",
+        "bullets": [
+          "Genie (2025): Increased supply efficiency by 20% (15% from core rewrite + 5% from ML integration). Reverse-engineered and redeployed an undocumented legacy algorithm with zero downtime after the original creator's departure.",
+          "CRM Forge (2024): Developed a streamlined platform (~7k LOC) that provisions custom CRM workflows via JSON configs in 2–3 minutes, consolidating and replacing five legacy systems (~100k LOC total). Enabled cross-functional teams to align and deploy tailored solutions in hours.",
+          "Happy (2023): Decreased call-center dependency by ~5x while enhancing customer outcomes and agent satisfaction. Designed a telephony bot with lightweight CRM for escalations, plus a Hindi/Hinglish AI chatbot for instant, brand-consistent scripting.",
+          "Used tech, IP, and corporate-law depth beyond the formal role to shape IP strategy, safeguard innovations, and support fundraising through pitch decks and investor diligence."
+        ]
+      },
+      {
+        "role": "Solo IndieHacker",
+        "company": "",
+        "location": "",
+        "dateRange": "Jun 2021 - Sep 2022",
+        "bullets": [
+          "Built and launched three full-stack Laravel products from scratch while bootstrapping under tight financial constraints.",
+          "Handled the full product lifecycle: market research, backend and frontend development, branding, and direct sales.",
+          "Worked over 50 events and networking loops to drive adoption and tighten feedback cycles."
+        ]
+      },
+      {
+        "role": "Intellectual Property & IP/Tech Lawyer",
+        "company": "Sujata Chaudhri IP Attorneys (SCIP) & Rahul Chaudhary & Partners",
+        "location": "",
+        "dateRange": "Dec 2015 - Apr 2022",
+        "bullets": [
+          "Promoted to Senior Associate 3-5 years ahead of peers through strong performance in high-stakes litigation.",
+          "Helped secure an interim injunction in the 2016 Rubik's Cube trade dress case (Seven Towns v. Kiddiland).",
+          "Handled hundreds of trademark disputes, resolving most through pre-litigation mediations and favorable settlements."
+        ]
+      },
+      {
+        "role": "Marketing Associate",
+        "company": "Rainmaker",
+        "location": "",
+        "dateRange": "Apr 2015 - Nov 2015",
+        "bullets": [
+          "Improved email open rates and engagement via personalized, A/B-tested Mailchimp campaigns with custom HTML designs.",
+          "Curated genuine customer testimonials that increased site trust and conversions.",
+          "Planned and executed a high-energy on-campus quiz for 300+ law students, increasing brand visibility and lead capture."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "gvim",
+        "href": "https://github.com/ryangerardwilson/gvim",
+        "why": "Wanted to make detailed graph- and animation-rich notes while relearning calculus without bloated software that broke vim muscle memory.",
+        "what": "GTK4-based graphical note editor that preserves vim navigation across document blocks, with graph rendering in declarative Python and inline ThreeJS animations."
+      },
+      {
+        "name": "ai",
+        "href": "https://github.com/ryangerardwilson/ai",
+        "why": "Wanted to study OpenAI's Responses API deeply, compare it against Completions, and see whether the whole thing could feel right in a pure CLI instead of a TUI.",
+        "what": "Rebuilt opencode from scratch as a pure CLI with file editing, diff auditing, interactive Q&A, repository analysis, Git safeguards, sandboxed shell commands, confirmations, and secure API key storage."
+      },
+      {
+        "name": "xyz",
+        "href": "https://github.com/ryangerardwilson/xyz",
+        "why": "Traditional to-dos reward busywork. I wanted work captured as JTBD outcomes that surface value, align with mission, and compound.",
+        "what": "Vim-first terminal task tracker that stores JTBDs with North Star scores (p/q/r) for values, impact, and embodiment. Pure Python with curses plus CSV."
+      },
+      {
+        "name": "o",
+        "href": "https://github.com/ryangerardwilson/o",
+        "why": "Conventional file managers lean on arrow keys and mice. I wanted a full filesystem browser driven only by Vim's hjkl.",
+        "what": "Python curses TUI directory browser with matrix-style rain, modal hjkl navigation, yank/cut/paste/delete, reveal/picker/save modes, and custom handlers."
+      },
+      {
+        "name": "vixl",
+        "href": "https://github.com/ryangerardwilson/vixl",
+        "why": "Excel is bloated, formula-opaque, and painful on large sheets. I wanted terminal-native spreadsheets for 100k+ row work.",
+        "what": "Python curses TUI spreadsheet editor for CSV, Parquet, XLSX, and HDF5, combining Pandas-style declarative syntax with Vim home-row navigation."
+      },
+      {
+        "name": "rt",
+        "href": "https://github.com/ryangerardwilson/rt",
+        "why": "AI-generated slop erodes code intuition. I wanted deliberate drills that burn expert patterns into muscle memory while sharpening typing.",
+        "what": "CLI tutor that parses markdown courses into lessons with rote/jump modes, 90%+ accuracy gates, doc viewing, in-place editing, bookmarks, and search."
+      }
+    ],
+    "certifications": [
+      "XGBoost Deep Dive with Python & Pandas - Hands on Data Science",
+      "Google Apps Script Complete Course Beginner to Advanced - Udemy",
+      "Learn Rust by Building Real Applications - Udemy",
+      "AWS Amazon S3 Mastery Bootcamp - Udemy",
+      "PHP OOP: Object Oriented Programming for Beginners + Project - Udemy",
+      "Crash Course - Learn to Create a PHP MVC Framework - Udemy",
+      "Modern JavaScript From The Beginning - Udemy"
+    ]
+  },
   "timeline": {
     "title": "My Story",
     "subtitle": "",

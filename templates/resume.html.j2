@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ basics.name }} Resume</title>
+  <style>
+{{ css }}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <aside class="sidebar">
+      <section class="identity">
+        {% if avatar_src %}
+        <img class="avatar" src="{{ avatar_src }}" alt="{{ basics.name }} avatar">
+        {% endif %}
+        <h1>{{ basics.name }}</h1>
+        <p class="headline">{{ basics.headline }}</p>
+      </section>
+
+      <section class="section">
+        <h2>Contact</h2>
+        <ul class="contact-list">
+          {% for item in contact %}
+          <li>
+            <span class="contact-label">{{ item.label }}</span>
+            {% if item.href %}
+            <a href="{{ item.href }}">{{ item.display }}</a>
+            {% else %}
+            <span>{{ item.display }}</span>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Education</h2>
+        <div class="stack">
+          {% for item in education %}
+          <article class="education-item">
+            <header>{{ item.credential }}</header>
+            <p>{{ item.institution }}</p>
+            <small>{{ item.year }}</small>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Skills</h2>
+        <div class="stack">
+          {% for group in skills %}
+          <article class="skill-group">
+            <header>{{ group.label }}</header>
+            <p>{{ group["items"] | join(", ") }}</p>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+    </aside>
+
+    <section class="main-column">
+      <section class="section hero-summary">
+        <h2>Profile</h2>
+        <p>{{ profile }}</p>
+      </section>
+
+      <section class="section">
+        <h2>Experience</h2>
+        <div class="stack">
+          {% for item in experience %}
+          <article class="experience-item">
+            <div class="experience-header">
+              <div>
+                <header>{{ item.role }}{% if item.company %}, {{ item.company }}{% endif %}</header>
+                {% if item.location %}
+                <p class="meta">{{ item.location }}</p>
+                {% endif %}
+              </div>
+              <span class="date-range">{{ item.dateRange }}</span>
+            </div>
+            <ul>
+              {% for bullet in item.bullets %}
+              <li>{{ bullet }}</li>
+              {% endfor %}
+            </ul>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Projects</h2>
+        <div class="stack">
+          {% for item in projects %}
+          <article class="project-item">
+            <div class="project-header">
+              <header>{{ item.name }}</header>
+              {% if item.href %}
+              <a href="{{ item.href }}">View Project</a>
+              {% endif %}
+            </div>
+            <p><strong>Why:</strong> {{ item.why }}</p>
+            <p><strong>What:</strong> {{ item.what }}</p>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Certifications</h2>
+        <ul class="certifications">
+          {% for item in certifications %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

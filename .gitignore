@@ -1,3 +1,6 @@
 *.out
 *.swp
 site/
+build/
+node_modules/
+__pycache__/

@@ -1,0 +1,173 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+
+:root {
+  --ink: #101218;
+  --muted: #5b6270;
+  --line: #d8dde5;
+  --panel: #f4f6f9;
+  --accent: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  background: #fff;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.45;
+}
+
+body {
+  padding: 12mm;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: 31% 1fr;
+  min-height: calc(297mm - 24mm);
+  border: 1px solid var(--line);
+}
+
+.sidebar {
+  padding: 18mm 10mm 16mm 12mm;
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+}
+
+.main-column {
+  padding: 18mm 14mm 16mm 14mm;
+}
+
+.identity {
+  margin-bottom: 8mm;
+}
+
+.avatar {
+  width: 30mm;
+  height: 30mm;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 5mm;
+  border: 1px solid var(--line);
+}
+
+h1 {
+  margin: 0;
+  font-size: 21pt;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.headline {
+  margin: 3mm 0 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.section {
+  margin-bottom: 7mm;
+  break-inside: avoid;
+}
+
+.section h2 {
+  margin: 0 0 3mm;
+  font-size: 10pt;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+}
+
+.stack {
+  display: grid;
+  gap: 4mm;
+}
+
+.contact-list,
+.certifications,
+.experience-item ul {
+  margin: 0;
+  padding-left: 4mm;
+}
+
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-list li + li {
+  margin-top: 2mm;
+}
+
+.contact-label {
+  display: block;
+  color: var(--muted);
+  font-size: 8.4pt;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5mm;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.education-item header,
+.skill-group header,
+.experience-item header,
+.project-item header {
+  font-weight: 700;
+}
+
+.education-item p,
+.skill-group p,
+.project-item p,
+.hero-summary p,
+.experience-item .meta {
+  margin: 1mm 0 0;
+}
+
+.education-item small,
+.experience-item .meta,
+.date-range {
+  color: var(--muted);
+}
+
+.skill-group p {
+  font-size: 9.2pt;
+}
+
+.experience-header,
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 4mm;
+  align-items: baseline;
+}
+
+.date-range {
+  white-space: nowrap;
+  font-size: 9pt;
+}
+
+.experience-item ul {
+  margin-top: 2mm;
+}
+
+.experience-item li,
+.certifications li {
+  margin-bottom: 1.4mm;
+}
+
+.project-item p {
+  margin-top: 1.5mm;
+}
