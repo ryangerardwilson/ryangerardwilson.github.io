@@ -97,6 +97,13 @@ h1 {
   color: var(--accent);
 }
 
+.section-subtitle {
+  margin: 0 0 1.2mm;
+  color: var(--muted);
+  font-size: 8.5pt;
+  line-height: 1.25;
+}
+
 .stack {
   display: block;
 }

@@ -103,6 +103,9 @@
       {% if section.title %}
       <h2>{{ section.title }}</h2>
       {% endif %}
+      {% if section.subtitle %}
+      <p class="section-subtitle">{{ section.subtitle }}</p>
+      {% endif %}
       <div class="stack">
         {% for item in section["items"] %}
         <article class="project-item">

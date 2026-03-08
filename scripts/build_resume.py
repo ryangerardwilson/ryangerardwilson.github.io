@@ -101,6 +101,7 @@ def resolve_section(section: dict, resume: dict, lookups: dict) -> dict:
         return {
             "kind": kind,
             "title": section.get("title", "Projects"),
+            "subtitle": section.get("subtitle"),
             "items": pick_items(lookups["projects"], names, "project names"),
         }
 
