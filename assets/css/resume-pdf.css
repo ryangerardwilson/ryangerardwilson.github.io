@@ -101,7 +101,7 @@ h1 {
 }
 
 .contact-list li + li {
-  margin-top: 2mm;
+  margin-top: 1.2mm;
 }
 
 .contact-label {
@@ -140,12 +140,27 @@ a {
   margin-top: 4mm;
 }
 
+.education-item + .education-item {
+  margin-top: 2.2mm;
+}
+
 .education-item p,
 .skill-group p,
 .project-item p,
 .hero-summary p,
 .experience-item .meta {
   margin: 1mm 0 0;
+}
+
+.education-item p {
+  margin-top: 0.4mm;
+  line-height: 1.3;
+}
+
+.education-item small {
+  display: block;
+  margin-top: 0.3mm;
+  line-height: 1.2;
 }
 
 .education-item small,
