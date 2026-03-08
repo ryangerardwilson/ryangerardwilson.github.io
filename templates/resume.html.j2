@@ -113,7 +113,7 @@
           <div class="project-header">
             {% if is_grouped_project %}
             <header>{{ item.name }}</header>
-            <p class="project-link-list">[GitHub: {{ item.githubUrls | join(" | ") }}]</p>
+            <p class="project-link-list">GitHub: {{ item.githubUrls | join(" | ") }}</p>
             {% elif item.href %}
             <header>{{ item.name }} <a class="project-link" href="{{ item.href }}">[GitHub: {{ item.href }}]</a></header>
             {% else %}
