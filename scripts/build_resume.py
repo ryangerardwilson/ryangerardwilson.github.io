@@ -54,7 +54,7 @@ def build_pages(resume: dict) -> list[dict]:
         ],
         "right_sections": [
             {"kind": "profile", "title": "Profile", "text": resume.get("profile") or ""},
-            {"kind": "experience", "title": "Experience", "items": experience[:3]},
+            {"kind": "experience", "title": "Experience", "items": experience[:4]},
         ],
     }
 
@@ -63,7 +63,6 @@ def build_pages(resume: dict) -> list[dict]:
             {"kind": "skills", "title": None, "items": skills[2:6]},
         ],
         "right_sections": [
-            {"kind": "experience", "title": None, "items": experience[3:]},
             {"kind": "projects", "title": "Projects", "items": projects[:2]},
         ],
     }
