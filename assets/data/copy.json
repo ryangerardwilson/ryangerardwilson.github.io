@@ -144,7 +144,6 @@
           "Awk",
           "Grep",
           "Vim",
-          "POSIX",
           "System Administration"
         ]
       },
@@ -181,8 +180,7 @@
           "Tailwind CSS",
           "Bootstrap",
           "Responsive Design",
-          "Accessibility",
-          "Jest"
+          "Accessibility"
         ]
       },
       {
