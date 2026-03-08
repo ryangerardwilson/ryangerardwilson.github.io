@@ -319,6 +319,18 @@
         "what": "CLI tutor with markdown lessons, rote/jump modes, accuracy gates, editing, and search."
       },
       {
+        "name": "rlc",
+        "href": "https://github.com/ryangerardwilson/rlc",
+        "why": "GUI music players feel mushy; I wanted ffplay speed and terminal-local playback.",
+        "what": "Curses music player with search, shuffle, playlist control, ASCII visuals, and yt-dlp pulls."
+      },
+      {
+        "name": "clipai",
+        "href": "https://github.com/ryangerardwilson/clipai",
+        "why": "I wanted AI answers from the clipboard without context switching.",
+        "what": "Wayland-native clipboard watcher that swaps prompts for OpenAI responses in real time."
+      },
+      {
         "name": "x|gmail|linkedin|slack|whatsapp",
         "href": "https://github.com/ryangerardwilson/{x|gmail|linkedin|slack|whatsapp}",
         "launchDate": "Feb 25 - Mar 4, 2026",
@@ -389,6 +401,8 @@
             "o",
             "vixl",
             "rt",
+            "rlc",
+            "clipai",
             "x|gmail|linkedin|slack|whatsapp"
           ]
         }
