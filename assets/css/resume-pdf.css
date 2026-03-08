@@ -30,25 +30,23 @@ body {
 }
 
 .page {
-  display: grid;
-  grid-template-columns: 34% 1fr;
-  min-height: 297mm;
-  background: linear-gradient(
-    to right,
-    var(--panel) 0,
-    var(--panel) 34%,
-    var(--line) 34%,
-    var(--line) calc(34% + 1px),
-    #fff calc(34% + 1px),
-    #fff 100%
-  );
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .sidebar {
+  display: table-cell;
+  width: 34%;
+  vertical-align: top;
   padding: 18mm 10mm 16mm 12mm;
+  background: var(--panel);
+  border-right: 1px solid var(--line);
 }
 
 .main-column {
+  display: table-cell;
+  vertical-align: top;
   padding: 18mm 14mm 16mm 14mm;
 }
 
