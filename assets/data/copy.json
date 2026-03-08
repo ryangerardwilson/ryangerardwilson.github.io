@@ -5,205 +5,6 @@
     "p2": "From the real world impact of Wiom's decision science engines to incessant aura-farming by sharpening my vim-first open source CLI/TUI stack, I love what I do.",
     "p3": "I spend my spare time preparing for the AGI-apocolypse by re-learining high school math and physics with a focus on intuition (instead of rigour), and documenting it all at notes.ryangerardwilson.com"
   },
-  "projectsSection": {
-    "title": "Projects"
-  },
-  "projects": [
-    {
-      "id": "vixl",
-      "name": "vixl",
-      "launchDate": "2026-01-06T13:49:49Z",
-      "accent": "vixl",
-      "catchLine": "Excel is bloated and opaque on large sheets; I wanted fast, home-row spreadsheets.",
-      "features": [
-        "Vim-first TUI spreadsheet editor for CSV/Parquet/XLSX/HDF5 with Pandas syntax.",
-        "Handles 100k+ row workflows without leaving the home row."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/vixl"
-    },
-    {
-      "id": "gvim",
-      "name": "gvim",
-      "launchDate": "2026-02-10T03:24:40Z",
-      "accent": "gvim",
-      "catchLine": "I wanted graph/animation-rich calculus notes without leaving my Vim muscle memory.",
-      "features": [
-        "Made to take graph/animation-heavy calculus notes without bloated software.",
-        "GTK4 GUI that preserves Vim navigation across document blocks.",
-        "Renders Python graphs and ThreeJS animations inline, stored as git-friendly .gvim files."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/gvim"
-    },
-    {
-      "id": "ai",
-      "name": "ai",
-      "launchDate": "2026-02-05T04:52:41Z",
-      "accent": "ai",
-      "catchLine": "I wanted to study Responses vs Completions and prove a pure CLI aesthetic.",
-      "features": [
-        "Built to study the Responses API vs. Completions using a pure CLI (no TUI).",
-        "Rebuilt opencode as a terminal-first assistant for editing, diff audits, Q&A, and repo analysis.",
-        "Includes Git safeguards, sandboxed shell commands, and secure API key storage."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/ai"
-    },
-    {
-      "id": "o",
-      "name": "o",
-      "launchDate": "2025-12-16T01:51:07Z",
-      "accent": "o",
-      "catchLine": "File managers force arrows/mouse; I wanted hjkl-only navigation for the filesystem.",
-      "features": [
-        "Built to eliminate arrow-key/mouse strain with Vim's hjkl-only navigation.",
-        "Python curses file browser with modal nav, yank/cut/paste/delete, and picker modes.",
-        "Matrix-inspired rain display keeps context while you move fast."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/o"
-    },
-    {
-      "id": "xyz",
-      "name": "xyz",
-      "launchDate": "2026-01-18T05:57:58Z",
-      "accent": "xyz",
-      "catchLine": "To-dos reward busywork; I wanted JTBD outcomes that compound progress.",
-      "features": [
-        "Built to force JTBD outcomes instead of busywork checklists.",
-        "Vim-first terminal task tracker with North Star scores (p/q/r) for value, impact, embodiment.",
-        "Pure Python (curses + CSV) with instant setup for clarity-driven creators."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/xyz"
-    },
-    {
-      "id": "rt",
-      "name": "rt",
-      "launchDate": "2025-10-16T02:34:33Z",
-      "accent": "rt",
-      "catchLine": "AI code slop dulls intuition; I wanted drills that embed expert patterns.",
-      "features": [
-        "Built to counter AI code slop by drilling expert snippets into muscle memory.",
-        "CLI tutor with rote/jump modes, 90%+ accuracy gates, and in-place editing.",
-        "Parses .md courses into structured lessons with bookmarks and search."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/rt"
-    },
-    {
-      "id": "clipai",
-      "name": "clipai",
-      "launchDate": "2026-01-16T16:26:57Z",
-      "accent": "clipai",
-      "catchLine": "I wanted AI answers without context switching, triggered straight from the clipboard.",
-      "features": [
-        "Clipboard watcher swaps ai{{ prompt }} with OpenAI responses in real time.",
-        "CLI mode pipes answers straight into your buffer for scripts and automations.",
-        "Wayland-native service built on wl-clipboard with a systemd user unit for persistence."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/clipai"
-    },
-    {
-      "id": "gmail",
-      "name": "gmail",
-      "launchDate": "2026-03-03T05:08:21Z",
-      "accent": "ai",
-      "catchLine": "Gmail's web UI drags simple mail into browser fog; I wanted multi-account email flows I could declare once and drive from the shell.",
-      "features": [
-        "Declarative Gmail CLI with preset-based accounts, automatic signatures, token storage, and timezone-aware timestamps.",
-        "Handles send, reply, thread open, attachments, contacts, spam cleanup, starred mail, and interactive unread/read audits without leaving the terminal.",
-        "Uses Gmail OAuth scopes for send/read/modify instead of brittle scraping."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/gmail"
-    },
-    {
-      "id": "audio",
-      "name": "audio",
-      "launchDate": "2026-03-01T12:55:35Z",
-      "accent": "o",
-      "catchLine": "Linux audio settings are click-heavy nonsense; I wanted pactl-driven sink switching from the terminal.",
-      "features": [
-        "CLI for listing and switching PulseAudio/PipeWire output devices with direct sink and sink:port targeting.",
-        "Supports interactive selection, fast `--list` inspection, and explicit device jumps for headphones vs speakers.",
-        "Keeps Bluetooth pairing manual through `bluetoothctl`, then hands device switching back to one clean command."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/audio"
-    },
-    {
-      "id": "rlc",
-      "name": "rlc",
-      "launchDate": "2026-03-01T08:40:40Z",
-      "accent": "rt",
-      "catchLine": "GUI music players feel mushy and overlit; I wanted local playback, ffplay speed, and an ASCII visualizer in the terminal.",
-      "features": [
-        "Curses-based local music player with keyboard-first controls, playlist reordering, search, shuffle, and command bar actions.",
-        "Uses `ffmpeg`/`ffplay` for playback and rendering, plus `yt-dlp` for pulling YouTube audio straight into the music directory.",
-        "Stores only a small XDG config for music dir and FPS, then gets out of the way."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/rlc"
-    },
-    {
-      "id": "blog",
-      "name": "blog",
-      "launchDate": "2026-03-04T05:19:13Z",
-      "accent": "xyz",
-      "catchLine": "Posting clips across platforms was repetitive ceremony; I wanted one CLI to record, trim, caption, and publish to X plus LinkedIn.",
-      "features": [
-        "Publishes text or media to multiple platforms from one command, with `$EDITOR` compose mode and XDG-configured per-platform argument templates.",
-        "Includes built-in screen recording, stop-and-trim flow, local test renders, sync diagnostics, and recorder cache cleanup.",
-        "Treats x and linkedin as composable backends instead of making me retype the same post twice."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/blog"
-    },
-    {
-      "id": "x",
-      "name": "x",
-      "launchDate": "2026-02-25T00:41:00Z",
-      "accent": "clipai",
-      "catchLine": "X is useful and distractingly awful at the same time; I wanted a CLI that posts text or media without dragging me into the feed.",
-      "features": [
-        "Minimal command-line publisher with Vim compose mode, media attach support, and automatic 280-character guardrails.",
-        "Uses OAuth2 PKCE user login by default, with OAuth1 fallback for text-only posts when needed.",
-        "Built around the official Python XDK for v2 media upload and post creation."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/x"
-    },
-    {
-      "id": "linkedin",
-      "name": "linkedin",
-      "launchDate": "2026-03-04T13:06:10Z",
-      "accent": "vixl",
-      "catchLine": "LinkedIn punishes brevity with layers of form fields and recruiter varnish; I wanted a small CLI that just posts the thing.",
-      "features": [
-        "Posts text, images, or video from the command line with Vim compose mode and a direct `main.py` flow.",
-        "Handles OAuth token storage at `~/.linkedin/oauth2_token.json` and can auto-start login when no valid token exists.",
-        "Waits for LinkedIn media asset processing before creating the post so uploads do not race and fail halfway."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/linkedin"
-    },
-    {
-      "id": "slack",
-      "name": "slack",
-      "launchDate": "2026-02-25T05:36:51Z",
-      "accent": "ai",
-      "catchLine": "Slack is fine until I need one fast direct message; I wanted a CLI that messages people as me without tab-hopping.",
-      "features": [
-        "Sends Slack DMs from the terminal using a user token, addressed by user ID, email, or saved labels.",
-        "Supports `$EDITOR` compose mode plus CLI label creation for repeat contacts.",
-        "Keeps the permissions narrow: `chat:write`, `im:write`, and `users:read` only when email lookup is needed."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/slack"
-    },
-    {
-      "id": "whatsapp",
-      "name": "whatsapp",
-      "launchDate": "2026-02-25T01:32:16Z",
-      "accent": "o",
-      "catchLine": "WhatsApp Web makes a two-line message feel like a small pilgrimage; I wanted one command and done.",
-      "features": [
-        "Minimal CLI that drives WhatsApp Web through Playwright, with persisted login stored in `~/.whatsapp-web` after the first QR scan.",
-        "Supports direct numbers, contact labels in XDG config, profile clearing, and send timeouts for flaky sessions.",
-        "Installer sets up a private virtualenv plus Playwright browser binaries so the runtime stays boxed in."
-      ],
-      "githubUrl": "https://github.com/ryangerardwilson/whatsapp"
-    }
-  ],
   "resume": {
     "title": "Resume Snapshot",
     "subtitle": "",
@@ -235,10 +36,222 @@
   "timeline": {
     "title": "My Story",
     "subtitle": "",
-    "entries": [
+    "items": [
       {
-        "stamp": "[2025-26 | 33–34]",
-        "headline": "Married my beautiful wife",
+        "id": "vixl",
+        "type": "project",
+        "date": "2026-01-06T13:49:49Z",
+        "accent": "vixl",
+        "title": "vixl",
+        "summary": "Excel is bloated and opaque on large sheets; I wanted fast, home-row spreadsheets.",
+        "bullets": [
+          "Vim-first TUI spreadsheet editor for CSV/Parquet/XLSX/HDF5 with Pandas syntax.",
+          "Handles 100k+ row workflows without leaving the home row."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/vixl"
+      },
+      {
+        "id": "gvim",
+        "type": "project",
+        "date": "2026-02-10T03:24:40Z",
+        "accent": "gvim",
+        "title": "gvim",
+        "summary": "I wanted graph/animation-rich calculus notes without leaving my Vim muscle memory.",
+        "bullets": [
+          "Made to take graph/animation-heavy calculus notes without bloated software.",
+          "GTK4 GUI that preserves Vim navigation across document blocks.",
+          "Renders Python graphs and ThreeJS animations inline, stored as git-friendly .gvim files."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/gvim"
+      },
+      {
+        "id": "ai",
+        "type": "project",
+        "date": "2026-02-05T04:52:41Z",
+        "accent": "ai",
+        "title": "ai",
+        "summary": "I wanted to study Responses vs Completions and prove a pure CLI aesthetic.",
+        "bullets": [
+          "Built to study the Responses API vs. Completions using a pure CLI (no TUI).",
+          "Rebuilt opencode as a terminal-first assistant for editing, diff audits, Q&A, and repo analysis.",
+          "Includes Git safeguards, sandboxed shell commands, and secure API key storage."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/ai"
+      },
+      {
+        "id": "o",
+        "type": "project",
+        "date": "2025-12-16T01:51:07Z",
+        "accent": "o",
+        "title": "o",
+        "summary": "File managers force arrows/mouse; I wanted hjkl-only navigation for the filesystem.",
+        "bullets": [
+          "Built to eliminate arrow-key/mouse strain with Vim's hjkl-only navigation.",
+          "Python curses file browser with modal nav, yank/cut/paste/delete, and picker modes.",
+          "Matrix-inspired rain display keeps context while you move fast."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/o"
+      },
+      {
+        "id": "xyz",
+        "type": "project",
+        "date": "2026-01-18T05:57:58Z",
+        "accent": "xyz",
+        "title": "xyz",
+        "summary": "To-dos reward busywork; I wanted JTBD outcomes that compound progress.",
+        "bullets": [
+          "Built to force JTBD outcomes instead of busywork checklists.",
+          "Vim-first terminal task tracker with North Star scores (p/q/r) for value, impact, embodiment.",
+          "Pure Python (curses + CSV) with instant setup for clarity-driven creators."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/xyz"
+      },
+      {
+        "id": "rt",
+        "type": "project",
+        "date": "2025-10-16T02:34:33Z",
+        "accent": "rt",
+        "title": "rt",
+        "summary": "AI code slop dulls intuition; I wanted drills that embed expert patterns.",
+        "bullets": [
+          "Built to counter AI code slop by drilling expert snippets into muscle memory.",
+          "CLI tutor with rote/jump modes, 90%+ accuracy gates, and in-place editing.",
+          "Parses .md courses into structured lessons with bookmarks and search."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/rt"
+      },
+      {
+        "id": "clipai",
+        "type": "project",
+        "date": "2026-01-16T16:26:57Z",
+        "accent": "clipai",
+        "title": "clipai",
+        "summary": "I wanted AI answers without context switching, triggered straight from the clipboard.",
+        "bullets": [
+          "Clipboard watcher swaps ai{{ prompt }} with OpenAI responses in real time.",
+          "CLI mode pipes answers straight into your buffer for scripts and automations.",
+          "Wayland-native service built on wl-clipboard with a systemd user unit for persistence."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/clipai"
+      },
+      {
+        "id": "gmail",
+        "type": "project",
+        "date": "2026-03-03T05:08:21Z",
+        "accent": "ai",
+        "title": "gmail",
+        "summary": "Gmail's web UI drags simple mail into browser fog; I wanted multi-account email flows I could declare once and drive from the shell.",
+        "bullets": [
+          "Declarative Gmail CLI with preset-based accounts, automatic signatures, token storage, and timezone-aware timestamps.",
+          "Handles send, reply, thread open, attachments, contacts, spam cleanup, starred mail, and interactive unread/read audits without leaving the terminal.",
+          "Uses Gmail OAuth scopes for send/read/modify instead of brittle scraping."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/gmail"
+      },
+      {
+        "id": "audio",
+        "type": "project",
+        "date": "2026-03-01T12:55:35Z",
+        "accent": "o",
+        "title": "audio",
+        "summary": "Linux audio settings are click-heavy nonsense; I wanted pactl-driven sink switching from the terminal.",
+        "bullets": [
+          "CLI for listing and switching PulseAudio/PipeWire output devices with direct sink and sink:port targeting.",
+          "Supports interactive selection, fast `--list` inspection, and explicit device jumps for headphones vs speakers.",
+          "Keeps Bluetooth pairing manual through `bluetoothctl`, then hands device switching back to one clean command."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/audio"
+      },
+      {
+        "id": "rlc",
+        "type": "project",
+        "date": "2026-03-01T08:40:40Z",
+        "accent": "rt",
+        "title": "rlc",
+        "summary": "GUI music players feel mushy and overlit; I wanted local playback, ffplay speed, and an ASCII visualizer in the terminal.",
+        "bullets": [
+          "Curses-based local music player with keyboard-first controls, playlist reordering, search, shuffle, and command bar actions.",
+          "Uses `ffmpeg`/`ffplay` for playback and rendering, plus `yt-dlp` for pulling YouTube audio straight into the music directory.",
+          "Stores only a small XDG config for music dir and FPS, then gets out of the way."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/rlc"
+      },
+      {
+        "id": "blog",
+        "type": "project",
+        "date": "2026-03-04T05:19:13Z",
+        "accent": "xyz",
+        "title": "blog",
+        "summary": "Posting clips across platforms was repetitive ceremony; I wanted one CLI to record, trim, caption, and publish to X plus LinkedIn.",
+        "bullets": [
+          "Publishes text or media to multiple platforms from one command, with `$EDITOR` compose mode and XDG-configured per-platform argument templates.",
+          "Includes built-in screen recording, stop-and-trim flow, local test renders, sync diagnostics, and recorder cache cleanup.",
+          "Treats x and linkedin as composable backends instead of making me retype the same post twice."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/blog"
+      },
+      {
+        "id": "x",
+        "type": "project",
+        "date": "2026-02-25T00:41:00Z",
+        "accent": "clipai",
+        "title": "x",
+        "summary": "X is useful and distractingly awful at the same time; I wanted a CLI that posts text or media without dragging me into the feed.",
+        "bullets": [
+          "Minimal command-line publisher with Vim compose mode, media attach support, and automatic 280-character guardrails.",
+          "Uses OAuth2 PKCE user login by default, with OAuth1 fallback for text-only posts when needed.",
+          "Built around the official Python XDK for v2 media upload and post creation."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/x"
+      },
+      {
+        "id": "linkedin",
+        "type": "project",
+        "date": "2026-03-04T13:06:10Z",
+        "accent": "vixl",
+        "title": "linkedin",
+        "summary": "LinkedIn punishes brevity with layers of form fields and recruiter varnish; I wanted a small CLI that just posts the thing.",
+        "bullets": [
+          "Posts text, images, or video from the command line with Vim compose mode and a direct `main.py` flow.",
+          "Handles OAuth token storage at `~/.linkedin/oauth2_token.json` and can auto-start login when no valid token exists.",
+          "Waits for LinkedIn media asset processing before creating the post so uploads do not race and fail halfway."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/linkedin"
+      },
+      {
+        "id": "slack",
+        "type": "project",
+        "date": "2026-02-25T05:36:51Z",
+        "accent": "ai",
+        "title": "slack",
+        "summary": "Slack is fine until I need one fast direct message; I wanted a CLI that messages people as me without tab-hopping.",
+        "bullets": [
+          "Sends Slack DMs from the terminal using a user token, addressed by user ID, email, or saved labels.",
+          "Supports `$EDITOR` compose mode plus CLI label creation for repeat contacts.",
+          "Keeps the permissions narrow: `chat:write`, `im:write`, and `users:read` only when email lookup is needed."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/slack"
+      },
+      {
+        "id": "whatsapp",
+        "type": "project",
+        "date": "2026-02-25T01:32:16Z",
+        "accent": "o",
+        "title": "whatsapp",
+        "summary": "WhatsApp Web makes a two-line message feel like a small pilgrimage; I wanted one command and done.",
+        "bullets": [
+          "Minimal CLI that drives WhatsApp Web through Playwright, with persisted login stored in `~/.whatsapp-web` after the first QR scan.",
+          "Supports direct numbers, contact labels in XDG config, profile clearing, and send timeouts for flaky sessions.",
+          "Installer sets up a private virtualenv plus Playwright browser binaries so the runtime stays boxed in."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/whatsapp"
+      },
+      {
+        "id": "life-1",
+        "type": "lifeEvent",
+        "date": "2026-12-31T23:59:59Z",
+        "label": "[2025-26 | 33–34]",
+        "title": "Married my beautiful wife",
         "bullets": [
           "Married my wife – very beautiful indeed.",
           "Relearned high-school math while shipping md2ltx, GitGuru, and DataSling.",
@@ -248,8 +261,11 @@
         ]
       },
       {
-        "stamp": "[2020-2024 | 28–32]",
-        "headline": "Entrepreneurial rollercoaster to Wiom",
+        "id": "life-2",
+        "type": "lifeEvent",
+        "date": "2024-12-31T23:59:59Z",
+        "label": "[2020-2024 | 28–32]",
+        "title": "Entrepreneurial rollercoaster to Wiom",
         "bullets": [
           "Built LegalTech apps, burned savings, learned from a startup crash.",
           "Joined Wiom's mission; shipped HAPPY and GENIE.",
@@ -259,23 +275,32 @@
         ]
       },
       {
-        "stamp": "[2017-2019 | 25–27]",
-        "headline": "Law, code, and rediscovering craft",
+        "id": "life-3",
+        "type": "lifeEvent",
+        "date": "2019-12-31T23:59:59Z",
+        "label": "[2017-2019 | 25–27]",
+        "title": "Law, code, and rediscovering craft",
         "bullets": [
           "Rode out COVID disruption while practicing law.",
           "Learned PHP; rekindled piano disciplines and builder mindset."
         ]
       },
       {
-        "stamp": "[2016 | At 24]",
-        "headline": "IP and tech attorney years",
+        "id": "life-4",
+        "type": "lifeEvent",
+        "date": "2016-12-31T23:59:59Z",
+        "label": "[2016 | At 24]",
+        "title": "IP and tech attorney years",
         "bullets": [
           "Worked as an IP and technology lawyer, observing how labor-driven businesses scale."
         ]
       },
       {
-        "stamp": "[2015 | At 23]",
-        "headline": "First LegalTech startup crash",
+        "id": "life-5",
+        "type": "lifeEvent",
+        "date": "2015-12-31T23:59:59Z",
+        "label": "[2015 | At 23]",
+        "title": "First LegalTech startup crash",
         "bullets": [
           "Joined a LegalTech startup.",
           "Ran email marketing campaigns; learned basic HTML.",
@@ -283,36 +308,51 @@
         ]
       },
       {
-        "stamp": "[2010 | At 18]",
-        "headline": "Law school foundations",
+        "id": "life-6",
+        "type": "lifeEvent",
+        "date": "2010-12-31T23:59:59Z",
+        "label": "[2010 | At 18]",
+        "title": "Law school foundations",
         "bullets": [
           "Joined RMLNLU in Lucknow, grounding discipline in dialect and rhetoric."
         ]
       },
       {
-        "stamp": "[2008 | By 17]",
-        "headline": "Dropping out to chase better questions",
+        "id": "life-7",
+        "type": "lifeEvent",
+        "date": "2008-12-31T23:59:59Z",
+        "label": "[2008 | By 17]",
+        "title": "Dropping out to chase better questions",
         "bullets": [
           "Walked away from DU commerce to find deeper learning paths."
         ]
       },
       {
-        "stamp": "[2006 | At 15]",
-        "headline": "Challenging the script",
+        "id": "life-8",
+        "type": "lifeEvent",
+        "date": "2006-12-31T23:59:59Z",
+        "label": "[2006 | At 15]",
+        "title": "Challenging the script",
         "bullets": [
           "Silent-quit CBSE science, refusing assembly-line thinking."
         ]
       },
       {
-        "stamp": "[2005 | Till 15]",
-        "headline": "Dreaming in chords and code",
+        "id": "life-9",
+        "type": "lifeEvent",
+        "date": "2005-12-31T23:59:59Z",
+        "label": "[2005 | Till 15]",
+        "title": "Dreaming in chords and code",
         "bullets": [
           "Imagined life as a mad scientist, Liverpool midfielder, and pianist."
         ]
       },
       {
-        "stamp": "[1991 | Birth]",
-        "headline": "And so it began",
+        "id": "life-10",
+        "type": "lifeEvent",
+        "date": "1991-12-31T23:59:59Z",
+        "label": "[1991 | Birth]",
+        "title": "And so it began",
         "bullets": [
           "Baptized Catholic."
         ]

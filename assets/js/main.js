@@ -5,8 +5,6 @@ const copyEndpoint = 'assets/data/copy.json';
 
 let copyData = null;
 let heroCopy = {};
-let projects = [];
-let projectsSectionCopy = {};
 let sectionsPrimed = false;
 let timelineObserver;
 
@@ -40,42 +38,28 @@ function initializeCopy() {
     if (!copyData) return;
 
     heroCopy = copyData.hero || {};
-    projectsSectionCopy = copyData.projectsSection || {};
-    applyProjectsSection(projectsSectionCopy);
-
-    projects = sortProjectsByLaunchDate(Array.isArray(copyData.projects) ? copyData.projects : []);
-    const grid = document.getElementById('project-grid');
-    if (grid && grid.children.length === 0) {
-        renderProjects();
-    }
-
     renderResume(copyData.resume || {});
     renderTimeline(copyData.timeline || {});
-    applyFooter(copyData.footer || {});
     applyFooter(copyData.footer || {});
 
     startHeroSequence();
 }
 
-function sortProjectsByLaunchDate(projectList) {
-    return [...projectList].sort((left, right) => {
-        const rightStamp = parseLaunchDate(right && right.launchDate);
-        const leftStamp = parseLaunchDate(left && left.launchDate);
+function sortTimelineItems(itemList) {
+    return [...itemList].sort((left, right) => {
+        const rightStamp = parseTimelineDate(right && right.date);
+        const leftStamp = parseTimelineDate(left && left.date);
         if (rightStamp !== leftStamp) return rightStamp - leftStamp;
-        return (left && left.name ? left.name : '').localeCompare(right && right.name ? right.name : '');
+        const leftType = left && left.type ? left.type : '';
+        const rightType = right && right.type ? right.type : '';
+        if (leftType !== rightType) return leftType.localeCompare(rightType);
+        return (left && left.id ? left.id : '').localeCompare(right && right.id ? right.id : '');
     });
 }
 
-function parseLaunchDate(value) {
+function parseTimelineDate(value) {
     const stamp = Date.parse(value || '');
     return Number.isNaN(stamp) ? -Infinity : stamp;
-}
-
-function applyProjectsSection(sectionCopy) {
-    const titleEl = document.getElementById('projects-title');
-    if (titleEl) {
-        titleEl.textContent = sectionCopy.title || '';
-    }
 }
 
 function startHeroSequence() {
@@ -146,58 +130,8 @@ function startShowcaseSequence() {
     }
 }
 
-function renderProjects() {
-    const grid = document.getElementById('project-grid');
-    if (!grid) return;
-
-    grid.innerHTML = '';
-
-    projects.forEach(project => {
-        const card = document.createElement('article');
-        card.className = 'terminal-card';
-        card.dataset.accent = project.accent || '';
-        card.classList.add('is-visible');
-
-        const header = document.createElement('div');
-        header.className = 'terminal-header';
-        const projectName = project.name || 'project';
-        const title = document.createElement('h3');
-        title.className = 'project-title';
-        title.textContent = projectName;
-        header.appendChild(title);
-
-        if (project.githubUrl) {
-            header.appendChild(createGithubLink(project.githubUrl, projectName));
-        }
-        card.appendChild(header);
-
-        const launchDate = formatProjectLaunchDate(project.launchDate);
-        if (launchDate) {
-            const launchDateEl = document.createElement('div');
-            launchDateEl.className = 'project-launch-date';
-            launchDateEl.textContent = launchDate;
-            card.appendChild(launchDateEl);
-        }
-
-        const catchLine = document.createElement('div');
-        catchLine.className = 'catch-line';
-        catchLine.textContent = project.catchLine || '';
-        card.appendChild(catchLine);
-
-        const featureList = document.createElement('ul');
-        featureList.className = 'feature-list';
-        (project.features || []).slice(0, 2).forEach(feature => {
-            const li = document.createElement('li');
-            li.textContent = feature;
-            featureList.appendChild(li);
-        });
-        card.appendChild(featureList);
-
-        grid.appendChild(card);
-    });
-}
-
 function createGithubLink(url, projectName) {
+    const githubPath = 'M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z';
     const anchor = document.createElement('a');
     anchor.href = url;
     anchor.target = '_blank';
@@ -206,12 +140,7 @@ function createGithubLink(url, projectName) {
     anchor.setAttribute('aria-label', `Open ${projectName} on GitHub`);
     anchor.innerHTML = [
         '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">',
-        '<path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38',
-        '0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52',
-        '-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89',
-        '-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0',
-        'c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65',
-        '3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path>',
+        `<path fill="currentColor" d="${githubPath}"></path>`,
         '</svg>'
     ].join('');
     return anchor;
@@ -353,38 +282,92 @@ function renderTimeline(timelineCopy) {
 
     container.querySelectorAll('.timeline-entry').forEach(entry => entry.remove());
 
-    const entries = Array.isArray(timelineCopy.entries) ? timelineCopy.entries : [];
-    entries.forEach(entryCopy => {
-        const article = document.createElement('article');
-        article.className = 'timeline-entry';
-        article.setAttribute('data-timeline', '');
+    const items = sortTimelineItems(Array.isArray(timelineCopy.items) ? timelineCopy.items : []);
+    items.forEach(item => container.appendChild(renderTimelineItem(item)));
+}
 
-        const stamp = document.createElement('span');
-        stamp.className = 'timeline-stamp';
-        stamp.textContent = entryCopy.stamp || '';
-        article.appendChild(stamp);
+function renderTimelineItem(item) {
+    const article = document.createElement('article');
+    article.className = 'timeline-entry';
+    article.setAttribute('data-timeline', '');
+    article.dataset.kind = item.type || 'lifeEvent';
 
-        const card = document.createElement('div');
-        card.className = 'timeline-card';
+    const stamp = document.createElement('span');
+    stamp.className = 'timeline-stamp';
+    stamp.textContent = resolveTimelineLabel(item);
+    article.appendChild(stamp);
 
-        const header = document.createElement('header');
-        header.textContent = entryCopy.headline || '';
-        card.appendChild(header);
+    const card = document.createElement('div');
+    card.className = 'timeline-card';
 
-        const bullets = Array.isArray(entryCopy.bullets) ? entryCopy.bullets : [];
-        if (bullets.length) {
-            const list = document.createElement('ul');
-            bullets.forEach(text => {
-                const li = document.createElement('li');
-                li.textContent = text;
-                list.appendChild(li);
-            });
-            card.appendChild(list);
+    if (item.type === 'project') {
+        card.classList.add('timeline-card--project');
+        if (item.accent) {
+            card.dataset.accent = item.accent;
         }
+        renderProjectTimelineCard(card, item);
+    } else {
+        card.classList.add('timeline-card--life');
+        renderLifeEventTimelineCard(card, item);
+    }
 
-        article.appendChild(card);
-        container.appendChild(article);
+    article.appendChild(card);
+    return article;
+}
+
+function resolveTimelineLabel(item) {
+    if (item && item.label) return item.label;
+    return formatProjectLaunchDate(item && item.date);
+}
+
+function renderProjectTimelineCard(card, item) {
+    const header = document.createElement('div');
+    header.className = 'terminal-header';
+
+    const title = document.createElement('header');
+    title.textContent = item.title || 'project';
+    header.appendChild(title);
+
+    if (item.githubUrl) {
+        header.appendChild(createGithubLink(item.githubUrl, item.title || 'project'));
+    }
+    card.appendChild(header);
+
+    if (item.summary) {
+        const summary = document.createElement('div');
+        summary.className = 'timeline-project-summary';
+        summary.textContent = item.summary;
+        card.appendChild(summary);
+    }
+
+    const bullets = Array.isArray(item.bullets) ? item.bullets : [];
+    if (bullets.length) {
+        card.appendChild(renderTimelineList(bullets, 'feature-list'));
+    }
+}
+
+function renderLifeEventTimelineCard(card, item) {
+    const header = document.createElement('header');
+    header.textContent = item.title || '';
+    card.appendChild(header);
+
+    const bullets = Array.isArray(item.bullets) ? item.bullets : [];
+    if (bullets.length) {
+        card.appendChild(renderTimelineList(bullets));
+    }
+}
+
+function renderTimelineList(items, className = '') {
+    const list = document.createElement('ul');
+    if (className) {
+        list.className = className;
+    }
+    items.forEach(text => {
+        const li = document.createElement('li');
+        li.textContent = text;
+        list.appendChild(li);
     });
+    return list;
 }
 
 function applyFooter(footerCopy) {

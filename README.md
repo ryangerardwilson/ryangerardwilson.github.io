@@ -5,10 +5,10 @@ simple GitHub Pages deployment. The resume is stored directly as a PDF and
 bundled during the Pages workflow.
 
 ## Project Layout
-- `index.html` – landing page with the typewriter intro and document links.
+- `index.html` – landing page with the typewriter intro, unified timeline, and document links.
 - `assets/css/main.css` – terminal-inspired styling.
 - `assets/js/main.js` – typewriter animation controller and copy loader.
-- `assets/data/copy.json` – centralised site copy (hero, projects, timeline, etc.).
+- `assets/data/copy.json` – centralised site copy (hero, unified timeline, resume, footer).
 - `scripts/pre_render_copy.py` – build-time pre-renderer that injects copy into HTML for crawler-friendly output.
 - `resume.pdf` – production-ready resume served directly at `/resume.pdf`.
 - `.github/workflows/deploy.yml` – GitHub Actions pipeline that bundles the static assets and deploys the site.
@@ -29,4 +29,4 @@ bundled during the Pages workflow.
 ## Updating Content
 - Replace `resume.pdf` in the repository root; the workflow will publish it as-is.
 - Tweak the copy or animation timing in `assets/js/main.js` as needed.
-- Update project card copy in `assets/data/copy.json`; each project now renders from `name`, `launchDate`, `catchLine`, `features`, and `githubUrl`.
+- Update timeline content in `assets/data/copy.json`; both projects and life events now render from `timeline.items[]`, sorted by each item's ISO `date`.

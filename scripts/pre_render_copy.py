@@ -44,12 +44,13 @@ def parse_launch_date(value: str) -> datetime:
     return datetime.fromisoformat(value.replace('Z', '+00:00'))
 
 
-def sort_projects(projects: list[dict]) -> list[dict]:
+def sort_timeline_items(items: list[dict]) -> list[dict]:
     return sorted(
-        projects,
-        key=lambda project: (
-            -parse_launch_date(project.get('launchDate') or '').timestamp(),
-            project.get('name') or '',
+        items,
+        key=lambda item: (
+            -parse_launch_date(item.get('date') or '').timestamp(),
+            item.get('type') or '',
+            item.get('id') or '',
         ),
     )
 
@@ -65,50 +66,78 @@ def render_github_link(url: str, project_name: str) -> str:
         return ''
     href = html.escape(url, quote=True)
     label = html.escape(f"Open {project_name} on GitHub", quote=True)
+    github_path = (
+        'M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 '
+        '0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13 '
+        '-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66 '
+        '.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15 '
+        '-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 '
+        '2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 '
+        '2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 '
+        '2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z'
+    )
     return (
         f'<a class="project-github-link" href="{href}" target="_blank" '
         f'rel="noopener noreferrer" aria-label="{label}">'
         '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">'
-        '<path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38'
-        '0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52'
-        '-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89'
-        '-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0'
-        'c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65'
-        '3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path>'
+        f'<path fill="currentColor" d="{github_path}"></path>'
         '</svg></a>'
     )
 
 
-def render_projects(projects: list[dict], projects_section: dict) -> str:
-    cards = []
-    for project in sort_projects(projects):
-        name = html.escape(project.get('name') or 'project')
-        accent = html.escape(project.get('accent') or '')
-        launch_date = html.escape(format_launch_date(project.get('launchDate') or ''))
-        catch_line = html.escape(project.get('catchLine') or '')
-        features = project.get('features') or []
-        github_link = render_github_link(project.get('githubUrl') or '', project.get('name') or 'project')
+def resolve_timeline_label(item: dict) -> str:
+    return item.get('label') or format_launch_date(item.get('date') or '')
 
-        feature_items = '\n'.join(
-            f'                        <li>{html.escape(feature)}</li>'
-            for feature in features[:2]
+
+def render_timeline_list(items: list[str], css_class: str = '') -> str:
+    class_attr = f' class="{css_class}"' if css_class else ''
+    li_items = '\n'.join(f'                            <li>{html.escape(text)}</li>' for text in items)
+    return (
+        f'                        <ul{class_attr}>\n'
+        f'{li_items}\n'
+        '                        </ul>\n'
+    )
+
+
+def render_timeline_item(item: dict) -> str:
+    item_type = item.get('type') or 'lifeEvent'
+    item_id = html.escape(item.get('id') or '')
+    label = html.escape(resolve_timeline_label(item))
+    title = html.escape(item.get('title') or '')
+    bullets = item.get('bullets') or []
+
+    if item_type == 'project':
+        accent = html.escape(item.get('accent') or '')
+        github_link = render_github_link(item.get('githubUrl') or '', item.get('title') or 'project')
+        summary = html.escape(item.get('summary') or '')
+        body = (
+            f'                        <div class="terminal-header">\n'
+            f'                            <header>{title}</header>{github_link}\n'
+            '                        </div>\n'
+            f'                        <div class="timeline-project-summary">{summary}</div>\n'
+            f'{render_timeline_list(bullets, "feature-list") if bullets else ""}'
         )
-
-        card = (
-            f'                <article class="terminal-card is-visible" data-accent="{accent}">\n'
-            '                    <div class="terminal-header">\n'
-            f'                        <h3 class="project-title">{name}</h3>{github_link}\n'
+        return (
+            f'                <article class="timeline-entry is-visible" data-timeline data-kind="{html.escape(item_type)}" data-id="{item_id}">\n'
+            f'                    <span class="timeline-stamp">{label}</span>\n'
+            f'                    <div class="timeline-card timeline-card--project" data-accent="{accent}">\n'
+            f'{body}'
             '                    </div>\n'
-            f'                    <div class="project-launch-date">{launch_date}</div>\n'
-            f'                    <div class="catch-line">{catch_line}</div>\n'
-            '                    <ul class="feature-list">\n'
-            f'{feature_items}\n'
-            '                    </ul>\n'
             '                </article>'
         )
-        cards.append(card)
 
-    return '\n'.join(cards)
+    body = (
+        f'                        <header>{title}</header>\n'
+        f'{render_timeline_list(bullets) if bullets else ""}'
+    )
+    return (
+        f'                <article class="timeline-entry is-visible" data-timeline data-kind="{html.escape(item_type)}" data-id="{item_id}">\n'
+        f'                    <span class="timeline-stamp">{label}</span>\n'
+        '                    <div class="timeline-card timeline-card--life">\n'
+        f'{body}'
+        '                    </div>\n'
+        '                </article>'
+    )
 
 
 def render_resume_meta(meta_items: list[dict]) -> str:
@@ -125,25 +154,8 @@ def render_resume_meta(meta_items: list[dict]) -> str:
     return '\n'.join(rows)
 
 
-def render_timeline(entries: list[dict]) -> str:
-    blocks = []
-    for entry in entries:
-        stamp = html.escape(entry.get('stamp') or '')
-        headline = html.escape(entry.get('headline') or '')
-        bullets = entry.get('bullets') or []
-        bullet_items = '\n'.join(f'                            <li>{html.escape(text)}</li>' for text in bullets)
-        blocks.append(
-            '                <article class="timeline-entry is-visible" data-timeline>\n'
-            f'                    <span class="timeline-stamp">{stamp}</span>\n'
-            '                    <div class="timeline-card">\n'
-            f'                        <header>{headline}</header>\n'
-            '                        <ul>\n'
-            f'{bullet_items}\n'
-            '                        </ul>\n'
-            '                    </div>\n'
-            '                </article>'
-        )
-    return '\n'.join(blocks)
+def render_timeline(items: list[dict]) -> str:
+    return '\n'.join(render_timeline_item(item) for item in sort_timeline_items(items))
 
 
 def main() -> None:
@@ -161,8 +173,6 @@ def main() -> None:
     copy_data = json.loads(copy_path.read_text(encoding='utf-8'))
 
     hero = copy_data.get('hero') or {}
-    projects_section = copy_data.get('projectsSection') or {}
-    projects = copy_data.get('projects') or []
     resume = copy_data.get('resume') or {}
     resume_pane = resume.get('pane') or {}
     timeline = copy_data.get('timeline') or {}
@@ -171,9 +181,6 @@ def main() -> None:
     doc = replace_tag_text(doc, 'p', 'typewriter-p1', hero.get('p1') or '')
     doc = replace_tag_text(doc, 'p', 'typewriter-p2', hero.get('p2') or '')
     doc = replace_tag_text(doc, 'p', 'typewriter-p3', hero.get('p3') or '')
-
-    doc = replace_tag_text(doc, 'h2', 'projects-title', projects_section.get('title') or 'Projects')
-    doc = replace_container_inner(doc, 'div', 'project-grid', render_projects(projects, projects_section))
 
     doc = replace_tag_text(doc, 'h2', 'resume-title', resume.get('title') or 'Resume Snapshot')
     doc = replace_tag_text(doc, 'p', 'resume-subtitle', resume.get('subtitle') or '')
@@ -190,7 +197,7 @@ def main() -> None:
 
     doc = replace_tag_text(doc, 'h2', 'timeline-title', timeline.get('title') or 'My Story')
     doc = replace_tag_text(doc, 'p', 'timeline-subtitle', timeline.get('subtitle') or '')
-    doc = replace_container_inner(doc, 'div', 'timeline-container', render_timeline(timeline.get('entries') or []))
+    doc = replace_container_inner(doc, 'div', 'timeline-container', render_timeline(timeline.get('items') or []))
 
     output_path.write_text(doc, encoding='utf-8')
 

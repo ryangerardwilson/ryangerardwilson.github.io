@@ -131,43 +131,6 @@ p {
     text-align: center;
 }
 
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 22px;
-    position: relative;
-    z-index: 2;
-}
-
-.terminal-card {
-    position: relative;
-    background: rgba(0, 0, 0, 0.62);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 14px;
-    padding: 20px;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.26);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.4s ease, filter 0.4s ease;
-    opacity: 1;
-}
-
-.terminal-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
-}
-
-.terminal-card.pre-reveal {
-    opacity: 0;
-    transform: translateY(32px) scale(0.98);
-    filter: blur(8px);
-}
-
-.terminal-card.is-visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-    transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease, filter 0.6s ease;
-}
-
 .terminal-header {
     display: flex;
     align-items: center;
@@ -205,18 +168,13 @@ p {
 }
 
 .project-github-link svg {
-    width: 16px;
-    height: 16px;
+    display: block;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
 }
 
-.project-launch-date {
-    margin-bottom: 10px;
-    color: rgba(255, 255, 255, 0.58);
-    font-size: 0.78em;
-    letter-spacing: 0.08em;
-}
-
-.catch-line {
+.timeline-project-summary {
     color: rgba(255, 255, 255, 0.9);
     font-weight: 600;
     font-size: 0.98em;
@@ -234,16 +192,6 @@ p {
     margin-bottom: 8px;
     color: rgba(255, 255, 255, 0.82);
     line-height: 1.45;
-}
-
-.terminal-card[data-accent="vixl"],
-.terminal-card[data-accent="o"],
-.terminal-card[data-accent="rt"],
-.terminal-card[data-accent="xyz"],
-.terminal-card[data-accent="clipai"],
-.terminal-card[data-accent="ai"] {
-    border-color: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24);
 }
 
 .timeline {
@@ -298,10 +246,14 @@ p {
 
 .timeline-stamp {
     font-size: 0.82em;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
     color: rgba(200, 200, 200, 0.85);
-    text-transform: uppercase;
     padding-top: 4px;
+}
+
+.timeline-entry[data-kind="project"]::before {
+    background: rgba(235, 235, 235, 0.95);
+    box-shadow: 0 0 18px rgba(190, 190, 190, 0.42);
 }
 
 .timeline-card {
@@ -312,6 +264,13 @@ p {
     display: flex;
     flex-direction: column;
     gap: 14px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.26);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.timeline-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
 }
 
 .timeline-card header {
@@ -331,6 +290,21 @@ p {
 
 .timeline-card li {
     line-height: 1.5;
+}
+
+.timeline-card--project {
+    background: rgba(0, 0, 0, 0.66);
+}
+
+.timeline-card--project[data-accent="vixl"],
+.timeline-card--project[data-accent="o"],
+.timeline-card--project[data-accent="rt"],
+.timeline-card--project[data-accent="xyz"],
+.timeline-card--project[data-accent="clipai"],
+.timeline-card--project[data-accent="ai"],
+.timeline-card--project[data-accent="gvim"] {
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24);
 }
 
 .site-footer {
@@ -524,7 +498,7 @@ p {
         margin-top: 80px;
     }
 
-    .terminal-card {
+    .timeline-card {
         padding: 22px;
     }
 
@@ -565,12 +539,12 @@ p {
 
     body::before,
     body::after,
-    .terminal-card {
+    .timeline-card {
         animation: none;
     }
 
-    .terminal-card,
-    .terminal-card:hover {
+    .timeline-card,
+    .timeline-card:hover {
         transition: none;
         transform: none;
         box-shadow: 0 0 0 rgba(200, 200, 200, 0);
