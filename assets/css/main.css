@@ -170,7 +170,7 @@ p {
 
 .terminal-header {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     gap: 12px;
     margin-bottom: 12px;
@@ -183,14 +183,37 @@ p {
     line-height: 1.2;
 }
 
-.terminal-badge {
-    font-size: 0.7em;
-    padding: 3px 8px;
-    border-radius: 7px;
-    background: rgba(255, 255, 255, 0.05);
+.project-github-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    color: rgba(255, 255, 255, 0.86);
-    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.88);
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.04);
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.project-github-link:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.34);
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.project-github-link svg {
+    width: 16px;
+    height: 16px;
+}
+
+.project-launch-date {
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 0.78em;
+    letter-spacing: 0.08em;
 }
 
 .catch-line {
@@ -211,44 +234,6 @@ p {
     margin-bottom: 8px;
     color: rgba(255, 255, 255, 0.82);
     line-height: 1.45;
-}
-
-.cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 18px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.9em;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-button::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.25) 60%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.cta-button:hover::before {
-    opacity: 1;
-}
-
-.cta-button .chevron {
-    font-size: 0.75em;
-    opacity: 0.8;
 }
 
 .terminal-card[data-accent="vixl"],
@@ -541,10 +526,6 @@ p {
 
     .terminal-card {
         padding: 22px;
-    }
-
-    .cta-row {
-        flex-direction: column;
     }
 
     .timeline {

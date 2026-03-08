@@ -38,19 +38,6 @@ def replace_attr_by_id(doc: str, tag: str, element_id: str, attr: str, value: st
             raise ValueError(f"Could not find <{tag} id=\"{element_id}\"> for attr {attr}")
     return new_doc
 
-
-def is_x_post_url(url: str) -> bool:
-    return bool(re.match(r'^https?://(?:www\.)?(?:x|twitter)\.com/', url or '', flags=re.IGNORECASE))
-
-
-def resolve_project_cta_label(cta: dict, projects_section: dict) -> str:
-    if cta.get('label'):
-        return cta.get('label') or ''
-    if is_x_post_url(cta.get('url') or ''):
-        return projects_section.get('xPostCtaLabel') or 'view post on X'
-    return 'open link'
-
-
 def parse_launch_date(value: str) -> datetime:
     if not value:
         return datetime(1970, 1, 1, tzinfo=timezone.utc)
@@ -67,46 +54,56 @@ def sort_projects(projects: list[dict]) -> list[dict]:
     )
 
 
+def format_launch_date(value: str) -> str:
+    if not value:
+        return ''
+    return parse_launch_date(value).strftime('%B %-d, %Y')
+
+
+def render_github_link(url: str, project_name: str) -> str:
+    if not url:
+        return ''
+    href = html.escape(url, quote=True)
+    label = html.escape(f"Open {project_name} on GitHub", quote=True)
+    return (
+        f'<a class="project-github-link" href="{href}" target="_blank" '
+        f'rel="noopener noreferrer" aria-label="{label}">'
+        '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">'
+        '<path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38'
+        '0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52'
+        '-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89'
+        '-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0'
+        'c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65'
+        '3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path>'
+        '</svg></a>'
+    )
+
+
 def render_projects(projects: list[dict], projects_section: dict) -> str:
     cards = []
     for project in sort_projects(projects):
         name = html.escape(project.get('name') or 'project')
         accent = html.escape(project.get('accent') or '')
-        badge = html.escape(project.get('badge') or '')
+        launch_date = html.escape(format_launch_date(project.get('launchDate') or ''))
         catch_line = html.escape(project.get('catchLine') or '')
         features = project.get('features') or []
-        ctas = project.get('ctas') or []
+        github_link = render_github_link(project.get('githubUrl') or '', project.get('name') or 'project')
 
         feature_items = '\n'.join(
             f'                        <li>{html.escape(feature)}</li>'
             for feature in features[:2]
         )
 
-        cta_links = '\n'.join(
-            (
-                '                        '
-                f'<a class="cta-button" href="{html.escape(cta.get("url") or "#", quote=True)}" '
-                'target="_blank" rel="noopener noreferrer">'
-                '<span class="chevron">&gt;</span>'
-                f'<span>{html.escape(resolve_project_cta_label(cta, projects_section))}</span></a>'
-            )
-            for cta in ctas
-        )
-
-        badge_html = f'\n                        <span class="terminal-badge">{badge}</span>' if badge else ''
-
         card = (
             f'                <article class="terminal-card is-visible" data-accent="{accent}">\n'
             '                    <div class="terminal-header">\n'
-            f'                        <h3 class="project-title">{name}</h3>{badge_html}\n'
+            f'                        <h3 class="project-title">{name}</h3>{github_link}\n'
             '                    </div>\n'
+            f'                    <div class="project-launch-date">{launch_date}</div>\n'
             f'                    <div class="catch-line">{catch_line}</div>\n'
             '                    <ul class="feature-list">\n'
             f'{feature_items}\n'
             '                    </ul>\n'
-            '                    <div class="cta-row">\n'
-            f'{cta_links}\n'
-            '                    </div>\n'
             '                </article>'
         )
         cards.append(card)

@@ -161,19 +161,23 @@ function renderProjects() {
         const header = document.createElement('div');
         header.className = 'terminal-header';
         const projectName = project.name || 'project';
-        const badge = project.badge || '';
         const title = document.createElement('h3');
         title.className = 'project-title';
         title.textContent = projectName;
         header.appendChild(title);
 
-        if (badge) {
-            const badgeEl = document.createElement('span');
-            badgeEl.className = 'terminal-badge';
-            badgeEl.textContent = badge;
-            header.appendChild(badgeEl);
+        if (project.githubUrl) {
+            header.appendChild(createGithubLink(project.githubUrl, projectName));
         }
         card.appendChild(header);
+
+        const launchDate = formatProjectLaunchDate(project.launchDate);
+        if (launchDate) {
+            const launchDateEl = document.createElement('div');
+            launchDateEl.className = 'project-launch-date';
+            launchDateEl.textContent = launchDate;
+            card.appendChild(launchDateEl);
+        }
 
         const catchLine = document.createElement('div');
         catchLine.className = 'catch-line';
@@ -189,35 +193,38 @@ function renderProjects() {
         });
         card.appendChild(featureList);
 
-        const ctaRow = document.createElement('div');
-        ctaRow.className = 'cta-row';
-        (project.ctas || []).forEach(cta => {
-            const anchor = document.createElement('a');
-            anchor.href = cta.url || '#';
-            anchor.target = '_blank';
-            anchor.rel = 'noopener noreferrer';
-            anchor.className = 'cta-button';
-            const ctaLabel = resolveProjectCtaLabel(cta, projectsSectionCopy);
-            anchor.innerHTML = `<span class="chevron">&gt;</span><span>${ctaLabel}</span>`;
-            ctaRow.appendChild(anchor);
-        });
-        card.appendChild(ctaRow);
-
         grid.appendChild(card);
     });
 }
 
-function resolveProjectCtaLabel(cta, sectionCopy) {
-    if (cta && cta.label) return cta.label;
-    if (isXPostUrl(cta && cta.url)) {
-        return sectionCopy.xPostCtaLabel || 'view post on X';
-    }
-    return 'open link';
+function createGithubLink(url, projectName) {
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.target = '_blank';
+    anchor.rel = 'noopener noreferrer';
+    anchor.className = 'project-github-link';
+    anchor.setAttribute('aria-label', `Open ${projectName} on GitHub`);
+    anchor.innerHTML = [
+        '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">',
+        '<path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38',
+        '0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52',
+        '-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89',
+        '-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0',
+        'c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65',
+        '3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path>',
+        '</svg>'
+    ].join('');
+    return anchor;
 }
 
-function isXPostUrl(url) {
-    if (!url || typeof url !== 'string') return false;
-    return /^https?:\/\/(?:www\.)?(?:x|twitter)\.com\//i.test(url);
+function formatProjectLaunchDate(value) {
+    const stamp = Date.parse(value || '');
+    if (Number.isNaN(stamp)) return '';
+    return new Intl.DateTimeFormat('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+    }).format(new Date(stamp));
 }
 
 function initTimelineObserver() {
