@@ -395,15 +395,15 @@
           "title": "Open Source CLI Products",
           "subtitle": "I invest heavily in CLI tooling because it lets me steer AI agents with precision.",
           "names": [
+            "x|gmail|linkedin|slack|whatsapp",
+            "rlc",
             "gvim",
             "ai",
             "xyz",
-            "o",
-            "vixl",
-            "rt",
-            "rlc",
             "clipai",
-            "x|gmail|linkedin|slack|whatsapp"
+            "vixl",
+            "o",
+            "rt"
           ]
         }
       ]
