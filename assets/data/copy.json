@@ -319,7 +319,7 @@
         "what": "CLI tutor that parses markdown courses into lessons with rote/jump modes, 90%+ accuracy gates, doc viewing, in-place editing, bookmarks, and search."
       },
       {
-        "name": "/{gmail|linkedin|slack|whatsapp|x}",
+        "name": "{gmail|linkedin|slack|whatsapp|x}",
         "githubUrls": [
           "https://github.com/ryangerardwilson/gmail",
           "https://github.com/ryangerardwilson/linkedin",
@@ -395,7 +395,7 @@
             "o",
             "vixl",
             "rt",
-            "/{gmail|linkedin|slack|whatsapp|x}"
+            "{gmail|linkedin|slack|whatsapp|x}"
           ]
         }
       ]

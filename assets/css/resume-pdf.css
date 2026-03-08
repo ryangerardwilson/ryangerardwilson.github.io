@@ -225,6 +225,7 @@ a {
   margin: 0.3mm 0 0;
   color: var(--muted);
   overflow-wrap: anywhere;
+  white-space: pre-line;
 }
 
 .project-item--grouped .project-launch-date {
