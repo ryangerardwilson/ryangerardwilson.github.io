@@ -113,8 +113,10 @@
             <header>{{ item.name }}</header>
             {% endif %}
           </div>
-          <p><strong>Why:</strong> {{ item.why }}</p>
-          <p><strong>What:</strong> {{ item.what }}</p>
+          <ul class="project-points">
+            <li><strong>Why:</strong> {{ item.why }}</li>
+            <li><strong>What:</strong> {{ item.what }}</li>
+          </ul>
         </article>
         {% endfor %}
       </div>

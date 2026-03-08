@@ -103,7 +103,8 @@ h1 {
 
 .contact-list,
 .certifications,
-.experience-item ul {
+.experience-item ul,
+.project-points {
   margin: 0;
   padding-left: 4mm;
 }
@@ -219,10 +220,7 @@ a {
 }
 
 .experience-item li,
-.certifications li {
+.certifications li,
+.project-points li {
   margin-bottom: 0.4mm;
-}
-
-.project-item p {
-  margin-top: 0.5mm;
 }

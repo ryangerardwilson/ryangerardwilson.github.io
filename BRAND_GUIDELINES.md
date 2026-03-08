@@ -238,6 +238,96 @@ The site treats AI as tooling, threat, curiosity, and craft discipline — not a
 
 ---
 
+## Resume-specific voice
+
+The resume is adjacent to the site brand, but it is not the same register.
+
+It should sound:
+
+* tighter
+* more legible to a hiring manager or founder scanning fast
+* less theatrical than the website
+* still first-principles and builder-led
+* still allergic to corporate sludge
+
+The resume voice is:
+**evidence-first, concrete, compressed, builder-credible, and quietly sharp.**
+
+### What the resume should do
+
+* lead with outcomes, not personality
+* compress without becoming sterile
+* show technical and product range through specifics
+* sound like a serious operator, not a generic applicant
+* keep the same anti-bloat instincts, but with less flourish
+
+Good resume language:
+
+* “Increased supply efficiency by 20%.”
+* “Rebuilt opencode from scratch as a pure CLI.”
+* “Handled hundreds of trademark disputes.”
+* “Built and launched three full-stack Laravel products from scratch.”
+
+Bad resume language:
+
+* “Passionate and results-driven professional.”
+* “Leveraged cross-functional synergies.”
+* “Dynamic leader with a proven track record.”
+* “Responsible for various initiatives across multiple domains.”
+
+### Resume tonal rules
+
+Use:
+
+* short, factual opening clauses
+* measurable outcomes where possible
+* strong verbs: built, rebuilt, increased, handled, secured, designed, deployed
+* concrete technical nouns
+* restrained confidence
+* compact causal framing: problem -> action -> result
+
+Avoid:
+
+* website-style jokes or theatrical phrasing
+* internet-native slang
+* manifesto language
+* brand-safe HR filler
+* vague ownership claims without proof
+* decorative adjectives
+
+### Resume project language
+
+For projects, the resume can keep the `Why` / `What` structure, but it should stay compressed:
+
+* `Why` should name the frustration or need in plain language
+* `What` should explain the implementation concretely
+* both should read like direct notes from the builder, not product marketing
+
+Good:
+
+* “Why: Excel is bloated, formula-opaque, and painful on large sheets.”
+* “What: Python curses TUI spreadsheet editor for CSV, Parquet, XLSX, and HDF5.”
+
+Bad:
+
+* “Why: To revolutionize spreadsheet workflows.”
+* “What: A powerful next-generation solution for modern productivity.”
+
+### Resume summary language
+
+The summary may be broader than the rest of the resume, but it still has to earn every claim.
+
+It should:
+
+* stay compact
+* avoid inspirational tone
+* avoid recruiter clichés
+* connect range to shipped work or demonstrated outcomes
+
+If a line sounds like it could appear in a random LinkedIn profile, it is wrong for this document.
+
+---
+
 ## Tonal rules AI agents should follow
 
 ### Use
