@@ -21,8 +21,8 @@ html, body {
   color: var(--ink);
   background: #fff;
   font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 10.5pt;
-  line-height: 1.45;
+  font-size: 10.2pt;
+  line-height: 1.38;
 }
 
 body {
@@ -48,13 +48,13 @@ body {
 }
 
 .sidebar {
-  padding: 10mm 9mm 10mm 11mm;
+  padding: 9mm 8mm 9mm 10mm;
   background: var(--panel);
   border-right: 1px solid var(--line);
 }
 
 .main-column {
-  padding: 10mm 12mm 10mm 12mm;
+  padding: 9mm 11mm 9mm 11mm;
 }
 
 .identity {
@@ -62,34 +62,34 @@ body {
 }
 
 .avatar {
-  width: 30mm;
-  height: 30mm;
+  width: 27mm;
+  height: 27mm;
   object-fit: cover;
   border-radius: 50%;
   display: block;
-  margin: 0 auto 4mm;
+  margin: 0 auto 3mm;
   border: 1px solid var(--line);
 }
 
 h1 {
   margin: 0;
-  font-size: 14pt;
+  font-size: 13.5pt;
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
 
 .headline {
-  margin: 2mm 0 0;
+  margin: 1.5mm 0 0;
   color: var(--muted);
   font-weight: 600;
 }
 
 .section {
-  margin-bottom: 4.5mm;
+  margin-bottom: 3.6mm;
 }
 
 .section h2 {
-  margin: 0 0 2mm;
+  margin: 0 0 1.5mm;
   font-size: 10pt;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -113,13 +113,13 @@ h1 {
 }
 
 .contact-list li + li {
-  margin-top: 1.2mm;
+  margin-top: 0.8mm;
 }
 
 .contact-label {
   display: block;
   color: var(--muted);
-  font-size: 8.4pt;
+  font-size: 8.1pt;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.5mm;
@@ -149,7 +149,7 @@ a {
 .skill-group + .skill-group,
 .experience-item + .experience-item,
 .project-item + .project-item {
-  margin-top: 3mm;
+  margin-top: 2.4mm;
 }
 
 .education-item + .education-item {
@@ -161,7 +161,7 @@ a {
 .project-item p,
 .hero-summary p,
 .experience-item .meta {
-  margin: 1mm 0 0;
+  margin: 0.7mm 0 0;
 }
 
 .education-item p {
@@ -182,7 +182,7 @@ a {
 }
 
 .skill-group p {
-  font-size: 9.2pt;
+  font-size: 8.8pt;
 }
 
 .experience-header,
@@ -199,14 +199,14 @@ a {
 }
 
 .experience-item ul {
-  margin-top: 1.4mm;
+  margin-top: 1.1mm;
 }
 
 .experience-item li,
 .certifications li {
-  margin-bottom: 1mm;
+  margin-bottom: 0.8mm;
 }
 
 .project-item p {
-  margin-top: 1.1mm;
+  margin-top: 0.9mm;
 }

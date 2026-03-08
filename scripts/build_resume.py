@@ -50,30 +50,31 @@ def build_pages(resume: dict) -> list[dict]:
             {"kind": "identity", "title": None},
             {"kind": "contact", "title": "Contact", "items": contact_items},
             {"kind": "education", "title": "Education", "items": education},
+            {"kind": "skills", "title": "Skills", "items": skills[:2]},
         ],
         "right_sections": [
             {"kind": "profile", "title": "Profile", "text": resume.get("profile") or ""},
-            {"kind": "experience", "title": "Experience", "items": experience[:2]},
+            {"kind": "experience", "title": "Experience", "items": experience[:3]},
         ],
     }
 
     page_two = {
         "left_sections": [
-            {"kind": "skills", "title": "Skills", "items": skill_pages[0] if skill_pages else []},
+            {"kind": "skills", "title": None, "items": skills[2:6]},
         ],
         "right_sections": [
-            {"kind": "experience", "title": "Experience", "items": experience[2:]},
+            {"kind": "experience", "title": None, "items": experience[3:]},
             {"kind": "projects", "title": "Projects", "items": projects[:2]},
         ],
     }
 
     page_three = {
         "left_sections": [
-            {"kind": "skills", "title": "Skills", "items": skill_pages[1] if len(skill_pages) > 1 else []},
+            {"kind": "skills", "title": None, "items": skills[6:]},
             {"kind": "certifications", "title": "Certifications", "items": certifications},
         ],
         "right_sections": [
-            {"kind": "projects", "title": "Projects", "items": projects[2:]},
+            {"kind": "projects", "title": None, "items": projects[2:]},
         ],
     }
 
