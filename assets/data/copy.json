@@ -355,8 +355,8 @@
           "labels": [
             "AI/ML",
             "Python",
-            "Unix",
-            "Cloud"
+            "Frontend",
+            "Data Engineering"
           ]
         }
       ],
@@ -382,10 +382,10 @@
           "kind": "skills",
           "title": null,
           "labels": [
-            "Frontend",
             "CLI/TUI Tooling",
-            "Data Engineering",
-            "System Design / Delivery"
+            "System Design / Delivery",
+            "Unix",
+            "Cloud"
           ]
         }
       ],
