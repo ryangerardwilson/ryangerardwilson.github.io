@@ -152,7 +152,7 @@ def build_html(copy_path: Path, template_path: Path, css_path: Path, html_out: P
     for project in resume.get("projects") or []:
         project_copy = dict(project)
         timeline_project = timeline_project_lookup.get(project.get("name"))
-        if timeline_project and timeline_project.get("date"):
+        if not project_copy.get("launchDate") and timeline_project and timeline_project.get("date"):
             project_copy["launchDate"] = format_launch_date(timeline_project.get("date"))
         enriched_projects.append(project_copy)
     resume = dict(resume)

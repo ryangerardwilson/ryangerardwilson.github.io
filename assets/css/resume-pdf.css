@@ -211,6 +211,13 @@ a {
   font-size: 8.3pt;
 }
 
+.project-link-list {
+  margin: 0.3mm 0 0;
+  color: var(--muted);
+  font-size: 8.3pt;
+  overflow-wrap: anywhere;
+}
+
 .date-range {
   white-space: nowrap;
 }

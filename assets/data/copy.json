@@ -317,6 +317,19 @@
         "href": "https://github.com/ryangerardwilson/rt",
         "why": "AI-generated slop erodes code intuition. I wanted deliberate drills that burn expert patterns into muscle memory while sharpening typing.",
         "what": "CLI tutor that parses markdown courses into lessons with rote/jump modes, 90%+ accuracy gates, doc viewing, in-place editing, bookmarks, and search."
+      },
+      {
+        "name": "gmail / linkedin / slack / whatsapp / x",
+        "githubUrls": [
+          "https://github.com/ryangerardwilson/gmail",
+          "https://github.com/ryangerardwilson/linkedin",
+          "https://github.com/ryangerardwilson/slack",
+          "https://github.com/ryangerardwilson/whatsapp",
+          "https://github.com/ryangerardwilson/x"
+        ],
+        "launchDate": "February 25, 2026 - March 4, 2026",
+        "why": "Mail and chat apps turn one quick outbound message into tab-hopping fog; I wanted narrow CLIs for each channel.",
+        "what": "Built a comms suite for Gmail, LinkedIn, Slack, WhatsApp, and X so I can post, DM, or send mail from the shell with channel-specific auth and compose flows."
       }
     ],
     "page_1": {
@@ -380,7 +393,8 @@
             "xyz",
             "o",
             "vixl",
-            "rt"
+            "rt",
+            "gmail / linkedin / slack / whatsapp / x"
           ]
         }
       ]
