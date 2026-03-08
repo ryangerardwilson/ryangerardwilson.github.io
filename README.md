@@ -29,3 +29,6 @@ bundled during the Pages workflow.
 ## Updating Content
 - Replace `resume.pdf` in the repository root; the workflow will publish it as-is.
 - Tweak the copy or animation timing in `assets/js/main.js` as needed.
+- Update project CTA copy in `assets/data/copy.json`:
+  - per-link label: `projects[].ctas[].label`
+  - default label for unlabeled X links: `projectsSection.xPostCtaLabel`

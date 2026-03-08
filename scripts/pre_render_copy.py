@@ -3,6 +3,7 @@ import argparse
 import html
 import json
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -38,9 +39,37 @@ def replace_attr_by_id(doc: str, tag: str, element_id: str, attr: str, value: st
     return new_doc
 
 
-def render_projects(projects: list[dict]) -> str:
+def is_x_post_url(url: str) -> bool:
+    return bool(re.match(r'^https?://(?:www\.)?(?:x|twitter)\.com/', url or '', flags=re.IGNORECASE))
+
+
+def resolve_project_cta_label(cta: dict, projects_section: dict) -> str:
+    if cta.get('label'):
+        return cta.get('label') or ''
+    if is_x_post_url(cta.get('url') or ''):
+        return projects_section.get('xPostCtaLabel') or 'view post on X'
+    return 'open link'
+
+
+def parse_launch_date(value: str) -> datetime:
+    if not value:
+        return datetime(1970, 1, 1, tzinfo=timezone.utc)
+    return datetime.fromisoformat(value.replace('Z', '+00:00'))
+
+
+def sort_projects(projects: list[dict]) -> list[dict]:
+    return sorted(
+        projects,
+        key=lambda project: (
+            -parse_launch_date(project.get('launchDate') or '').timestamp(),
+            project.get('name') or '',
+        ),
+    )
+
+
+def render_projects(projects: list[dict], projects_section: dict) -> str:
     cards = []
-    for project in projects:
+    for project in sort_projects(projects):
         name = html.escape(project.get('name') or 'project')
         accent = html.escape(project.get('accent') or '')
         badge = html.escape(project.get('badge') or '')
@@ -59,7 +88,7 @@ def render_projects(projects: list[dict]) -> str:
                 f'<a class="cta-button" href="{html.escape(cta.get("url") or "#", quote=True)}" '
                 'target="_blank" rel="noopener noreferrer">'
                 '<span class="chevron">&gt;</span>'
-                f'<span>{html.escape(cta.get("label") or "")}</span></a>'
+                f'<span>{html.escape(resolve_project_cta_label(cta, projects_section))}</span></a>'
             )
             for cta in ctas
         )
@@ -147,7 +176,7 @@ def main() -> None:
     doc = replace_tag_text(doc, 'p', 'typewriter-p3', hero.get('p3') or '')
 
     doc = replace_tag_text(doc, 'h2', 'projects-title', projects_section.get('title') or 'Projects')
-    doc = replace_container_inner(doc, 'div', 'project-grid', render_projects(projects))
+    doc = replace_container_inner(doc, 'div', 'project-grid', render_projects(projects, projects_section))
 
     doc = replace_tag_text(doc, 'h2', 'resume-title', resume.get('title') or 'Resume Snapshot')
     doc = replace_tag_text(doc, 'p', 'resume-subtitle', resume.get('subtitle') or '')

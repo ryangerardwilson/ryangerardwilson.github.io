@@ -6,6 +6,7 @@ const copyEndpoint = 'assets/data/copy.json';
 let copyData = null;
 let heroCopy = {};
 let projects = [];
+let projectsSectionCopy = {};
 let sectionsPrimed = false;
 let timelineObserver;
 
@@ -39,9 +40,10 @@ function initializeCopy() {
     if (!copyData) return;
 
     heroCopy = copyData.hero || {};
-    applyProjectsSection(copyData.projectsSection || {});
+    projectsSectionCopy = copyData.projectsSection || {};
+    applyProjectsSection(projectsSectionCopy);
 
-    projects = Array.isArray(copyData.projects) ? copyData.projects : [];
+    projects = sortProjectsByLaunchDate(Array.isArray(copyData.projects) ? copyData.projects : []);
     const grid = document.getElementById('project-grid');
     if (grid && grid.children.length === 0) {
         renderProjects();
@@ -53,6 +55,20 @@ function initializeCopy() {
     applyFooter(copyData.footer || {});
 
     startHeroSequence();
+}
+
+function sortProjectsByLaunchDate(projectList) {
+    return [...projectList].sort((left, right) => {
+        const rightStamp = parseLaunchDate(right && right.launchDate);
+        const leftStamp = parseLaunchDate(left && left.launchDate);
+        if (rightStamp !== leftStamp) return rightStamp - leftStamp;
+        return (left && left.name ? left.name : '').localeCompare(right && right.name ? right.name : '');
+    });
+}
+
+function parseLaunchDate(value) {
+    const stamp = Date.parse(value || '');
+    return Number.isNaN(stamp) ? -Infinity : stamp;
 }
 
 function applyProjectsSection(sectionCopy) {
@@ -181,13 +197,27 @@ function renderProjects() {
             anchor.target = '_blank';
             anchor.rel = 'noopener noreferrer';
             anchor.className = 'cta-button';
-            anchor.innerHTML = `<span class="chevron">&gt;</span><span>${cta.label || ''}</span>`;
+            const ctaLabel = resolveProjectCtaLabel(cta, projectsSectionCopy);
+            anchor.innerHTML = `<span class="chevron">&gt;</span><span>${ctaLabel}</span>`;
             ctaRow.appendChild(anchor);
         });
         card.appendChild(ctaRow);
 
         grid.appendChild(card);
     });
+}
+
+function resolveProjectCtaLabel(cta, sectionCopy) {
+    if (cta && cta.label) return cta.label;
+    if (isXPostUrl(cta && cta.url)) {
+        return sectionCopy.xPostCtaLabel || 'view post on X';
+    }
+    return 'open link';
+}
+
+function isXPostUrl(url) {
+    if (!url || typeof url !== 'string') return false;
+    return /^https?:\/\/(?:www\.)?(?:x|twitter)\.com\//i.test(url);
 }
 
 function initTimelineObserver() {

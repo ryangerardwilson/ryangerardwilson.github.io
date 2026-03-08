@@ -6,12 +6,14 @@
     "p3": "I spend my spare time preparing for the AGI-apocolypse by re-learining high school math and physics with a focus on intuition (instead of rigour), and documenting it all at notes.ryangerardwilson.com"
   },
   "projectsSection": {
-    "title": "Projects"
+    "title": "Projects",
+    "xPostCtaLabel": "see video on X"
   },
   "projects": [
     {
       "id": "vixl",
       "name": "vixl",
+      "launchDate": "2026-01-06T13:49:49Z",
       "badge": "excel//killer",
       "accent": "vixl",
       "bootLog": [
@@ -33,6 +35,7 @@
     {
       "id": "gvim",
       "name": "gvim",
+      "launchDate": "2026-02-10T03:24:40Z",
       "badge": "obsidian//killer",
       "accent": "gvim",
       "bootLog": [
@@ -55,6 +58,7 @@
     {
       "id": "ai",
       "name": "ai",
+      "launchDate": "2026-02-05T04:52:41Z",
       "badge": "dissects//codex",
       "accent": "ai",
       "bootLog": [
@@ -77,6 +81,7 @@
     {
       "id": "o",
       "name": "o",
+      "launchDate": "2025-12-16T01:51:07Z",
       "badge": "hjkl//first",
       "accent": "o",
       "bootLog": [
@@ -99,6 +104,7 @@
     {
       "id": "xyz",
       "name": "xyz",
+      "launchDate": "2026-01-18T05:57:58Z",
       "badge": "velocity>//speed",
       "accent": "xyz",
       "bootLog": [
@@ -121,6 +127,7 @@
     {
       "id": "rt",
       "name": "rt",
+      "launchDate": "2025-10-16T02:34:33Z",
       "badge": "personal//manpages",
       "accent": "rt",
       "bootLog": [
@@ -143,6 +150,7 @@
     {
       "id": "clipai",
       "name": "clipai",
+      "launchDate": "2026-01-16T16:26:57Z",
       "badge": "clipboard//ai",
       "accent": "clipai",
       "bootLog": [
@@ -161,6 +169,190 @@
         { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/clipai/main/install.sh" }
       ],
       "linkedTools": "feeds vixl, o, rt, and xyz without breaking flow."
+    },
+    {
+      "id": "gmail",
+      "name": "gmail",
+      "launchDate": "2026-03-03T05:08:21Z",
+      "badge": "inbox//declared",
+      "accent": "ai",
+      "bootLog": [
+        "loading oauth presets...",
+        "syncing threads + signatures...",
+        "ready // mail without browser fog"
+      ],
+      "catchLine": "Gmail's web UI drags simple mail into browser fog; I wanted multi-account email flows I could declare once and drive from the shell.",
+      "features": [
+        "Declarative Gmail CLI with preset-based accounts, automatic signatures, token storage, and timezone-aware timestamps.",
+        "Handles send, reply, thread open, attachments, contacts, spam cleanup, starred mail, and interactive unread/read audits without leaving the terminal.",
+        "Uses Gmail OAuth scopes for send/read/modify instead of brittle scraping."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/gmail" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/gmail/main/install.sh" }
+      ],
+      "linkedTools": "shares the same editor-first compose instinct as slack, whatsapp, x, and linkedin."
+    },
+    {
+      "id": "audio",
+      "name": "audio",
+      "launchDate": "2026-03-01T12:55:35Z",
+      "badge": "sink//switcher",
+      "accent": "o",
+      "bootLog": [
+        "querying pactl sinks...",
+        "mapping ports + bluetooth targets...",
+        "ready // speakers on one command"
+      ],
+      "catchLine": "Linux audio settings are click-heavy nonsense; I wanted pactl-driven sink switching from the terminal.",
+      "features": [
+        "CLI for listing and switching PulseAudio/PipeWire output devices with direct sink and sink:port targeting.",
+        "Supports interactive selection, fast `--list` inspection, and explicit device jumps for headphones vs speakers.",
+        "Keeps Bluetooth pairing manual through `bluetoothctl`, then hands device switching back to one clean command."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/audio" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/audio/main/install.sh" }
+      ],
+      "linkedTools": "pairs naturally with rlc when I want music moving between headphones, desk speakers, and Bluetooth boxes fast."
+    },
+    {
+      "id": "rlc",
+      "name": "rlc",
+      "launchDate": "2026-03-01T08:40:40Z",
+      "badge": "music//curses",
+      "accent": "rt",
+      "bootLog": [
+        "scanning ~/Music...",
+        "arming ffplay + ascii viz...",
+        "ready // j k l space"
+      ],
+      "catchLine": "GUI music players feel mushy and overlit; I wanted local playback, ffplay speed, and an ASCII visualizer in the terminal.",
+      "features": [
+        "Curses-based local music player with keyboard-first controls, playlist reordering, search, shuffle, and command bar actions.",
+        "Uses `ffmpeg`/`ffplay` for playback and rendering, plus `yt-dlp` for pulling YouTube audio straight into the music directory.",
+        "Stores only a small XDG config for music dir and FPS, then gets out of the way."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/rlc" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/rlc/main/install.sh" }
+      ],
+      "linkedTools": "teams up with audio so output switching stays as keyboard-native as playback."
+    },
+    {
+      "id": "blog",
+      "name": "blog",
+      "launchDate": "2026-03-04T05:19:13Z",
+      "badge": "post//pipeline",
+      "accent": "xyz",
+      "bootLog": [
+        "warming recorder cache...",
+        "binding x + linkedin publishers...",
+        "ready // clip trim publish"
+      ],
+      "catchLine": "Posting clips across platforms was repetitive ceremony; I wanted one CLI to record, trim, caption, and publish to X plus LinkedIn.",
+      "features": [
+        "Publishes text or media to multiple platforms from one command, with `$EDITOR` compose mode and XDG-configured per-platform argument templates.",
+        "Includes built-in screen recording, stop-and-trim flow, local test renders, sync diagnostics, and recorder cache cleanup.",
+        "Treats x and linkedin as composable backends instead of making me retype the same post twice."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/blog" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/blog/main/install.sh" }
+      ],
+      "linkedTools": "sits above x and linkedin when I want a publish-once workflow instead of per-platform babysitting."
+    },
+    {
+      "id": "x",
+      "name": "x",
+      "launchDate": "2026-02-25T00:41:00Z",
+      "badge": "post//280",
+      "accent": "clipai",
+      "bootLog": [
+        "negotiating pkce login...",
+        "prepping media upload path...",
+        "ready // post without doomscroll"
+      ],
+      "catchLine": "X is useful and distractingly awful at the same time; I wanted a CLI that posts text or media without dragging me into the feed.",
+      "features": [
+        "Minimal command-line publisher with Vim compose mode, media attach support, and automatic 280-character guardrails.",
+        "Uses OAuth2 PKCE user login by default, with OAuth1 fallback for text-only posts when needed.",
+        "Built around the official Python XDK for v2 media upload and post creation."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/x" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/x/main/install.sh" }
+      ],
+      "linkedTools": "powers blog's cross-post flow and mirrors linkedin's editor-first posting ergonomics."
+    },
+    {
+      "id": "linkedin",
+      "name": "linkedin",
+      "launchDate": "2026-03-04T13:06:10Z",
+      "badge": "post//workfeed",
+      "accent": "vixl",
+      "bootLog": [
+        "loading oauth callback...",
+        "waiting for asset processing...",
+        "ready // publish without linkedin voice"
+      ],
+      "catchLine": "LinkedIn punishes brevity with layers of form fields and recruiter varnish; I wanted a small CLI that just posts the thing.",
+      "features": [
+        "Posts text, images, or video from the command line with Vim compose mode and a direct `main.py` flow.",
+        "Handles OAuth token storage at `~/.linkedin/oauth2_token.json` and can auto-start login when no valid token exists.",
+        "Waits for LinkedIn media asset processing before creating the post so uploads do not race and fail halfway."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/linkedin" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/linkedin/main/install.sh" }
+      ],
+      "linkedTools": "pairs with x directly and plugs into blog when I want one caption pushed to both feeds."
+    },
+    {
+      "id": "slack",
+      "name": "slack",
+      "launchDate": "2026-02-25T05:36:51Z",
+      "badge": "dm//straight",
+      "accent": "ai",
+      "bootLog": [
+        "loading user labels...",
+        "opening im channel as self...",
+        "ready // send the dm"
+      ],
+      "catchLine": "Slack is fine until I need one fast direct message; I wanted a CLI that messages people as me without tab-hopping.",
+      "features": [
+        "Sends Slack DMs from the terminal using a user token, addressed by user ID, email, or saved labels.",
+        "Supports `$EDITOR` compose mode plus CLI label creation for repeat contacts.",
+        "Keeps the permissions narrow: `chat:write`, `im:write`, and `users:read` only when email lookup is needed."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/slack" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/slack/main/install.sh" }
+      ],
+      "linkedTools": "shares the same label-driven, editor-first messaging posture as whatsapp and gmail."
+    },
+    {
+      "id": "whatsapp",
+      "name": "whatsapp",
+      "launchDate": "2026-02-25T01:32:16Z",
+      "badge": "ping//qr",
+      "accent": "o",
+      "bootLog": [
+        "booting whatsapp web...",
+        "rehydrating playwright session...",
+        "ready // one message and out"
+      ],
+      "catchLine": "WhatsApp Web makes a two-line message feel like a small pilgrimage; I wanted one command and done.",
+      "features": [
+        "Minimal CLI that drives WhatsApp Web through Playwright, with persisted login stored in `~/.whatsapp-web` after the first QR scan.",
+        "Supports direct numbers, contact labels in XDG config, profile clearing, and send timeouts for flaky sessions.",
+        "Installer sets up a private virtualenv plus Playwright browser binaries so the runtime stays boxed in."
+      ],
+      "ctas": [
+        { "label": "view source", "url": "https://github.com/ryangerardwilson/whatsapp" },
+        { "label": "install script", "url": "https://raw.githubusercontent.com/ryangerardwilson/whatsapp/main/install.sh" }
+      ],
+      "linkedTools": "fits beside slack and gmail for outbound messaging when I refuse to live in browser tabs."
     }
   ],
   "resume": {
