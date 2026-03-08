@@ -163,6 +163,11 @@ a {
   page-break-inside: avoid;
 }
 
+.project-item {
+  font-size: 9.2pt;
+  line-height: 1.2;
+}
+
 .education-item + .education-item,
 .skill-group + .skill-group,
 .experience-item + .experience-item,
@@ -210,6 +215,7 @@ a {
 
 .project-header header {
   overflow-wrap: anywhere;
+  font-size: 9.3pt;
 }
 
 .project-launch-date {
@@ -221,8 +227,18 @@ a {
 .project-link-list {
   margin: 0.3mm 0 0;
   color: var(--muted);
-  font-size: 8.3pt;
+  font-size: 7.1pt;
+  line-height: 1.05;
   overflow-wrap: anywhere;
+}
+
+.project-item--grouped .project-launch-date {
+  font-size: 7.8pt;
+  margin-top: 0.2mm;
+}
+
+.project-item--grouped .project-points li {
+  margin-bottom: 0.2mm;
 }
 
 .date-range {

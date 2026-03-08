@@ -327,9 +327,9 @@
           "https://github.com/ryangerardwilson/whatsapp",
           "https://github.com/ryangerardwilson/x"
         ],
-        "launchDate": "February 25, 2026 - March 4, 2026",
-        "why": "Mail and chat apps turn one quick outbound message into tab-hopping fog; I wanted narrow CLIs for each channel.",
-        "what": "Built a comms suite for Gmail, LinkedIn, Slack, WhatsApp, and X so I can post, DM, or send mail from the shell with channel-specific auth and compose flows."
+        "launchDate": "Feb 25 - Mar 4, 2026",
+        "why": "Mail and chat apps turn quick outbound messages into tab-hopping fog; I wanted narrow CLIs for each channel.",
+        "what": "Built shell-first send/post tools for Gmail, LinkedIn, Slack, WhatsApp, and X with channel-specific auth and compose flows."
       }
     ],
     "page_1": {
@@ -349,7 +349,8 @@
           "labels": [
             "AI/ML",
             "Python",
-            "Unix"
+            "Unix",
+            "Cloud"
           ]
         }
       ],
@@ -375,7 +376,6 @@
           "kind": "skills",
           "title": null,
           "labels": [
-            "Cloud",
             "Frontend",
             "CLI/TUI Tooling",
             "Data Engineering",
