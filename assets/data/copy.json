@@ -373,27 +373,7 @@
           "labels": [
             "Cloud",
             "Frontend",
-            "CLI/TUI Tooling"
-          ]
-        }
-      ],
-      "right_sections": [
-        {
-          "kind": "projects",
-          "title": "Projects",
-          "names": [
-            "gvim",
-            "ai"
-          ]
-        }
-      ]
-    },
-    "page_3": {
-      "left_sections": [
-        {
-          "kind": "skills",
-          "title": null,
-          "labels": [
+            "CLI/TUI Tooling",
             "Data Engineering",
             "System Design / Delivery"
           ]
@@ -415,8 +395,10 @@
       "right_sections": [
         {
           "kind": "projects",
-          "title": null,
+          "title": "Projects",
           "names": [
+            "gvim",
+            "ai",
             "xyz",
             "o",
             "vixl",
