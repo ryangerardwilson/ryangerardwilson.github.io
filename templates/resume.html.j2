@@ -107,9 +107,10 @@
         {% for item in section["items"] %}
         <article class="project-item">
           <div class="project-header">
-            <header>{{ item.name }}</header>
             {% if item.href %}
-            <a class="project-link" href="{{ item.href }}">{{ item.href }}</a>
+            <header>{{ item.name }} <a class="project-link" href="{{ item.href }}">[GitHub: {{ item.href }}]</a></header>
+            {% else %}
+            <header>{{ item.name }}</header>
             {% endif %}
           </div>
           <p><strong>Why:</strong> {{ item.why }}</p>

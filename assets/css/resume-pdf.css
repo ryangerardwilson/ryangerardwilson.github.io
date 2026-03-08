@@ -200,14 +200,18 @@ a {
   display: block;
 }
 
+.project-header header {
+  overflow-wrap: anywhere;
+}
+
 .date-range {
   white-space: nowrap;
 }
 
 .project-link {
-  display: block;
-  margin-top: 0.4mm;
+  display: inline;
   overflow-wrap: anywhere;
+  font-weight: 400;
 }
 
 .experience-item ul {
