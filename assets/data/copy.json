@@ -169,19 +169,19 @@
       {
         "label": "Frontend",
         "items": [
-          "JavaScript",
-          "React",
           "Next.js",
+          "Native iOS (Swift)",
+          "Native Android (Kotlin)",
+          "Flutter",
+          "React",
+          "JavaScript",
+          "TypeScript",
           "HTML",
           "CSS",
           "Tailwind CSS",
           "Bootstrap",
           "Responsive Design",
-          "TypeScript",
-          "Vue.js",
           "Accessibility",
-          "Webpack",
-          "Vite",
           "Jest"
         ]
       },
