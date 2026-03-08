@@ -238,7 +238,7 @@
       {
         "role": "Entrepreneur-in-Residence",
         "company": "Wiom",
-        "location": "Gurugram, Haryana, India",
+        "location": "",
         "dateRange": "Oct 2022 - Present",
         "bullets": [
           "Genie (2025): Increased supply efficiency by 20% (15% from core rewrite + 5% from ML integration). Reverse-engineered and redeployed an undocumented legacy algorithm with zero downtime after the original creator's departure.",
