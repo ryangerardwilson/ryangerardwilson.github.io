@@ -31,7 +31,7 @@ body {
 
 .page {
   display: grid;
-  grid-template-columns: 31% 1fr;
+  grid-template-columns: 34% 1fr;
   min-height: 297mm;
 }
 
