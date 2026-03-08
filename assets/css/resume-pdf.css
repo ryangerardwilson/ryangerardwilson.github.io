@@ -26,14 +26,13 @@ html, body {
 }
 
 body {
-  padding: 12mm;
+  padding: 0;
 }
 
 .page {
   display: grid;
   grid-template-columns: 31% 1fr;
-  min-height: calc(297mm - 24mm);
-  border: 1px solid var(--line);
+  min-height: 297mm;
 }
 
 .sidebar {

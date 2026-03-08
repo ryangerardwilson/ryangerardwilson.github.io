@@ -26,6 +26,9 @@ python3 scripts/pre_render_copy.py \
 
 printf 'Built %s from assets/data/copy.json\n' "$PDF_OUT"
 
-git add .
-git commit -m "sync"
-git push
+git add -A
+
+if ! git diff --cached --quiet; then
+  git commit -m "sync"
+  git push
+fi
