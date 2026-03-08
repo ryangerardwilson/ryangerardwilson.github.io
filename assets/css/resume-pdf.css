@@ -75,7 +75,6 @@ h1 {
 
 .section {
   margin-bottom: 7mm;
-  break-inside: avoid;
 }
 
 .section h2 {
@@ -87,8 +86,7 @@ h1 {
 }
 
 .stack {
-  display: grid;
-  gap: 4mm;
+  display: block;
 }
 
 .contact-list,
@@ -126,6 +124,21 @@ a {
 .experience-item header,
 .project-item header {
   font-weight: 700;
+}
+
+.education-item,
+.skill-group,
+.experience-item,
+.project-item {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.education-item + .education-item,
+.skill-group + .skill-group,
+.experience-item + .experience-item,
+.project-item + .project-item {
+  margin-top: 4mm;
 }
 
 .education-item p,
