@@ -48,7 +48,7 @@ body {
 }
 
 .sidebar {
-  padding: 9mm 8mm 9mm 10mm;
+  padding: 9mm 6mm 9mm 8mm;
   background: var(--panel);
   border-right: 1px solid var(--line);
 }
