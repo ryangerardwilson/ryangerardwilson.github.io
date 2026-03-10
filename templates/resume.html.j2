@@ -111,7 +111,7 @@
         <article class="project-item">
           <div class="project-header">
             {% if item.href %}
-            <header>{{ item.name }} <a class="project-link" href="{{ item.href }}">[GitHub: {{ item.href }}]</a></header>
+            <header>{{ item.name }} <a class="project-link" href="{{ item.href }}">[GitHub: {{ item.displayHref or item.href | replace("https://", "") | replace("http://", "") }}]</a></header>
             {% else %}
             <header>{{ item.name }}</header>
             {% endif %}

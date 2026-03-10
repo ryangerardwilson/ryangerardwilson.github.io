@@ -53,11 +53,6 @@
         "href": "mailto:ryan@wilsonfamilyoffice.in"
       },
       {
-        "label": "LinkedIn",
-        "value": "linkedin.com/in/ryangerardwilson",
-        "href": "https://linkedin.com/in/ryangerardwilson"
-      },
-      {
         "label": "Website",
         "value": "ryangerardwilson.com",
         "href": "https://ryangerardwilson.com"
@@ -281,8 +276,8 @@
       {
         "name": "gvim",
         "href": "https://github.com/ryangerardwilson/gvim",
-        "why": "I wanted graph-heavy notes without losing Vim muscle memory.",
-        "what": "GTK4 note editor with Vim navigation, declarative Python graphs, and inline ThreeJS."
+        "why": "Word-style editors are bloated; I wanted a block editor with Vim muscle memory and easy note publishing.",
+        "what": "GTK4 block editor with Vim navigation, Python graphs, inline ThreeJS, and web publishing."
       },
       {
         "name": "ai",
@@ -321,17 +316,20 @@
         "what": "Curses music player with search, shuffle, playlist control, ASCII visuals, and yt-dlp pulls."
       },
       {
-        "name": "clipai",
-        "href": "https://github.com/ryangerardwilson/clipai",
-        "why": "I wanted AI answers from the clipboard without context switching.",
-        "what": "Wayland-native clipboard watcher that swaps prompts for OpenAI responses in real time."
+        "name": "replyguy|x|blog",
+        "href": "https://github.com/ryangerardwilson",
+        "displayHref": "github.com/ryangerardwilson/{replyguy|x|blog}",
+        "launchDate": "Feb 25 - Mar 10, 2026",
+        "why": "Social apps are feed sludge; I wanted Vim-first tools that turn Codex into bangers and publish them without browser ceremony.",
+        "what": "Reply drafting plus shell-native posting across replyguy, X, and blog."
       },
       {
-        "name": "gmail|gcal|gdrive|x|linkedin|slack|whatsapp",
+        "name": "gmail|gcal|gdrive",
         "href": "https://github.com/ryangerardwilson",
-        "launchDate": "Feb 25 - Mar 10, 2026",
-        "why": "Browser sludge turns simple messages, meetings, backups, and posts into ceremony; I wanted shell-first tools that stay scriptable.",
-        "what": "Shell-first tools for Gmail, Calendar, Drive backup, LinkedIn, Slack, WhatsApp, and X."
+        "displayHref": "github.com/ryangerardwilson/{gmail|gcal|gdrive}",
+        "launchDate": "Mar 3 - Mar 9, 2026",
+        "why": "Google's browser stack turns mail, calendar, and backup into ceremony; I wanted shell-first tools.",
+        "what": "CLIs for Gmail, Calendar, and Drive backup with OAuth, presets, and XDG-local state."
       }
     ],
     "page_1": {
@@ -391,12 +389,12 @@
           "title": "Open Source CLI Products",
           "subtitle": "These CLI tools help steer AI agents with purpose and precision.",
           "names": [
-            "gmail|gcal|gdrive|x|linkedin|slack|whatsapp",
+            "replyguy|x|blog",
+            "gmail|gcal|gdrive",
             "rlc",
             "gvim",
             "ai",
             "xyz",
-            "clipai",
             "vixl",
             "o",
             "rt"
@@ -428,11 +426,11 @@
         "date": "2026-02-10T03:24:40Z",
         "accent": "gvim",
         "title": "gvim",
-        "summary": "I wanted graph/animation-rich calculus notes without leaving my Vim muscle memory.",
+        "summary": "Microsoft Word-style editors are bloated; I wanted a block-based doc editor that respected my Vim muscle memory and made notes easy to publish like a personal Wikipedia.",
         "bullets": [
-          "Made to take graph/animation-heavy calculus notes without bloated software.",
-          "GTK4 GUI that preserves Vim navigation across document blocks.",
-          "Renders Python graphs and ThreeJS animations inline, stored as git-friendly .gvim files."
+          "Built to avoid bloated Word-style tools while keeping a block-based workflow and real Vim navigation.",
+          "GTK4 editor that preserves Vim movement across document blocks and rich note structures.",
+          "Renders Python graphs and ThreeJS inline, stores git-friendly `.gvim` files, and makes publishing notes to the web straightforward."
         ],
         "githubUrl": "https://github.com/ryangerardwilson/gvim"
       },
@@ -509,7 +507,7 @@
       {
         "id": "google-stack",
         "type": "project",
-        "date": "2026-03-10T04:49:38Z",
+        "date": "2026-03-03T05:08:21Z",
         "accent": "ai",
         "title": "gmail|gcal|gdrive",
         "summary": "Google's browser maze turns simple mail, scheduling, and backup into ceremony; I wanted one shell-native layer instead.",
@@ -523,7 +521,7 @@
       {
         "id": "replyguy",
         "type": "project",
-        "date": "2026-03-10T11:03:06Z",
+        "date": "2026-03-10T08:52:36Z",
         "accent": "clipai",
         "title": "replyguy",
         "summary": "Posting is easy; writing replies worth posting is the part that burns time. I wanted one local rant to turn into usable drafts without the feed pulling me in.",

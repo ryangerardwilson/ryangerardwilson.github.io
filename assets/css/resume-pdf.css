@@ -7,8 +7,13 @@
   --ink: #101218;
   --muted: #5b6270;
   --line: #d8dde5;
-  --panel: #f4f6f9;
+  --panel: #ffffff;
   --accent: #0f172a;
+  --sidebar-bg: #edf1f5;
+  --sidebar-ink: #101218;
+  --sidebar-muted: #5b6270;
+  --sidebar-line: #d8dde5;
+  --sidebar-accent: #0f172a;
 }
 
 * {
@@ -20,9 +25,9 @@ html, body {
   padding: 0;
   color: var(--ink);
   background: #fff;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 9.8pt;
-  line-height: 1.3;
+  font-family: "Adwaita Mono", "Noto Sans Mono", "JetBrainsMono Nerd Font Mono", monospace;
+  font-size: 9.1pt;
+  line-height: 1.24;
 }
 
 body {
@@ -38,6 +43,7 @@ body {
   min-height: 297mm;
   display: grid;
   grid-template-columns: 34% 66%;
+  background: linear-gradient(90deg, var(--sidebar-bg) 0 34%, var(--panel) 34% 100%);
   break-after: page;
   page-break-after: always;
 }
@@ -49,14 +55,16 @@ body {
 
 .sidebar {
   padding: 9mm 6mm 9mm 8mm;
-  background: var(--panel);
-  border-right: 1px solid var(--line);
+  background: var(--sidebar-bg);
+  color: var(--sidebar-ink);
+  border-right: 1px solid var(--sidebar-line);
 }
 
 .main-column {
   padding: 8mm 10mm 8mm 10mm;
-  font-size: 10.5pt;
-  line-height: 1.24;
+  font-size: 9.7pt;
+  line-height: 1.18;
+  background: var(--panel);
 }
 
 .identity {
@@ -70,21 +78,21 @@ body {
   border-radius: 50%;
   display: block;
   margin: 0 auto 3mm;
-  border: 1px solid var(--line);
+  border: 1px solid var(--sidebar-line);
 }
 
 h1 {
   margin: 0;
-  font-size: 13.5pt;
+  font-size: 12.6pt;
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
 
 .headline {
   margin: 1.5mm 0 0;
-  color: var(--muted);
+  color: var(--sidebar-muted);
   font-weight: 600;
-  font-size: 8.8pt;
+  font-size: 8.3pt;
   line-height: 1.15;
 }
 
@@ -94,9 +102,9 @@ h1 {
 
 .section h2 {
   margin: 0 0 1mm;
-  font-size: 10pt;
+  font-size: 9.4pt;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.08em;
   color: var(--accent);
 }
 
@@ -128,8 +136,8 @@ h1 {
 
 .contact-label {
   display: block;
-  color: var(--muted);
-  font-size: 8.1pt;
+  color: var(--sidebar-muted);
+  font-size: 7.7pt;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.5mm;
@@ -203,8 +211,28 @@ a {
   color: var(--muted);
 }
 
+.sidebar h1,
+.sidebar header,
+.sidebar .section h2,
+.sidebar a {
+  color: var(--sidebar-accent);
+}
+
+.sidebar p,
+.sidebar li,
+.sidebar span,
+.sidebar .skill-group p,
+.sidebar .education-item p {
+  color: var(--sidebar-ink);
+}
+
+.sidebar .education-item small,
+.sidebar .contact-label {
+  color: var(--sidebar-muted);
+}
+
 .skill-group p {
-  font-size: 8.7pt;
+  font-size: 8.3pt;
 }
 
 .experience-header,
