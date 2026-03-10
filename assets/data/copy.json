@@ -2,7 +2,7 @@
   "hero": {
     "h1": "Hello, world.",
     "p1": "I'm Ryan - Catholic, husband, and product engineer building India's unlimited internet dream.",
-    "p2": "From the real world impact of Wiom's decision science engines to incessant aura-farming by sharpening my vim-first open source CLI/TUI stack, I love what I do.",
+    "p2": "From shipping product systems in the day job to incessant aura-farming by building a vim-first shell stack for mail, calendar, Drive backup, publishing, and reply drafting, I love what I do.",
     "p3": "I spend my spare time preparing for the AGI-apocolypse by re-learining high school math and physics with a focus on intuition (instead of rigour), and documenting it all at notes.ryangerardwilson.com"
   },
   "resume": {
@@ -11,7 +11,7 @@
     "meta": [
       {
         "label": "> focus",
-        "body": "Productionalizing AI/ML models via agentic orchestration. Terminal-native product design."
+        "body": "I productionalize AI/ML systems and build terminal-native tools for communication, scheduling, backup, and publishing."
       },
       {
         "label": "> experience",
@@ -24,7 +24,7 @@
     ],
     "pane": {
       "name": "Ryan Gerard Wilson",
-      "summary": "Builder. Lover of terminal-native experiences.",
+      "summary": "Builder. I turn browser sludge into shell-native tools.",
       "ctaLabel": "resume (PDF)",
       "ctaHref": "resume.pdf",
       "notesLabel": "notes",
@@ -327,11 +327,11 @@
         "what": "Wayland-native clipboard watcher that swaps prompts for OpenAI responses in real time."
       },
       {
-        "name": "x|gmail|linkedin|slack|whatsapp",
-        "href": "https://github.com/ryangerardwilson/{x|gmail|linkedin|slack|whatsapp}",
-        "launchDate": "Feb 25 - Mar 4, 2026",
-        "why": "Simple CLIs cut tab-hopping and make agentic AI easier to steer precisely.",
-        "what": "Shell-first send/post tools for Gmail, LinkedIn, Slack, WhatsApp, and X."
+        "name": "gmail|gcal|gdrive|x|linkedin|slack|whatsapp",
+        "href": "https://github.com/ryangerardwilson",
+        "launchDate": "Feb 25 - Mar 10, 2026",
+        "why": "Browser sludge turns simple messages, meetings, backups, and posts into ceremony; I wanted shell-first tools that stay scriptable.",
+        "what": "Shell-first tools for Gmail, Calendar, Drive backup, LinkedIn, Slack, WhatsApp, and X."
       }
     ],
     "page_1": {
@@ -391,7 +391,7 @@
           "title": "Open Source CLI Products",
           "subtitle": "These CLI tools help steer AI agents with purpose and precision.",
           "names": [
-            "x|gmail|linkedin|slack|whatsapp",
+            "gmail|gcal|gdrive|x|linkedin|slack|whatsapp",
             "rlc",
             "gvim",
             "ai",
@@ -507,18 +507,32 @@
         "githubUrl": "https://github.com/ryangerardwilson/clipai"
       },
       {
-        "id": "gmail",
+        "id": "google-stack",
         "type": "project",
-        "date": "2026-03-03T05:08:21Z",
+        "date": "2026-03-10T04:49:38Z",
         "accent": "ai",
-        "title": "gmail",
-        "summary": "Gmail's web UI drags simple mail into browser fog; I wanted multi-account email flows I could declare once and drive from the shell.",
+        "title": "gmail|gcal|gdrive",
+        "summary": "Google's browser maze turns simple mail, scheduling, and backup into ceremony; I wanted one shell-native layer instead.",
         "bullets": [
-          "Declarative Gmail CLI with preset-based accounts, automatic signatures, token storage, and timezone-aware timestamps.",
-          "Handles send, reply, thread open, attachments, contacts, spam cleanup, starred mail, and interactive unread/read audits without leaving the terminal.",
-          "Uses Gmail OAuth scopes for send/read/modify instead of brittle scraping."
+          "gmail handles send, reply, attachments, contacts, spam cleanup, and thread audits with preset-based accounts.",
+          "gcal creates, lists, deletes, and reschedules events across accounts, with timezone-aware timestamps and Meet links on create.",
+          "gdrive makes local folders authoritative, syncing backups to Drive with OAuth presets, XDG state, and hourly timers."
         ],
-        "githubUrl": "https://github.com/ryangerardwilson/gmail"
+        "githubUrl": "https://github.com/ryangerardwilson"
+      },
+      {
+        "id": "replyguy",
+        "type": "project",
+        "date": "2026-03-10T11:03:06Z",
+        "accent": "clipai",
+        "title": "replyguy",
+        "summary": "Posting is easy; writing replies worth posting is the part that burns time. I wanted one local rant to turn into usable drafts without the feed pulling me in.",
+        "bullets": [
+          "Vim-first CLI that turns one local rant into copy-paste-ready reply suggestions plus an archived muse.",
+          "Runs drafting in the background through the local `codex` CLI, then reports completion through `notify-send`.",
+          "Keeps live state in XDG directories so the public repo stays clean and the workflow stays local-first."
+        ],
+        "githubUrl": "https://github.com/ryangerardwilson/replyguy"
       },
       {
         "id": "audio",
@@ -725,10 +739,10 @@
         "title": "Married my beautiful wife",
         "bullets": [
           "Married my wife – very beautiful indeed.",
-          "Relearned high-school math while shipping md2ltx, GitGuru, and DataSling.",
-          "Explored FP vs OOP, built DeathStarPilot, reaffirmed a vim-first workflow.",
-          "Rebuilt personal infra, consolidated automation, delivered Wiom's Genie engine.",
-          "Created rt and companion tutor apps to keep coding taste sharp."
+          "Relearned high-school math while building gvim and sharpening tutor tools.",
+          "Rebuilt my personal infra into a shell stack for mail, calendar, Drive backup, publishing, and reply drafting.",
+          "Started a terminal-first Android workflow from Arch Linux with Kotlin, Compose, `adb`, and a scriptable release path.",
+          "Kept coding taste sharp with rt and its companion tutor apps."
         ]
       }
     ]
