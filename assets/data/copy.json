@@ -36,7 +36,7 @@
   "resumePdf": {
     "basics": {
       "name": "Ryan Gerard Wilson",
-      "headline": "Founding Product Engineer",
+      "headline": "Product Engineer",
       "location": "Gurugram, Haryana, India",
       "avatarUrl": "https://unavatar.io/x/ryan_improvises?refresh=1"
     },
@@ -456,6 +456,66 @@
             "rt",
             "gmail|gcal|gdrive",
             "replyguy|x|linkedin|blog",
+            "o",
+            "rlc"
+          ]
+        }
+      ]
+    }
+  },
+  "resumePdf3": {
+    "extends": "resumePdf",
+    "basics": {
+      "headline": "AI & ML Solutions Engineer & Strategist"
+    },
+    "profile": "AI solutions architect with 10+ years across ML, backend systems, and hands-on delivery. I turn operational mess into shipped workflows: models in production, APIs around them, and tools people will actually use. Shipped ML-assisted systems that lifted supply efficiency by 20%, replaced legacy sprawl with compact configurable backends, and move comfortably from model behavior and prompt design to rollout, docs, and operator enablement.",
+    "page_1": {
+      "left_sections": [
+        {
+          "kind": "identity"
+        },
+        {
+          "kind": "contact"
+        },
+        {
+          "kind": "education"
+        },
+        {
+          "kind": "skills",
+          "title": "Skills",
+          "labels": [
+            "AI/ML",
+            "Python",
+            "System Design / Delivery",
+            "Cloud"
+          ]
+        }
+      ]
+    },
+    "page_2": {
+      "left_sections": [
+        {
+          "kind": "skills",
+          "title": null,
+          "labels": [
+            "Data Engineering",
+            "Unix"
+          ]
+        }
+      ],
+      "right_sections": [
+        {
+          "kind": "projects",
+          "title": "GenAI + Platform Systems",
+          "subtitle": "Selected systems across AI delivery, backend automation, and operator-facing tooling.",
+          "names": [
+            "ai",
+            "gmail|gcal|gdrive",
+            "replyguy|x|linkedin|blog",
+            "vixl",
+            "xyz",
+            "gvim",
+            "rt",
             "o",
             "rlc"
           ]

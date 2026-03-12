@@ -8,6 +8,8 @@ HTML_OUT="build/resume.html"
 PDF_OUT="resume.pdf"
 HTML_OUT_2="build/resume2.html"
 PDF_OUT_2="resume2.pdf"
+HTML_OUT_3="build/resume3.html"
+PDF_OUT_3="resume3.pdf"
 
 build_resume_variant() {
   local resume_key="$1"
@@ -32,13 +34,14 @@ fi
 
 build_resume_variant "resumePdf" "$HTML_OUT" "$PDF_OUT"
 build_resume_variant "resumePdf2" "$HTML_OUT_2" "$PDF_OUT_2"
+build_resume_variant "resumePdf3" "$HTML_OUT_3" "$PDF_OUT_3"
 
 python3 scripts/pre_render_copy.py \
   --input index.html \
   --copy assets/data/copy.json \
   --output /tmp/index.prerendered.html
 
-printf 'Built %s and %s from assets/data/copy.json\n' "$PDF_OUT" "$PDF_OUT_2"
+printf 'Built %s, %s, and %s from assets/data/copy.json\n' "$PDF_OUT" "$PDF_OUT_2" "$PDF_OUT_3"
 
 git add -A
 
