@@ -316,12 +316,12 @@
         "what": "Curses music player with search, shuffle, playlist control, ASCII visuals, and yt-dlp pulls."
       },
       {
-        "name": "replyguy|x|blog",
+        "name": "replyguy|x|linkedin|blog",
         "href": "https://github.com/ryangerardwilson",
-        "displayHref": "github.com/ryangerardwilson/{replyguy|x|blog}",
+        "displayHref": "github.com/ryangerardwilson/{replyguy|x|linkedin|blog}",
         "launchDate": "Feb 25 - Mar 10, 2026",
         "why": "Social apps are feed sludge; I wanted Vim-first tools that turn Codex into bangers and publish them without browser ceremony.",
-        "what": "Reply drafting plus shell-native posting across replyguy, X, and blog."
+        "what": "Reply drafting plus shell-native posting across replyguy, X, LinkedIn, and blog."
       },
       {
         "name": "gmail|gcal|gdrive",
@@ -386,10 +386,10 @@
       "right_sections": [
         {
           "kind": "projects",
-          "title": "Open Source CLI Products",
-          "subtitle": "These CLI tools help steer AI agents with purpose and precision.",
+          "title": "AGENTIC AI TOOLING",
+          "subtitle": "These tools help steer AI agents with purpose and precision.",
           "names": [
-            "replyguy|x|blog",
+            "replyguy|x|linkedin|blog",
             "gmail|gcal|gdrive",
             "rlc",
             "gvim",

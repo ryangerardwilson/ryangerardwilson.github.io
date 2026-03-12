@@ -103,8 +103,8 @@ h1 {
 .section h2 {
   margin: 0 0 1mm;
   font-size: 9.4pt;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  text-transform: none;
+  letter-spacing: 0;
   color: var(--accent);
 }
 
