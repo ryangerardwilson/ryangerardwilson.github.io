@@ -6,8 +6,21 @@ cd "$ROOT_DIR"
 
 HTML_OUT="build/resume.html"
 PDF_OUT="resume.pdf"
+HTML_OUT_2="build/resume2.html"
+PDF_OUT_2="resume2.pdf"
 
-python3 scripts/build_resume.py --copy assets/data/copy.json --html-out "$HTML_OUT"
+build_resume_variant() {
+  local resume_key="$1"
+  local html_out="$2"
+  local pdf_out="$3"
+
+  python3 scripts/build_resume.py \
+    --copy assets/data/copy.json \
+    --resume-key "$resume_key" \
+    --html-out "$html_out"
+
+  node scripts/render_resume_pdf.mjs "$html_out" "$pdf_out"
+}
 
 if [ ! -d node_modules/playwright ]; then
   npm install
@@ -17,14 +30,15 @@ if [ ! -d "${HOME}/.cache/ms-playwright" ] || [ -z "$(find "${HOME}/.cache/ms-pl
   npx playwright install chromium
 fi
 
-node scripts/render_resume_pdf.mjs "$HTML_OUT" "$PDF_OUT"
+build_resume_variant "resumePdf" "$HTML_OUT" "$PDF_OUT"
+build_resume_variant "resumePdf2" "$HTML_OUT_2" "$PDF_OUT_2"
 
 python3 scripts/pre_render_copy.py \
   --input index.html \
   --copy assets/data/copy.json \
   --output /tmp/index.prerendered.html
 
-printf 'Built %s from assets/data/copy.json\n' "$PDF_OUT"
+printf 'Built %s and %s from assets/data/copy.json\n' "$PDF_OUT" "$PDF_OUT_2"
 
 git add -A
 

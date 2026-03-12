@@ -48,6 +48,18 @@ def build_lookup(items: list[dict], key: str) -> dict[str, dict]:
     return {item[key]: item for item in items}
 
 
+def deep_merge(base, override):
+    if isinstance(base, dict) and isinstance(override, dict):
+        merged = dict(base)
+        for key, value in override.items():
+            if key in merged:
+                merged[key] = deep_merge(merged[key], value)
+            else:
+                merged[key] = value
+        return merged
+    return override
+
+
 def pick_items(lookup: dict, values: list[str], label: str) -> list:
     missing = [value for value in values if value not in lookup]
     if missing:
@@ -142,9 +154,26 @@ def build_pages(resume: dict) -> list[dict]:
     ]
 
 
-def build_html(copy_path: Path, template_path: Path, css_path: Path, html_out: Path) -> None:
+def resolve_resume(copy_data: dict, resume_key: str, seen: set[str] | None = None) -> dict:
+    if seen is None:
+        seen = set()
+    if resume_key in seen:
+        raise ValueError(f"Cyclic resume extends chain detected at: {resume_key}")
+    resume = copy_data.get(resume_key)
+    if not isinstance(resume, dict):
+        raise ValueError(f"Missing resume config: {resume_key}")
+    parent_key = resume.get("extends")
+    if not parent_key:
+        return dict(resume)
+    seen.add(resume_key)
+    parent_resume = resolve_resume(copy_data, parent_key, seen)
+    child_resume = {key: value for key, value in resume.items() if key != "extends"}
+    return deep_merge(parent_resume, child_resume)
+
+
+def build_html(copy_path: Path, template_path: Path, css_path: Path, html_out: Path, resume_key: str) -> None:
     copy_data = json.loads(copy_path.read_text(encoding="utf-8"))
-    resume = copy_data.get("resumePdf") or {}
+    resume = resolve_resume(copy_data, resume_key)
     basics = resume.get("basics") or {}
     avatar_src = fetch_data_uri(basics.get("avatarUrl") or "")
     timeline_projects = copy_data.get("timeline", {}).get("projects") or []
@@ -184,6 +213,7 @@ def main() -> None:
     parser.add_argument("--template", default="templates/resume.html.j2", help="Path to Jinja template")
     parser.add_argument("--css", default="assets/css/resume-pdf.css", help="Path to resume CSS")
     parser.add_argument("--html-out", default="build/resume.html", help="Path to generated HTML")
+    parser.add_argument("--resume-key", default="resumePdf", help="Top-level resume object key in copy.json")
     args = parser.parse_args()
 
     build_html(
@@ -191,6 +221,7 @@ def main() -> None:
         template_path=Path(args.template),
         css_path=Path(args.css),
         html_out=Path(args.html_out),
+        resume_key=args.resume_key,
     )
 
 

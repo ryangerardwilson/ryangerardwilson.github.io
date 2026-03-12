@@ -403,6 +403,66 @@
       ]
     }
   },
+  "resumePdf2": {
+    "extends": "resumePdf",
+    "basics": {
+      "headline": "Data Scientist & Backend Engineer"
+    },
+    "profile": "Data scientist and backend engineer with 10+ years across ML, APIs, automation, and data systems. I ship models into products, turn operational mess into backend logic, and build Python services that stay close to actual use. Shipped ML-assisted systems that lifted supply efficiency by 20%, replaced sprawling legacy workflows with compact configurable backends, and move comfortably from feature engineering to production delivery.",
+    "page_1": {
+      "left_sections": [
+        {
+          "kind": "identity"
+        },
+        {
+          "kind": "contact"
+        },
+        {
+          "kind": "education"
+        },
+        {
+          "kind": "skills",
+          "title": "Skills",
+          "labels": [
+            "AI/ML",
+            "Python",
+            "Data Engineering",
+            "Cloud"
+          ]
+        }
+      ]
+    },
+    "page_2": {
+      "left_sections": [
+        {
+          "kind": "skills",
+          "title": null,
+          "labels": [
+            "System Design / Delivery",
+            "Unix"
+          ]
+        }
+      ],
+      "right_sections": [
+        {
+          "kind": "projects",
+          "title": "Data + Backend Projects",
+          "subtitle": "Selected systems across backend automation, data workflows, and applied AI.",
+          "names": [
+            "vixl",
+            "ai",
+            "xyz",
+            "gvim",
+            "rt",
+            "gmail|gcal|gdrive",
+            "replyguy|x|linkedin|blog",
+            "o",
+            "rlc"
+          ]
+        }
+      ]
+    }
+  },
   "timeline": {
     "title": "My Story",
     "subtitle": "",
